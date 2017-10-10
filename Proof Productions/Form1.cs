@@ -21,5 +21,20 @@ namespace Proof_Productions
         {
 
         }
+
+        private void ClockwiseClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CounterClockwiseClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EstopButtonClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
