@@ -22,17 +22,69 @@ namespace Proof_Productions
 
         }
 
-        private void ClockwiseClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CounterClockwiseClick(object sender, EventArgs e)
-        {
-
-        }
-
         private void EstopButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeCueButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Are you sure?", "Remove Cue",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        }
+
+
+        private void cueManager_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motorList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void playCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pauseCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nextCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void previousCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopCueButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moveCueUpButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moveCueDownButton_Click(object sender, EventArgs e)
         {
 
         }
