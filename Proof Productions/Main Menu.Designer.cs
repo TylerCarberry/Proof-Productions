@@ -258,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 411);
+            this.ClientSize = new System.Drawing.Size(618, 425);
             this.Controls.Add(this.moveCueDownButton);
             this.Controls.Add(this.moveCueUpButton);
             this.Controls.Add(this.cueDescriptionLabel);
@@ -268,7 +268,7 @@
             this.Controls.Add(this.motorList);
             this.Controls.Add(this.cueFlowLayoutPanel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.cueActionFlowLayoutPanel.ResumeLayout(false);
             this.cueFlowLayoutPanel.ResumeLayout(false);
