@@ -77,9 +77,11 @@
             // 
             // motor1Desc
             // 
+            this.motor1Desc.BackColor = System.Drawing.SystemColors.Window;
             this.motor1Desc.Location = new System.Drawing.Point(21, 35);
             this.motor1Desc.Multiline = true;
             this.motor1Desc.Name = "motor1Desc";
+            this.motor1Desc.ReadOnly = true;
             this.motor1Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor1Desc.Size = new System.Drawing.Size(148, 117);
             this.motor1Desc.TabIndex = 0;
@@ -88,7 +90,7 @@
             // motorBox1
             // 
             this.motorBox1.FormattingEnabled = true;
-            this.motorBox1.Location = new System.Drawing.Point(21, 13);
+            this.motorBox1.Location = new System.Drawing.Point(20, 13);
             this.motorBox1.Name = "motorBox1";
             this.motorBox1.Size = new System.Drawing.Size(148, 21);
             this.motorBox1.TabIndex = 1;
@@ -345,9 +347,11 @@
             // 
             // motor2Desc
             // 
+            this.motor2Desc.BackColor = System.Drawing.SystemColors.Window;
             this.motor2Desc.Location = new System.Drawing.Point(21, 35);
             this.motor2Desc.Multiline = true;
             this.motor2Desc.Name = "motor2Desc";
+            this.motor2Desc.ReadOnly = true;
             this.motor2Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor2Desc.Size = new System.Drawing.Size(148, 117);
             this.motor2Desc.TabIndex = 0;
@@ -484,10 +488,12 @@
             // 
             // motor3Desc
             // 
+            this.motor3Desc.BackColor = System.Drawing.SystemColors.Window;
             this.motor3Desc.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.motor3Desc.Location = new System.Drawing.Point(21, 35);
             this.motor3Desc.Multiline = true;
             this.motor3Desc.Name = "motor3Desc";
+            this.motor3Desc.ReadOnly = true;
             this.motor3Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor3Desc.Size = new System.Drawing.Size(148, 117);
             this.motor3Desc.TabIndex = 0;

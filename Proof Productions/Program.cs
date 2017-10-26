@@ -18,8 +18,8 @@ namespace Proof_Productions
             Application.SetCompatibleTextRenderingDefault(false);
             //Run different Forms
             //Application.Run(new Form1());
-            Application.Run(new Form3());
-            //Application.Run(new Form4());
+            //Application.Run(new Form3());
+            Application.Run(new SetupCueForm());
         }
     }
 }
