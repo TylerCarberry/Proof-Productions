@@ -141,7 +141,7 @@ namespace Proof_Productions
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void aboutButton_Click(object sender, EventArgs e)
         {
             new AboutForm().Show();
         }

@@ -17,7 +17,7 @@ namespace Proof_Productions
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void urlLabel_Click(object sender, EventArgs e)
         {
             try
             {
