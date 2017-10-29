@@ -84,5 +84,25 @@ namespace Proof_Productions
                 }
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            new AboutForm().Show();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new MainMenuForm());
+        }
+
+        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new ManualControlForm());
+        }
+
+        private void switchToForm(Form form) {
+            form.Show();
+            form.Left = this.Left;
+            form.Top = this.Top;
+
+            this.Hide();
+        }
     }
 }

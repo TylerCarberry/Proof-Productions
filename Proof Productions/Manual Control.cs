@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proof_Productions
 {
-    public partial class Form3 : Form
+    public partial class ManualControlForm : Form
     {
-        public Form3()
+        public ManualControlForm()
         {
             InitializeComponent();
         }
@@ -141,9 +141,24 @@ namespace Proof_Productions
 
         }
 
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
             new AboutForm().Show();
+        }
+
+        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new SetupCueForm());
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new MainMenuForm());
+        }
+
+        private void switchToForm(Form form) {
+            form.Show();
+            form.Left = this.Left;
+            form.Top = this.Top;
+            
+            this.Hide();
         }
     }
 }

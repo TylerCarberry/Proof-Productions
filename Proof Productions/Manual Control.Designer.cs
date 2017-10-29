@@ -1,6 +1,6 @@
 ﻿namespace Proof_Productions
 {
-    partial class Form3
+    partial class ManualControlForm
     {
         /// <summary>
         /// Required designer variable.
@@ -70,10 +70,18 @@
             this.motor3Dir = new System.Windows.Forms.ComboBox();
             this.motorBox3 = new System.Windows.Forms.ComboBox();
             this.motor3Desc = new System.Windows.Forms.TextBox();
-            this.about_button = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.motorPanelLeft.SuspendLayout();
             this.motorPanelCenter.SuspendLayout();
             this.motorPanelRight.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // motor1Desc
@@ -185,7 +193,7 @@
             this.motorPanelLeft.Controls.Add(this.motor1Dir);
             this.motorPanelLeft.Controls.Add(this.motorBox1);
             this.motorPanelLeft.Controls.Add(this.motor1Desc);
-            this.motorPanelLeft.Location = new System.Drawing.Point(40, 18);
+            this.motorPanelLeft.Location = new System.Drawing.Point(40, 31);
             this.motorPanelLeft.Name = "motorPanelLeft";
             this.motorPanelLeft.Size = new System.Drawing.Size(190, 410);
             this.motorPanelLeft.TabIndex = 10;
@@ -232,7 +240,7 @@
             this.motorPanelCenter.Controls.Add(this.motor2Dir);
             this.motorPanelCenter.Controls.Add(this.motorBox2);
             this.motorPanelCenter.Controls.Add(this.motor2Desc);
-            this.motorPanelCenter.Location = new System.Drawing.Point(258, 18);
+            this.motorPanelCenter.Location = new System.Drawing.Point(258, 31);
             this.motorPanelCenter.Name = "motorPanelCenter";
             this.motorPanelCenter.Size = new System.Drawing.Size(190, 410);
             this.motorPanelCenter.TabIndex = 11;
@@ -373,7 +381,7 @@
             this.motorPanelRight.Controls.Add(this.motor3Dir);
             this.motorPanelRight.Controls.Add(this.motorBox3);
             this.motorPanelRight.Controls.Add(this.motor3Desc);
-            this.motorPanelRight.Location = new System.Drawing.Point(476, 18);
+            this.motorPanelRight.Location = new System.Drawing.Point(476, 31);
             this.motorPanelRight.Name = "motorPanelRight";
             this.motorPanelRight.Size = new System.Drawing.Size(190, 410);
             this.motorPanelRight.TabIndex = 12;
@@ -500,26 +508,78 @@
             this.motor3Desc.TabIndex = 0;
             this.motor3Desc.TextChanged += new System.EventHandler(this.motor3Desc_TextChanged);
             // 
-            // about_button
+            // menuStrip1
             // 
-            this.about_button.Location = new System.Drawing.Point(12, 434);
-            this.about_button.Name = "about_button";
-            this.about_button.Size = new System.Drawing.Size(75, 23);
-            this.about_button.TabIndex = 13;
-            this.about_button.Text = "About";
-            this.about_button.UseVisualStyleBackColor = true;
-            this.about_button.Click += new System.EventHandler(this.aboutButton_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.manualControlToolStripMenuItem,
+            this.setupMotorsToolStripMenuItem,
+            this.setupCuesToolStripMenuItem,
+            this.calibrationToolStripMenuItem,
+            this.diagnosticsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(697, 24);
+            this.menuStrip1.TabIndex = 17;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // Form3
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.fileToolStripMenuItem.Text = "Home";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // manualControlToolStripMenuItem
+            // 
+            this.manualControlToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
+            this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.manualControlToolStripMenuItem.Text = "Manual Control";
+            // 
+            // setupMotorsToolStripMenuItem
+            // 
+            this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
+            this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
+            // 
+            // setupCuesToolStripMenuItem
+            // 
+            this.setupCuesToolStripMenuItem.Name = "setupCuesToolStripMenuItem";
+            this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.setupCuesToolStripMenuItem.Text = "Setup Cues";
+            this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.setupCuesToolStripMenuItem_Click);
+            // 
+            // calibrationToolStripMenuItem
+            // 
+            this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
+            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.calibrationToolStripMenuItem.Text = "Calibration";
+            // 
+            // diagnosticsToolStripMenuItem
+            // 
+            this.diagnosticsToolStripMenuItem.Name = "diagnosticsToolStripMenuItem";
+            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.diagnosticsToolStripMenuItem.Text = "Diagnostics";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // ManualControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 469);
-            this.Controls.Add(this.about_button);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.motorPanelRight);
             this.Controls.Add(this.motorPanelCenter);
             this.Controls.Add(this.motorPanelLeft);
-            this.Name = "Form3";
+            this.Name = "ManualControlForm";
             this.Text = "Manual Control";
             this.motorPanelLeft.ResumeLayout(false);
             this.motorPanelLeft.PerformLayout();
@@ -527,7 +587,10 @@
             this.motorPanelCenter.PerformLayout();
             this.motorPanelRight.ResumeLayout(false);
             this.motorPanelRight.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -579,6 +642,13 @@
         private System.Windows.Forms.Label accelLabel3;
         private System.Windows.Forms.Label spdLabel3;
         private System.Windows.Forms.Label dirLabel3;
-        private System.Windows.Forms.Button about_button;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

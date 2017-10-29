@@ -47,8 +47,17 @@
             this.motorAccel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertRowButton = new System.Windows.Forms.Button();
             this.removeRowButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,7 +72,7 @@
             this.panel1.Controls.Add(this.detailedViewTextBox);
             this.panel1.Controls.Add(this.cueSelectionLabel);
             this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(23, 12);
+            this.panel1.Location = new System.Drawing.Point(23, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(155, 371);
             this.panel1.TabIndex = 0;
@@ -167,7 +176,7 @@
             this.motorDirection,
             this.motorSpeed,
             this.motorAccel});
-            this.motorDataGridView.Location = new System.Drawing.Point(213, 12);
+            this.motorDataGridView.Location = new System.Drawing.Point(213, 36);
             this.motorDataGridView.MultiSelect = false;
             this.motorDataGridView.Name = "motorDataGridView";
             this.motorDataGridView.Size = new System.Drawing.Size(393, 371);
@@ -202,7 +211,7 @@
             // insertRowButton
             // 
             this.insertRowButton.BackColor = System.Drawing.SystemColors.Window;
-            this.insertRowButton.Location = new System.Drawing.Point(624, 38);
+            this.insertRowButton.Location = new System.Drawing.Point(624, 62);
             this.insertRowButton.Name = "insertRowButton";
             this.insertRowButton.Size = new System.Drawing.Size(84, 23);
             this.insertRowButton.TabIndex = 10;
@@ -213,7 +222,7 @@
             // removeRowButton
             // 
             this.removeRowButton.BackColor = System.Drawing.SystemColors.Window;
-            this.removeRowButton.Location = new System.Drawing.Point(624, 67);
+            this.removeRowButton.Location = new System.Drawing.Point(624, 91);
             this.removeRowButton.Name = "removeRowButton";
             this.removeRowButton.Size = new System.Drawing.Size(84, 23);
             this.removeRowButton.TabIndex = 11;
@@ -221,11 +230,74 @@
             this.removeRowButton.UseVisualStyleBackColor = false;
             this.removeRowButton.Click += new System.EventHandler(this.removeRowButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.manualControlToolStripMenuItem,
+            this.setupMotorsToolStripMenuItem,
+            this.setupCuesToolStripMenuItem,
+            this.calibrationToolStripMenuItem,
+            this.diagnosticsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(720, 24);
+            this.menuStrip1.TabIndex = 17;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.fileToolStripMenuItem.Text = "Home";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // manualControlToolStripMenuItem
+            // 
+            this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
+            this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.manualControlToolStripMenuItem.Text = "Manual Control";
+            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.manualControlToolStripMenuItem_Click);
+            // 
+            // setupMotorsToolStripMenuItem
+            // 
+            this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
+            this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
+            // 
+            // setupCuesToolStripMenuItem
+            // 
+            this.setupCuesToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.setupCuesToolStripMenuItem.Name = "setupCuesToolStripMenuItem";
+            this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.setupCuesToolStripMenuItem.Text = "Setup Cues";
+            // 
+            // calibrationToolStripMenuItem
+            // 
+            this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
+            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.calibrationToolStripMenuItem.Text = "Calibration";
+            // 
+            // diagnosticsToolStripMenuItem
+            // 
+            this.diagnosticsToolStripMenuItem.Name = "diagnosticsToolStripMenuItem";
+            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.diagnosticsToolStripMenuItem.Text = "Diagnostics";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 405);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.removeRowButton);
             this.Controls.Add(this.insertRowButton);
             this.Controls.Add(this.motorDataGridView);
@@ -236,7 +308,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -261,5 +336,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn motorAccel;
         private System.Windows.Forms.Button insertRowButton;
         private System.Windows.Forms.Button removeRowButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proof_Productions
 {
-    public partial class Form1 : Form
+    public partial class MainMenuForm : Form
     {
-        public Form1()
+        public MainMenuForm()
         {
             InitializeComponent();
         }
@@ -87,6 +87,32 @@ namespace Proof_Productions
         private void moveCueDownButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new ManualControlForm());
+        }
+
+        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
+            switchToForm(new SetupCueForm());
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            new AboutForm().Show();
+        }
+
+        private void switchToForm(Form form)
+        {
+            form.Show();
+            form.Left = this.Left;
+            form.Top = this.Top;
+
+            this.Hide();
         }
     }
 }
