@@ -104,5 +104,10 @@ namespace Proof_Productions
 
             this.Hide();
         }
+
+        private void diagnosticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

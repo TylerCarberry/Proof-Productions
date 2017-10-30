@@ -52,7 +52,6 @@
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
@@ -237,7 +236,6 @@
             this.manualControlToolStripMenuItem,
             this.setupMotorsToolStripMenuItem,
             this.setupCuesToolStripMenuItem,
-            this.calibrationToolStripMenuItem,
             this.diagnosticsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -273,17 +271,12 @@
             this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.setupCuesToolStripMenuItem.Text = "Setup Cues";
             // 
-            // calibrationToolStripMenuItem
-            // 
-            this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
-            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.calibrationToolStripMenuItem.Text = "Calibration";
-            // 
             // diagnosticsToolStripMenuItem
             // 
             this.diagnosticsToolStripMenuItem.Name = "diagnosticsToolStripMenuItem";
-            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.diagnosticsToolStripMenuItem.Text = "Diagnostics";
+            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.diagnosticsToolStripMenuItem.Text = "Logs";
+            this.diagnosticsToolStripMenuItem.Click += new System.EventHandler(this.diagnosticsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -341,7 +334,6 @@
         private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }

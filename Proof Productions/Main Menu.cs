@@ -114,5 +114,10 @@ namespace Proof_Productions
 
             this.Hide();
         }
+
+        private void calibrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -53,7 +53,6 @@
             this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cueActionFlowLayoutPanel.SuspendLayout();
             this.cueFlowLayoutPanel.SuspendLayout();
@@ -271,7 +270,6 @@
             this.setupMotorsToolStripMenuItem,
             this.setupCuesToolStripMenuItem,
             this.calibrationToolStripMenuItem,
-            this.diagnosticsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -310,14 +308,9 @@
             // calibrationToolStripMenuItem
             // 
             this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
-            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.calibrationToolStripMenuItem.Text = "Calibration";
-            // 
-            // diagnosticsToolStripMenuItem
-            // 
-            this.diagnosticsToolStripMenuItem.Name = "diagnosticsToolStripMenuItem";
-            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.diagnosticsToolStripMenuItem.Text = "Diagnostics";
+            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.calibrationToolStripMenuItem.Text = "Logs";
+            this.calibrationToolStripMenuItem.Click += new System.EventHandler(this.calibrationToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -384,7 +377,6 @@
         private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
