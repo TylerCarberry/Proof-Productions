@@ -109,5 +109,10 @@ namespace Proof_Productions
         {
 
         }
+
+        private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchToForm(new SetupMotorForm());
+        }
     }
 }

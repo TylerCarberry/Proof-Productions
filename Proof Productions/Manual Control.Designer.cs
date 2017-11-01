@@ -541,6 +541,7 @@
             this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
             this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
+            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.setupMotorsToolStripMenuItem_Click);
             // 
             // setupCuesToolStripMenuItem
             // 
