@@ -160,7 +160,7 @@ namespace Proof_Productions
             
             this.Hide();
         }
-
+        
         private void dirLabel1_Click(object sender, EventArgs e)
         {
 
@@ -193,7 +193,12 @@ namespace Proof_Productions
 
         private void stopCalibrationBtn_Click(object sender, EventArgs e)
         {
+        
+        }
 
+        private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchToForm(new SetupMotorForm());
         }
     }
 }
