@@ -77,6 +77,12 @@
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calibrateMotorCheckList = new System.Windows.Forms.CheckedListBox();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.startCalibrationBtn = new System.Windows.Forms.Button();
+            this.pauseCalibrationBtn = new System.Windows.Forms.Button();
+            this.stopCalibrationBtn = new System.Windows.Forms.Button();
             this.motorPanelLeft.SuspendLayout();
             this.motorPanelCenter.SuspendLayout();
             this.motorPanelRight.SuspendLayout();
@@ -98,7 +104,7 @@
             // motorBox1
             // 
             this.motorBox1.FormattingEnabled = true;
-            this.motorBox1.Location = new System.Drawing.Point(20, 13);
+            this.motorBox1.Location = new System.Drawing.Point(21, 13);
             this.motorBox1.Name = "motorBox1";
             this.motorBox1.Size = new System.Drawing.Size(148, 21);
             this.motorBox1.TabIndex = 1;
@@ -192,7 +198,7 @@
             this.motorPanelLeft.Controls.Add(this.motor1Dir);
             this.motorPanelLeft.Controls.Add(this.motorBox1);
             this.motorPanelLeft.Controls.Add(this.motor1Desc);
-            this.motorPanelLeft.Location = new System.Drawing.Point(40, 31);
+            this.motorPanelLeft.Location = new System.Drawing.Point(189, 36);
             this.motorPanelLeft.Name = "motorPanelLeft";
             this.motorPanelLeft.Size = new System.Drawing.Size(190, 410);
             this.motorPanelLeft.TabIndex = 10;
@@ -205,6 +211,7 @@
             this.dirLabel1.Size = new System.Drawing.Size(49, 13);
             this.dirLabel1.TabIndex = 10;
             this.dirLabel1.Text = "Direction";
+            this.dirLabel1.Click += new System.EventHandler(this.dirLabel1_Click);
             // 
             // spdLabel1
             // 
@@ -239,7 +246,7 @@
             this.motorPanelCenter.Controls.Add(this.motor2Dir);
             this.motorPanelCenter.Controls.Add(this.motorBox2);
             this.motorPanelCenter.Controls.Add(this.motor2Desc);
-            this.motorPanelCenter.Location = new System.Drawing.Point(258, 31);
+            this.motorPanelCenter.Location = new System.Drawing.Point(407, 36);
             this.motorPanelCenter.Name = "motorPanelCenter";
             this.motorPanelCenter.Size = new System.Drawing.Size(190, 410);
             this.motorPanelCenter.TabIndex = 11;
@@ -380,7 +387,7 @@
             this.motorPanelRight.Controls.Add(this.motor3Dir);
             this.motorPanelRight.Controls.Add(this.motorBox3);
             this.motorPanelRight.Controls.Add(this.motor3Desc);
-            this.motorPanelRight.Location = new System.Drawing.Point(476, 31);
+            this.motorPanelRight.Location = new System.Drawing.Point(625, 36);
             this.motorPanelRight.Name = "motorPanelRight";
             this.motorPanelRight.Size = new System.Drawing.Size(190, 410);
             this.motorPanelRight.TabIndex = 12;
@@ -518,7 +525,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(697, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(850, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -563,11 +570,94 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // calibrateMotorCheckList
+            // 
+            this.calibrateMotorCheckList.FormattingEnabled = true;
+            this.calibrateMotorCheckList.Items.AddRange(new object[] {
+            "Check All",
+            "Motor 1",
+            "Motor 2",
+            "Motor 3",
+            "Motor 4",
+            "Motor 5",
+            "Motor 6",
+            "Motor 7",
+            "Motor 8",
+            "Motor 9",
+            "Motor 10",
+            "Motor 11",
+            "Motor 12",
+            "Motor 13",
+            "Motor 14"});
+            this.calibrateMotorCheckList.Location = new System.Drawing.Point(22, 85);
+            this.calibrateMotorCheckList.Name = "calibrateMotorCheckList";
+            this.calibrateMotorCheckList.Size = new System.Drawing.Size(144, 199);
+            this.calibrateMotorCheckList.TabIndex = 18;
+            this.calibrateMotorCheckList.SelectedIndexChanged += new System.EventHandler(this.calibrationMotorChecklist_SelectedIndexChanged);
+            // 
+            // Label1
+            // 
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Label1.Location = new System.Drawing.Point(46, 36);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(89, 20);
+            this.Label1.TabIndex = 19;
+            this.Label1.Text = "Calibration";
+            this.Label1.Click += new System.EventHandler(this.calibrationLabel1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label2.Location = new System.Drawing.Point(19, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 16);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Motor Selection";
+            this.label2.Click += new System.EventHandler(this.selectMotorCalibrationLabel1);
+            // 
+            // startCalibrationBtn
+            // 
+            this.startCalibrationBtn.Location = new System.Drawing.Point(38, 312);
+            this.startCalibrationBtn.Name = "startCalibrationBtn";
+            this.startCalibrationBtn.Size = new System.Drawing.Size(106, 23);
+            this.startCalibrationBtn.TabIndex = 21;
+            this.startCalibrationBtn.Text = "Start Calibration";
+            this.startCalibrationBtn.UseVisualStyleBackColor = true;
+            this.startCalibrationBtn.Click += new System.EventHandler(this.startCalibrationBtn_Click);
+            // 
+            // pauseCalibrationBtn
+            // 
+            this.pauseCalibrationBtn.Location = new System.Drawing.Point(38, 355);
+            this.pauseCalibrationBtn.Name = "pauseCalibrationBtn";
+            this.pauseCalibrationBtn.Size = new System.Drawing.Size(106, 23);
+            this.pauseCalibrationBtn.TabIndex = 22;
+            this.pauseCalibrationBtn.Text = "Pause Calibration";
+            this.pauseCalibrationBtn.UseVisualStyleBackColor = true;
+            this.pauseCalibrationBtn.Click += new System.EventHandler(this.pauseCalibrationBtn_Click);
+            // 
+            // stopCalibrationBtn
+            // 
+            this.stopCalibrationBtn.Location = new System.Drawing.Point(38, 397);
+            this.stopCalibrationBtn.Name = "stopCalibrationBtn";
+            this.stopCalibrationBtn.Size = new System.Drawing.Size(106, 23);
+            this.stopCalibrationBtn.TabIndex = 23;
+            this.stopCalibrationBtn.Text = "Stop Calibration";
+            this.stopCalibrationBtn.UseVisualStyleBackColor = true;
+            this.stopCalibrationBtn.Click += new System.EventHandler(this.stopCalibrationBtn_Click);
+            // 
             // ManualControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 469);
+            this.ClientSize = new System.Drawing.Size(850, 477);
+            this.Controls.Add(this.stopCalibrationBtn);
+            this.Controls.Add(this.pauseCalibrationBtn);
+            this.Controls.Add(this.startCalibrationBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.calibrateMotorCheckList);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.motorPanelRight);
             this.Controls.Add(this.motorPanelCenter);
@@ -642,5 +732,11 @@
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.CheckedListBox calibrateMotorCheckList;
+        private System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button startCalibrationBtn;
+        private System.Windows.Forms.Button pauseCalibrationBtn;
+        private System.Windows.Forms.Button stopCalibrationBtn;
     }
 }

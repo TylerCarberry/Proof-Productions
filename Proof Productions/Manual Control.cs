@@ -160,6 +160,41 @@ namespace Proof_Productions
             
             this.Hide();
         }
+        
+        private void dirLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calibrationMotorChecklist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calibrationLabel1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectMotorCalibrationLabel1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startCalibrationBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pauseCalibrationBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopCalibrationBtn_Click(object sender, EventArgs e)
+        {
+        
+        }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
