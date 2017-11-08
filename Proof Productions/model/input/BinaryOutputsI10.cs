@@ -39,38 +39,37 @@ namespace Proof_Productions.model.input
 
         }
 
-        public int GetSetValue
+        public int Get()
         {
-            get
-            {
-                return (2^0 * (DO00 ? 1 : 0))     | (2^1 * (DO01 ? 1 : 0)
-                        | (2^2 * (DO02 ? 1 : 0))  | (2^3 * (DO03 ? 1 : 0))
-                        | (2^4 * (DO04 ? 1 : 0))  | (2^5 * (DO05 ? 1 : 0))
-                        | (2^6 * (DO06 ? 1 : 0))  | (2^7 * (DO07 ? 1 : 0))
-                        | (2^8 * (DO10 ? 1 : 0))  | (2^9 * (DO11 ? 1 : 0))
-                        | (2^10 * (DO12 ? 1 : 0)) | (2^11 * (DO13 ? 1 : 0))
-                        | (2^12 * (DO14 ? 1 : 0)) | (2^13 * (DO15 ? 1 : 0))
-                        | (2^14 * (DO16 ? 1 : 0)) | (2^15 * (DO17 ? 1 : 0)));
-            }
-            set
-            {
-                DO00 = (value & 2^0).Equals(1);
-                DO01 = (value & 2^1).Equals(1);
-                DO02 = (value & 2^2).Equals(1);
-                DO03 = (value & 2^3).Equals(1);
-                DO04 = (value & 2^4).Equals(1);
-                DO05 = (value & 2^5).Equals(1);
-                DO06 = (value & 2^6).Equals(1);
-                DO07 = (value & 2^7).Equals(1);
-                DO10 = (value & 2^8).Equals(1);
-                DO11 = (value & 2^9).Equals(1);
-                DO12 = (value & 2^10).Equals(1);
-                DO13 = (value & 2^11).Equals(1);
-                DO14 = (value & 2^12).Equals(1);
-                DO15 = (value & 2^13).Equals(1);
-                DO16 = (value & 2^14).Equals(1);
-                DO17 = (value & 2^15).Equals(1);
-            }
+            return (2 ^ 0 * (DO00 ? 1 : 0)) | (2 ^ 1 * (DO01 ? 1 : 0)
+                        | (2 ^ 2 * (DO02 ? 1 : 0)) | (2 ^ 3 * (DO03 ? 1 : 0))
+                        | (2 ^ 4 * (DO04 ? 1 : 0)) | (2 ^ 5 * (DO05 ? 1 : 0))
+                        | (2 ^ 6 * (DO06 ? 1 : 0)) | (2 ^ 7 * (DO07 ? 1 : 0))
+                        | (2 ^ 8 * (DO10 ? 1 : 0)) | (2 ^ 9 * (DO11 ? 1 : 0))
+                        | (2 ^ 10 * (DO12 ? 1 : 0)) | (2 ^ 11 * (DO13 ? 1 : 0))
+                        | (2 ^ 12 * (DO14 ? 1 : 0)) | (2 ^ 13 * (DO15 ? 1 : 0))
+                        | (2 ^ 14 * (DO16 ? 1 : 0)) | (2 ^ 15 * (DO17 ? 1 : 0)));
         }
+
+        public void Set(int value)
+        {
+            DO00 = (value & 2 ^ 0).Equals(1);
+            DO01 = (value & 2 ^ 1).Equals(1);
+            DO02 = (value & 2 ^ 2).Equals(1);
+            DO03 = (value & 2 ^ 3).Equals(1);
+            DO04 = (value & 2 ^ 4).Equals(1);
+            DO05 = (value & 2 ^ 5).Equals(1);
+            DO06 = (value & 2 ^ 6).Equals(1);
+            DO07 = (value & 2 ^ 7).Equals(1);
+            DO10 = (value & 2 ^ 8).Equals(1);
+            DO11 = (value & 2 ^ 9).Equals(1);
+            DO12 = (value & 2 ^ 10).Equals(1);
+            DO13 = (value & 2 ^ 11).Equals(1);
+            DO14 = (value & 2 ^ 12).Equals(1);
+            DO15 = (value & 2 ^ 13).Equals(1);
+            DO16 = (value & 2 ^ 14).Equals(1);
+            DO17 = (value & 2 ^ 15).Equals(1);
+        }
+        
     }
 }

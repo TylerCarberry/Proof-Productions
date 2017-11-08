@@ -36,38 +36,37 @@ namespace Proof_Productions.model.input
         //bit  0 : Controller Inhibit
         //bit  1 : Enable Rapid Start
 
-        public int GetSetValue
+        public int Get()
         {
-            get
-            {
-                return (2 ^ 0 * (Download_Dataset ? 1 : 0)) | (2 ^ 1 * (Upload_Dataset ? 1 : 0)
-                        | (2 ^ 2 * (Upload_Dataset_And_Autoreload ? 1 : 0)) | (2 ^ 3 * (Simulation_Mode_Off ? 1 : 0))
-                        | (2 ^ 4 * (Auto_Configuration_Off ? 1 : 0)) | (2 ^ 5 * (Bit05 ? 1 : 0))
-                        | (2 ^ 6 * (Reboot_System ? 1 : 0)) | (2 ^ 7 * (Bit07 ? 1 : 0))
-                        | (2 ^ 8 * (Bit08 ? 1 : 0)) | (2 ^ 9 * (Bit09 ? 1 : 0))
-                        | (2 ^ 10 * (Bit10 ? 1 : 0)) | (2 ^ 11 * (Bit11 ? 1 : 0))
-                        | (2 ^ 12 * (Bit12 ? 1 : 0)) | (2 ^ 13 * (Bit13 ? 1 : 0))
-                        | (2 ^ 14 * (UserBit1 ? 1 : 0)) | (2 ^ 15 * (UserBit2 ? 1 : 0)));
-            }
-            set
-            {
-                Download_Dataset = (value & 2 ^ 0).Equals(1);
-                Upload_Dataset = (value & 2 ^ 1).Equals(1);
-                Upload_Dataset_And_Autoreload = (value & 2 ^ 2).Equals(1);
-                Simulation_Mode_Off = (value & 2 ^ 3).Equals(1);
-                Auto_Configuration_Off = (value & 2 ^ 4).Equals(1);
-                Bit05 = (value & 2 ^ 5).Equals(1);
-                Reboot_System = (value & 2 ^ 6).Equals(1);
-                Bit07 = (value & 2 ^ 7).Equals(1);
-                Bit08 = (value & 2 ^ 8).Equals(1);
-                Bit09 = (value & 2 ^ 9).Equals(1);
-                Bit10 = (value & 2 ^ 10).Equals(1);
-                Bit11 = (value & 2 ^ 11).Equals(1);
-                Bit12 = (value & 2 ^ 12).Equals(1);
-                Bit13 = (value & 2 ^ 13).Equals(1);
-                UserBit1 = (value & 2 ^ 14).Equals(1);
-                UserBit2 = (value & 2 ^ 15).Equals(1);
-            }
+            return (2 ^ 0 * (Download_Dataset ? 1 : 0)) | (2 ^ 1 * (Upload_Dataset ? 1 : 0)
+            | (2 ^ 2 * (Upload_Dataset_And_Autoreload ? 1 : 0)) | (2 ^ 3 * (Simulation_Mode_Off ? 1 : 0))
+            | (2 ^ 4 * (Auto_Configuration_Off ? 1 : 0)) | (2 ^ 5 * (Bit05 ? 1 : 0))
+            | (2 ^ 6 * (Reboot_System ? 1 : 0)) | (2 ^ 7 * (Bit07 ? 1 : 0))
+            | (2 ^ 8 * (Bit08 ? 1 : 0)) | (2 ^ 9 * (Bit09 ? 1 : 0))
+            | (2 ^ 10 * (Bit10 ? 1 : 0)) | (2 ^ 11 * (Bit11 ? 1 : 0))
+            | (2 ^ 12 * (Bit12 ? 1 : 0)) | (2 ^ 13 * (Bit13 ? 1 : 0))
+            | (2 ^ 14 * (UserBit1 ? 1 : 0)) | (2 ^ 15 * (UserBit2 ? 1 : 0)));
         }
+
+        public void Set(int value)
+        {
+            Download_Dataset = (value & 2 ^ 0).Equals(1);
+            Upload_Dataset = (value & 2 ^ 1).Equals(1);
+            Upload_Dataset_And_Autoreload = (value & 2 ^ 2).Equals(1);
+            Simulation_Mode_Off = (value & 2 ^ 3).Equals(1);
+            Auto_Configuration_Off = (value & 2 ^ 4).Equals(1);
+            Bit05 = (value & 2 ^ 5).Equals(1);
+            Reboot_System = (value & 2 ^ 6).Equals(1);
+            Bit07 = (value & 2 ^ 7).Equals(1);
+            Bit08 = (value & 2 ^ 8).Equals(1);
+            Bit09 = (value & 2 ^ 9).Equals(1);
+            Bit10 = (value & 2 ^ 10).Equals(1);
+            Bit11 = (value & 2 ^ 11).Equals(1);
+            Bit12 = (value & 2 ^ 12).Equals(1);
+            Bit13 = (value & 2 ^ 13).Equals(1);
+            UserBit1 = (value & 2 ^ 14).Equals(1);
+            UserBit2 = (value & 2 ^ 15).Equals(1);
+        }
+
     }
 }

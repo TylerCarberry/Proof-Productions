@@ -10,19 +10,19 @@ namespace Proof_Productions.model
     class OutputCurrent
     {
 
-        double outputCurrent;
+        int outputCurrent;
 
         public OutputCurrent()
         {
             outputCurrent = 0;
         }
 
-        public void Set(double outputCurrent)
+        public void Set(int outputCurrent)
         {
             this.outputCurrent = outputCurrent;
         }
 
-        public double Get()
+        public int Get()
         {
             return outputCurrent;
         }
