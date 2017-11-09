@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.input
+namespace Proof_Productions.Model.Input
 {
     // There are 2 Control Word fields in the input. One in field 1, one in field 3
     // This class is the bits that correspond to the binary outputs in the first field

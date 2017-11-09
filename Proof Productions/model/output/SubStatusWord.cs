@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.output
+namespace Proof_Productions.Model.Output
 {
     class SubStatusWord
     {

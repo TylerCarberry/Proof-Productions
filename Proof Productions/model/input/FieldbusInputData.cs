@@ -1,15 +1,14 @@
-﻿using Proof_Productions.model.input.Proof_Productions.model;
+﻿//using Proof_Productions.Model.input.Proof_Productions.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.input
+namespace Proof_Productions.Model.Input
 {
     class FieldbusInputData
     {
-
         public ControlWord_I1 Control_I1 { get; set; }
         public BinaryOutputs_I2 BinaryOut_I2 { get; set; }
         public ControlWord_I3 Control_I3 { get; set; }

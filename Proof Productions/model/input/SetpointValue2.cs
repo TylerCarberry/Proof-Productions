@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.input
+namespace Proof_Productions.Model.Input
 {
-    namespace Proof_Productions.model
-    {
         class SetpointValue2
         {
 
@@ -27,8 +25,5 @@ namespace Proof_Productions.model.input
             {
                 return setpointValue2;
             }
-
         }
-    }
-
 }

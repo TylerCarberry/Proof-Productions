@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.input
+namespace Proof_Productions.Model.Input
 {
 
     // There are 2 Binary Output fields in the input. One in field 2, one in field 10

@@ -1,8 +1,7 @@
-﻿namespace Proof_Productions.model
+﻿namespace Proof_Productions.Model.Input
 {
     class Acceleration
-    {
-
+    { 
         int acceleration;
 
         public Acceleration()

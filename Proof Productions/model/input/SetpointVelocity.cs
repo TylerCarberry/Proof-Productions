@@ -1,4 +1,4 @@
-﻿namespace Proof_Productions.model
+﻿namespace Proof_Productions.Model.Input
 {
     class SetpointVelocity
     {

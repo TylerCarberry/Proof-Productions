@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.output
+namespace Proof_Productions.Model.Output
 {
-    class ActualValue2
+    class ActualValue02
     {
         int value;
 
-        public ActualValue2()
+        public ActualValue02()
         {
 
         }

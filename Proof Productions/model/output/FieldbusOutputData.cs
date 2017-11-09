@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions.model.output
+namespace Proof_Productions.Model.Output
 {
     class FieldbusOutputData
     {
-        public StatusWord_O1 Status_O1 { get; set; }
+        public StatusWordO1 Status_O1 { get; set; }
         public BinaryInputsO2 Binary_O2 { get; set; }
         public StatusWordO3 Status_O3 { get; set; }
         public ActualVelocity ActualVelocity { get; set; }
