@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="ModbusTCP, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ModbusTCP.dll</HintPath>
+      <HintPath>..\Common\bin\Debug\ModbusTCP.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +62,7 @@
     <Compile Include="Model\Input\ControlWordI3.cs" />
     <Compile Include="Model\Input\Deceleration.cs" />
     <Compile Include="Model\Input\FieldbusInputData.cs" />
+    <Compile Include="Model\Input\MotorAction.cs" />
     <Compile Include="Model\Input\SetpointPosition.cs" />
     <Compile Include="Model\Input\SetpointValue2.cs" />
     <Compile Include="Model\Input\SetpointVelocity.cs" />
