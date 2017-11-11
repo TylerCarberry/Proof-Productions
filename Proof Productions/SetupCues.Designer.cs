@@ -48,11 +48,11 @@
             this.insertRowButton = new System.Windows.Forms.Button();
             this.removeRowButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.diagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).BeginInit();
@@ -232,11 +232,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.mainMenuToolStripMenuItem,
             this.manualControlToolStripMenuItem,
             this.setupMotorsToolStripMenuItem,
             this.setupCuesToolStripMenuItem,
-            this.diagnosticsToolStripMenuItem,
+            this.loggerToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -244,12 +244,12 @@
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // mainMenuToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.fileToolStripMenuItem.Text = "Home";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.mainMenuToolStripMenuItem.Text = "Home";
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -272,12 +272,12 @@
             this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.setupCuesToolStripMenuItem.Text = "Setup Cues";
             // 
-            // diagnosticsToolStripMenuItem
+            // loggerToolStripMenuItem
             // 
-            this.diagnosticsToolStripMenuItem.Name = "diagnosticsToolStripMenuItem";
-            this.diagnosticsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.diagnosticsToolStripMenuItem.Text = "Logs";
-            this.diagnosticsToolStripMenuItem.Click += new System.EventHandler(this.diagnosticsToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
+            this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.loggerToolStripMenuItem.Text = "Logs";
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -331,11 +331,11 @@
         private System.Windows.Forms.Button insertRowButton;
         private System.Windows.Forms.Button removeRowButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem diagnosticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

@@ -23,7 +23,7 @@ namespace Proof_Productions
         {
             try
             {
-                // Create new modbus master and add event functions
+                //Create new modbus master and add event functions
                 MBmaster = new Master("192.168.10.4", 502);
                 
                 //Need to figure this out.
@@ -46,7 +46,7 @@ namespace Proof_Productions
         {
             string exc = "Modbus says error: ";
             switch (exception)
-            {
+            {   
                 case Master.excIllegalFunction: exc += "Illegal function!"; break;
                 case Master.excIllegalDataAdr: exc += "Illegal data adress!"; break;
                 case Master.excIllegalDataVal: exc += "Illegal data value!"; break;
@@ -55,7 +55,7 @@ namespace Proof_Productions
                 case Master.excGatePathUnavailable: exc += "Gateway path unavailbale!"; break;
                 case Master.excExceptionTimeout: exc += "Slave timed out!"; break;
                 case Master.excExceptionConnectionLost: exc += "Connection is lost!"; break;
-                case Master.excExceptionNotConnected: exc += "Not connected!"; break;
+                case Master.excExceptionNotConnected: exc += "Not connected!"; break; 
             }
 
             MessageBox.Show(exc, "Modbus slave exception");

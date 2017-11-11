@@ -89,7 +89,7 @@ namespace Proof_Productions
 
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -115,14 +115,15 @@ namespace Proof_Productions
             this.Hide();
         }
 
-        private void calibrationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            switchToForm(new LoggerForm());
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             switchToForm(new SetupMotorForm());
         }
+
     }
 }
