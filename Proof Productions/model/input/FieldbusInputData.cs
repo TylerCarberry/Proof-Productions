@@ -31,6 +31,7 @@ namespace Proof_Productions.Model.Input
         //data[9] = BitConverter.GetBytes(acceleration)[0];  // byte 0 of velocity
         //data[10] = 0;
 
+<<<<<<< HEAD
         public FieldbusInputData()
         {
 
@@ -38,6 +39,10 @@ namespace Proof_Productions.Model.Input
 
         public byte[] GetValue()
         {
+=======
+        public byte[] GetValue()
+        {
+>>>>>>> 1f30a517f6932aec35f51b5c0eca4bee4e31b0db
             byte[] bytes = new byte[24];
             /*
                 //when we return the setpoint velocity, acceleration and deceleration
