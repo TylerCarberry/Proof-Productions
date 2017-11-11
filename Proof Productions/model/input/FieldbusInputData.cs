@@ -9,16 +9,16 @@ namespace Proof_Productions.Model.Input
 {
     class FieldbusInputData
     {
-        public ControlWord_I1 Control_I1 { get; set; }
-        public BinaryOutputs_I2 BinaryOut_I2 { get; set; }
-        public ControlWord_I3 Control_I3 { get; set; }
-        public SetpointVelocity SetpointVelocity { get; set; }       //Should this be of type SetpointVelocity?
-        public Acceleration Acceleration { get; set; }
-        public Deceleration Deceleration { get; set; }
-        public SetpointPosition Setpoint_Position { get; set; }
-        public SubcontrolWord Subcontrol { get; set; }
-        public BinaryOutputs_I10 BinaryOut_I10 { get; set; }
-        public SetpointValue2 SetpointValue { get; set; }
+        public ControlWord_I1 Control_I1 { get; set; }          = new ControlWord_I1();
+        public BinaryOutputs_I2 BinaryOut_I2 { get; set; }      = new BinaryOutputs_I2();
+        public ControlWord_I3 Control_I3 { get; set; }          = new ControlWord_I3();
+        public SetpointVelocity SetpointVelocity { get; set; }  = new SetpointVelocity();
+        public Acceleration Acceleration { get; set; }          = new Acceleration();
+        public Deceleration Deceleration { get; set; }          = new Deceleration();
+        public SetpointPosition Setpoint_Position { get; set; } = new SetpointPosition();
+        public SubcontrolWord Subcontrol { get; set; }          = new SubcontrolWord();
+        public BinaryOutputs_I10 BinaryOut_I10 { get; set; }    = new BinaryOutputs_I10();
+        public SetpointValue2 SetpointValue { get; set; }       = new SetpointValue2();
         //data[0] = 0; //byte 0 of Control 1
         //data[1] = 0; //byte 1 of Control 1
         //data[2] = 0; //byte 0 of Binary Outputs
@@ -31,19 +31,23 @@ namespace Proof_Productions.Model.Input
         //data[9] = BitConverter.GetBytes(acceleration)[0];  // byte 0 of velocity
         //data[10] = 0;
 
-        public byte[] GetValue
+        public FieldbusInputData()
         {
-            get
-            {
-                byte[] bytes = new byte[20];
+
+        }
+
+        public byte[] GetValue()
+        {
+            byte[] bytes = new byte[24];
+            /*
                 //when we return the setpoint velocity, acceleration and deceleration
                 //make sure you swap the bytes
                 bytes[0] = BitConverter.GetBytes(Control_I1.Get())[0];
                 bytes[1] = BitConverter.GetBytes(Control_I1.Get())[1];
                 bytes[2] = BitConverter.GetBytes(BinaryOut_I2.Get())[0];
                 bytes[3] = BitConverter.GetBytes(BinaryOut_I2.Get())[1];
-                bytes[4] = BitConverter.GetBytes(Control_I3.Get())[0];
-                bytes[5] = BitConverter.GetBytes(Control_I3.Get())[1];
+                bytes[4] = 10; //BitConverter.GetBytes(Control_I3.Get())[0];
+                bytes[5] = 6; //BitConverter.GetBytes(Control_I3.Get())[1];
                 bytes[6] = BitConverter.GetBytes(SetpointVelocity.Get())[1];
                 bytes[7] = BitConverter.GetBytes(SetpointVelocity.Get())[0];
                 bytes[8] = BitConverter.GetBytes(Acceleration.Get())[1];
@@ -60,7 +64,22 @@ namespace Proof_Productions.Model.Input
                 bytes[20] = BitConverter.GetBytes(SetpointValue.Get())[0];
                 //TODO - Continue this for the remainder of the data
                 return bytes;
-            }
+            */
+            bytes[0] = 0x0;
+            bytes[1] = 0x0;
+            bytes[2] = 0x0;
+            bytes[3] = 0x0;
+            bytes[4] = Control_I3.GetByte1();
+            bytes[5] = Control_I3.GetByte0();
+            bytes[6] = BitConverter.GetBytes(SetpointVelocity.Get())[1];
+            bytes[7] = BitConverter.GetBytes(SetpointVelocity.Get())[0];
+            bytes[8] = BitConverter.GetBytes(Acceleration.Get())[1];
+            bytes[9] = BitConverter.GetBytes(Acceleration.Get())[0];
+
+            Console.Out.WriteLine(Control_I3.GetByte0() + " " + Control_I3.GetByte1());
+            Console.Out.WriteLine(bytes[5] + " " + bytes[4]);
+            return bytes;
+            
         }
 
     }

@@ -14,62 +14,50 @@ namespace Proof_Productions.Model.Input
 
     class BinaryOutputs_I10
     {
-        public bool DO00 { get; set; }
-        public bool DO01 { get; set; }
-        public bool DO02 { get; set; }
-        public bool DO03 { get; set; }
-        public bool DO04 { get; set; }
-        public bool DO05 { get; set; }
-        public bool DO06 { get; set; }
-        public bool DO07 { get; set; }
-        public bool DO10 { get; set; }
-        public bool DO11 { get; set; }
-        public bool DO12 { get; set; }
-        public bool DO13 { get; set; }
-        public bool DO14 { get; set; }
-        public bool DO15 { get; set; }
-        public bool DO16 { get; set; }
-        public bool DO17 { get; set; }
+        public Boolean[] WordPart1 = new Boolean[8];
+        public Boolean[] WordPart2 = new Boolean[8];
 
-        //bit  0 : Controller Inhibit
-        //bit  1 : Enable Rapid Start
+        public Boolean DO00, DO01, DO02, DO03, DO04, DO05, DO06, DO07;
+        public Boolean DO10, DO11, DO12, DO13, DO14, DO15, DO16, DO17;
 
-        public BinaryOutputs_I10()
+        private byte ConvertBoolArraytoByte(bool[] source)
         {
+            byte result = 0;
 
+            int index = 8 - source.Length;
+            foreach (bool b in source)
+            {
+                if (b)
+                    result |= (byte)(1 << (index));
+                index++;
+            }
+            return result;
         }
 
-        public int Get()
+        public byte GetByte0()
         {
-            return (2 ^ 0 * (DO00 ? 1 : 0)) | (2 ^ 1 * (DO01 ? 1 : 0)
-                        | (2 ^ 2 * (DO02 ? 1 : 0)) | (2 ^ 3 * (DO03 ? 1 : 0))
-                        | (2 ^ 4 * (DO04 ? 1 : 0)) | (2 ^ 5 * (DO05 ? 1 : 0))
-                        | (2 ^ 6 * (DO06 ? 1 : 0)) | (2 ^ 7 * (DO07 ? 1 : 0))
-                        | (2 ^ 8 * (DO10 ? 1 : 0)) | (2 ^ 9 * (DO11 ? 1 : 0))
-                        | (2 ^ 10 * (DO12 ? 1 : 0)) | (2 ^ 11 * (DO13 ? 1 : 0))
-                        | (2 ^ 12 * (DO14 ? 1 : 0)) | (2 ^ 13 * (DO15 ? 1 : 0))
-                        | (2 ^ 14 * (DO16 ? 1 : 0)) | (2 ^ 15 * (DO17 ? 1 : 0)));
+            WordPart1[0] = DO00;
+            WordPart1[1] = DO01;
+            WordPart1[2] = DO02;
+            WordPart1[3] = DO03;
+            WordPart1[4] = DO04;
+            WordPart1[5] = DO05;
+            WordPart1[6] = DO06;
+            WordPart1[7] = DO07;            
+            return ConvertBoolArraytoByte(WordPart1);
         }
 
-        public void Set(int value)
+        public byte GetByte1()
         {
-            DO00 = (value & 2 ^ 0).Equals(1);
-            DO01 = (value & 2 ^ 1).Equals(1);
-            DO02 = (value & 2 ^ 2).Equals(1);
-            DO03 = (value & 2 ^ 3).Equals(1);
-            DO04 = (value & 2 ^ 4).Equals(1);
-            DO05 = (value & 2 ^ 5).Equals(1);
-            DO06 = (value & 2 ^ 6).Equals(1);
-            DO07 = (value & 2 ^ 7).Equals(1);
-            DO10 = (value & 2 ^ 8).Equals(1);
-            DO11 = (value & 2 ^ 9).Equals(1);
-            DO12 = (value & 2 ^ 10).Equals(1);
-            DO13 = (value & 2 ^ 11).Equals(1);
-            DO14 = (value & 2 ^ 12).Equals(1);
-            DO15 = (value & 2 ^ 13).Equals(1);
-            DO16 = (value & 2 ^ 14).Equals(1);
-            DO17 = (value & 2 ^ 15).Equals(1);
+            WordPart2[0] = DO10;
+            WordPart2[1] = DO11;
+            WordPart2[2] = DO12;
+            WordPart2[3] = DO13;
+            WordPart2[4] = DO14;
+            WordPart2[5] = DO15;
+            WordPart2[6] = DO16;
+            WordPart2[7] = DO17;
+            return ConvertBoolArraytoByte(WordPart2);
         }
-        
     }
 }
