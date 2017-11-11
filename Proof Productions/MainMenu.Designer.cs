@@ -48,11 +48,11 @@
             this.moveCueUpButton = new System.Windows.Forms.Button();
             this.moveCueDownButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cueActionFlowLayoutPanel.SuspendLayout();
             this.cueFlowLayoutPanel.SuspendLayout();
@@ -265,11 +265,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.mainMenuToolStripMenuItem,
             this.manualControlToolStripMenuItem,
             this.setupMotorsToolStripMenuItem,
             this.setupCuesToolStripMenuItem,
-            this.calibrationToolStripMenuItem,
+            this.loggerToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -277,13 +277,13 @@
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // mainMenuToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.fileToolStripMenuItem.Text = "Home";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.mainMenuToolStripMenuItem.Text = "Home";
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -306,12 +306,12 @@
             this.setupCuesToolStripMenuItem.Text = "Setup Cues";
             this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.setupCuesToolStripMenuItem_Click);
             // 
-            // calibrationToolStripMenuItem
+            // loggerToolStripMenuItem
             // 
-            this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
-            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.calibrationToolStripMenuItem.Text = "Logs";
-            this.calibrationToolStripMenuItem.Click += new System.EventHandler(this.calibrationToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
+            this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.loggerToolStripMenuItem.Text = "Logs";
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -373,11 +373,11 @@
         private System.Windows.Forms.Button nextCueButton;
         private System.Windows.Forms.Button stopCueButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

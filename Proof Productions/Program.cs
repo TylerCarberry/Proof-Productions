@@ -19,6 +19,12 @@ namespace Proof_Productions
 
             //Run different Forms
             Application.Run(new MainMenuForm());
+
+            /**TODO - Program doesn't terminate properly when closing 
+               from a Form other than MainMenuForm
+               Possible solutions/suggestions are below */
+            //Application.Exit();
+            //new MainMenuForm().Close();
         }
     }
 }

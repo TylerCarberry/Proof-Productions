@@ -201,7 +201,7 @@ namespace Proof_Productions
             switchToForm(new SetupCueForm());
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
             switchToForm(new MainMenuForm());
         }
 
@@ -251,6 +251,11 @@ namespace Proof_Productions
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             switchToForm(new SetupMotorForm());
+        }
+
+        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchToForm(new LoggerForm());
         }
     }
 }
