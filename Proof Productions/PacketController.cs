@@ -15,6 +15,7 @@ namespace Proof_Productions
     class PacketController
     {
         private ModbusTCP.Master MBmaster;
+        FieldbusInputData packet;
         private byte[] data;
         private byte[] result;
 
@@ -60,7 +61,6 @@ namespace Proof_Productions
             MessageBox.Show(exc, "Modbus slave exception");
         }
 
-        FieldbusInputData packet;
         public void WriteMotor(int v, int a, Boolean positive)
         {
             ushort ID = 8;
@@ -79,7 +79,6 @@ namespace Proof_Productions
 
             data = packet.GetValue();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
-<<<<<<< HEAD
         }
 
         public void TestDecel(int d)
@@ -93,21 +92,7 @@ namespace Proof_Productions
             data = packet.GetValue();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
         }
-=======
-        }
 
-        public void TestDecel(int d)
-        {
-            ushort ID = 8;
-            ushort StartAddress = 4;
-            byte unit = 0;
-            packet.Acceleration.Set(0);
-            packet.Deceleration.Set(d);
-            packet.SetpointVelocity.Set(0);
-            data = packet.GetValue();
-            MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
-        }
->>>>>>> 1f30a517f6932aec35f51b5c0eca4bee4e31b0db
         /*
         //functional test code
         public void Test()

@@ -1,10 +1,10 @@
 ﻿namespace Proof_Productions.Model.Input
 {
 
-    class Deceleration
+    public class Deceleration : MotorAction
     {
 
-        int deceleration;
+        private int deceleration;
 
         public Deceleration()
         {
@@ -19,6 +19,11 @@
         public int Get()
         {
             return deceleration;
+        }
+
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(deceleration);
         }
 
     }

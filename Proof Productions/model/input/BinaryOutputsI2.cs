@@ -12,7 +12,7 @@ namespace Proof_Productions.Model.Input
 
     // TODO: Convert this to an array
 
-    class BinaryOutputs_I2
+    public class BinaryOutputs_I2 : MotorAction
     {
         public Boolean[] WordPart1 = new Boolean[8];
         public Boolean[] WordPart2 = new Boolean[8];
@@ -58,6 +58,12 @@ namespace Proof_Productions.Model.Input
             WordPart2[6] = DO14;
             WordPart2[7] = DO15;
             return ConvertBoolArraytoByte(WordPart2);
+        }
+
+        // TODO
+        public override byte Encode()
+        {
+            return Convert.ToByte(0);
         }
     }
 }

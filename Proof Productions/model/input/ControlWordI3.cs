@@ -8,21 +8,17 @@ namespace Proof_Productions.Model.Input
 { 
     // There are 2 Control Word fields in the input. One in field 1, one in field 3
     // This class is the bits that correspond to the binary outputs in the third field
-    public class ControlWord_I3
+    public class ControlWord_I3 : MotorAction
     {
-        public Boolean[] WordPart1 = new Boolean[8];
-        public Boolean[] WordPart2 = new Boolean[8];
+        private Boolean[] WordPart1 = new Boolean[8];
+        private Boolean[] WordPart2 = new Boolean[8];
 
         public Boolean ControllerInhibit, EnableRapidStart, EnableStop, Bit3, Bit4, RelBrake, ErrorReset, Bit7;
         public Boolean Start, Positive, Negative, Mode2tothe0, Mode2tothe1, Mode2tothe2, Mode2tothe3, SWLS;
 
         public ControlWord_I3()
         {
-<<<<<<< HEAD
-        }
 
-        private byte ConvertBoolArraytoByte(bool[] source)
-=======
         }
 
         private byte ConvertBoolArraytoByte(bool[] source)
@@ -133,6 +129,12 @@ namespace Proof_Productions.Model.Input
 =======
         */
 
->>>>>>> 1f30a517f6932aec35f51b5c0eca4bee4e31b0db
+        
+            // TODO
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(0);
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
-    class FieldbusInputData
+    public class FieldbusInputData : MotorAction
     {
         public ControlWord_I1 Control_I1 { get; set; }          = new ControlWord_I1();
         public BinaryOutputs_I2 BinaryOut_I2 { get; set; }      = new BinaryOutputs_I2();
@@ -30,19 +30,14 @@ namespace Proof_Productions.Model.Input
         //data[8] = BitConverter.GetBytes(acceleration)[1];  // byte 1 of Velocity
         //data[9] = BitConverter.GetBytes(acceleration)[0];  // byte 0 of velocity
         //data[10] = 0;
-
-<<<<<<< HEAD
+        
         public FieldbusInputData()
         {
 
         }
-
+        
         public byte[] GetValue()
         {
-=======
-        public byte[] GetValue()
-        {
->>>>>>> 1f30a517f6932aec35f51b5c0eca4bee4e31b0db
             byte[] bytes = new byte[24];
             /*
                 //when we return the setpoint velocity, acceleration and deceleration
@@ -85,6 +80,12 @@ namespace Proof_Productions.Model.Input
             Console.Out.WriteLine(bytes[5] + " " + bytes[4]);
             return bytes;
             
+        }
+
+        // TODO
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(0);
         }
 
     }

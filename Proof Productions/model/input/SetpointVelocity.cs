@@ -1,9 +1,9 @@
 ﻿namespace Proof_Productions.Model.Input
 {
-    class SetpointVelocity
+    public class SetpointVelocity : MotorAction
     {
 
-        int setpointVelocity;
+        private int setpointVelocity;
 
         public SetpointVelocity()
         {
@@ -18,6 +18,11 @@
         public int Get()
         {
             return setpointVelocity;
+        }
+
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(setpointVelocity);
         }
 
     }

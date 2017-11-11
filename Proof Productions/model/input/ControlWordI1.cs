@@ -8,7 +8,7 @@ namespace Proof_Productions.Model.Input
 {
     // There are 2 Control Word fields in the input. One in field 1, one in field 3
     // This class is the bits that correspond to the binary outputs in the first field
-    public class ControlWord_I1
+    public class ControlWord_I1 : MotorAction
     {
         //bit  0 : Controller Inhibit
         //bit  1 : Enable Rapid Start
@@ -58,6 +58,12 @@ namespace Proof_Productions.Model.Input
             WordPart2[6] = UserBit1;
             WordPart2[7] = UserBit2;
             return ConvertBoolArraytoByte(WordPart2);
+        }
+
+        // TODO
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(0);
         }
     }
 }

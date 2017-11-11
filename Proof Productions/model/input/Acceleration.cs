@@ -1,22 +1,27 @@
 ﻿namespace Proof_Productions.Model.Input
 {
-    class Acceleration
-    { 
-        int acceleration;
+    public class Acceleration : MotorAction
+    {
+        private int Accel { get; set; }
 
         public Acceleration()
         {
-            acceleration = 0;
+            Accel = 0;
         }
 
         public void Set(int acceleration)
         {
-            this.acceleration = acceleration;
+            this.Accel = acceleration;
         }
 
         public int Get()
         {
-            return acceleration;
+            return Accel;
+        }
+
+        public override byte Encode()
+        {
+            return System.Convert.ToByte(Accel);
         }
 
     }
