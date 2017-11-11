@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ModbusTCP, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\bin\Debug\ModbusTCP.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,23 +55,47 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup Cues.cs">
+    <Compile Include="Model\Input\Acceleration.cs" />
+    <Compile Include="Model\Input\BinaryOutputsI10.cs" />
+    <Compile Include="Model\Input\BinaryOutputsI2.cs" />
+    <Compile Include="Model\Input\ControlWordI1.cs" />
+    <Compile Include="Model\Input\ControlWordI3.cs" />
+    <Compile Include="Model\Input\Deceleration.cs" />
+    <Compile Include="Model\Input\FieldbusInputData.cs" />
+    <Compile Include="Model\Input\MotorAction.cs" />
+    <Compile Include="Model\Input\SetpointPosition.cs" />
+    <Compile Include="Model\Input\SetpointValue2.cs" />
+    <Compile Include="Model\Input\SetpointVelocity.cs" />
+    <Compile Include="Model\Input\SubControlWord.cs" />
+    <Compile Include="Model\Output\ActualPosition.cs" />
+    <Compile Include="Model\Output\ActualValue2.cs" />
+    <Compile Include="Model\Output\ActualVelocity.cs" />
+    <Compile Include="Model\Output\BinaryInputsO10.cs" />
+    <Compile Include="Model\Output\BinaryInputsO2.cs" />
+    <Compile Include="Model\Output\FieldbusOutputData.cs" />
+    <Compile Include="Model\Output\OutputCurrent.cs" />
+    <Compile Include="Model\Output\Reserved.cs" />
+    <Compile Include="Model\Output\StatusWordO1.cs" />
+    <Compile Include="Model\Output\StatusWordO3.cs" />
+    <Compile Include="Model\Output\SubStatusWord.cs" />
+    <Compile Include="PacketController.cs" />
+    <Compile Include="SetupCues.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup Cues.Designer.cs">
-      <DependentUpon>Setup Cues.cs</DependentUpon>
+    <Compile Include="SetupCues.Designer.cs">
+      <DependentUpon>SetupCues.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main Menu.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Menu.Designer.cs">
-      <DependentUpon>Main Menu.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manual Control.cs">
+    <Compile Include="ManualControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manual Control.Designer.cs">
-      <DependentUpon>Manual Control.cs</DependentUpon>
+    <Compile Include="ManualControl.Designer.cs">
+      <DependentUpon>ManualControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,14 +108,14 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup Cues.resx">
-      <DependentUpon>Setup Cues.cs</DependentUpon>
+    <EmbeddedResource Include="SetupCues.resx">
+      <DependentUpon>SetupCues.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main Menu.resx">
-      <DependentUpon>Main Menu.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manual Control.resx">
-      <DependentUpon>Manual Control.cs</DependentUpon>
+    <EmbeddedResource Include="ManualControl.resx">
+      <DependentUpon>ManualControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

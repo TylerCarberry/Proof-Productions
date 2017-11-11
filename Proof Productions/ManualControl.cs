@@ -12,12 +12,13 @@ namespace Proof_Productions
 {
     public partial class ManualControlForm : Form
     {
+        Timer timer = new Timer();
+
+
         public ManualControlForm()
         {
             InitializeComponent();
         }
-
-
 
         private void motor1Desc_TextChanged(object sender, EventArgs e)
         {
@@ -45,19 +46,70 @@ namespace Proof_Productions
 
         }
 
+        PacketController p;
+
         private void motor1Play_Click(object sender, EventArgs e)
         {
+            String speedStr = motor1Spd.Text;
+            String accelStr = motor1Accel.Text;
 
+            if (speedStr == null || speedStr.Equals("") || accelStr == null || speedStr.Equals(""))
+            {
+                // TODO Show a dialog
+            } else {
+                int speed = Convert.ToInt32(motor1Spd.Text);
+                int acceleration = Convert.ToInt32(motor1Accel.Text);
+
+                writeToMotor(speed, acceleration, true, 5000);
+                
+                //p.WriteMotor(speed, acceleration, true);
+            }
+
+            
+            
+            //p.Test();
+        }
+
+        public void writeToMotor(int speed, int acceleration, bool foward, int durationMilliseconds)
+        {
+            // 200 ms seems good for
+            timer.Interval = 100;
+            timer.Tick += new EventHandler(timerTick);
+            timer.Start();
+        }
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            Console.Out.WriteLine("TICK");
+            writeToMotorOnce(300, 100, true);
+        }
+
+        private void timerTick2(object sender, EventArgs e)
+        {
+            Console.Out.WriteLine("TICK");
+            writeToMotorOnce(10);
+        }
+
+        private void writeToMotorOnce(int deceleration)
+        {
+            p.TestDecel(deceleration);
+        }
+
+        private void writeToMotorOnce(int speed, int acceleration, bool foward)
+        {
+            p.WriteMotor(speed, acceleration, foward);
         }
 
         private void motor1Pause_Click(object sender, EventArgs e)
         {
-
+            p = new PacketController();
+            p.ConnectMotor();
         }
 
         private void motor1Stop_Click(object sender, EventArgs e)
         {
-
+            timer.Tick -= timerTick;
+            timer.Tick += new EventHandler(timerTick2);
         }
 
         private void motor2Desc_TextChanged(object sender, EventArgs e)
