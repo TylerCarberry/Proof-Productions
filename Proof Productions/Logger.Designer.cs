@@ -177,6 +177,7 @@
             // 
             // loggerToolStripMenuItem
             // 
+            this.loggerToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
             this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.loggerToolStripMenuItem.Text = "Logs";
@@ -189,7 +190,7 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // Logger
+            // LoggerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -201,7 +202,7 @@
             this.Controls.Add(this.displayErrorButton);
             this.Controls.Add(this.logGridView);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "Logger";
+            this.Name = "LoggerForm";
             this.Text = "Logger";
             ((System.ComponentModel.ISupportInitialize)(this.logGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);

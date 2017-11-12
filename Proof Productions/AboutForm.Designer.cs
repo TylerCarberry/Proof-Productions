@@ -49,7 +49,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Version: 0.2";
+            this.label2.Text = "Version: 0.3";
             // 
             // label3
             // 
@@ -71,7 +71,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AboutForm";
-            this.Text = "AboutForm";
+            this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();
 

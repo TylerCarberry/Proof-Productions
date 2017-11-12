@@ -61,6 +61,7 @@
     <Compile Include="Logger.Designer.cs">
       <DependentUpon>Logger.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputValidator.cs" />
     <Compile Include="Model\Input\Acceleration.cs" />
     <Compile Include="Model\Input\BinaryOutputsI10.cs" />
     <Compile Include="Model\Input\BinaryOutputsI2.cs" />

@@ -33,11 +33,11 @@
             this.motor1Dir = new System.Windows.Forms.ComboBox();
             this.motor1Spd = new System.Windows.Forms.ComboBox();
             this.motor1Accel = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.motor1Decel = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.motor1Play = new System.Windows.Forms.Button();
-            this.motor1Pause = new System.Windows.Forms.Button();
+            this.motor1Start = new System.Windows.Forms.Button();
             this.motor1Stop = new System.Windows.Forms.Button();
+            this.motor1Clear = new System.Windows.Forms.Button();
             this.motorPanelLeft = new System.Windows.Forms.Panel();
             this.dirLabel1 = new System.Windows.Forms.Label();
             this.spdLabel1 = new System.Windows.Forms.Label();
@@ -46,11 +46,11 @@
             this.accelLabel2 = new System.Windows.Forms.Label();
             this.spdLabel2 = new System.Windows.Forms.Label();
             this.dirLabel2 = new System.Windows.Forms.Label();
+            this.motor2Clear = new System.Windows.Forms.Button();
             this.motor2Stop = new System.Windows.Forms.Button();
-            this.motor2Pause = new System.Windows.Forms.Button();
-            this.motor2Play = new System.Windows.Forms.Button();
+            this.motor2Start = new System.Windows.Forms.Button();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.motor2Decel = new System.Windows.Forms.ComboBox();
             this.motor2Accel = new System.Windows.Forms.ComboBox();
             this.motor2Spd = new System.Windows.Forms.ComboBox();
             this.motor2Dir = new System.Windows.Forms.ComboBox();
@@ -60,11 +60,11 @@
             this.accelLabel3 = new System.Windows.Forms.Label();
             this.spdLabel3 = new System.Windows.Forms.Label();
             this.dirLabel3 = new System.Windows.Forms.Label();
+            this.motor3Clear = new System.Windows.Forms.Button();
             this.motor3Stop = new System.Windows.Forms.Button();
-            this.motor3Pause = new System.Windows.Forms.Button();
-            this.motor3Play = new System.Windows.Forms.Button();
+            this.motor3Start = new System.Windows.Forms.Button();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.motor3Decel = new System.Windows.Forms.ComboBox();
             this.motor3Accel = new System.Windows.Forms.ComboBox();
             this.motor3Spd = new System.Windows.Forms.ComboBox();
             this.motor3Dir = new System.Windows.Forms.ComboBox();
@@ -83,6 +83,9 @@
             this.startCalibrationBtn = new System.Windows.Forms.Button();
             this.pauseCalibrationBtn = new System.Windows.Forms.Button();
             this.stopCalibrationBtn = new System.Windows.Forms.Button();
+            this.decelLabel1 = new System.Windows.Forms.Label();
+            this.decelLabel2 = new System.Windows.Forms.Label();
+            this.decelLabel3 = new System.Windows.Forms.Label();
             this.motorPanelLeft.SuspendLayout();
             this.motorPanelCenter.SuspendLayout();
             this.motorPanelRight.SuspendLayout();
@@ -95,7 +98,6 @@
             this.motor1Desc.Location = new System.Drawing.Point(21, 35);
             this.motor1Desc.Multiline = true;
             this.motor1Desc.Name = "motor1Desc";
-            this.motor1Desc.ReadOnly = true;
             this.motor1Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor1Desc.Size = new System.Drawing.Size(148, 117);
             this.motor1Desc.TabIndex = 0;
@@ -104,6 +106,8 @@
             // motorBox1
             // 
             this.motorBox1.FormattingEnabled = true;
+            this.motorBox1.Items.AddRange(new object[] {
+            "Motor 1"});
             this.motorBox1.Location = new System.Drawing.Point(21, 13);
             this.motorBox1.Name = "motorBox1";
             this.motorBox1.Size = new System.Drawing.Size(148, 21);
@@ -113,6 +117,9 @@
             // motor1Dir
             // 
             this.motor1Dir.FormattingEnabled = true;
+            this.motor1Dir.Items.AddRange(new object[] {
+            "Clockwise",
+            "Counterclockwise"});
             this.motor1Dir.Location = new System.Drawing.Point(20, 172);
             this.motor1Dir.Name = "motor1Dir";
             this.motor1Dir.Size = new System.Drawing.Size(149, 21);
@@ -122,6 +129,13 @@
             // motor1Spd
             // 
             this.motor1Spd.FormattingEnabled = true;
+            this.motor1Spd.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor1Spd.Location = new System.Drawing.Point(20, 213);
             this.motor1Spd.Name = "motor1Spd";
             this.motor1Spd.Size = new System.Drawing.Size(149, 21);
@@ -131,19 +145,33 @@
             // motor1Accel
             // 
             this.motor1Accel.FormattingEnabled = true;
+            this.motor1Accel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor1Accel.Location = new System.Drawing.Point(20, 253);
             this.motor1Accel.Name = "motor1Accel";
             this.motor1Accel.Size = new System.Drawing.Size(149, 21);
             this.motor1Accel.TabIndex = 4;
             this.motor1Accel.SelectedIndexChanged += new System.EventHandler(this.motor1Accel_SelectedIndexChanged);
             // 
-            // comboBox5
+            // motor1Decel
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(21, 294);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(148, 21);
-            this.comboBox5.TabIndex = 5;
+            this.motor1Decel.FormattingEnabled = true;
+            this.motor1Decel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
+            this.motor1Decel.Location = new System.Drawing.Point(21, 294);
+            this.motor1Decel.Name = "motor1Decel";
+            this.motor1Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor1Decel.TabIndex = 5;
             // 
             // comboBox6
             // 
@@ -153,46 +181,47 @@
             this.comboBox6.Size = new System.Drawing.Size(148, 21);
             this.comboBox6.TabIndex = 6;
             // 
-            // motor1Play
+            // motor1Start
             // 
-            this.motor1Play.Location = new System.Drawing.Point(20, 370);
-            this.motor1Play.Name = "motor1Play";
-            this.motor1Play.Size = new System.Drawing.Size(48, 23);
-            this.motor1Play.TabIndex = 7;
-            this.motor1Play.Text = "Play";
-            this.motor1Play.UseVisualStyleBackColor = true;
-            this.motor1Play.Click += new System.EventHandler(this.motor1Play_Click);
-            // 
-            // motor1Pause
-            // 
-            this.motor1Pause.Location = new System.Drawing.Point(72, 370);
-            this.motor1Pause.Name = "motor1Pause";
-            this.motor1Pause.Size = new System.Drawing.Size(47, 23);
-            this.motor1Pause.TabIndex = 8;
-            this.motor1Pause.Text = "Pause";
-            this.motor1Pause.UseVisualStyleBackColor = true;
-            this.motor1Pause.Click += new System.EventHandler(this.motor1Pause_Click);
+            this.motor1Start.Location = new System.Drawing.Point(20, 370);
+            this.motor1Start.Name = "motor1Start";
+            this.motor1Start.Size = new System.Drawing.Size(48, 23);
+            this.motor1Start.TabIndex = 7;
+            this.motor1Start.Text = "Start";
+            this.motor1Start.UseVisualStyleBackColor = true;
+            this.motor1Start.Click += new System.EventHandler(this.motor1Play_Click);
             // 
             // motor1Stop
             // 
-            this.motor1Stop.Location = new System.Drawing.Point(123, 370);
+            this.motor1Stop.Location = new System.Drawing.Point(72, 370);
             this.motor1Stop.Name = "motor1Stop";
-            this.motor1Stop.Size = new System.Drawing.Size(46, 23);
-            this.motor1Stop.TabIndex = 9;
+            this.motor1Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor1Stop.TabIndex = 8;
             this.motor1Stop.Text = "Stop";
             this.motor1Stop.UseVisualStyleBackColor = true;
             this.motor1Stop.Click += new System.EventHandler(this.motor1Stop_Click);
             // 
+            // motor1Clear
+            // 
+            this.motor1Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor1Clear.Name = "motor1Clear";
+            this.motor1Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor1Clear.TabIndex = 9;
+            this.motor1Clear.Text = "Clear";
+            this.motor1Clear.UseVisualStyleBackColor = true;
+            this.motor1Clear.Click += new System.EventHandler(this.motor1Clear_Click);
+            // 
             // motorPanelLeft
             // 
+            this.motorPanelLeft.Controls.Add(this.decelLabel1);
             this.motorPanelLeft.Controls.Add(this.dirLabel1);
             this.motorPanelLeft.Controls.Add(this.spdLabel1);
             this.motorPanelLeft.Controls.Add(this.accelLabel1);
+            this.motorPanelLeft.Controls.Add(this.motor1Clear);
             this.motorPanelLeft.Controls.Add(this.motor1Stop);
-            this.motorPanelLeft.Controls.Add(this.motor1Pause);
-            this.motorPanelLeft.Controls.Add(this.motor1Play);
+            this.motorPanelLeft.Controls.Add(this.motor1Start);
             this.motorPanelLeft.Controls.Add(this.comboBox6);
-            this.motorPanelLeft.Controls.Add(this.comboBox5);
+            this.motorPanelLeft.Controls.Add(this.motor1Decel);
             this.motorPanelLeft.Controls.Add(this.motor1Accel);
             this.motorPanelLeft.Controls.Add(this.motor1Spd);
             this.motorPanelLeft.Controls.Add(this.motor1Dir);
@@ -233,14 +262,15 @@
             // 
             // motorPanelCenter
             // 
+            this.motorPanelCenter.Controls.Add(this.decelLabel2);
             this.motorPanelCenter.Controls.Add(this.accelLabel2);
             this.motorPanelCenter.Controls.Add(this.spdLabel2);
             this.motorPanelCenter.Controls.Add(this.dirLabel2);
+            this.motorPanelCenter.Controls.Add(this.motor2Clear);
             this.motorPanelCenter.Controls.Add(this.motor2Stop);
-            this.motorPanelCenter.Controls.Add(this.motor2Pause);
-            this.motorPanelCenter.Controls.Add(this.motor2Play);
+            this.motorPanelCenter.Controls.Add(this.motor2Start);
             this.motorPanelCenter.Controls.Add(this.comboBox7);
-            this.motorPanelCenter.Controls.Add(this.comboBox8);
+            this.motorPanelCenter.Controls.Add(this.motor2Decel);
             this.motorPanelCenter.Controls.Add(this.motor2Accel);
             this.motorPanelCenter.Controls.Add(this.motor2Spd);
             this.motorPanelCenter.Controls.Add(this.motor2Dir);
@@ -278,35 +308,35 @@
             this.dirLabel2.TabIndex = 10;
             this.dirLabel2.Text = "Direction";
             // 
+            // motor2Clear
+            // 
+            this.motor2Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor2Clear.Name = "motor2Clear";
+            this.motor2Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor2Clear.TabIndex = 9;
+            this.motor2Clear.Text = "Clear";
+            this.motor2Clear.UseVisualStyleBackColor = true;
+            this.motor2Clear.Click += new System.EventHandler(this.motor2Clear_Click);
+            // 
             // motor2Stop
             // 
-            this.motor2Stop.Location = new System.Drawing.Point(123, 370);
+            this.motor2Stop.Location = new System.Drawing.Point(72, 370);
             this.motor2Stop.Name = "motor2Stop";
-            this.motor2Stop.Size = new System.Drawing.Size(46, 23);
-            this.motor2Stop.TabIndex = 9;
+            this.motor2Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor2Stop.TabIndex = 8;
             this.motor2Stop.Text = "Stop";
             this.motor2Stop.UseVisualStyleBackColor = true;
             this.motor2Stop.Click += new System.EventHandler(this.motor2Stop_Click);
             // 
-            // motor2Pause
+            // motor2Start
             // 
-            this.motor2Pause.Location = new System.Drawing.Point(72, 370);
-            this.motor2Pause.Name = "motor2Pause";
-            this.motor2Pause.Size = new System.Drawing.Size(47, 23);
-            this.motor2Pause.TabIndex = 8;
-            this.motor2Pause.Text = "Pause";
-            this.motor2Pause.UseVisualStyleBackColor = true;
-            this.motor2Pause.Click += new System.EventHandler(this.motor2Pause_Click);
-            // 
-            // motor2Play
-            // 
-            this.motor2Play.Location = new System.Drawing.Point(20, 370);
-            this.motor2Play.Name = "motor2Play";
-            this.motor2Play.Size = new System.Drawing.Size(48, 23);
-            this.motor2Play.TabIndex = 7;
-            this.motor2Play.Text = "Play";
-            this.motor2Play.UseVisualStyleBackColor = true;
-            this.motor2Play.Click += new System.EventHandler(this.motor2Play_Click);
+            this.motor2Start.Location = new System.Drawing.Point(20, 370);
+            this.motor2Start.Name = "motor2Start";
+            this.motor2Start.Size = new System.Drawing.Size(48, 23);
+            this.motor2Start.TabIndex = 7;
+            this.motor2Start.Text = "Start";
+            this.motor2Start.UseVisualStyleBackColor = true;
+            this.motor2Start.Click += new System.EventHandler(this.motor2Play_Click);
             // 
             // comboBox7
             // 
@@ -316,17 +346,31 @@
             this.comboBox7.Size = new System.Drawing.Size(148, 21);
             this.comboBox7.TabIndex = 6;
             // 
-            // comboBox8
+            // motor2Decel
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(21, 294);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(148, 21);
-            this.comboBox8.TabIndex = 5;
+            this.motor2Decel.FormattingEnabled = true;
+            this.motor2Decel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
+            this.motor2Decel.Location = new System.Drawing.Point(21, 294);
+            this.motor2Decel.Name = "motor2Decel";
+            this.motor2Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor2Decel.TabIndex = 5;
             // 
             // motor2Accel
             // 
             this.motor2Accel.FormattingEnabled = true;
+            this.motor2Accel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor2Accel.Location = new System.Drawing.Point(20, 253);
             this.motor2Accel.Name = "motor2Accel";
             this.motor2Accel.Size = new System.Drawing.Size(149, 21);
@@ -336,6 +380,13 @@
             // motor2Spd
             // 
             this.motor2Spd.FormattingEnabled = true;
+            this.motor2Spd.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor2Spd.Location = new System.Drawing.Point(20, 213);
             this.motor2Spd.Name = "motor2Spd";
             this.motor2Spd.Size = new System.Drawing.Size(149, 21);
@@ -345,6 +396,9 @@
             // motor2Dir
             // 
             this.motor2Dir.FormattingEnabled = true;
+            this.motor2Dir.Items.AddRange(new object[] {
+            "Clockwise",
+            "Counterclockwise"});
             this.motor2Dir.Location = new System.Drawing.Point(20, 172);
             this.motor2Dir.Name = "motor2Dir";
             this.motor2Dir.Size = new System.Drawing.Size(149, 21);
@@ -354,6 +408,8 @@
             // motorBox2
             // 
             this.motorBox2.FormattingEnabled = true;
+            this.motorBox2.Items.AddRange(new object[] {
+            "Motor 1"});
             this.motorBox2.Location = new System.Drawing.Point(21, 13);
             this.motorBox2.Name = "motorBox2";
             this.motorBox2.Size = new System.Drawing.Size(148, 21);
@@ -366,7 +422,6 @@
             this.motor2Desc.Location = new System.Drawing.Point(21, 35);
             this.motor2Desc.Multiline = true;
             this.motor2Desc.Name = "motor2Desc";
-            this.motor2Desc.ReadOnly = true;
             this.motor2Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor2Desc.Size = new System.Drawing.Size(148, 117);
             this.motor2Desc.TabIndex = 0;
@@ -374,14 +429,15 @@
             // 
             // motorPanelRight
             // 
+            this.motorPanelRight.Controls.Add(this.decelLabel3);
             this.motorPanelRight.Controls.Add(this.accelLabel3);
             this.motorPanelRight.Controls.Add(this.spdLabel3);
             this.motorPanelRight.Controls.Add(this.dirLabel3);
+            this.motorPanelRight.Controls.Add(this.motor3Clear);
             this.motorPanelRight.Controls.Add(this.motor3Stop);
-            this.motorPanelRight.Controls.Add(this.motor3Pause);
-            this.motorPanelRight.Controls.Add(this.motor3Play);
+            this.motorPanelRight.Controls.Add(this.motor3Start);
             this.motorPanelRight.Controls.Add(this.comboBox13);
-            this.motorPanelRight.Controls.Add(this.comboBox14);
+            this.motorPanelRight.Controls.Add(this.motor3Decel);
             this.motorPanelRight.Controls.Add(this.motor3Accel);
             this.motorPanelRight.Controls.Add(this.motor3Spd);
             this.motorPanelRight.Controls.Add(this.motor3Dir);
@@ -419,35 +475,35 @@
             this.dirLabel3.TabIndex = 13;
             this.dirLabel3.Text = "Direction";
             // 
+            // motor3Clear
+            // 
+            this.motor3Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor3Clear.Name = "motor3Clear";
+            this.motor3Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor3Clear.TabIndex = 9;
+            this.motor3Clear.Text = "Clear";
+            this.motor3Clear.UseVisualStyleBackColor = true;
+            this.motor3Clear.Click += new System.EventHandler(this.motor3Clear_Click);
+            // 
             // motor3Stop
             // 
-            this.motor3Stop.Location = new System.Drawing.Point(123, 370);
+            this.motor3Stop.Location = new System.Drawing.Point(72, 370);
             this.motor3Stop.Name = "motor3Stop";
-            this.motor3Stop.Size = new System.Drawing.Size(46, 23);
-            this.motor3Stop.TabIndex = 9;
+            this.motor3Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor3Stop.TabIndex = 8;
             this.motor3Stop.Text = "Stop";
             this.motor3Stop.UseVisualStyleBackColor = true;
-            this.motor3Stop.Click += new System.EventHandler(this.motor3Stop_Click);
+            this.motor3Stop.Click += new System.EventHandler(this.motor3Pause_Click);
             // 
-            // motor3Pause
+            // motor3Start
             // 
-            this.motor3Pause.Location = new System.Drawing.Point(72, 370);
-            this.motor3Pause.Name = "motor3Pause";
-            this.motor3Pause.Size = new System.Drawing.Size(47, 23);
-            this.motor3Pause.TabIndex = 8;
-            this.motor3Pause.Text = "Pause";
-            this.motor3Pause.UseVisualStyleBackColor = true;
-            this.motor3Pause.Click += new System.EventHandler(this.motor3Pause_Click);
-            // 
-            // motor3Play
-            // 
-            this.motor3Play.Location = new System.Drawing.Point(20, 370);
-            this.motor3Play.Name = "motor3Play";
-            this.motor3Play.Size = new System.Drawing.Size(48, 23);
-            this.motor3Play.TabIndex = 7;
-            this.motor3Play.Text = "Play";
-            this.motor3Play.UseVisualStyleBackColor = true;
-            this.motor3Play.Click += new System.EventHandler(this.motor3Play_Click);
+            this.motor3Start.Location = new System.Drawing.Point(20, 370);
+            this.motor3Start.Name = "motor3Start";
+            this.motor3Start.Size = new System.Drawing.Size(48, 23);
+            this.motor3Start.TabIndex = 7;
+            this.motor3Start.Text = "Start";
+            this.motor3Start.UseVisualStyleBackColor = true;
+            this.motor3Start.Click += new System.EventHandler(this.motor3Play_Click);
             // 
             // comboBox13
             // 
@@ -457,17 +513,31 @@
             this.comboBox13.Size = new System.Drawing.Size(148, 21);
             this.comboBox13.TabIndex = 6;
             // 
-            // comboBox14
+            // motor3Decel
             // 
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(21, 294);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(148, 21);
-            this.comboBox14.TabIndex = 5;
+            this.motor3Decel.FormattingEnabled = true;
+            this.motor3Decel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
+            this.motor3Decel.Location = new System.Drawing.Point(21, 294);
+            this.motor3Decel.Name = "motor3Decel";
+            this.motor3Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor3Decel.TabIndex = 5;
             // 
             // motor3Accel
             // 
             this.motor3Accel.FormattingEnabled = true;
+            this.motor3Accel.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor3Accel.Location = new System.Drawing.Point(20, 253);
             this.motor3Accel.Name = "motor3Accel";
             this.motor3Accel.Size = new System.Drawing.Size(149, 21);
@@ -477,6 +547,13 @@
             // motor3Spd
             // 
             this.motor3Spd.FormattingEnabled = true;
+            this.motor3Spd.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"});
             this.motor3Spd.Location = new System.Drawing.Point(20, 213);
             this.motor3Spd.Name = "motor3Spd";
             this.motor3Spd.Size = new System.Drawing.Size(149, 21);
@@ -486,6 +563,9 @@
             // motor3Dir
             // 
             this.motor3Dir.FormattingEnabled = true;
+            this.motor3Dir.Items.AddRange(new object[] {
+            "Clockwise",
+            "Counterclockwise"});
             this.motor3Dir.Location = new System.Drawing.Point(20, 172);
             this.motor3Dir.Name = "motor3Dir";
             this.motor3Dir.Size = new System.Drawing.Size(149, 21);
@@ -495,6 +575,8 @@
             // motorBox3
             // 
             this.motorBox3.FormattingEnabled = true;
+            this.motorBox3.Items.AddRange(new object[] {
+            "Motor 1"});
             this.motorBox3.Location = new System.Drawing.Point(21, 13);
             this.motorBox3.Name = "motorBox3";
             this.motorBox3.Size = new System.Drawing.Size(148, 21);
@@ -508,7 +590,6 @@
             this.motor3Desc.Location = new System.Drawing.Point(21, 35);
             this.motor3Desc.Multiline = true;
             this.motor3Desc.Name = "motor3Desc";
-            this.motor3Desc.ReadOnly = true;
             this.motor3Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor3Desc.Size = new System.Drawing.Size(148, 117);
             this.motor3Desc.TabIndex = 0;
@@ -575,7 +656,6 @@
             // 
             this.calibrateMotorCheckList.FormattingEnabled = true;
             this.calibrateMotorCheckList.Items.AddRange(new object[] {
-            "Check All",
             "Motor 1",
             "Motor 2",
             "Motor 3",
@@ -648,6 +728,33 @@
             this.stopCalibrationBtn.UseVisualStyleBackColor = true;
             this.stopCalibrationBtn.Click += new System.EventHandler(this.stopCalibrationBtn_Click);
             // 
+            // decelLabel1
+            // 
+            this.decelLabel1.AutoSize = true;
+            this.decelLabel1.Location = new System.Drawing.Point(19, 281);
+            this.decelLabel1.Name = "decelLabel1";
+            this.decelLabel1.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel1.TabIndex = 15;
+            this.decelLabel1.Text = "Deceleration";
+            // 
+            // decelLabel2
+            // 
+            this.decelLabel2.AutoSize = true;
+            this.decelLabel2.Location = new System.Drawing.Point(18, 281);
+            this.decelLabel2.Name = "decelLabel2";
+            this.decelLabel2.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel2.TabIndex = 16;
+            this.decelLabel2.Text = "Deceleration";
+            // 
+            // decelLabel3
+            // 
+            this.decelLabel3.AutoSize = true;
+            this.decelLabel3.Location = new System.Drawing.Point(18, 281);
+            this.decelLabel3.Name = "decelLabel3";
+            this.decelLabel3.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel3.TabIndex = 17;
+            this.decelLabel3.Text = "Deceleration";
+            // 
             // ManualControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,11 +792,11 @@
         private System.Windows.Forms.ComboBox motor1Dir;
         private System.Windows.Forms.ComboBox motor1Spd;
         private System.Windows.Forms.ComboBox motor1Accel;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox motor1Decel;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Button motor1Play;
-        private System.Windows.Forms.Button motor1Pause;
+        private System.Windows.Forms.Button motor1Start;
         private System.Windows.Forms.Button motor1Stop;
+        private System.Windows.Forms.Button motor1Clear;
         private System.Windows.Forms.Panel motorPanelLeft;
         private System.Windows.Forms.Label spdLabel1;
         private System.Windows.Forms.Label dirLabel1;
@@ -697,11 +804,11 @@
 
         //motor2
         private System.Windows.Forms.Panel motorPanelCenter;
+        private System.Windows.Forms.Button motor2Clear;
         private System.Windows.Forms.Button motor2Stop;
-        private System.Windows.Forms.Button motor2Pause;
-        private System.Windows.Forms.Button motor2Play;
+        private System.Windows.Forms.Button motor2Start;
         private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox motor2Decel;
         private System.Windows.Forms.ComboBox motor2Accel;
         private System.Windows.Forms.ComboBox motor2Spd;
         private System.Windows.Forms.ComboBox motor2Dir;
@@ -713,11 +820,11 @@
 
         //motor3
         private System.Windows.Forms.Panel motorPanelRight;
+        private System.Windows.Forms.Button motor3Clear;
         private System.Windows.Forms.Button motor3Stop;
-        private System.Windows.Forms.Button motor3Pause;
-        private System.Windows.Forms.Button motor3Play;
+        private System.Windows.Forms.Button motor3Start;
         private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.ComboBox motor3Decel;
         private System.Windows.Forms.ComboBox motor3Accel;
         private System.Windows.Forms.ComboBox motor3Spd;
         private System.Windows.Forms.ComboBox motor3Dir;
@@ -739,5 +846,8 @@
         private System.Windows.Forms.Button startCalibrationBtn;
         private System.Windows.Forms.Button pauseCalibrationBtn;
         private System.Windows.Forms.Button stopCalibrationBtn;
+        private System.Windows.Forms.Label decelLabel1;
+        private System.Windows.Forms.Label decelLabel2;
+        private System.Windows.Forms.Label decelLabel3;
     }
 }
