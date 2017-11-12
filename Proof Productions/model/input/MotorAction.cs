@@ -1,13 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Proof_Productions.Model.Input
+﻿namespace Proof_Productions.Model.Input
 {
     public abstract class MotorAction
     {
-        public abstract byte Encode();
+        
+        protected byte ConvertBoolArraytoByte(bool[] source)
+        {
+            byte result = 0;
+
+            int index = 8 - source.Length;
+            foreach (bool b in source)
+            {
+                if (b)
+                {
+                    result |= (byte)(1 << (index));
+                }
+                index++;
+            }
+            return result;
+        }
+        
     }
 }

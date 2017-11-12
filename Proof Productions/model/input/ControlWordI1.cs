@@ -8,62 +8,57 @@ namespace Proof_Productions.Model.Input
 {
     // There are 2 Control Word fields in the input. One in field 1, one in field 3
     // This class is the bits that correspond to the binary outputs in the first field
-    public class ControlWord_I1 : MotorAction
+    public class ControlWordI1 : MotorAction
     {
-        //bit  0 : Controller Inhibit
-        //bit  1 : Enable Rapid Start
+        // First byte
+        public Boolean Download_Dataset;
+        public Boolean Upload_Dataset;
+        public Boolean Upload_Dataset_And_Autoreload;
+        public Boolean Simulation_Mode_Off;
+        public Boolean Auto_Configuration_Off;
+        public Boolean Bit05;
+        public Boolean Reboot_System;
+        public Boolean Bit07;
 
-        public Boolean[] WordPart1 = new Boolean[8];
-        public Boolean[] WordPart2 = new Boolean[8];
+        // Second byte
+        public Boolean Bit08;
+        public Boolean Bit09;
+        public Boolean Bit10;
+        public Boolean Bit11;
+        public Boolean Bit12;
+        public Boolean Bit13;
+        public Boolean UserBit1;
+        public Boolean UserBit2;
 
-        public Boolean Download_Dataset, Upload_Dataset, Upload_Dataset_And_Autoreload, Simulation_Mode_Off, Auto_Configuration_Off, Bit05, Reboot_System, Bit07;
-        public Boolean Bit08, Bit09, Bit10, Bit11, Bit12, Bit13, UserBit1, UserBit2;
+        public ControlWordI1() { }
 
-        public ControlWord_I1() { }
-        private byte ConvertBoolArraytoByte(bool[] source)
+        public byte EncodeByte0()
         {
-            byte result = 0;
-
-            int index = 8 - source.Length;
-            foreach (bool b in source)
-            {
-                if (b)
-                    result |= (byte)(1 << (index));
-                index++;
-            }
-            return result;
+            Boolean[] wordArray = new Boolean[8];
+            wordArray[0] = Download_Dataset;
+            wordArray[1] = Upload_Dataset;
+            wordArray[2] = Upload_Dataset_And_Autoreload;
+            wordArray[3] = Simulation_Mode_Off;
+            wordArray[4] = Auto_Configuration_Off;
+            wordArray[5] = Bit05;
+            wordArray[6] = Reboot_System;
+            wordArray[7] = Bit07;
+            return ConvertBoolArraytoByte(wordArray);
         }
 
-        public byte GetByte0()
+        public byte EncodeByte1()
         {
-            WordPart1[0] = Download_Dataset;
-            WordPart1[1] = Upload_Dataset;
-            WordPart1[2] = Upload_Dataset_And_Autoreload;
-            WordPart1[3] = Simulation_Mode_Off;
-            WordPart1[4] = Auto_Configuration_Off;
-            WordPart1[5] = Bit05;
-            WordPart1[6] = Reboot_System;
-            WordPart1[7] = Bit07;
-            return ConvertBoolArraytoByte(WordPart1);
+            Boolean[] wordArray = new Boolean[8];
+            wordArray[0] = Bit08;
+            wordArray[1] = Bit09;
+            wordArray[2] = Bit10;
+            wordArray[3] = Bit11;
+            wordArray[4] = Bit12;
+            wordArray[5] = Bit13;
+            wordArray[6] = UserBit1;
+            wordArray[7] = UserBit2;
+            return ConvertBoolArraytoByte(wordArray);
         }
 
-        public byte GetByte1()
-        {
-            WordPart2[0] = Bit08;
-            WordPart2[1] = Bit09;
-            WordPart2[2] = Bit10;
-            WordPart2[3] = Bit11;
-            WordPart2[4] = Bit12;
-            WordPart2[5] = Bit13;
-            WordPart2[6] = UserBit1;
-            WordPart2[7] = UserBit2;
-            return ConvertBoolArraytoByte(WordPart2);
-        }
-
-        // TODO
-        public override byte Encode()
-        {
-            return System.Convert.ToByte(0);
-        }
     }
 }

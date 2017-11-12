@@ -20,10 +20,19 @@
             return setpointVelocity;
         }
 
-        public override byte Encode()
+        // TODO These two encode methods
+
+
+        public byte EncodeByte0()
         {
-            return System.Convert.ToByte(setpointVelocity);
+            return System.Convert.ToByte(0);
         }
+
+        public byte EncodeByte1()
+        {
+            return System.Convert.ToByte(0);
+        }
+
 
     }
 }
