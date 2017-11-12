@@ -48,15 +48,13 @@ namespace Proof_Productions
 
         PacketController p;
 
-        private void motor1Play_Click(object sender, EventArgs e)
+        private void motor1Start_Click(object sender, EventArgs e)
         {
-            /*
             if (p == null)
             {
                 p = new PacketController();
                 p.ConnectMotor();
             }
-            */
 
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
@@ -150,7 +148,7 @@ namespace Proof_Productions
 
         }
 
-        private void motor2Play_Click(object sender, EventArgs e)
+        private void motor2Start_Click(object sender, EventArgs e)
         {
 
         }
@@ -195,7 +193,7 @@ namespace Proof_Productions
 
         }
 
-        private void motor3Play_Click(object sender, EventArgs e)
+        private void motor3Start_Click(object sender, EventArgs e)
         {
 
         }

@@ -189,7 +189,7 @@
             this.motor1Start.TabIndex = 7;
             this.motor1Start.Text = "Start";
             this.motor1Start.UseVisualStyleBackColor = true;
-            this.motor1Start.Click += new System.EventHandler(this.motor1Play_Click);
+            this.motor1Start.Click += new System.EventHandler(this.motor1Start_Click);
             // 
             // motor1Stop
             // 
@@ -336,7 +336,7 @@
             this.motor2Start.TabIndex = 7;
             this.motor2Start.Text = "Start";
             this.motor2Start.UseVisualStyleBackColor = true;
-            this.motor2Start.Click += new System.EventHandler(this.motor2Play_Click);
+            this.motor2Start.Click += new System.EventHandler(this.motor2Start_Click);
             // 
             // comboBox7
             // 
@@ -503,7 +503,7 @@
             this.motor3Start.TabIndex = 7;
             this.motor3Start.Text = "Start";
             this.motor3Start.UseVisualStyleBackColor = true;
-            this.motor3Start.Click += new System.EventHandler(this.motor3Play_Click);
+            this.motor3Start.Click += new System.EventHandler(this.motor3Start_Click);
             // 
             // comboBox13
             // 
