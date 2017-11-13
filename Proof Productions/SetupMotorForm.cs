@@ -49,5 +49,10 @@ namespace Proof_Productions
         {
             switchToForm(new LoggerForm());
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().Show();
+        }
     }
 }

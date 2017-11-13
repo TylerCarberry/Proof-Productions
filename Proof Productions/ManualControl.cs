@@ -48,8 +48,14 @@ namespace Proof_Productions
 
         PacketController p;
 
-        private void motor1Play_Click(object sender, EventArgs e)
+        private void motor1Start_Click(object sender, EventArgs e)
         {
+            if (p == null)
+            {
+                p = new PacketController();
+                p.ConnectMotor();
+            }
+
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
 
@@ -100,16 +106,20 @@ namespace Proof_Productions
             p.WriteMotor(speed, acceleration, foward);
         }
 
-        private void motor1Pause_Click(object sender, EventArgs e)
-        {
-            p = new PacketController();
-            p.ConnectMotor();
-        }
-
         private void motor1Stop_Click(object sender, EventArgs e)
         {
             timer.Tick -= timerTick;
             timer.Tick += new EventHandler(timerTick2);
+        }
+
+        private void motor1Clear_Click(object sender, EventArgs e)
+        {
+            motorBox1.Text = "";
+            motor1Desc.Text = "";
+            motor1Spd.Text = "";
+            motor1Accel.Text = "";
+            motor1Decel.Text = "";
+            motor1Dir.Text = "";
         }
 
         private void motor2Desc_TextChanged(object sender, EventArgs e)
@@ -138,12 +148,7 @@ namespace Proof_Productions
 
         }
 
-        private void motor2Play_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void motor2Pause_Click(object sender, EventArgs e)
+        private void motor2Start_Click(object sender, EventArgs e)
         {
 
         }
@@ -151,6 +156,16 @@ namespace Proof_Productions
         private void motor2Stop_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void motor2Clear_Click(object sender, EventArgs e)
+        {
+            motorBox2.Text = "";
+            motor2Desc.Text = "";
+            motor2Spd.Text = "";
+            motor2Accel.Text = "";
+            motor2Decel.Text = "";
+            motor2Dir.Text = "";
         }
 
         private void motor3Desc_TextChanged(object sender, EventArgs e)
@@ -178,7 +193,7 @@ namespace Proof_Productions
 
         }
 
-        private void motor3Play_Click(object sender, EventArgs e)
+        private void motor3Start_Click(object sender, EventArgs e)
         {
 
         }
@@ -188,9 +203,13 @@ namespace Proof_Productions
 
         }
 
-        private void motor3Stop_Click(object sender, EventArgs e)
+        private void motor3Clear_Click(object sender, EventArgs e)
         {
-
+            motorBox3.Text = "";
+            motor3Desc.Text = "";
+            motor3Spd.Text = "";
+            motor3Accel.Text = "";
+            motor3Decel.Text = "";
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
