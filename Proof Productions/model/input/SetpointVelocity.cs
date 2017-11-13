@@ -1,4 +1,6 @@
-﻿namespace Proof_Productions.Model.Input
+﻿using System;
+
+namespace Proof_Productions.Model.Input
 {
     public class SetpointVelocity : MotorAction
     {
@@ -20,10 +22,16 @@
             return setpointVelocity;
         }
 
-        public override byte Encode()
+        public byte EncodeByte0()
         {
-            return System.Convert.ToByte(setpointVelocity);
+            return BitConverter.GetBytes(setpointVelocity)[0];
         }
+
+        public byte EncodeByte1()
+        {
+            return BitConverter.GetBytes(setpointVelocity)[1];
+        }
+
 
     }
 }

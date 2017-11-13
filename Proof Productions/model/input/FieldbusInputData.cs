@@ -9,15 +9,15 @@ namespace Proof_Productions.Model.Input
 {
     public class FieldbusInputData : MotorAction
     {
-        public ControlWord_I1 Control_I1 { get; set; }          = new ControlWord_I1();
+        public ControlWordI1 Control_I1 { get; set; }          = new ControlWordI1();
         public BinaryOutputs_I2 BinaryOut_I2 { get; set; }      = new BinaryOutputs_I2();
-        public ControlWord_I3 Control_I3 { get; set; }          = new ControlWord_I3();
+        public ControlWordI3 Control_I3 { get; set; }          = new ControlWordI3();
         public SetpointVelocity SetpointVelocity { get; set; }  = new SetpointVelocity();
         public Acceleration Acceleration { get; set; }          = new Acceleration();
         public Deceleration Deceleration { get; set; }          = new Deceleration();
         public SetpointPosition Setpoint_Position { get; set; } = new SetpointPosition();
         public SubcontrolWord Subcontrol { get; set; }          = new SubcontrolWord();
-        public BinaryOutputs_I10 BinaryOut_I10 { get; set; }    = new BinaryOutputs_I10();
+        public BinaryOutputsI10 BinaryOut_I10 { get; set; }    = new BinaryOutputsI10();
         public SetpointValue2 SetpointValue { get; set; }       = new SetpointValue2();
         //data[0] = 0; //byte 0 of Control 1
         //data[1] = 0; //byte 1 of Control 1
@@ -80,12 +80,6 @@ namespace Proof_Productions.Model.Input
             Console.Out.WriteLine(bytes[5] + " " + bytes[4]);
             return bytes;
             
-        }
-
-        // TODO
-        public override byte Encode()
-        {
-            return System.Convert.ToByte(0);
         }
 
     }
