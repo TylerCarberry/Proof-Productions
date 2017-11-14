@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
-    public class SetpointValue2 : MotorAction
+    public class SetpointValue2 : InputBoolean
     {
         private int setpointValue2;
 

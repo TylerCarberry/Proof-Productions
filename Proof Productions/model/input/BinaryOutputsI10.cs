@@ -6,7 +6,7 @@ namespace Proof_Productions.Model.Input
     // There are 2 Binary Output fields in the input. One in field 2, one in field 10
     // This class is the bits that correspond to the binary outputs in the second field
 
-    public class BinaryOutputsI10 : MotorAction
+    public class BinaryOutputsI10 : InputBoolean
     {
 
         // First byte
