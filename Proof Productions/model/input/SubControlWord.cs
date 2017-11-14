@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
-    public class SubcontrolWord : MotorAction
+    /*
+     * SubcontrolWord is a special case that does not belog to either InputBoolean nor InputValue as it contains both.
+     */
+     
+    public class SubcontrolWord
     {
+        public int Value { get; set; }
+
         public bool ActivateTouchProbe { get; set; }
         public bool Bit01 { get; set; }
         public bool ActivateTorqueLimit { get; set; }
@@ -20,6 +26,37 @@ namespace Proof_Productions.Model.Input
         public SubcontrolWord()
         {
 
+        }
+
+        private byte ConvertBoolArraytoByte(bool[] source)
+        {
+            byte result = 0;
+
+            int index = 8 - source.Length;
+            foreach (bool b in source)
+            {
+                if (b)
+                {
+                    result |= (byte)(1 << (index));
+                }
+                index++;
+            }
+            return result;
+        }
+
+        public byte EncodeByte3()
+        {
+            return BitConverter.GetBytes(Value)[1];
+        }
+
+        public byte EncodeByte2()
+        {
+            return BitConverter.GetBytes(Value)[0];
+        }
+
+        public byte EncodeByte1()
+        {
+            return 0;
         }
 
         public byte EncodeByte0()

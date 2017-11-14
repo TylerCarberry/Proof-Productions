@@ -8,7 +8,7 @@ namespace Proof_Productions.Model.Input
 {
     // There are 2 Control Word fields in the input. One in field 1, one in field 3
     // This class is the bits that correspond to the binary outputs in the first field
-    public class ControlWordI1 : MotorAction
+    public class ControlWordI1 : InputBoolean
     {
         // First byte
         public Boolean Download_Dataset;

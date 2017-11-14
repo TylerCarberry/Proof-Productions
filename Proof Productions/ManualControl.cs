@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proof_Productions.Model.Input;
+using System.Diagnostics;
 
 namespace Proof_Productions
 {
     public partial class ManualControlForm : Form
     {
         Timer timer = new Timer();
-
+        Stopwatch sw = new Stopwatch();
+        PacketController p1;
+        FieldbusInputData input1;
+        Boolean stopTimer;
+        long Elapsed;
 
         public ManualControlForm()
         {
@@ -31,11 +37,6 @@ namespace Proof_Productions
 
         }
 
-        private void motor1Dir_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void motor1Spd_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -46,70 +47,78 @@ namespace Proof_Productions
 
         }
 
-        PacketController p;
-
         private void motor1Start_Click(object sender, EventArgs e)
         {
-            if (p == null)
+            if (p1 == null)
             {
-                p = new PacketController();
-                p.ConnectMotor();
-            }
+                p1 = new PacketController();          
+                p1.ConnectMotor();
 
+                input1 = new FieldbusInputData();
+                Console.WriteLine("Created input1");
+            }
+            
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
+            String decelStr = motor1Decel.Text;
 
-            if (speedStr == null || speedStr.Equals("") || accelStr == null || speedStr.Equals(""))
+            int speed= 0, acceleration = 0, deceleration = 0;
+            if (int.TryParse(speedStr, out speed) && (int.TryParse(accelStr, out acceleration) || int.TryParse(decelStr, out deceleration) ) )
             {
-                // TODO Show a dialog
-            } else {
-                int speed = Convert.ToInt32(motor1Spd.Text);
-                int acceleration = Convert.ToInt32(motor1Accel.Text);
 
-                writeToMotor(speed, acceleration, true, 5000);
-                
+                //writeToMotor();
+                input1.SetpointVelocity.Set(speed);
+                input1.Acceleration.Set(acceleration);
+                input1.Deceleration.Set(deceleration);
+                input1.Control_I3.Positive = motor1Backward.Checked;
+                input1.Control_I3.Negative = motor1Forward.Checked;
+
+                //Testing block
+                Console.WriteLine(input1.SetpointVelocity.Get() + " " + input1.Acceleration.Get() + " " + input1.Deceleration.Get());
+                ///////////////
+
+                stopTimer = false;
+                timer.Interval = 100;
+                timer.Tick += new EventHandler(timerTick);
+                sw.Start();
+                timer.Start();
                 //p.WriteMotor(speed, acceleration, true);
             }
 
-            
-            
-            //p.Test();
-        }
+            else
+            {
+                // TODO Show a dialog
 
-        public void writeToMotor(int speed, int acceleration, bool foward, int durationMilliseconds)
-        {
-            // 200 ms seems good for
-            timer.Interval = 100;
-            timer.Tick += new EventHandler(timerTick);
-            timer.Start();
+            }
         }
 
         private void timerTick(object sender, EventArgs e)
         {
             Console.Out.WriteLine("TICK");
-            writeToMotorOnce(300, 100, true);
+            writeToMotorOnce();
+            if (stopTimer)
+            { 
+                Console.WriteLine(Elapsed + " " + sw.ElapsedMilliseconds + " " + sw.Elapsed);
+                if (sw.ElapsedMilliseconds >= (Elapsed + 1500))
+                {
+                    timer.Stop();
+                    sw.Stop();
+                }
+            }
         }
 
-        private void timerTick2(object sender, EventArgs e)
+        private void writeToMotorOnce()
         {
-            Console.Out.WriteLine("TICK");
-            writeToMotorOnce(10);
+            p1.WriteMotor(input1);
+            Console.WriteLine("Writing to motor");
         }
-
-        private void writeToMotorOnce(int deceleration)
-        {
-            p.TestDecel(deceleration);
-        }
-
-        private void writeToMotorOnce(int speed, int acceleration, bool foward)
-        {
-            p.WriteMotor(speed, acceleration, foward);
-        }
-
+        
         private void motor1Stop_Click(object sender, EventArgs e)
         {
-            timer.Tick -= timerTick;
-            timer.Tick += new EventHandler(timerTick2);
+            input1.Deceleration.Set(input1.SetpointVelocity.Get()/2);
+            input1.SetpointVelocity.Set(0);
+            stopTimer = true;
+            Elapsed = sw.ElapsedMilliseconds;
         }
 
         private void motor1Clear_Click(object sender, EventArgs e)
@@ -119,7 +128,17 @@ namespace Proof_Productions
             motor1Spd.Text = "";
             motor1Accel.Text = "";
             motor1Decel.Text = "";
-            motor1Dir.Text = "";
+            motor1Forward.Checked = true;
+        }
+
+        private void motor1Forward_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motor1Backward_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void motor2Desc_TextChanged(object sender, EventArgs e)
@@ -129,11 +148,6 @@ namespace Proof_Productions
  
 
         private void motorBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void motor2Dir_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -165,7 +179,17 @@ namespace Proof_Productions
             motor2Spd.Text = "";
             motor2Accel.Text = "";
             motor2Decel.Text = "";
-            motor2Dir.Text = "";
+            motor2Forward.Checked = true;
+        }
+
+        private void motor2Forward_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motor2Backward_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void motor3Desc_TextChanged(object sender, EventArgs e)
@@ -174,11 +198,6 @@ namespace Proof_Productions
         }
 
         private void motorBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void motor3Dir_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -210,6 +229,17 @@ namespace Proof_Productions
             motor3Spd.Text = "";
             motor3Accel.Text = "";
             motor3Decel.Text = "";
+            motor3Forward.Checked = true;
+        }
+
+        private void motor3Forward_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motor3Backward_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -230,11 +260,6 @@ namespace Proof_Productions
             form.Top = this.Top;
             
             this.Hide();
-        }
-        
-        private void dirLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void calibrationMotorChecklist_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,6 +300,11 @@ namespace Proof_Productions
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             switchToForm(new LoggerForm());
+        }
+
+        private void ManualControlForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

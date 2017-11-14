@@ -65,11 +65,12 @@
     <Compile Include="Model\Input\Acceleration.cs" />
     <Compile Include="Model\Input\BinaryOutputsI10.cs" />
     <Compile Include="Model\Input\BinaryOutputsI2.cs" />
+    <Compile Include="Model\Input\InputValue.cs" />
     <Compile Include="Model\Input\ControlWordI1.cs" />
     <Compile Include="Model\Input\ControlWordI3.cs" />
     <Compile Include="Model\Input\Deceleration.cs" />
     <Compile Include="Model\Input\FieldbusInputData.cs" />
-    <Compile Include="Model\Input\MotorAction.cs" />
+    <Compile Include="Model\Input\InputBoolean.cs" />
     <Compile Include="Model\Input\SetpointPosition.cs" />
     <Compile Include="Model\Input\SetpointValue2.cs" />
     <Compile Include="Model\Input\SetpointVelocity.cs" />

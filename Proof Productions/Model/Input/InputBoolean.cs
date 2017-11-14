@@ -1,6 +1,6 @@
 ﻿namespace Proof_Productions.Model.Input
 {
-    public abstract class MotorAction
+    public abstract class InputBoolean
     {
         
         protected byte ConvertBoolArraytoByte(bool[] source)

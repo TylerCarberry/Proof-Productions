@@ -61,23 +61,13 @@ namespace Proof_Productions
             MessageBox.Show(exc, "Modbus slave exception");
         }
 
-        public void WriteMotor(int v, int a, Boolean positive)
+        public void WriteMotor(FieldbusInputData input)
         {
             ushort ID = 8;
             ushort StartAddress = 4;
             byte unit = 0;
 
-            packet = new FieldbusInputData();
-            packet.SetpointVelocity.Set(v);
-            packet.Acceleration.Set(a);
-
-            packet.Control_I3.EnableRapidStart = true;
-            packet.Control_I3.EnableStop = true;
-            packet.Control_I3.Positive = true;
-            packet.Control_I3.Mode2tothe0 = true;
-
-
-            data = packet.GetValue();
+            byte[] data = input.GetValue();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
         }
 
