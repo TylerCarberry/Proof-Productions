@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
+    /*
+     * SubcontrolWord is a special case that does not belog to either InputBoolean nor InputValue as it contains both.
+     */
+     
     public class SubcontrolWord
     {
         public int Value { get; set; }

@@ -37,11 +37,6 @@ namespace Proof_Productions
 
         }
 
-        private void motor1Dir_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void motor1Spd_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -75,8 +70,8 @@ namespace Proof_Productions
                 input1.SetpointVelocity.Set(speed);
                 input1.Acceleration.Set(acceleration);
                 input1.Deceleration.Set(deceleration);
-                input1.Control_I3.Positive = motor1BackwardsBox.Checked;
-                input1.Control_I3.Negative = motor1FowardBox.Checked;
+                input1.Control_I3.Positive = motor1Backward.Checked;
+                input1.Control_I3.Negative = motor1Forward.Checked;
 
                 //Testing block
                 Console.WriteLine(input1.SetpointVelocity.Get() + " " + input1.Acceleration.Get() + " " + input1.Deceleration.Get());
@@ -133,20 +128,17 @@ namespace Proof_Productions
             motor1Spd.Text = "";
             motor1Accel.Text = "";
             motor1Decel.Text = "";
-            motor1FowardBox.Checked = false;
-            motor1BackwardsBox.Checked = false;
+            motor1Forward.Checked = true;
         }
 
-        private void motor1FowardBox_CheckedChanged(object sender, EventArgs e)
+        private void motor1Forward_CheckedChanged(object sender, EventArgs e)
         {
-            if (motor1FowardBox.Checked)
-                motor1BackwardsBox.Checked = false;
+
         }
 
-        private void motor1BackwardsBox_CheckedChanged(object sender, EventArgs e)
+        private void motor1Backward_CheckedChanged(object sender, EventArgs e)
         {
-            if (motor1BackwardsBox.Checked)
-                motor1FowardBox.Checked = false;
+
         }
 
         private void motor2Desc_TextChanged(object sender, EventArgs e)
@@ -156,11 +148,6 @@ namespace Proof_Productions
  
 
         private void motorBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void motor2Dir_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -192,7 +179,17 @@ namespace Proof_Productions
             motor2Spd.Text = "";
             motor2Accel.Text = "";
             motor2Decel.Text = "";
-            motor2Dir.Text = "";
+            motor2Forward.Checked = true;
+        }
+
+        private void motor2Forward_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motor2Backward_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void motor3Desc_TextChanged(object sender, EventArgs e)
@@ -201,11 +198,6 @@ namespace Proof_Productions
         }
 
         private void motorBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void motor3Dir_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -237,6 +229,17 @@ namespace Proof_Productions
             motor3Spd.Text = "";
             motor3Accel.Text = "";
             motor3Decel.Text = "";
+            motor3Forward.Checked = true;
+        }
+
+        private void motor3Forward_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void motor3Backward_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -257,11 +260,6 @@ namespace Proof_Productions
             form.Top = this.Top;
             
             this.Hide();
-        }
-        
-        private void dirLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void calibrationMotorChecklist_SelectedIndexChanged(object sender, EventArgs e)
@@ -308,7 +306,5 @@ namespace Proof_Productions
         {
 
         }
-
-
     }
 }
