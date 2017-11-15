@@ -67,7 +67,7 @@ namespace Proof_Productions
             ushort StartAddress = 4;
             byte unit = 0;
 
-            byte[] data = input.GetValue();
+            byte[] data = input.GetValues();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
         }
 
@@ -79,7 +79,7 @@ namespace Proof_Productions
             packet.Acceleration.Set(0);
             packet.Deceleration.Set(d);
             packet.SetpointVelocity.Set(0);
-            data = packet.GetValue();
+            data = packet.GetValues();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
         }
 

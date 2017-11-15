@@ -8,53 +8,44 @@ namespace Proof_Productions.Model.Output
 {
     public class FieldbusOutputData
     {
-        public StatusWordO1 Status_O1;
-        public BinaryInputsO2 Binary_O2;
-        public StatusWordO3 Status_O3;
-        public ActualVelocity ActualVelocity;
-        public OutputCurrent OutputCurrent;
-        public Reserved Reserved;
-        public ActualPosition Actual_Position;
-        public SubStatusWord substatusWord;
-        public BinaryInputsO10 BinaryInputs_O10;
-        public ActualValue02 actualValue2;
+        public StatusWordO1 Status1;
+        public BinaryInputsO2 Binary2;
+        public StatusWordO3 Status3;
+        public ActualVelocity Velocity;
+        public OutputCurrent Current;
+        public Reserved Reserve;
+        public ActualPosition Position;
+        public SubStatusWord SubStatus;
+        public BinaryInputsO10 Binary10;
+        public ActualValue02 Value2;
 
-    
-        //Need one giant decode method
-
-        /**
-        public byte[] GetValue
+        public FieldbusOutputData()
         {
-            get
-            {
-                byte[] bytes = new byte[12];
-                //when we return the setpoint velocity, acceleration and deceleration
-                //make sure you swap the bytes
-                bytes[0] = BitConverter.GetBytes(Status_O1.Get())[0];
-                bytes[1] = BitConverter.GetBytes(Status_O1.Get())[1];
-                bytes[2] = BitConverter.GetBytes(Binary_O2.Get())[0];
-                bytes[3] = BitConverter.GetBytes(Binary_O2.Get())[1];
-                bytes[4] = BitConverter.GetBytes(Status_O3.Get())[0];
-                bytes[5] = BitConverter.GetBytes(Status_O3.Get())[1];
-                bytes[6] = BitConverter.GetBytes(ActualVelocity.Get())[1];
-                bytes[7] = BitConverter.GetBytes(ActualVelocity.Get())[0];
-                bytes[8] = BitConverter.GetBytes(OutputCurrent.Get())[1];
-                bytes[9] = BitConverter.GetBytes(OutputCurrent.Get())[0];
-                bytes[10] = BitConverter.GetBytes(Reserved.Get())[1];
-                bytes[11] = BitConverter.GetBytes(Reserved.Get())[0];
-                bytes[12] = BitConverter.GetBytes(Actual_Position.Get())[1];
-                bytes[13] = BitConverter.GetBytes(Actual_Position.Get())[0];
-                bytes[14] = BitConverter.GetBytes(substatusWord.Get())[0];
-                bytes[15] = BitConverter.GetBytes(substatusWord.Get())[1];
-                bytes[16] = BitConverter.GetBytes(BinaryInputs_O10.Get())[0];
-                bytes[18] = BitConverter.GetBytes(BinaryInputs_O10.Get())[1];
-                bytes[19] = BitConverter.GetBytes(actualValue2.Get())[1];
-                bytes[20] = BitConverter.GetBytes(actualValue2.Get())[0];
-                //bytes[6] = BitConverter.GetBytes(ActualVelocity.Get())[0];
-                //TODO - Continue this for the remainder of the data
-                return bytes;
-            }
+            Status1 = new StatusWordO1();
+            Binary2 = new BinaryInputsO2();
+            Status3 = new StatusWordO3();
+            Velocity = new ActualVelocity();
+            Current = new OutputCurrent();
+            Reserve = new Reserved();
+            Position = new ActualPosition();
+            SubStatus = new SubStatusWord();
+            Binary10 = new BinaryInputsO10();
+            Value2 = new ActualValue02();
         }
-        */
+        
+        public void SetValues(byte[] data)
+        {
+            Status1.Decode(data[0], data[1]);
+            Binary2.Decode(data[2], data[3]);
+            Status3.Decode(data[4], data[5]);
+            Velocity.Decode(data[6], data[7]);
+            Current.Decode(data[8], data[9]);
+            Reserve.Decode(data[10], data[11]);
+            Position.Decode(data[12], data[13], data[14], data[15]);
+            SubStatus.Decode(data[16], data[17]);
+            Binary10.Decode(data[18], data[19]);
+            Value2.Decode(data[20], data[21], data[22], data[23]);
+        }
+        
     }
 }

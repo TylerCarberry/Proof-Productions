@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Proof_Productions.Model.Output
 {
 
-    public class OutputCurrent
+    public class OutputCurrent : OutputValue
     {
         public OutputCurrent()
         {

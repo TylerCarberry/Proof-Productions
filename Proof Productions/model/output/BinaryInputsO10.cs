@@ -19,14 +19,32 @@ namespace Proof_Productions.Model.Output
         {
 
         }
-
-       //TODO - implement Decode method
+        
        /**Takes in two bytes and sets the corresponding booleans 
         * based on which bits are on 
         */
-        public void Set(byte first, byte second)
+        public void Decode(byte first, byte second)
         {
+            Boolean[] data = new Boolean[8];
+            data = ConvertByteToBoolArray(second);
+            DI00 = data[0];
+            DI01 = data[1];
+            DI02 = data[2];
+            DI03 = data[3];
+            DI04 = data[4];
+            DI05 = data[5];
+            DI06 = data[6];
+            DI07 = data[7];
 
+            data = ConvertByteToBoolArray(first);
+            DI10 = data[0];
+            DI11 = data[1];
+            DI12 = data[2];
+            DI13 = data[3];
+            DI14 = data[4];
+            DI15 = data[5];
+            DI16 = data[6];
+            DI17 = data[7];
         }
     }
 }
