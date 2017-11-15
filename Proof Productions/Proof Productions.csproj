@@ -81,7 +81,9 @@
     <Compile Include="Model\Output\BinaryInputsO10.cs" />
     <Compile Include="Model\Output\BinaryInputsO2.cs" />
     <Compile Include="Model\Output\FieldbusOutputData.cs" />
+    <Compile Include="Model\Output\OutputBoolean.cs" />
     <Compile Include="Model\Output\OutputCurrent.cs" />
+    <Compile Include="Model\Output\OutputValue.cs" />
     <Compile Include="Model\Output\Reserved.cs" />
     <Compile Include="Model\Output\StatusWordO1.cs" />
     <Compile Include="Model\Output\StatusWordO3.cs" />
