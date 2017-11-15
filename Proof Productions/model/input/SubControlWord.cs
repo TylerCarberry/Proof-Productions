@@ -9,7 +9,7 @@ namespace Proof_Productions.Model.Input
     /*
      * SubcontrolWord is a special case that does not belog to either InputBoolean nor InputValue as it contains both.
      */
-     
+
     public class SubcontrolWord
     {
         public int Value { get; set; }
@@ -44,19 +44,9 @@ namespace Proof_Productions.Model.Input
             return result;
         }
 
-        public byte EncodeByte3()
-        {
-            return BitConverter.GetBytes(Value)[1];
-        }
-
-        public byte EncodeByte2()
-        {
-            return BitConverter.GetBytes(Value)[0];
-        }
-
         public byte EncodeByte1()
         {
-            return 0;
+            return BitConverter.GetBytes(Value)[0];
         }
 
         public byte EncodeByte0()

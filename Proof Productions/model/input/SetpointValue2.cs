@@ -9,6 +9,7 @@ namespace Proof_Productions.Model.Input
     public class SetpointValue2 : InputBoolean
     {
         private int setpointValue2;
+        private byte[] temp;
 
         public SetpointValue2()
         {
@@ -26,15 +27,30 @@ namespace Proof_Productions.Model.Input
             return setpointValue2;
         }
 
+        private byte[] ByteConverter()
+        {
+            return temp = BitConverter.GetBytes(setpointValue2);
+        }
+
         public byte EncodeByte0()
         {
-            return BitConverter.GetBytes(setpointValue2)[0];
+            return temp[0];
         }
 
         public byte EncodeByte1()
         {
-            return BitConverter.GetBytes(setpointValue2)[1];
+            return temp[1];
         }
 
+        public byte EncodeByte2()
+        {
+            return temp[2];
+        }
+
+        public byte EncodeByte3()
+        {
+            //When the packets are formed, EncodeByte3 is called first because the bits are flipped.
+            return ByteConverter()[3];
+        }
     }
 }
