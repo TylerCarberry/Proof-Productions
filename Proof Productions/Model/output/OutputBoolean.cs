@@ -9,19 +9,15 @@ namespace Proof_Productions.Model.Output
     public abstract class OutputBoolean
     {
         //TODO - make this into convert byte to bool array
-        protected byte ConvertBoolArraytoByte(bool[] source)
+        private static bool[] ConvertByteToBoolArray(byte b)
         {
-            byte result = 0;
+            // prepare the return result
+            bool[] result = new bool[8];
 
-            int index = 8 - source.Length;
-            foreach (bool b in source)
-            {
-                if (b)
-                {
-                    result |= (byte)(1 << (index));
-                }
-                index++;
-            }
+            // check each bit in the byte. if 1 set to true, if 0 set to false
+            for (int i = 0; i < 8; i++)
+                result[i] = (b & (1 << i)) == 0 ? false : true;
+
             return result;
         }
 
