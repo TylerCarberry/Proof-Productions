@@ -8,17 +8,21 @@ namespace Proof_Productions.Model.Output
 {
     public class FieldbusOutputData
     {
-        public StatusWordO1 Status_O1 { get; set; }
-        public BinaryInputsO2 Binary_O2 { get; set; }
-        public StatusWordO3 Status_O3 { get; set; }
-        public ActualVelocity ActualVelocity { get; set; }
-        public OutputCurrent OutputCurrent { get; set; }
-        public Reserved Reserved { get; set; }
-        public ActualPosition Actual_Position { get; set; }
-        public SubStatusWord substatusWord { get; set; }
-        public BinaryInputsO10 BinaryInputs_O10 { get; set; }
-        public ActualValue02 actualValue2 { get; set; }
+        public StatusWordO1 Status_O1;
+        public BinaryInputsO2 Binary_O2;
+        public StatusWordO3 Status_O3;
+        public ActualVelocity ActualVelocity;
+        public OutputCurrent OutputCurrent;
+        public Reserved Reserved;
+        public ActualPosition Actual_Position;
+        public SubStatusWord substatusWord;
+        public BinaryInputsO10 BinaryInputs_O10;
+        public ActualValue02 actualValue2;
 
+    
+        //Need one giant decode method
+
+        /**
         public byte[] GetValue
         {
             get
@@ -51,5 +55,6 @@ namespace Proof_Productions.Model.Output
                 return bytes;
             }
         }
+        */
     }
 }

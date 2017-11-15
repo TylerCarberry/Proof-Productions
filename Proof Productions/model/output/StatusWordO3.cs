@@ -16,6 +16,6 @@ namespace Proof_Productions.Model.Output
 
         }
 
-        //TODO - decode
+        //TODO - set
     }
 }
