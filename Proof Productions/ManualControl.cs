@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Model.Input;
+using Proof_Productions.Model.Output;
 using System.Diagnostics;
 
 namespace Proof_Productions
@@ -72,10 +73,6 @@ namespace Proof_Productions
                 input1.Deceleration.Set(deceleration);
                 input1.Control_I3.Positive = motor1Backward.Checked;
                 input1.Control_I3.Negative = motor1Forward.Checked;
-
-                //Testing block
-                Console.WriteLine(input1.SetpointVelocity.Get() + " " + input1.Acceleration.Get() + " " + input1.Deceleration.Get());
-                ///////////////
 
                 stopTimer = false;
                 timer.Interval = 100;
@@ -164,7 +161,19 @@ namespace Proof_Productions
 
         private void motor2Start_Click(object sender, EventArgs e)
         {
+            //Testing Purposes Only
+            FieldbusOutputData Out = new FieldbusOutputData();
 
+            byte[] InBytes = new byte[2];
+            InBytes = BitConverter.GetBytes(100);
+            Out.Velocity.Decode(InBytes[0], InBytes[1]);
+
+            ControlWordI3 CW = new ControlWordI3();
+            BinaryInputsO2 BI = new BinaryInputsO2();
+            BI.Decode(CW.EncodeByte1(), CW.EncodeByte0());
+
+            Console.WriteLine(Out.Velocity.Get());
+            Console.WriteLine(CW.EncodeByte1() + " " + CW.EncodeByte0() + " "+ BI);
         }
 
         private void motor2Stop_Click(object sender, EventArgs e)

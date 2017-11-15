@@ -45,7 +45,21 @@ namespace Proof_Productions.Model.Output
             SubStatus.Decode(data[16], data[17]);
             Binary10.Decode(data[18], data[19]);
             Value2.Decode(data[20], data[21], data[22], data[23]);
+            DebugTest();
         }
         
+        private void DebugTest()
+        {
+            Console.WriteLine(Status1);
+            Console.WriteLine(Binary2);
+            Console.WriteLine(Status3);
+            Console.WriteLine(Velocity);
+            Console.WriteLine(Current);
+            Console.WriteLine(Reserve);
+            Console.WriteLine(Position);
+            Console.WriteLine(SubStatus);
+            Console.WriteLine(Binary10);
+            Console.WriteLine(Value2);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Proof_Productions.Model.Output
     //Does not extend OutputValue as it is a special case with a high word and a low word
     public class ActualValue02
     {
-        private int Value;
+        private long Value;
 
         public ActualValue02()
         {
@@ -18,12 +18,17 @@ namespace Proof_Productions.Model.Output
 
         public void Decode(byte first, byte second, byte third, byte fourth)
         {
-            Value = (first * 16777216) + (second * 65536) + (third * 256) + fourth;
+            Value = (fourth * 16777216) + (third * 65536) + (second * 256) + first;
         }
 
-        public int Get()
+        public long Get()
         {
             return Value;
+        }
+
+        public override String ToString()
+        {
+            return "Actual Value2 \n Value: " + Value + "\n";
         }
     }
 }

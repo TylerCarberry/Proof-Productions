@@ -37,5 +37,14 @@ namespace Proof_Productions.Model.Output
         {
             return Value;
         }
+
+        public override String ToString()
+        {
+            String Debug = "StatusWordO3 \n";
+            Debug += "MotorTurning: " + MotorTurning + " InverterReady: " + InverterReady + " Referenced: " + Referenced + " SetpointValueReached: " + SetpointValueReached
+                  +  " BrakeReleased: " + BrakeReleased + " Error_FC: " + Error_FC + " Warning: " + Warning + " ErrorApplication: " + ErrorApplication + "\n"
+                  +  "Value " +Value + "\n";
+            return Debug;
+        }
     }
 }

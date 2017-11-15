@@ -37,5 +37,14 @@ namespace Proof_Productions.Model.Output
         {
             return Value;
         }
+
+        public override String ToString()
+        {
+            String Debug = "StatusWordO1 \n";
+            Debug += "Maintenance_switch: " + Maintenance_switch + " Toggle: " + Toggle + " Bit02: " + Bit02 + " UserBit: " + UserBit
+                  + " Dataset_exists: " + Dataset_exists + " Autoreload_config: " + Autoreload_config + " Warning: " + Warning + " Error: " + Error 
+                  + " Value: " + Value + "\n";
+            return Debug;
+        }
     }
 }

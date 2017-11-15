@@ -46,5 +46,15 @@ namespace Proof_Productions.Model.Output
             DI16 = data[6];
             DI17 = data[7];
         }
+
+        public override String ToString()
+        {
+            String Debug = "BinaryInputsO10 \n";
+            Debug += "DI00: " + DI00 + " DI01: " + DI01 + " DI02 " + DI02 + " DI03 " + DI03
+                  + " DI04: " + DI04 + " DI05: " + DI05 + " DI06 " + DI06 + " DI07 " + DI07
+                  + " DI10: " + DI10 + " DI11: " + DI11 + " DI12 " + DI12 + " DI13 " + DI13
+                  + " DI14: " + DI14 + " DI15: " + DI15 + " DI16 " + DI16 + " DI17 " + DI17 + "\n";
+            return Debug;
+        }
     }
 }
