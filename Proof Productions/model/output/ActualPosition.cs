@@ -17,7 +17,7 @@ namespace Proof_Productions.Model.Output
 
         public void Decode(byte first, byte second, byte third, byte fourth)
         {
-            Value = (fourth * 16777216) + (third * 65536) + (second * 256) + first;
+            Value = (fourth * 256 * 256 * 256) + (third * 256 * 256) + (second * 256) + first;
         }
 
         public long Get()
