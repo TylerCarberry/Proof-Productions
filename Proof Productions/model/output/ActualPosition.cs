@@ -7,24 +7,12 @@ using System.Threading.Tasks;
 namespace Proof_Productions.Model.Output
 {
 
-    class ActualPosition
+    public class ActualPosition : OutputValue
     {
-
-        double actualPosition;
 
         public ActualPosition()
         {
-            actualPosition = 0;
-        }
-
-        public void Set(double actualPosition)
-        {
-            this.actualPosition = actualPosition;
-        }
-
-        public double Get()
-        {
-            return actualPosition;
+           
         }
 
     }

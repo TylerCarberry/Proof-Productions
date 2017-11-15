@@ -7,25 +7,12 @@ using System.Threading.Tasks;
 namespace Proof_Productions.Model.Output
 {
 
-    class ActualVelocity
+    public class ActualVelocity : OutputValue
     {
-
-        double actualVelocity;
 
         public ActualVelocity()
         {
-            actualVelocity = 0;
-        }
 
-        public void Set(double actualVelocity)
-        {
-            this.actualVelocity = actualVelocity;
         }
-
-        public double Get()
-        {
-            return actualVelocity;
-        }
-
     }
 }
