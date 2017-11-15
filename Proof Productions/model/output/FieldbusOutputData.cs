@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Output
 {
-    class FieldbusOutputData
+    public class FieldbusOutputData
     {
         public StatusWordO1 Status_O1 { get; set; }
         public BinaryInputsO2 Binary_O2 { get; set; }

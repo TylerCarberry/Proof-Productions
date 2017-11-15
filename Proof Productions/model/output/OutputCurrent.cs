@@ -7,25 +7,11 @@ using System.Threading.Tasks;
 namespace Proof_Productions.Model.Output
 {
 
-    class OutputCurrent
+    public class OutputCurrent
     {
-
-        int outputCurrent;
-
         public OutputCurrent()
         {
-            outputCurrent = 0;
+            
         }
-
-        public void Set(int outputCurrent)
-        {
-            this.outputCurrent = outputCurrent;
-        }
-
-        public int Get()
-        {
-            return outputCurrent;
-        }
-
     }
 }

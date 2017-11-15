@@ -7,25 +7,11 @@ using System.Threading.Tasks;
 namespace Proof_Productions.Model.Output
 {
 
-    class Reserved
+    public class Reserved : OutputValue
     {
-
-        int reserved;
-
         public Reserved()
         {
-            reserved = 0;
-        }
 
-        public void Set(int reserved)
-        {
-            this.reserved = reserved;
         }
-
-        public double Get()
-        {
-            return reserved;
-        }
-
     }
 }
