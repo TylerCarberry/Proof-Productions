@@ -40,9 +40,10 @@ namespace Proof_Productions.Model.Output
 
         public override String ToString()
         {
-            String Debug = "SubStatusWord \n";
+            String Debug = "SubStatusWord \r\n";
             Debug += "TouchProbe_active: " + TouchProbe_active + " TouchProbe_detected: " + TouchProbe_detected + " Bit02: " + Bit02 
-                  + " Bit03: " + Bit03 + " Bit04: " + Bit04 + " Bit05: " + Bit05 + " HWLSpos: " + HWLSpos + " HWLSneg: " + HWLSneg + "\n";
+                  + " Bit03: " + Bit03 + " Bit04: " + Bit04 + " Bit05: " + Bit05 + " HWLSpos: " + HWLSpos + " HWLSneg: " + HWLSneg + "\r\n"
+                  + "Value: " + GetValue() + "\r\n";
             return Debug;
         }
     }

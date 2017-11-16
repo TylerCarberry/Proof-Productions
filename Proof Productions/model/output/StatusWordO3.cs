@@ -40,10 +40,10 @@ namespace Proof_Productions.Model.Output
 
         public override String ToString()
         {
-            String Debug = "StatusWordO3 \n";
+            String Debug = "StatusWordO3 \r\n";
             Debug += "MotorTurning: " + MotorTurning + " InverterReady: " + InverterReady + " Referenced: " + Referenced + " SetpointValueReached: " + SetpointValueReached
-                  +  " BrakeReleased: " + BrakeReleased + " Error_FC: " + Error_FC + " Warning: " + Warning + " ErrorApplication: " + ErrorApplication + "\n"
-                  +  "Value " +Value + "\n";
+                  +  " BrakeReleased: " + BrakeReleased + " Error_FC: " + Error_FC + " Warning: " + Warning + " ErrorApplication: " + ErrorApplication + "\r\n"
+                  +  "Value " +Value + "\r\n";
             return Debug;
         }
     }

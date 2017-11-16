@@ -50,16 +50,16 @@ namespace Proof_Productions.Model.Output
         
         private void DebugTest()
         {
-            Console.WriteLine(Status1);
-            Console.WriteLine(Binary2);
-            Console.WriteLine(Status3);
-            Console.WriteLine(Velocity);
-            Console.WriteLine(Current);
-            Console.WriteLine(Reserve);
-            Console.WriteLine(Position);
-            Console.WriteLine(SubStatus);
-            Console.WriteLine(Binary10);
-            Console.WriteLine(Value2);
+            Console.Write(Status1);
+            Console.Write(Binary2);
+            Console.Write(Status3);
+            Console.Write(Velocity);
+            Console.Write(Current);
+            Console.Write(Reserve);
+            Console.Write(Position);
+            Console.Write(SubStatus);
+            Console.Write(Binary10);
+            Console.Write(Value2);
         }
     }
 }

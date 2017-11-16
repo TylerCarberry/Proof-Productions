@@ -18,7 +18,7 @@ namespace Proof_Productions.Model.Output
 
         public void Decode(byte first, byte second, byte third, byte fourth)
         {
-            Value = (fourth * 256 * 256 * 256) + (third * 256 * 256) + (second * 256) + first;
+            Value = (first * 256 * 256 * 256) + (second * 256 * 256) + (third * 256) + fourth;
         }
 
         public long Get()
@@ -28,7 +28,7 @@ namespace Proof_Productions.Model.Output
 
         public override String ToString()
         {
-            return "Actual Value2 \n Value: " + Value + "\n";
+            return "Actual Value2 \r\n Value: " + Value + "\r\n";
         }
     }
 }

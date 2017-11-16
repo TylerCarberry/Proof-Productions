@@ -164,9 +164,10 @@ namespace Proof_Productions
             //Testing Purposes Only
             FieldbusOutputData Out = new FieldbusOutputData();
 
-            byte[] InBytes = new byte[2];
-            InBytes = BitConverter.GetBytes(100);
-            Out.Velocity.Decode(InBytes[0], InBytes[1]);
+            Acceleration Accel = new Acceleration();
+            Accel.Set(300);
+
+            Out.Velocity.Decode(Accel.EncodeByte1(), Accel.EncodeByte0());
 
             ControlWordI3 CW = new ControlWordI3();
             BinaryInputsO2 BI = new BinaryInputsO2();

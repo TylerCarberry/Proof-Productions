@@ -46,11 +46,11 @@ namespace Proof_Productions.Model.Output
 
         public override String ToString()
         {
-            String Debug = "BinaryInputsO2 \n";
+            String Debug = "BinaryInputsO2 \r\n";
             Debug += "DI00: " + DI00 + " DI01: " + DI01 + " DI02 " + DI02 + " DI03 " + DI03
-                  + " DI04: " + DI04 + " DI05: " + DI05 + " DI06 " + DI06 + " DI07 " + DI07
-                  + " DI08: " + DI08 + " DI09: " + DI09 + " DI10 " + DI10 + " DI11 " + DI11
-                  + " DI12: " + DI12 + " DI13: " + DI13 + " DI14 " + DI14 + " DI15 " + DI15 + "\n";
+                  + " DI04: " + DI04 + " DI05: " + DI05 + " DI06 " + DI06 + " DI07 " + DI07 + "\r\n"
+                  +  "DI08: " + DI08 + " DI09: " + DI09 + " DI10 " + DI10 + " DI11 " + DI11
+                  + " DI12: " + DI12 + " DI13: " + DI13 + " DI14 " + DI14 + " DI15 " + DI15 + "\r\n";
             return Debug;
         }
 

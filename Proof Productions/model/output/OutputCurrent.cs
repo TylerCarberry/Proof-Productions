@@ -16,7 +16,7 @@ namespace Proof_Productions.Model.Output
 
         public override String ToString()
         {
-            return "Output Current \n Value: " + Get() + "\n";
+            return "Output Current \r\n Value: " + Get() + "\r\n";
         }
     }
 }
