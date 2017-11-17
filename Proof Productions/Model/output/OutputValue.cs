@@ -18,7 +18,7 @@ namespace Proof_Productions.Model.Output
         public void Decode(byte first, byte second)
         {
             //May need to cast first and second as ints
-            Value = (256 * (int)first) + (int)second;
+            Value = (((sbyte)first << 8) + second);
         }
 
         public int Get()

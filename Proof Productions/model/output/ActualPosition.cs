@@ -9,7 +9,7 @@ namespace Proof_Productions.Model.Output
     //Does not extend the OutputBoolean class as it is a special case with a high word and a low word
     public class ActualPosition
     {
-        private long Value;
+        private int Value;
         public ActualPosition()
         {
            
@@ -17,10 +17,12 @@ namespace Proof_Productions.Model.Output
 
         public void Decode(byte first, byte second, byte third, byte fourth)
         {
-            Value = (first * 256 * 256 * 256) + (second * 256 * 256) + (third * 256) + fourth;
+            Value = (((sbyte)first) << 24) + ((second) << 16) + ((third) << 8) + (fourth);
+            Value = (int)(Value * 0.1);
+            //Console.WriteLine(Value);
         }
 
-        public long Get()
+        public int Get()
         {
             return Value;
         }
