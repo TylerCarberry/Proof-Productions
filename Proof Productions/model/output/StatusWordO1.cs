@@ -8,14 +8,43 @@ namespace Proof_Productions.Model.Output
 {
     public class StatusWordO1 : OutputBoolean
     {
-        public bool Maintenance_switch, Toggle, Bit02, UserBit,
-                    Dataset_exists, Autoreload_config, Warning, Error;
+        public bool Maintenance_switch, Toggle, Bit02, UserBit, Dataset_exists, Autoreload_config, Warning, Error;
+        private int Value;
 
         public StatusWordO1()
         {
 
         }
-        
-        //TODO - implement set
+
+        public void Decode(byte first, byte second)
+        {
+            Boolean[] data = new Boolean[8];
+            data = ConvertByteToBoolArray(second);
+
+            Maintenance_switch = data[0];
+            Toggle = data[1];
+            Bit02 = data[2];
+            UserBit = data[3];
+            Dataset_exists = data[4];
+            Autoreload_config = data[5];
+            Warning = data[6];
+            Error = data[7];
+
+            Value = (int)first;
+        }
+
+        public int GetValue()
+        {
+            return Value;
+        }
+
+        public override String ToString()
+        {
+            String Debug = "StatusWordO1 \r\n";
+            Debug += "Maintenance_switch: " + Maintenance_switch + " Toggle: " + Toggle + " Bit02: " + Bit02 + " UserBit: " + UserBit
+                  + " Dataset_exists: " + Dataset_exists + " Autoreload_config: " + Autoreload_config + " Warning: " + Warning + " Error: " + Error + "\r\n" 
+                  +  "Value: " + Value + "\r\n";
+            return Debug;
+        }
     }
 }

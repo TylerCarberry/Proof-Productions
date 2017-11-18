@@ -45,6 +45,9 @@
             this.spdLabel1 = new System.Windows.Forms.Label();
             this.accelLabel1 = new System.Windows.Forms.Label();
             this.motorPanelCenter = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.motor2Backward = new System.Windows.Forms.RadioButton();
+            this.motor2Forward = new System.Windows.Forms.RadioButton();
             this.decelLabel2 = new System.Windows.Forms.Label();
             this.accelLabel2 = new System.Windows.Forms.Label();
             this.spdLabel2 = new System.Windows.Forms.Label();
@@ -58,6 +61,9 @@
             this.motorBox2 = new System.Windows.Forms.ComboBox();
             this.motor2Desc = new System.Windows.Forms.TextBox();
             this.motorPanelRight = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.motor3Backward = new System.Windows.Forms.RadioButton();
+            this.motor3Forward = new System.Windows.Forms.RadioButton();
             this.decelLabel3 = new System.Windows.Forms.Label();
             this.accelLabel3 = new System.Windows.Forms.Label();
             this.spdLabel3 = new System.Windows.Forms.Label();
@@ -83,19 +89,13 @@
             this.startCalibrationBtn = new System.Windows.Forms.Button();
             this.pauseCalibrationBtn = new System.Windows.Forms.Button();
             this.stopCalibrationBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.motor2Backward = new System.Windows.Forms.RadioButton();
-            this.motor2Forward = new System.Windows.Forms.RadioButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.motor3Backward = new System.Windows.Forms.RadioButton();
-            this.motor3Forward = new System.Windows.Forms.RadioButton();
             this.motorPanelLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.motorPanelCenter.SuspendLayout();
-            this.motorPanelRight.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.motorPanelRight.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // motor1Desc
@@ -244,7 +244,6 @@
             this.motor1Backward.Name = "motor1Backward";
             this.motor1Backward.Size = new System.Drawing.Size(78, 17);
             this.motor1Backward.TabIndex = 1;
-            this.motor1Backward.TabStop = true;
             this.motor1Backward.Text = "Backwards";
             this.motor1Backward.UseVisualStyleBackColor = true;
             this.motor1Backward.CheckedChanged += new System.EventHandler(this.motor1Backward_CheckedChanged);
@@ -252,6 +251,7 @@
             // motor1Forward
             // 
             this.motor1Forward.AutoSize = true;
+            this.motor1Forward.Checked = true;
             this.motor1Forward.Location = new System.Drawing.Point(5, 4);
             this.motor1Forward.Name = "motor1Forward";
             this.motor1Forward.Size = new System.Drawing.Size(68, 17);
@@ -307,6 +307,39 @@
             this.motorPanelCenter.Name = "motorPanelCenter";
             this.motorPanelCenter.Size = new System.Drawing.Size(190, 410);
             this.motorPanelCenter.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.motor2Backward);
+            this.panel2.Controls.Add(this.motor2Forward);
+            this.panel2.Location = new System.Drawing.Point(22, 330);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(147, 27);
+            this.panel2.TabIndex = 26;
+            // 
+            // motor2Backward
+            // 
+            this.motor2Backward.AutoSize = true;
+            this.motor2Backward.Location = new System.Drawing.Point(72, 4);
+            this.motor2Backward.Name = "motor2Backward";
+            this.motor2Backward.Size = new System.Drawing.Size(78, 17);
+            this.motor2Backward.TabIndex = 1;
+            this.motor2Backward.TabStop = true;
+            this.motor2Backward.Text = "Backwards";
+            this.motor2Backward.UseVisualStyleBackColor = true;
+            this.motor2Backward.CheckedChanged += new System.EventHandler(this.motor2Backward_CheckedChanged);
+            // 
+            // motor2Forward
+            // 
+            this.motor2Forward.AutoSize = true;
+            this.motor2Forward.Location = new System.Drawing.Point(5, 4);
+            this.motor2Forward.Name = "motor2Forward";
+            this.motor2Forward.Size = new System.Drawing.Size(68, 17);
+            this.motor2Forward.TabIndex = 0;
+            this.motor2Forward.TabStop = true;
+            this.motor2Forward.Text = "Forwards";
+            this.motor2Forward.UseVisualStyleBackColor = true;
+            this.motor2Forward.CheckedChanged += new System.EventHandler(this.motor2Forward_CheckedChanged);
             // 
             // decelLabel2
             // 
@@ -461,6 +494,39 @@
             this.motorPanelRight.Name = "motorPanelRight";
             this.motorPanelRight.Size = new System.Drawing.Size(190, 410);
             this.motorPanelRight.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.motor3Backward);
+            this.panel3.Controls.Add(this.motor3Forward);
+            this.panel3.Location = new System.Drawing.Point(20, 330);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(147, 27);
+            this.panel3.TabIndex = 27;
+            // 
+            // motor3Backward
+            // 
+            this.motor3Backward.AutoSize = true;
+            this.motor3Backward.Location = new System.Drawing.Point(72, 4);
+            this.motor3Backward.Name = "motor3Backward";
+            this.motor3Backward.Size = new System.Drawing.Size(78, 17);
+            this.motor3Backward.TabIndex = 1;
+            this.motor3Backward.TabStop = true;
+            this.motor3Backward.Text = "Backwards";
+            this.motor3Backward.UseVisualStyleBackColor = true;
+            this.motor3Backward.CheckedChanged += new System.EventHandler(this.motor3Backward_CheckedChanged);
+            // 
+            // motor3Forward
+            // 
+            this.motor3Forward.AutoSize = true;
+            this.motor3Forward.Location = new System.Drawing.Point(5, 4);
+            this.motor3Forward.Name = "motor3Forward";
+            this.motor3Forward.Size = new System.Drawing.Size(68, 17);
+            this.motor3Forward.TabIndex = 0;
+            this.motor3Forward.TabStop = true;
+            this.motor3Forward.Text = "Forwards";
+            this.motor3Forward.UseVisualStyleBackColor = true;
+            this.motor3Forward.CheckedChanged += new System.EventHandler(this.motor3Forward_CheckedChanged);
             // 
             // decelLabel3
             // 
@@ -730,72 +796,6 @@
             this.stopCalibrationBtn.UseVisualStyleBackColor = true;
             this.stopCalibrationBtn.Click += new System.EventHandler(this.stopCalibrationBtn_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.motor2Backward);
-            this.panel2.Controls.Add(this.motor2Forward);
-            this.panel2.Location = new System.Drawing.Point(22, 330);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 27);
-            this.panel2.TabIndex = 26;
-            // 
-            // motor2Backward
-            // 
-            this.motor2Backward.AutoSize = true;
-            this.motor2Backward.Location = new System.Drawing.Point(72, 4);
-            this.motor2Backward.Name = "motor2Backward";
-            this.motor2Backward.Size = new System.Drawing.Size(78, 17);
-            this.motor2Backward.TabIndex = 1;
-            this.motor2Backward.TabStop = true;
-            this.motor2Backward.Text = "Backwards";
-            this.motor2Backward.UseVisualStyleBackColor = true;
-            this.motor2Backward.CheckedChanged += new System.EventHandler(this.motor2Backward_CheckedChanged);
-            // 
-            // motor2Forward
-            // 
-            this.motor2Forward.AutoSize = true;
-            this.motor2Forward.Location = new System.Drawing.Point(5, 4);
-            this.motor2Forward.Name = "motor2Forward";
-            this.motor2Forward.Size = new System.Drawing.Size(68, 17);
-            this.motor2Forward.TabIndex = 0;
-            this.motor2Forward.TabStop = true;
-            this.motor2Forward.Text = "Forwards";
-            this.motor2Forward.UseVisualStyleBackColor = true;
-            this.motor2Forward.CheckedChanged += new System.EventHandler(this.motor2Forward_CheckedChanged);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.motor3Backward);
-            this.panel3.Controls.Add(this.motor3Forward);
-            this.panel3.Location = new System.Drawing.Point(20, 330);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(147, 27);
-            this.panel3.TabIndex = 27;
-            // 
-            // motor3Backward
-            // 
-            this.motor3Backward.AutoSize = true;
-            this.motor3Backward.Location = new System.Drawing.Point(72, 4);
-            this.motor3Backward.Name = "motor3Backward";
-            this.motor3Backward.Size = new System.Drawing.Size(78, 17);
-            this.motor3Backward.TabIndex = 1;
-            this.motor3Backward.TabStop = true;
-            this.motor3Backward.Text = "Backwards";
-            this.motor3Backward.UseVisualStyleBackColor = true;
-            this.motor3Backward.CheckedChanged += new System.EventHandler(this.motor3Backward_CheckedChanged);
-            // 
-            // motor3Forward
-            // 
-            this.motor3Forward.AutoSize = true;
-            this.motor3Forward.Location = new System.Drawing.Point(5, 4);
-            this.motor3Forward.Name = "motor3Forward";
-            this.motor3Forward.Size = new System.Drawing.Size(68, 17);
-            this.motor3Forward.TabIndex = 0;
-            this.motor3Forward.TabStop = true;
-            this.motor3Forward.Text = "Forwards";
-            this.motor3Forward.UseVisualStyleBackColor = true;
-            this.motor3Forward.CheckedChanged += new System.EventHandler(this.motor3Forward_CheckedChanged);
-            // 
             // ManualControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,14 +820,14 @@
             this.panel1.PerformLayout();
             this.motorPanelCenter.ResumeLayout(false);
             this.motorPanelCenter.PerformLayout();
-            this.motorPanelRight.ResumeLayout(false);
-            this.motorPanelRight.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.motorPanelRight.ResumeLayout(false);
+            this.motorPanelRight.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -9,7 +9,7 @@ namespace Proof_Productions.Model.Output
     public abstract class OutputBoolean
     {
         //TODO - make this into convert byte to bool array
-        private static bool[] ConvertByteToBoolArray(byte b)
+        protected static bool[] ConvertByteToBoolArray(byte b)
         {
             // prepare the return result
             bool[] result = new bool[8];
@@ -20,6 +20,8 @@ namespace Proof_Productions.Model.Output
 
             return result;
         }
+
+        
 
     }
 }

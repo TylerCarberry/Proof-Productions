@@ -35,7 +35,7 @@ namespace Proof_Productions.Model.Input
 
         }
 
-        public byte[] GetValue()
+        public byte[] GetValues()
         {
             byte[] bytes = new byte[24];
 

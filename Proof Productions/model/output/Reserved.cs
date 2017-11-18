@@ -13,5 +13,10 @@ namespace Proof_Productions.Model.Output
         {
 
         }
+
+        public override String ToString()
+        {
+            return "Reserved \r\n Value: " + Get() + "\r\n";
+        }
     }
 }

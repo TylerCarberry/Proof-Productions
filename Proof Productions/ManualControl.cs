@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Model.Input;
+using Proof_Productions.Model.Output;
 using System.Diagnostics;
 
 namespace Proof_Productions
@@ -72,10 +73,6 @@ namespace Proof_Productions
                 input1.Deceleration.Set(deceleration);
                 input1.Control_I3.Positive = motor1Backward.Checked;
                 input1.Control_I3.Negative = motor1Forward.Checked;
-
-                //Testing block
-                Console.WriteLine(input1.SetpointVelocity.Get() + " " + input1.Acceleration.Get() + " " + input1.Deceleration.Get());
-                ///////////////
 
                 stopTimer = false;
                 timer.Interval = 100;

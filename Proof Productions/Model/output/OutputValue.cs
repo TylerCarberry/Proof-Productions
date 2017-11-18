@@ -8,16 +8,17 @@ namespace Proof_Productions.Model.Output
 {
     public abstract class OutputValue
     {
-        private int Value { get; set; }
+        private int Value;
 
         public OutputValue()
         {
             Value = 0;
         }
 
-        public void Set(int value)
+        public void Decode(byte first, byte second)
         {
-            this.Value = value;
+            //May need to cast first and second as ints
+            Value = (((sbyte)first << 8) + second);
         }
 
         public int Get()

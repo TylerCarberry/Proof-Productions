@@ -14,5 +14,10 @@ namespace Proof_Productions.Model.Output
         {
 
         }
+
+        public override String ToString()
+        {
+            return "Actual Velocity \r\n Value: " + Get() + "\r\n";
+        }
     }
 }
