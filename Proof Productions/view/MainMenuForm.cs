@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proof_Productions
+namespace Proof_Productions.View
 {
     public partial class MainMenuForm : Form
     {
