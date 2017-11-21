@@ -1,4 +1,4 @@
-﻿namespace Proof_Productions
+﻿namespace Proof_Productions.View
 {
     partial class MainMenuForm
     {

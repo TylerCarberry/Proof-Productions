@@ -10,7 +10,7 @@ using System.Diagnostics;
 using Proof_Productions.Model.Input;
 using Proof_Productions.Model.Output;
 
-namespace Proof_Productions
+namespace Proof_Productions.Controller
 {
     class PacketController
     {
