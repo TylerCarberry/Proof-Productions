@@ -62,32 +62,32 @@
       <DependentUpon>Logger.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\InputValidator.cs" />
-    <Compile Include="model\Input\Acceleration.cs" />
-    <Compile Include="model\Input\BinaryOutputsI10.cs" />
-    <Compile Include="model\Input\BinaryOutputsI2.cs" />
-    <Compile Include="model\Input\InputValue.cs" />
-    <Compile Include="model\Input\ControlWordI1.cs" />
-    <Compile Include="model\Input\ControlWordI3.cs" />
-    <Compile Include="model\Input\Deceleration.cs" />
-    <Compile Include="model\Input\FieldbusInputData.cs" />
-    <Compile Include="model\Input\InputBoolean.cs" />
-    <Compile Include="model\Input\SetpointPosition.cs" />
-    <Compile Include="model\Input\SetpointValue2.cs" />
-    <Compile Include="model\Input\SetpointVelocity.cs" />
-    <Compile Include="model\Input\SubControlWord.cs" />
-    <Compile Include="model\output\ActualPosition.cs" />
-    <Compile Include="model\output\ActualValue2.cs" />
-    <Compile Include="model\output\ActualVelocity.cs" />
-    <Compile Include="model\output\BinaryInputsO10.cs" />
-    <Compile Include="model\output\BinaryInputsO2.cs" />
-    <Compile Include="model\output\FieldbusOutputData.cs" />
-    <Compile Include="model\output\OutputBoolean.cs" />
-    <Compile Include="model\output\OutputCurrent.cs" />
-    <Compile Include="model\output\OutputValue.cs" />
-    <Compile Include="model\output\Reserved.cs" />
-    <Compile Include="model\output\StatusWordO1.cs" />
-    <Compile Include="model\output\StatusWordO3.cs" />
-    <Compile Include="model\output\SubStatusWord.cs" />
+    <Compile Include="Model2\Input\Acceleration.cs" />
+    <Compile Include="Model2\Input\BinaryOutputsI10.cs" />
+    <Compile Include="Model2\Input\BinaryOutputsI2.cs" />
+    <Compile Include="Model2\Input\InputValue.cs" />
+    <Compile Include="Model2\Input\ControlWordI1.cs" />
+    <Compile Include="Model2\Input\ControlWordI3.cs" />
+    <Compile Include="Model2\Input\Deceleration.cs" />
+    <Compile Include="Model2\Input\FieldbusInputData.cs" />
+    <Compile Include="Model2\Input\InputBoolean.cs" />
+    <Compile Include="Model2\Input\SetpointPosition.cs" />
+    <Compile Include="Model2\Input\SetpointValue2.cs" />
+    <Compile Include="Model2\Input\SetpointVelocity.cs" />
+    <Compile Include="Model2\Input\SubControlWord.cs" />
+    <Compile Include="Model2\Output\ActualPosition.cs" />
+    <Compile Include="Model2\Output\ActualValue2.cs" />
+    <Compile Include="Model2\Output\ActualVelocity.cs" />
+    <Compile Include="Model2\Output\BinaryInputsO10.cs" />
+    <Compile Include="Model2\Output\BinaryInputsO2.cs" />
+    <Compile Include="Model2\Output\FieldbusOutputData.cs" />
+    <Compile Include="Model2\Output\OutputBoolean.cs" />
+    <Compile Include="Model2\Output\OutputCurrent.cs" />
+    <Compile Include="Model2\Output\OutputValue.cs" />
+    <Compile Include="Model2\Output\Reserved.cs" />
+    <Compile Include="Model2\Output\StatusWordO1.cs" />
+    <Compile Include="Model2\Output\StatusWordO3.cs" />
+    <Compile Include="Model2\Output\SubStatusWord.cs" />
     <Compile Include="Controller\PacketController.cs" />
     <Compile Include="View\SetupCues.cs">
       <SubType>Form</SubType>
@@ -154,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModbusTCP.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
