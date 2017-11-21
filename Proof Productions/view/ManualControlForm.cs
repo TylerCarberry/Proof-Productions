@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Model.Input;
-using Proof_Productions.Model.Output;
 using System.Diagnostics;
 
-namespace Proof_Productions
+namespace Proof_Productions.View
 {
     public partial class ManualControlForm : Form
     {
