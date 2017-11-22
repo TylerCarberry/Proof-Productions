@@ -23,10 +23,5 @@ namespace Proof_Productions.Model
             this.SetDeceleration = SetDeceleration;
             this.SetPosition = SetPosition;
         }
-
-
-
-
-
     }
 }
