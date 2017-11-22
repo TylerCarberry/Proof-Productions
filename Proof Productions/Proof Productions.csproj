@@ -49,17 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Cue.cs" />
+    <Compile Include="Model\CueItem.cs" />
+    <Compile Include="Model\Motor.cs" />
     <Compile Include="View\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Logger.cs">
+    <Compile Include="View\LoggerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Logger.Designer.cs">
-      <DependentUpon>Logger.cs</DependentUpon>
+    <Compile Include="View\LoggerForm.Designer.cs">
+      <DependentUpon>LoggerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\InputValidator.cs" />
     <Compile Include="Model\Input\Acceleration.cs" />
@@ -89,23 +92,23 @@
     <Compile Include="Model\Output\StatusWordO3.cs" />
     <Compile Include="Model\Output\SubStatusWord.cs" />
     <Compile Include="Controller\PacketController.cs" />
-    <Compile Include="View\SetupCues.cs">
+    <Compile Include="View\SetupCuesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SetupCues.Designer.cs">
-      <DependentUpon>SetupCues.cs</DependentUpon>
+    <Compile Include="View\SetupCuesForm.Designer.cs">
+      <DependentUpon>SetupCuesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainMenu.cs">
+    <Compile Include="View\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="View\MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ManualControl.cs">
+    <Compile Include="View\ManualControlForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ManualControl.Designer.cs">
-      <DependentUpon>ManualControl.cs</DependentUpon>
+    <Compile Include="View\ManualControlForm.Designer.cs">
+      <DependentUpon>ManualControlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,17 +121,17 @@
     <EmbeddedResource Include="View\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Logger.resx">
-      <DependentUpon>Logger.cs</DependentUpon>
+    <EmbeddedResource Include="View\LoggerForm.resx">
+      <DependentUpon>LoggerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SetupCues.resx">
-      <DependentUpon>SetupCues.cs</DependentUpon>
+    <EmbeddedResource Include="View\SetupCuesForm.resx">
+      <DependentUpon>SetupCuesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ManualControl.resx">
-      <DependentUpon>ManualControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\ManualControlForm.resx">
+      <DependentUpon>ManualControlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -142,6 +145,7 @@
     <EmbeddedResource Include="View\SetupMotorForm.resx">
       <DependentUpon>SetupMotorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Model\PLC.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
