@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proof_Productions
+namespace Proof_Productions.Controller
 {
     public class InputValidator
     {
