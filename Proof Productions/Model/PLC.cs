@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model
 {
-    class PLC
+    public class PLC
     {
     }
 }
