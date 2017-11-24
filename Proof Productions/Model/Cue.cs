@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model
 {
-    class Cue
+    public class Cue
     {
         private List<CueItem> CueList = new List<CueItem>();
 

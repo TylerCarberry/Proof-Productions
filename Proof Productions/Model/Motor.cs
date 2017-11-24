@@ -8,10 +8,10 @@ using Proof_Productions.Model.Output;
 
 namespace Proof_Productions.Model
 {
-    class Motor
+    public class Motor
     {
-        String IPAddress, Name, Description;
-        PLC ConnectedPLC;
+        public String IPAddress, Name, Description;
+        public PLC ConnectedPLC;
         FieldbusInputData InputData;
         FieldbusOutputData OutputData;
 
