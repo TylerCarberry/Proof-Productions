@@ -7,11 +7,12 @@ using Proof_Productions.Model.Input;
 
 namespace Proof_Productions.Model
 {
-    class CueItem
+    public class CueItem
     {
-        double DelayBefore, RunTime;
-        int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;
-        Motor CueMotor;
+        public String Name;
+        public double DelayBefore, RunTime;
+        public int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;
+        public Motor CueMotor;
  
         public CueItem(double DelayBefore, double Runtime, Motor CueMotor, int SetVelocity, int SetAcceleration, int SetDeceleration, int SetPosition)
         {
