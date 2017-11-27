@@ -84,6 +84,9 @@ namespace Proof_Productions.Model
                 //TODO - once Play is implemented
                 //cmd.Parameters.AddWithValue("@PlayName", playName);
                 cmd.Parameters.AddWithValue("@CueName", cue.Name);
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted Cue");
             }
             catch (Exception e)
             {
@@ -98,11 +101,13 @@ namespace Proof_Productions.Model
         {
             try
             {
-                connect();
+                
                 cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".play (Name) VALUES ( @Name )";
                 //TODO - once Play is implemented
                 //cmd.Parameters.AddWithValue("@Name", play.name);
-                disconnect();
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted Play");
             }
             catch (Exception e)
             {
@@ -135,6 +140,9 @@ namespace Proof_Productions.Model
                 cmd.Parameters.AddWithValue("@SetDeceleration", item.SetDeceleration);
                 cmd.Parameters.AddWithValue("@SetPosition", item.SetPosition);
                 cmd.Parameters.AddWithValue("@CueName", cue.Name);
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted CueItem");
             }
             catch (Exception e)
             {
@@ -166,6 +174,9 @@ namespace Proof_Productions.Model
                 cmd.Parameters.AddWithValue("@LimitMaxDeceleration", motor.LimitMaxDeceleration);
                 cmd.Parameters.AddWithValue("@LimitMaxNegPosition", motor.LimitMaxNegPosition);
                 cmd.Parameters.AddWithValue("@LimitMaxPosPosition", motor.LimitMaxPosPosition);
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted Motor");
             }
             catch (Exception e)
             {
@@ -183,6 +194,9 @@ namespace Proof_Productions.Model
                                   "VALUES (@CueItemName, @MotorName)";
                 cmd.Parameters.AddWithValue("@CueItemName", item.Name);
                 cmd.Parameters.AddWithValue("@MotorName", motor.Name);
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted CueItemMotor");
             }
             catch (Exception e)
             {
@@ -198,6 +212,9 @@ namespace Proof_Productions.Model
             {
                 cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".plc (PLCName) VALUES (@PLCName)";
                 cmd.Parameters.AddWithValue("@PLCName", plc.Name);
+                adapter.InsertCommand = cmd;
+                adapter.InsertCommand.ExecuteNonQuery();
+                if (testing) Console.WriteLine("Inserted PLC");
             }
             catch (Exception e)
             {
