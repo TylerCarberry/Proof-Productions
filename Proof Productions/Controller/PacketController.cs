@@ -76,7 +76,9 @@ namespace Proof_Productions.Controller
             outputData.SetValues(result);
             Console.WriteLine();
 
-            Logger.LogInfo("Writing to motor with data: " + outputData.ToString());
+            Logger.LogInfo("Input data: " + input.ToString());
+            Logger.LogInfo("Output data: " + outputData.ToString());
+
         }
     }
 }
