@@ -36,6 +36,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Common\bin\Debug\ModbusTCP.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Model\Cue.cs" />
     <Compile Include="Model\CueItem.cs" />
+    <Compile Include="Model\DataAccess.cs" />
     <Compile Include="Model\Motor.cs" />
     <Compile Include="View\AboutForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +151,7 @@
       <DependentUpon>SetupMotorForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Model\PLC.cs" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
