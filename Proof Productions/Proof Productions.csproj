@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Logger.cs" />
     <Compile Include="Model\Cue.cs" />
     <Compile Include="Model\CueItem.cs" />
     <Compile Include="Model\Motor.cs" />

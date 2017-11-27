@@ -9,7 +9,7 @@ namespace Proof_Productions.Controller
     public class InputValidator
     {
 
-        public static Boolean isValid(int input)
+        public static Boolean IsValid(int input)
         {
             return input >= 0;
         }
