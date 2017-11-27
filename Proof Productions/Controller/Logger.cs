@@ -12,20 +12,26 @@ namespace Proof_Productions.Controller
 
         public static void LogInfo(String message)
         {
-            System.IO.File.AppendAllText(FilePath, CurrentTime() + ": ");
-            System.IO.File.AppendAllText(FilePath, message);
-            System.IO.File.AppendAllText(FilePath, "\n");
+            System.IO.File.AppendAllText(FilePath, CurrentTime() + " | ");
+            System.IO.File.AppendAllText(FilePath, FormatMessage(message));
+            System.IO.File.AppendAllText(FilePath, System.Environment.NewLine);
         }
 
         public static void LogError(String message)
         {
-            System.IO.File.AppendAllText(FilePath, message);
-            System.IO.File.AppendAllText(FilePath, "\n");
+            System.IO.File.AppendAllText(FilePath, CurrentTime() + " | ERROR ");
+            System.IO.File.AppendAllText(FilePath, FormatMessage(message));
+            System.IO.File.AppendAllText(FilePath, System.Environment.NewLine);
         }
 
         private static String CurrentTime()
         {
-            return DateTime.Now.ToString("MM/dd/yyyy h:mm:ss tt");
+            return DateTime.Now.ToString("MM/dd/yyyy - h:mm:ss tt");
+        }
+
+        private static String FormatMessage(String message)
+        {
+            return message.Replace(System.Environment.NewLine, " ");
         }
 
     }

@@ -305,5 +305,10 @@ namespace Proof_Productions.View
         {
 
         }
+
+        private void estopButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

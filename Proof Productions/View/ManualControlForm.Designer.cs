@@ -89,6 +89,7 @@
             this.startCalibrationBtn = new System.Windows.Forms.Button();
             this.pauseCalibrationBtn = new System.Windows.Forms.Button();
             this.stopCalibrationBtn = new System.Windows.Forms.Button();
+            this.estopButton = new System.Windows.Forms.Button();
             this.motorPanelLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.motorPanelCenter.SuspendLayout();
@@ -768,7 +769,7 @@
             // 
             // startCalibrationBtn
             // 
-            this.startCalibrationBtn.Location = new System.Drawing.Point(38, 312);
+            this.startCalibrationBtn.Location = new System.Drawing.Point(38, 303);
             this.startCalibrationBtn.Name = "startCalibrationBtn";
             this.startCalibrationBtn.Size = new System.Drawing.Size(106, 23);
             this.startCalibrationBtn.TabIndex = 21;
@@ -778,7 +779,7 @@
             // 
             // pauseCalibrationBtn
             // 
-            this.pauseCalibrationBtn.Location = new System.Drawing.Point(38, 355);
+            this.pauseCalibrationBtn.Location = new System.Drawing.Point(38, 332);
             this.pauseCalibrationBtn.Name = "pauseCalibrationBtn";
             this.pauseCalibrationBtn.Size = new System.Drawing.Size(106, 23);
             this.pauseCalibrationBtn.TabIndex = 22;
@@ -788,7 +789,7 @@
             // 
             // stopCalibrationBtn
             // 
-            this.stopCalibrationBtn.Location = new System.Drawing.Point(38, 397);
+            this.stopCalibrationBtn.Location = new System.Drawing.Point(38, 361);
             this.stopCalibrationBtn.Name = "stopCalibrationBtn";
             this.stopCalibrationBtn.Size = new System.Drawing.Size(106, 23);
             this.stopCalibrationBtn.TabIndex = 23;
@@ -796,11 +797,25 @@
             this.stopCalibrationBtn.UseVisualStyleBackColor = true;
             this.stopCalibrationBtn.Click += new System.EventHandler(this.stopCalibrationBtn_Click);
             // 
+            // estopButton
+            // 
+            this.estopButton.BackColor = System.Drawing.Color.Red;
+            this.estopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estopButton.ForeColor = System.Drawing.Color.White;
+            this.estopButton.Location = new System.Drawing.Point(12, 406);
+            this.estopButton.Name = "estopButton";
+            this.estopButton.Size = new System.Drawing.Size(154, 59);
+            this.estopButton.TabIndex = 24;
+            this.estopButton.Text = "EMERGENCY STOP";
+            this.estopButton.UseVisualStyleBackColor = false;
+            this.estopButton.Click += new System.EventHandler(this.estopButton_Click);
+            // 
             // ManualControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 477);
+            this.Controls.Add(this.estopButton);
             this.Controls.Add(this.stopCalibrationBtn);
             this.Controls.Add(this.pauseCalibrationBtn);
             this.Controls.Add(this.startCalibrationBtn);
@@ -900,5 +915,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton motor3Backward;
         private System.Windows.Forms.RadioButton motor3Forward;
+        private System.Windows.Forms.Button estopButton;
     }
 }
