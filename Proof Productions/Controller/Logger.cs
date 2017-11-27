@@ -8,21 +8,19 @@ namespace Proof_Productions.Controller
 {
     class Logger
     {
-        public const String FilePath = @"C:\Users\Public\ProofProductions\log.txt";
+        public const String FilePath = @"C:\Users\shop\Desktop\log.txt";
 
         public static void LogInfo(String message)
         {
-            System.IO.File.WriteAllText(FilePath, CurrentTime() + ": ");
-            System.IO.File.WriteAllText(FilePath, message);
-            System.IO.File.WriteAllText(FilePath, "\n");
+            System.IO.File.AppendAllText(FilePath, CurrentTime() + ": ");
+            System.IO.File.AppendAllText(FilePath, message);
+            System.IO.File.AppendAllText(FilePath, "\n");
         }
 
         public static void LogError(String message)
         {
-            System.IO.File.WriteAllText(FilePath, CurrentTime() + ": *ERROR* ");
-            System.IO.File.WriteAllText(FilePath, message);
-            System.IO.File.WriteAllText(FilePath, "\n");
-
+            System.IO.File.AppendAllText(FilePath, message);
+            System.IO.File.AppendAllText(FilePath, "\n");
         }
 
         private static String CurrentTime()

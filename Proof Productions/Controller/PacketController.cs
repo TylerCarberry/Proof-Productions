@@ -66,6 +66,12 @@ namespace Proof_Productions.Controller
 
         public void WriteMotor(FieldbusInputData input)
         {
+            if (MBmaster == null)
+            {
+                Logger.LogError("Attempting to write to null motor. Write failed.");
+                return;
+            }
+
             ushort ID = 8;
             ushort StartAddress = 4;
             byte unit = 0;
