@@ -78,12 +78,12 @@ namespace Proof_Productions.Controller
 
             byte[] data = input.GetValues();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
-            FieldbusOutputData outputData = new FieldbusOutputData();
-            outputData.SetValues(result);
+            FieldbusOutputData OutputData = new FieldbusOutputData();
+            OutputData.SetValues(result);
             Console.WriteLine();
 
             Logger.LogInfo("Input data: " + input.ToString());
-            Logger.LogInfo("Output data: " + outputData.ToString());
+            Logger.LogInfo("Output data: " + OutputData.ToString());
 
         }
     }

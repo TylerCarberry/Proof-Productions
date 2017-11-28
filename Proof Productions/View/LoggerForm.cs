@@ -23,7 +23,15 @@ namespace Proof_Productions.View
 
         private void ReadFromFile()
         {
-            String[] logArray = File.ReadAllLines(Logger.FilePath);
+            String[] logArray;
+            try
+            {
+                logArray = File.ReadAllLines(Logger.getLogPath());
+            }
+            catch (FileNotFoundException e)
+            {
+                return;
+            }
 
             foreach (String item in logArray)
             {
@@ -47,7 +55,7 @@ namespace Proof_Productions.View
 
         private void logLocationButton_Click(object sender, EventArgs e)
         {
-            String filePath = Logger.FilePath;
+            String filePath = Logger.getLogPath();
             String argument = "/select, \"" + filePath + "\"";
 
             System.Diagnostics.Process.Start("explorer.exe", argument);
