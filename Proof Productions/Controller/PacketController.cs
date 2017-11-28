@@ -82,8 +82,8 @@ namespace Proof_Productions.Controller
             OutputData.SetValues(result);
             Console.WriteLine();
 
-            Logger.LogInfo("Input data: " + input.ToString());
-            Logger.LogInfo("Output data: " + OutputData.ToString());
+            //Logger.LogInfo("Input data: " + input.ToString());
+            //Logger.LogInfo("Output data: " + OutputData.ToString());
 
         }
     }
