@@ -11,8 +11,8 @@ namespace Proof_Productions.Model
     {
         public double DelayBefore, RunTime; //In Seconds
         public int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;
-        public int Stopping; 
-        public bool PositiveDirection, Running;
+        public int Number; 
+        public bool PositiveDirection, Running, Stopping;
         public Motor CueMotor;
  
         public CueItem(double DelayBefore, double Runtime, Motor CueMotor, int SetVelocity, int SetAcceleration, int SetDeceleration, bool PositiveDirection, int SetPosition)
@@ -25,7 +25,7 @@ namespace Proof_Productions.Model
             this.SetDeceleration = SetDeceleration;
             this.PositiveDirection = PositiveDirection;
             this.SetPosition = SetPosition;
-            Stopping = 0;
+            Stopping = false;
         }
 
         public void UpdateInputFields()

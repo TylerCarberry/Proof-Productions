@@ -11,7 +11,8 @@ namespace Proof_Productions.Model
 {
     public class Cue
     {
-       List<CueItem> ItemList = new List<CueItem>();
+        List<CueItem> ItemList = new List<CueItem>();
+        public String Name = "Default Cue";
 
         public void Add(CueItem Item)
         {

@@ -11,7 +11,7 @@ namespace Proof_Productions.Controller
 
         public static String getLogPath()
         {
-            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/proofLog" + DateTime.Now.ToString("MMddyyyy");
+            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/proofLog" + DateTime.Now.ToString("MMddyyyy") + ".txt";
         }
 
         public static void LogInfo(String message)

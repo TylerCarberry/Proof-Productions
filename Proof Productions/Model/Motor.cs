@@ -10,7 +10,7 @@ namespace Proof_Productions.Model
 {
     public class Motor
     {
-        public String IPAddress, Name, Description;
+        public String IPAddress, Name = "DefaultMotor", Description;
         public PLC ConnectedPLC;
         public FieldbusInputData InputData = new FieldbusInputData();
         public FieldbusOutputData OutputData = new FieldbusOutputData();

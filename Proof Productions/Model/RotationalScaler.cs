@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proof_Productions.Model
 {
-    class RotationalScaler
+    public class RotationalScaler
     {
         Motor CueMotor;
         int ScaleDegrees = 2100;

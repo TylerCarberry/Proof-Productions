@@ -56,14 +56,16 @@ namespace Proof_Productions.Controller
                     Master MBmaster = new Master(Item.CueMotor.IPAddress, 502);
                     Console.WriteLine("Adding Motor " + Item.CueMotor.IPAddress);
                     MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
+                    Logger.LogInfo("Successfully connected to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     MasterList.Add(MBmaster);
                     Item.UpdateInputFields();
                     Item.Running = true;
-                    Item.Stopping = 0;
+                    Item.Stopping = false;
 
                 }
                 catch (SystemException error)
                 {
+                    Logger.LogInfo("Error connecting to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     MessageBox.Show(error.Message);
                 }
             }
@@ -90,6 +92,7 @@ namespace Proof_Productions.Controller
 
         public void PlayCurrentCue()
         {
+            Logger.LogInfo("Playing " + CurrentCue.Name);
             SetupMotors();
             FinishedCue = false;
             stopwatch.Start();
@@ -109,24 +112,22 @@ namespace Proof_Productions.Controller
 
                 if (!FinishedCue)
                 {
-                   // Console.WriteLine("Point A");
                     NumberRunning = MasterList.Count;
                     if ((stopwatch.Elapsed.Seconds >= Item.DelayBefore) && Item.Running)
                     {
-                       // Console.WriteLine("Point B");
                         if (stopwatch.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
                         {
-                            //Console.WriteLine("Point C");
-                            if (Item.Stopping == 0)
+                            if (!Item.Stopping)
+                            {
+                                Item.Stopping = true;
                                 Item.SetVelocity = 0;
-
+                            }
                             else if (Item.CueMotor.OutputData.Velocity.Get() == 0)
                             {
                                 Item.Running = false;
+                                Logger.LogInfo("Motor " + Item.CueMotor.Name + " has stopped running");
                             }
-                            Item.Stopping++;
                         }
-                       // Console.WriteLine("Point D");
                         Item.UpdateInputFields();
                         MasterList[Count].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[Count].CueMotor.InputData.GetValues(), ref result);
                         Item.CueMotor.OutputData.SetValues(result);
@@ -141,6 +142,7 @@ namespace Proof_Productions.Controller
                     stopwatch.Stop();
                     timer.Stop();
                     DisconnectMotors();
+                    Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
                 }
             }
         }
