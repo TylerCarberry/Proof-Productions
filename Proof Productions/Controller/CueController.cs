@@ -16,9 +16,6 @@ namespace Proof_Productions.Controller
 {
     public class CueController
     {
-        // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Variables
-        // --------------------------------------------------------------------------------------------------------------------------------------------
         private Cue CurrentCue = new Cue();
         private byte[] result;
         private bool FinishedCue;
@@ -43,9 +40,9 @@ namespace Proof_Productions.Controller
             CurrentCue = CueList[0];
         }
 
-        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // ---------------------------------------------------------------
         // Methods
-        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // ---------------------------------------------------------------
         private void SetupMotors()
         {
             List<CueItem> ItemList = CurrentCue.GetList();
@@ -88,6 +85,7 @@ namespace Proof_Productions.Controller
             }
 
             MessageBox.Show(exc, "Modbus slave exception");
+            Logger.LogError(exc.ToString());
         }
 
         public void PlayCurrentCue()
@@ -97,14 +95,12 @@ namespace Proof_Productions.Controller
             FinishedCue = false;
             stopwatch.Start();
             timer.Interval = 100; //ms
-            timer.Tick += new EventHandler(timerTick);
+            timer.Tick += new EventHandler(TimerTick);
             timer.Start();
         }
 
-        private void timerTick(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
         {
-            Console.Out.WriteLine("TICK");
-
             int NumberRunning = MasterList.Count;
             for (int Count = 0; Count < MasterList.Count; Count++)
             {
@@ -131,11 +127,14 @@ namespace Proof_Productions.Controller
                         Item.UpdateInputFields();
                         MasterList[Count].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[Count].CueMotor.InputData.GetValues(), ref result);
                         Item.CueMotor.OutputData.SetValues(result);
-                    }
-                    else
+                    } else {
                         NumberRunning--;
+                    }
+
                     if (NumberRunning == 0)
+                    {
                         FinishedCue = true;
+                    }
                 }
                 else
                 {
