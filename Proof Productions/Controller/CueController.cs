@@ -93,7 +93,7 @@ namespace Proof_Productions.Controller
             SetupMotors();
             FinishedCue = false;
             stopwatch.Start();
-            timer.Interval = 100;
+            timer.Interval = 100; //ms
             timer.Tick += new EventHandler(timerTick);
             timer.Start();
         }
@@ -109,14 +109,14 @@ namespace Proof_Productions.Controller
 
                 if (!FinishedCue)
                 {
-                    Console.WriteLine("Point A");
+                   // Console.WriteLine("Point A");
                     NumberRunning = MasterList.Count;
                     if ((stopwatch.Elapsed.Seconds >= Item.DelayBefore) && Item.Running)
                     {
-                        Console.WriteLine("Point B");
+                       // Console.WriteLine("Point B");
                         if (stopwatch.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
                         {
-                            Console.WriteLine("Point C");
+                            //Console.WriteLine("Point C");
                             if (Item.Stopping == 0)
                                 Item.SetVelocity = 0;
 
@@ -126,7 +126,7 @@ namespace Proof_Productions.Controller
                             }
                             Item.Stopping++;
                         }
-                        Console.WriteLine("Point D");
+                       // Console.WriteLine("Point D");
                         Item.UpdateInputFields();
                         MasterList[Count].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[Count].CueMotor.InputData.GetValues(), ref result);
                         Item.CueMotor.OutputData.SetValues(result);

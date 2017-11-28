@@ -7,7 +7,7 @@ using Proof_Productions.Model.Input;
 
 namespace Proof_Productions.Model
 {
-    class CueItem
+    public class CueItem
     {
         public double DelayBefore, RunTime; //In Seconds
         public int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;

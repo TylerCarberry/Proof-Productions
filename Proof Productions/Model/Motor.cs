@@ -8,7 +8,7 @@ using Proof_Productions.Model.Output;
 
 namespace Proof_Productions.Model
 {
-    class Motor
+    public class Motor
     {
         public String IPAddress, Name, Description;
         public PLC ConnectedPLC;
