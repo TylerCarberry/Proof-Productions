@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proof_Productions.Model;
 
 namespace Proof_Productions.Model
 {
-    class Cue
+    public class Cue
     {
        List<CueItem> ItemList = new List<CueItem>();
 

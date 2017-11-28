@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace Proof_Productions.Controller
 {
-    class CueController
+    public class CueController
     {
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Variables
@@ -25,7 +25,7 @@ namespace Proof_Productions.Controller
         private List<Cue> CueList = new List<Cue>();
         private List<Master> MasterList = new List<Master>();
         Timer timer = new Timer();
-        Stopwatch sw = new Stopwatch();
+        Stopwatch stopwatch = new Stopwatch();
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Proof of concept hard coded cue sample in constructor
@@ -92,7 +92,7 @@ namespace Proof_Productions.Controller
         {
             SetupMotors();
             FinishedCue = false;
-            sw.Start();
+            stopwatch.Start();
             timer.Interval = 100;
             timer.Tick += new EventHandler(timerTick);
             timer.Start();
@@ -111,10 +111,10 @@ namespace Proof_Productions.Controller
                 {
                     Console.WriteLine("Point A");
                     NumberRunning = MasterList.Count;
-                    if ((sw.Elapsed.Seconds >= Item.DelayBefore) && Item.Running)
+                    if ((stopwatch.Elapsed.Seconds >= Item.DelayBefore) && Item.Running)
                     {
                         Console.WriteLine("Point B");
-                        if (sw.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
+                        if (stopwatch.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
                         {
                             Console.WriteLine("Point C");
                             if (Item.Stopping == 0)
@@ -138,7 +138,7 @@ namespace Proof_Productions.Controller
                 }
                 else
                 {
-                    sw.Stop();
+                    stopwatch.Stop();
                     timer.Stop();
                     DisconnectMotors();
                 }
@@ -178,3 +178,4 @@ namespace Proof_Productions.Controller
 
     }
 }
+
