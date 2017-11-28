@@ -9,11 +9,13 @@ namespace Proof_Productions.Model
 {
     class CueItem
     {
-        double DelayBefore, RunTime;
-        int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;
-        Motor CueMotor;
+        public double DelayBefore, RunTime; //In Seconds
+        public int SetVelocity, SetAcceleration, SetDeceleration, SetPosition;
+        public int Stopping; 
+        public bool PositiveDirection, Running;
+        public Motor CueMotor;
  
-        public CueItem(double DelayBefore, double Runtime, Motor CueMotor, int SetVelocity, int SetAcceleration, int SetDeceleration, int SetPosition)
+        public CueItem(double DelayBefore, double Runtime, Motor CueMotor, int SetVelocity, int SetAcceleration, int SetDeceleration, bool PositiveDirection, int SetPosition)
         {
             this.DelayBefore = DelayBefore;
             this.RunTime = Runtime;
@@ -21,7 +23,26 @@ namespace Proof_Productions.Model
             this.SetVelocity = SetVelocity;
             this.SetAcceleration = SetAcceleration;
             this.SetDeceleration = SetDeceleration;
+            this.PositiveDirection = PositiveDirection;
             this.SetPosition = SetPosition;
+            Stopping = 0;
         }
+
+        public void UpdateInputFields()
+        {
+            CueMotor.InputData.SetpointVelocity.Set(SetVelocity);
+            CueMotor.InputData.Acceleration.Set(SetAcceleration);
+            CueMotor.InputData.Deceleration.Set(SetDeceleration);
+            CueMotor.InputData.Control_I3.Positive = PositiveDirection;
+            CueMotor.InputData.Control_I3.Negative = !PositiveDirection;
+            CueMotor.InputData.Setpoint_Position.Set(SetPosition);
+        }
+
+        private Boolean ValidDuration()
+        {
+            return ((SetVelocity/SetAcceleration + SetVelocity/SetDeceleration) >= RunTime);
+        }
+
+
     }
 }

@@ -10,13 +10,21 @@ namespace Proof_Productions.Model
 {
     class Motor
     {
-        String IPAddress, Name, Description;
-        PLC ConnectedPLC;
-        FieldbusInputData InputData;
-        FieldbusOutputData OutputData;
+        public String IPAddress, Name, Description;
+        public PLC ConnectedPLC;
+        public FieldbusInputData InputData = new FieldbusInputData();
+        public FieldbusOutputData OutputData = new FieldbusOutputData();
+        public RotationalScaler Scaler;
 
         //TODO Implement Motor Limits
-        int LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition;
+        public int LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition;
+
+        public Motor()
+        {
+            IPAddress = "192.168.10.4";
+            Name = "POC Motor";
+            Description = "Default constructor only used for testing and proof of concept purposes only";
+        }
 
         public Motor(String IPAddress, String Name, String Description, PLC ConnectedPLC)
         {
@@ -24,10 +32,8 @@ namespace Proof_Productions.Model
             this.Name = Name;
             this.Description = Description;
             this.ConnectedPLC = ConnectedPLC;
+            Scaler = new RotationalScaler(this);
         }
-
-
-
 
     }
 }

@@ -23,11 +23,11 @@ namespace Proof_Productions.Controller
             {
                 //Create new modbus master and add event functions
                 MBmaster = new Master("192.168.10.4", 502);
-                
+
                 //Need to figure this out.
                 //MBmaster.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
 
-                MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
+                MBmaster.OnException += new Master.ExceptionData(MBmaster_OnException);
                 // Show additional fields, enable watchdog
 
                 Logger.LogInfo("Successfully connected to motor");
@@ -47,7 +47,7 @@ namespace Proof_Productions.Controller
         {
             string exc = "Modbus says error: ";
             switch (exception)
-            {   
+            {
                 case Master.excIllegalFunction: exc += "Illegal function!"; break;
                 case Master.excIllegalDataAdr: exc += "Illegal data adress!"; break;
                 case Master.excIllegalDataVal: exc += "Illegal data value!"; break;
@@ -56,7 +56,7 @@ namespace Proof_Productions.Controller
                 case Master.excGatePathUnavailable: exc += "Gateway path unavailbale!"; break;
                 case Master.excExceptionTimeout: exc += "Slave timed out!"; break;
                 case Master.excExceptionConnectionLost: exc += "Connection is lost!"; break;
-                case Master.excExceptionNotConnected: exc += "Not connected!"; break; 
+                case Master.excExceptionNotConnected: exc += "Not connected!"; break;
             }
 
             Logger.LogError(exc);

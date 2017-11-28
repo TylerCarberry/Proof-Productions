@@ -8,5 +8,6 @@ namespace Proof_Productions.Model
 {
     class PLC
     {
+        //TODO Figure out and create methods and variables for a PLC
     }
 }

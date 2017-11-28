@@ -45,7 +45,7 @@ namespace Proof_Productions.Model.Output
             SubStatus.Decode(data[16], data[17]);
             Binary10.Decode(data[18], data[19]);
             Value2.Decode(data[20], data[21], data[22], data[23]);
-            DebugTest();
+            //DebugTest();
         }
         
         private void DebugTest()
