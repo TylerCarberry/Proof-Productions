@@ -29,10 +29,13 @@ namespace Proof_Productions.Controller
 
                 MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
                 // Show additional fields, enable watchdog
+
+                Logger.LogInfo("Successfully connected to motor");
             }
             catch (SystemException error)
             {
                 MessageBox.Show(error.Message);
+                Logger.LogError("Failed to conntect to motor. " + error.ToString());
             }
         }
 
@@ -56,20 +59,32 @@ namespace Proof_Productions.Controller
                 case Master.excExceptionNotConnected: exc += "Not connected!"; break; 
             }
 
+            Logger.LogError(exc);
+
             MessageBox.Show(exc, "Modbus slave exception");
         }
 
         public void WriteMotor(FieldbusInputData input)
         {
+            if (MBmaster == null)
+            {
+                Logger.LogError("Attempting to write to null motor. Write failed.");
+                return;
+            }
+
             ushort ID = 8;
             ushort StartAddress = 4;
             byte unit = 0;
 
             byte[] data = input.GetValues();
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, data, ref result);
-            FieldbusOutputData Out = new FieldbusOutputData();
-            Out.SetValues(result);
+            FieldbusOutputData OutputData = new FieldbusOutputData();
+            OutputData.SetValues(result);
             Console.WriteLine();
+
+            //Logger.LogInfo("Input data: " + input.ToString());
+            //Logger.LogInfo("Output data: " + OutputData.ToString());
+
         }
     }
 }
