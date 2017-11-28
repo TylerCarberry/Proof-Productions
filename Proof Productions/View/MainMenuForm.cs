@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proof_Productions.Controller;
 
 namespace Proof_Productions.View
 {
@@ -56,7 +57,8 @@ namespace Proof_Productions.View
 
         private void playCueButton_Click(object sender, EventArgs e)
         {
-
+            CueController C1 = new CueController();
+            C1.PlayCurrentCue();
         }
 
         private void pauseCueButton_Click(object sender, EventArgs e)

@@ -4,26 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Proof_Productions.Model;
 
 namespace Proof_Productions.Model
 {
-    class Cue
+    public class Cue
     {
-        private List<CueItem> CueList = new List<CueItem>();
+        List<CueItem> ItemList = new List<CueItem>();
+        public String Name = "Default Cue";
 
         public void Add(CueItem Item)
         {
-            CueList.Add(Item);
+            ItemList.Add(Item);
         }
 
 
         public CueItem GetItem(int Index)
         {
-            if (Index >= 0 && Index < CueList.Count)
-                return CueList[Index];
+            if (Index >= 0 && Index < ItemList.Count)
+                return ItemList[Index];
             else
                 return null;
         }
 
+        public List<CueItem> GetList()
+        {
+            return ItemList;
+        }
+
+
+       
     }
 }

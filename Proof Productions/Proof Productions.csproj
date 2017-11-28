@@ -50,9 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Logger.cs" />
+    <Compile Include="Controller\CueController.cs" />
     <Compile Include="Model\Cue.cs" />
     <Compile Include="Model\CueItem.cs" />
     <Compile Include="Model\Motor.cs" />
+    <Compile Include="Model\RotationalScaler.cs" />
     <Compile Include="View\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
