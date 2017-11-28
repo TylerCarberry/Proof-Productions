@@ -62,7 +62,8 @@ namespace Proof_Productions.Controller
                 }
                 catch (SystemException error)
                 {
-                    Logger.LogInfo("Error connecting to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
+                    Logger.LogError("Error connecting to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
+                    Logger.LogError(error.Message);
                     MessageBox.Show(error.Message);
                 }
             }
