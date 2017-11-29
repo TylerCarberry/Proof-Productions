@@ -81,19 +81,36 @@ namespace Proof_Productions.View
                     String accelerationStr = row.Cells[6].Value.ToString();
                     String decelerationStr = row.Cells[7].Value.ToString();
 
-                    // TODO For Tom
-                    /*
-                    if (InputValidator.IsValid(speed)
-                    // and check all of the other fields
+                    int speed = 0;
+                    int accel = 0;
+                    int decel = 0;
+
+                    if (InputValidator.IsValidVelocity(speedStr))
                     {
-
+                        speed = int.Parse(speedStr);
                     }
-                    else show a dialog and don't write to the motor
-                    */
+                    else{
+                        MessageBox.Show("Invalid Velocity entered.");
+                    }
 
-                    int speed = int.Parse(speedStr);
-                    int accel = int.Parse(accelerationStr);
-                    int decel = int.Parse(decelerationStr);
+                    if(InputValidator.IsValidAcceleration(accelerationStr))
+                    {
+                        accel = int.Parse(accelerationStr);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Acceleration entered.");
+                    }
+
+                    if(InputValidator.IsValidAcceleration(decelerationStr))
+                    {
+                        decel = int.Parse(decelerationStr);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Deceleration entered.");
+                    }
+
                     int startDelay = int.Parse(startDelayStr);
                     int duration = int.Parse(durationStr);
 
