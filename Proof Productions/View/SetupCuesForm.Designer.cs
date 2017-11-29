@@ -154,6 +154,7 @@
             this.cueComboBox.Name = "cueComboBox";
             this.cueComboBox.Size = new System.Drawing.Size(121, 21);
             this.cueComboBox.TabIndex = 20;
+            this.cueComboBox.Text = "Cue1";
             // 
             // name
             // 
@@ -203,7 +204,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Delete cue item";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
             // 
             // SetupCueForm
             // 
