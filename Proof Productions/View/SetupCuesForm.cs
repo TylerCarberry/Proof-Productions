@@ -65,29 +65,51 @@ namespace Proof_Productions.View
 
         private void saveCueButton_Click(object sender, EventArgs e)
         {
+
+            List<CueItem> cueItems = new List<CueItem>();
+
             foreach(DataGridViewRow row in motorDataGridView.Rows)
             {
-                String name = row.Cells[0].Value.ToString();
-                String motor = row.Cells[0].Value.ToString();
-                Boolean clockwise = row.Cells[0].Value.ToString().Equals("true");
-                String speed = row.Cells[0].Value.ToString();
-                String acceleratoin = row.Cells[0].Value.ToString();
-                String deceleration = row.Cells[0].Value.ToString();
 
-                // TODO For Tom
-                /*
-                if (InputValidator.IsValid(speed)
+                try
                 {
+                    String name = row.Cells[0].Value.ToString();
+                    String motor = row.Cells[1].Value.ToString();
+                    Boolean clockwise = row.Cells[2].Value.ToString().Equals("true");
+                    String speedStr = row.Cells[3].Value.ToString();
+                    String accelerationStr = row.Cells[4].Value.ToString();
+                    String decelerationStr = row.Cells[5].Value.ToString();
 
+                    // TODO For Tom
+                    /*
+                    if (InputValidator.IsValid(speed)
+                    {
+
+                    }
+                    else show a dialog and don't write to the motor
+                    */
+
+                    int speed = int.Parse(speedStr);
+                    int accel = int.Parse(accelerationStr);
+                    int decel = int.Parse(decelerationStr);
+
+                    CueItem cueItem = new CueItem(0, 1000, null, speed, accel, decel, clockwise, 0);
+                    cueItems.Add(cueItem);
                 }
-                else show a dialog
-                */
+                catch (NullReferenceException exception)
+                {
+                    // TODO For Tom, show a dialog
+                    return;
+                }
 
-                // TODO For Tom: Convert string to double
+               
+                
 
-                //CueItem cueItem = new CueItem(0, 1000, null, speed, acceleration, deceleration, clockwise, 0);
+                
 
             }
+
+            // TODO Save cueItems to the database
         }
 
         /** Prompt user if they want to remove a row. If yes, Removes the currently selected row,
