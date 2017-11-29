@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Controller;
+using Proof_Productions.Model;
 
 namespace Proof_Productions.View
 {
@@ -55,9 +56,10 @@ namespace Proof_Productions.View
 
         }
 
+        CueController C1;
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            CueController C1 = new CueController();
+            C1 = new CueController();
             C1.PlayCurrentCue();
         }
 
@@ -78,7 +80,7 @@ namespace Proof_Productions.View
 
         private void stopCueButton_Click(object sender, EventArgs e)
         {
-
+            C1.StopCurrentCue();
         }
 
         private void moveCueUpButton_Click(object sender, EventArgs e)

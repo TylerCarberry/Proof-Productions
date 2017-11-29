@@ -149,6 +149,7 @@
       <DependentUpon>SetupMotorForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Model\PLC.cs" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -155,6 +155,11 @@ namespace Proof_Productions.Controller
             }
         }
 
+        public void StopCurrentCue()
+        {
+            FinishedCue = true;
+        }
+
         public void ChangeCurrentCueWithIndex(int Index)
         {
             CurrentCue = CueList[Index];
