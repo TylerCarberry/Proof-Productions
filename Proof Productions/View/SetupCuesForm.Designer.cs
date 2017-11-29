@@ -39,13 +39,15 @@
             this.saveCueButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cueComboBox = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.motorName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.startDelay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.motorDirection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.motorSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.motorAccel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deceleration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +59,8 @@
             this.motorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.motorName,
+            this.startDelay,
+            this.duration,
             this.motorDirection,
             this.motorSpeed,
             this.motorAccel,
@@ -154,6 +158,16 @@
             this.cueComboBox.TabIndex = 20;
             this.cueComboBox.Text = "Cue1";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 378);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Delete cue item";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
+            // 
             // name
             // 
             this.name.HeaderText = "Name";
@@ -168,6 +182,16 @@
             this.motorName.Name = "motorName";
             this.motorName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.motorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // startDelay
+            // 
+            this.startDelay.HeaderText = "Start Delay";
+            this.startDelay.Name = "startDelay";
+            // 
+            // duration
+            // 
+            this.duration.HeaderText = "Duration";
+            this.duration.Name = "duration";
             // 
             // motorDirection
             // 
@@ -193,16 +217,6 @@
             // 
             this.deceleration.HeaderText = "Deceleration";
             this.deceleration.Name = "deceleration";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Delete cue item";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
             // 
             // SetupCueForm
             // 
@@ -237,13 +251,15 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button saveCueButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cueComboBox;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewComboBoxColumn motorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDelay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duration;
         private System.Windows.Forms.DataGridViewCheckBoxColumn motorDirection;
         private System.Windows.Forms.DataGridViewTextBoxColumn motorSpeed;
         private System.Windows.Forms.DataGridViewTextBoxColumn motorAccel;
         private System.Windows.Forms.DataGridViewTextBoxColumn deceleration;
-        private System.Windows.Forms.ComboBox cueComboBox;
-        private System.Windows.Forms.Button button1;
     }
 }

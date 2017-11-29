@@ -65,8 +65,7 @@ namespace Proof_Productions.View
 
         private void saveCueButton_Click(object sender, EventArgs e)
         {
-
-            List<CueItem> cueItems = new List<CueItem>();
+            Cue cue = new Cue();
 
             foreach(DataGridViewRow row in motorDataGridView.Rows)
             {
@@ -75,14 +74,17 @@ namespace Proof_Productions.View
                 {
                     String name = row.Cells[0].Value.ToString();
                     String motor = row.Cells[1].Value.ToString();
-                    Boolean clockwise = row.Cells[2].Value.ToString().Equals("true");
-                    String speedStr = row.Cells[3].Value.ToString();
-                    String accelerationStr = row.Cells[4].Value.ToString();
-                    String decelerationStr = row.Cells[5].Value.ToString();
+                    String startDelayStr = row.Cells[2].Value.ToString();
+                    String durationStr = row.Cells[3].Value.ToString();
+                    Boolean clockwise = row.Cells[4].Value.ToString().Equals("true");
+                    String speedStr = row.Cells[5].Value.ToString();
+                    String accelerationStr = row.Cells[6].Value.ToString();
+                    String decelerationStr = row.Cells[7].Value.ToString();
 
                     // TODO For Tom
                     /*
                     if (InputValidator.IsValid(speed)
+                    // and check all of the other fields
                     {
 
                     }
@@ -92,9 +94,11 @@ namespace Proof_Productions.View
                     int speed = int.Parse(speedStr);
                     int accel = int.Parse(accelerationStr);
                     int decel = int.Parse(decelerationStr);
+                    int startDelay = int.Parse(startDelayStr);
+                    int duration = int.Parse(durationStr);
 
-                    CueItem cueItem = new CueItem(0, 1000, null, speed, accel, decel, clockwise, 0);
-                    cueItems.Add(cueItem);
+                    CueItem cueItem = new CueItem(startDelay, duration, null, speed, accel, decel, clockwise, 0);
+                    cue.Add(cueItem);
                 }
                 catch (NullReferenceException exception)
                 {
@@ -130,9 +134,12 @@ namespace Proof_Productions.View
                 {
                     int rowIndex = motorDataGridView.CurrentRow.Index;
                     if (rowIndex < motorDataGridView.Rows.Count)
+                    {
                         motorDataGridView.Rows.RemoveAt(rowIndex);
-                    //TODO - should we remove anything if we're selecting NewRow?
+                        // TODO: Also remove the CueItem from the Cue
+                    }  
                 }
+
             }
         }
     }
