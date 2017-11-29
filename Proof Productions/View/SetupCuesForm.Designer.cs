@@ -66,7 +66,6 @@
             this.motorDataGridView.Name = "motorDataGridView";
             this.motorDataGridView.Size = new System.Drawing.Size(689, 285);
             this.motorDataGridView.TabIndex = 9;
-            this.motorDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // menuStrip1
             // 
@@ -143,7 +142,6 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Select Cue:";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // cueComboBox
             // 

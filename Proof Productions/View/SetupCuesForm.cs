@@ -90,6 +90,11 @@ namespace Proof_Productions.View
             }
         }
 
+        /** Prompt user if they want to remove a row. If yes, Removes the currently selected row,
+         *  or does nothing if there is no row to remove.
+         *  @param sender
+         *  @param e
+         * */
         private void deleteCueItemButton_Click(object sender, EventArgs e)
         {
             DialogResult answer = MessageBox.Show("Are you sure?", "Remove Cue",
