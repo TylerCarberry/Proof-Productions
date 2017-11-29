@@ -29,7 +29,7 @@ namespace Proof_Productions.Controller
 
                 MBmaster.OnException += new Master.ExceptionData(MBmaster_OnException);
                 // Show additional fields, enable watchdog
-
+          
                 Logger.LogInfo("Successfully connected to motor");
             }
             catch (SystemException error)

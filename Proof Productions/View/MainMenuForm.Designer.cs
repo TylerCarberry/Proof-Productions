@@ -119,6 +119,7 @@
             // pauseCueButton
             // 
             this.pauseCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pauseCueButton.Enabled = false;
             this.pauseCueButton.Location = new System.Drawing.Point(3, 141);
             this.pauseCueButton.Name = "pauseCueButton";
             this.pauseCueButton.Size = new System.Drawing.Size(160, 23);
