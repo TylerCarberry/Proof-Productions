@@ -73,7 +73,7 @@ namespace Proof_Productions.View
                 try
                 {
                     String name = row.Cells[0].Value.ToString();
-                    String motor = row.Cells[1].Value.ToString();
+                    String motorStr = row.Cells[1].Value.ToString();
                     String startDelayStr = row.Cells[2].Value.ToString();
                     String durationStr = row.Cells[3].Value.ToString();
                     Boolean clockwise = row.Cells[4].Value.ToString().Equals("true");
@@ -97,7 +97,10 @@ namespace Proof_Productions.View
                     int startDelay = int.Parse(startDelayStr);
                     int duration = int.Parse(durationStr);
 
-                    CueItem cueItem = new CueItem(startDelay, duration, null, speed, accel, decel, clockwise, 0);
+                    // TODO: Don't hardcode the IP address or description
+                    Motor motor = new Motor("192.168.10.4", name, "This is the main motor for controlling the curtain", new PLC());
+
+                    CueItem cueItem = new CueItem(startDelay, duration, motor, speed, accel, decel, clockwise, 0);
                     cue.Add(cueItem);
                 }
                 catch (NullReferenceException exception)
