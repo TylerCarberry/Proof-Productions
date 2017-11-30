@@ -9,31 +9,35 @@ namespace Proof_Productions.Controller
     public class InputValidator
     {
 
-        //This method will be used to ensure that the data 
-        //that will be entered into the Velocity text box
-        //does not go outside of predetermined boundaries
+        //This method will be used to ensure that the data that
+        //will be entered into the Velocity text box is a number
+        //and does not go outside of predetermined boundaries
         public static Boolean IsValidVelocity(String input)
         {
-            int v = int.Parse(input);
-            return v >= 0 && v < 100000;
+            if (int.TryParse(input, out int v))
+            {
+                return v >= 0 && v < 1750;
+            }
+            return false;
         }
 
-        //This method will be used to ensure that the data 
-        //that will be entered into the Aceleration text box
-        //does not go outside of predetermined boundaries
+        //This method will be used to ensure that the data that
+        //will be entered into the Acceleration text box is a number
+        //and does not go outside of predetermined boundaries
         public static Boolean IsValidAcceleration(String input)
         {
-            int a = int.Parse(input);
-            return a >= 0 && a < 100000;
+            if(int.TryParse(input, out int a))
+            {
+                return a >= 0 && a < 1750;
+            }
+            return false;
         }
 
-        //This method will be used to ensure that the data 
-        //that will be entered into the Position text box
-        //does not go outside of predetermined boundaries
+        //This method will be used to ensure that the data that 
+        //will be entered into the Position text box is a number
         public static Boolean IsValidPosition(String input)
         {
-            int r = int.Parse(input);
-            return r >= 0 && r < 100000;
+            return int.TryParse(input, out int num);
         }
         
     }
