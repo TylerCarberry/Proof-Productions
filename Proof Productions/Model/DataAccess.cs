@@ -27,8 +27,10 @@ namespace Proof_Productions.Model
         /// </summary>
         public DataAccess()
         {
-            cmd = new MySqlCommand();
+            
+            //cmd = new MySqlCommand();
             adapter = new MySqlDataAdapter();
+           
         }
 
         /// <summary>
@@ -225,8 +227,8 @@ namespace Proof_Productions.Model
         
         public DataTable getMotors()
         {
-            cmd.CommandText = "SELECT IPAddress, Name, Description, PLCID, LimitMaxVelocity, LimitMaxAcceleration, " +
-                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor";
+            cmd = new MySqlCommand("SELECT IPAddress, Name, Description, PLCID, LimitMaxVelocity, LimitMaxAcceleration, " +
+                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor", con);
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);

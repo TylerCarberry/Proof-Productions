@@ -15,12 +15,10 @@ namespace Proof_Productions.View
         public SetupMotorForm()
         {
             InitializeComponent();
-            /**TODO - testing purposes
             DataAccess da = new DataAccess();
             da.connect();
             dataGridView1.DataSource = da.getMotors();
             da.disconnect();
-            */
         }
 
         private void label2_Click(object sender, EventArgs e)
