@@ -44,10 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.interface_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -199,35 +195,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.ip,
-            this.interface_name,
-            this.motor_id});
             this.dataGridView1.Location = new System.Drawing.Point(245, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(445, 264);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Motor Name";
-            this.name.Name = "name";
-            // 
-            // ip
-            // 
-            this.ip.HeaderText = "Interface IP";
-            this.ip.Name = "ip";
-            // 
-            // interface_name
-            // 
-            this.interface_name.HeaderText = "Interface Name";
-            this.interface_name.Name = "interface_name";
-            // 
-            // motor_id
-            // 
-            this.motor_id.HeaderText = "Motor ID";
-            this.motor_id.Name = "motor_id";
             // 
             // button3
             // 
@@ -336,10 +307,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn interface_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motor_id;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;

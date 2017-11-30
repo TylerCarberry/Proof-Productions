@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Proof_Productions.Model;
 namespace Proof_Productions.View
 {
     public partial class SetupMotorForm : Form
@@ -15,6 +15,12 @@ namespace Proof_Productions.View
         public SetupMotorForm()
         {
             InitializeComponent();
+            /**TODO - testing purposes
+            DataAccess da = new DataAccess();
+            da.connect();
+            dataGridView1.DataSource = da.getMotors();
+            da.disconnect();
+            */
         }
 
         private void label2_Click(object sender, EventArgs e)
