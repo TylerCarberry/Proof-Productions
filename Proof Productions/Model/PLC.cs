@@ -8,6 +8,7 @@ namespace Proof_Productions.Model
 {
     public class PLC
     {
+        public String Name;
         //TODO Figure out and create methods and variables for a PLC
     }
 }
