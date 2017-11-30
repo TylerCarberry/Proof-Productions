@@ -16,7 +16,7 @@ namespace Proof_Productions.Controller
         {
             if (int.TryParse(input, out int v))
             {
-                return v >= 0 && v < 1750;
+                return v >= 0 && v <= 1750;
             }
             return false;
         }
@@ -28,7 +28,7 @@ namespace Proof_Productions.Controller
         {
             if(int.TryParse(input, out int a))
             {
-                return a >= 0 && a < 1750;
+                return a >= 0 && a <= 1750;
             }
             return false;
         }
