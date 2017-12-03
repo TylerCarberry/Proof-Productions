@@ -14,7 +14,7 @@ namespace Proof_Productions.Model
         private readonly Boolean testing = true; //testing purposes only for print statements
 
         //TODO - need to get corresponding ConnectionString for con
-        protected static readonly String CONNECTION_STRING = "";
+        protected static readonly String CONNECTION_STRING = "server = elvis.rowan.edu; user id = caow2; password = doggbert97";
         //protected static readonly String CONNECTION_STRING = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\caow2\\Source\\Repos\\Proof-Productions\\Proof Productions\\Database1.mdf';Integrated Security=True";
         protected static readonly String SCHEMA_NAME = "caow2";
 
@@ -227,7 +227,7 @@ namespace Proof_Productions.Model
         
         public DataTable getMotors()
         {
-            cmd = new MySqlCommand("SELECT IPAddress, Name, Description, PLCID, LimitMaxVelocity, LimitMaxAcceleration, " +
+            cmd = new MySqlCommand("SELECT IPAddress, Name, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
                               "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor", con);
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();

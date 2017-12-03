@@ -8,19 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Model;
+using Proof_Productions.Controller;
 namespace Proof_Productions.View
 {
     public partial class SetupMotorForm : Form
     {
+
+        private SetupMotorController Controller;
         public SetupMotorForm()
         {
             InitializeComponent();
-            DataAccess da = new DataAccess();
-            da.connect();
-            dataGridView1.DataSource = da.getMotors();
-            da.disconnect();
+            Controller = new SetupMotorController();
+            Controller.fetchAllMotors();
+            refresh();
         }
 
+        public void refresh()
+        {
+            //TODO-ON THIS
+            DataTable dt = new DataTable();
+            foreach (Motor m in Controller.motors.Values)
+            {
+                foreach(DataGridViewTextBoxColumn Column in dataGridView1.Columns)
+                {
+                    dt.Columns.Add(Column.ToString());
+                }
+                DataRow row = dt.NewRow();
+                for(int i = 0; i < m.dataRow().Length; i++)
+                {
+                    row[0] = m.dataRow()[i]; //row starts at index 1
+                }
+                dt.Rows.Add(row);
+            }
+            dataGridView1.DataSource = dt;
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 

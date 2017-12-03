@@ -52,6 +52,15 @@
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MotorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IPAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLCName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimitMaxVelocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimitMaxAcceleration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimitMaxDeceleration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimitMaxNegPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimitMaxPosPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -195,6 +204,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MotorName,
+            this.IPAddress,
+            this.Description,
+            this.PLCName,
+            this.LimitMaxVelocity,
+            this.LimitMaxAcceleration,
+            this.LimitMaxDeceleration,
+            this.LimitMaxNegPosition,
+            this.LimitMaxPosPosition});
             this.dataGridView1.Location = new System.Drawing.Point(245, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(445, 264);
@@ -267,6 +286,51 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // MotorName
+            // 
+            this.MotorName.HeaderText = "Name";
+            this.MotorName.Name = "MotorName";
+            // 
+            // IPAddress
+            // 
+            this.IPAddress.HeaderText = "IPAddress";
+            this.IPAddress.Name = "IPAddress";
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            // 
+            // PLCName
+            // 
+            this.PLCName.HeaderText = "PLC";
+            this.PLCName.Name = "PLCName";
+            // 
+            // LimitMaxVelocity
+            // 
+            this.LimitMaxVelocity.HeaderText = "Max Velocity";
+            this.LimitMaxVelocity.Name = "LimitMaxVelocity";
+            // 
+            // LimitMaxAcceleration
+            // 
+            this.LimitMaxAcceleration.HeaderText = "Max Acceleration";
+            this.LimitMaxAcceleration.Name = "LimitMaxAcceleration";
+            // 
+            // LimitMaxDeceleration
+            // 
+            this.LimitMaxDeceleration.HeaderText = "Max Deceleration";
+            this.LimitMaxDeceleration.Name = "LimitMaxDeceleration";
+            // 
+            // LimitMaxNegPosition
+            // 
+            this.LimitMaxNegPosition.HeaderText = "Max Negative Position";
+            this.LimitMaxNegPosition.Name = "LimitMaxNegPosition";
+            // 
+            // LimitMaxPosPosition
+            // 
+            this.LimitMaxPosPosition.HeaderText = "Max Positive Position";
+            this.LimitMaxPosPosition.Name = "LimitMaxPosPosition";
+            // 
             // SetupMotorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,5 +379,14 @@
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MotorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IPAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PLCName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimitMaxVelocity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimitMaxAcceleration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimitMaxDeceleration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimitMaxNegPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimitMaxPosPosition;
     }
 }

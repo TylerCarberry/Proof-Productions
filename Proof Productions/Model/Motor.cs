@@ -10,6 +10,7 @@ namespace Proof_Productions.Model
 {
     public class Motor
     {
+        public String[] DataRow; //represents a datarow in the table - may move to controller bc bad design
         public String IPAddress, Name = "DefaultMotor", Description;
         public PLC ConnectedPLC;
         public FieldbusInputData InputData = new FieldbusInputData();
@@ -35,5 +36,21 @@ namespace Proof_Productions.Model
             Scaler = new RotationalScaler(this);
         }
 
+        public override int GetHashCode()
+        {
+            int hashcode = IPAddress.GetHashCode() + Name.GetHashCode() +
+                           LimitMaxVelocity + LimitMaxAcceleration + LimitMaxDeceleration +
+                           LimitMaxNegPosition + LimitMaxPosPosition;
+            return hashcode;
+        }
+
+        public String[] dataRow()
+        {
+            //we could just calculate this once and store it
+            String[] dataRow = { Name, IPAddress, Description, ConnectedPLC.Name, LimitMaxVelocity.ToString(),
+                                 LimitMaxAcceleration.ToString(), LimitMaxDeceleration.ToString(),
+                                 LimitMaxNegPosition.ToString(), LimitMaxPosPosition.ToString()};
+            return dataRow;
+        }
     }
 }
