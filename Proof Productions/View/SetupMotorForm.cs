@@ -19,28 +19,13 @@ namespace Proof_Productions.View
         {
             InitializeComponent();
             Controller = new SetupMotorController();
-            Controller.fetchAllMotors();
             refresh();
         }
 
         public void refresh()
         {
-            //TODO-ON THIS
-            DataTable dt = new DataTable();
-            foreach (Motor m in Controller.motors.Values)
-            {
-                foreach(DataGridViewTextBoxColumn Column in dataGridView1.Columns)
-                {
-                    dt.Columns.Add(Column.ToString());
-                }
-                DataRow row = dt.NewRow();
-                for(int i = 0; i < m.dataRow().Length; i++)
-                {
-                    row[0] = m.dataRow()[i]; //row starts at index 1
-                }
-                dt.Rows.Add(row);
-            }
-            dataGridView1.DataSource = dt;
+            //TODO-ON THIS - works but adds columns to current table
+            dataGridView1.DataSource = Controller.fetchAllMotors();
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -78,6 +63,13 @@ namespace Proof_Productions.View
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutForm().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //cast
+            DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+            Controller.update(row , (DataTable) dataGridView1.DataSource);
         }
     }
 }

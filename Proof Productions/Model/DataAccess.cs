@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Proof_Productions.Model
 {
@@ -289,6 +290,28 @@ namespace Proof_Productions.Model
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+
+        public Boolean updateMotor(DataRow row, DataTable d)
+        {
+            cmd = new MySqlCommand("UPDATE " + SCHEMA_NAME + ".motor " +
+                              "SET IPAddress = @IPAddress, Description = @Description, " +
+                              "LimitMaxVelocity = @LimitMaxVelocity, LimitMaxAcceleration = @LimitMaxAcceleration, " +
+                              "LimitMaxDeceleration = @LimitMaxDeceleration, LimitMaxNegPosition = @LimitMaxNegPosition, " +
+                              "LimitMaxPosPosition = @LimitMaxPosPosition " +
+                              "WHERE Name = @Name", con);
+            cmd.Parameters.AddWithValue("@IPAddress", row["IPAddress"]);
+            cmd.Parameters.AddWithValue("@Description", row["Description"]);
+            cmd.Parameters.AddWithValue("@LimitMaxVelocity", row["LimitMaxVelocity"]);
+            cmd.Parameters.AddWithValue("@LimitMaxAcceleration", row["LimitMaxAcceleration"]);
+            cmd.Parameters.AddWithValue("@LimitMaxDeceleration", row["LimitMaxDeceleration"]);
+            cmd.Parameters.AddWithValue("@LimitMaxNegPosition", row["LimitMaxNegPosition"]);
+            cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
+            cmd.Parameters.AddWithValue("@Name", row["Name"]);
+            adapter.UpdateCommand = cmd;
+            adapter.Update(d);
+            return true;
+
         }
     }
 }
