@@ -22,15 +22,32 @@ namespace Proof_Productions.Controller
         public DataTable fetchAllMotors()
         {
             data.connect();
-            return data.getMotors();
+            DataTable motortable = data.getMotors();
             data.disconnect();
+            return motortable;
         }
 
         public void update(DataRow row, DataTable d)
         {
             try
             {
+                data.connect();
                 data.updateMotor(row, d);
+                data.disconnect();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void insertMotor(DataRow row)
+        {
+            try
+            {
+                data.connect();
+                data.insertMotor(row);
+                data.disconnect();
             }
             catch(Exception e)
             {

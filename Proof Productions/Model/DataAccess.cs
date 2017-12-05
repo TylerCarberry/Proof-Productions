@@ -169,23 +169,23 @@ namespace Proof_Productions.Model
         /// </summary>
         /// <param name="motor"> The Motor to be added </param>
         /// <returns> True if Motor information is added successfully, false otherwise</returns>
-        public Boolean insertMotor(Motor motor)
+        public Boolean insertMotor(DataRow row)
         {
             try
             {
-                cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".motor (IPAddress, Name, Description, PLCID, " +
-                                   "LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition) " +
-                                  "VALUES (@IPAddress, @Name, @Description, @PLCID, " +
-                                  "@LimitMaxVelocity, @LimitMaxAcceleration, @LimitMaxDeceleration, @LimitMaxNegPosition, @LimitMaxPosPosition)";
-                cmd.Parameters.AddWithValue("@IPAddress", motor.IPAddress);
-                cmd.Parameters.AddWithValue("@Name", motor.Name);
-                cmd.Parameters.AddWithValue("@Description", motor.Description);
-                cmd.Parameters.AddWithValue("@PLCName", motor.ConnectedPLC.Name);
-                cmd.Parameters.AddWithValue("@LimitMaxVelocity", motor.LimitMaxVelocity);
-                cmd.Parameters.AddWithValue("@LimitMaxAcceleration", motor.LimitMaxAcceleration);
-                cmd.Parameters.AddWithValue("@LimitMaxDeceleration", motor.LimitMaxDeceleration);
-                cmd.Parameters.AddWithValue("@LimitMaxNegPosition", motor.LimitMaxNegPosition);
-                cmd.Parameters.AddWithValue("@LimitMaxPosPosition", motor.LimitMaxPosPosition);
+                cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".motor (IPAddress, Name, Description, PLCName, " +
+                                  "LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition) " +
+                                  "VALUES (@IPAddress, @Name, @Description, @PLCName, " +
+                                  "@LimitMaxVelocity, @LimitMaxAcceleration, @LimitMaxDeceleration, @LimitMaxNegPosition, @LimitMaxPosPosition)", con);
+                cmd.Parameters.AddWithValue("@IPAddress", row["IPAddress"]);
+                cmd.Parameters.AddWithValue("@Name", row["Name"]);
+                cmd.Parameters.AddWithValue("@Description", row["Description"]);
+                cmd.Parameters.AddWithValue("@PLCName", row["PLCName"]);
+                cmd.Parameters.AddWithValue("@LimitMaxVelocity", row["LimitMaxVelocity"]);
+                cmd.Parameters.AddWithValue("@LimitMaxAcceleration", row["LimitMaxAcceleration"]);
+                cmd.Parameters.AddWithValue("@LimitMaxDeceleration", row["LimitMaxDeceleration"]);
+                cmd.Parameters.AddWithValue("@LimitMaxNegPosition", row["LimitMaxNegPosition"]);
+                cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
                 adapter.InsertCommand = cmd;
                 adapter.InsertCommand.ExecuteNonQuery();
                 if (testing) Console.WriteLine("Inserted Motor");

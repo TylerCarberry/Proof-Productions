@@ -71,7 +71,8 @@ namespace Proof_Productions.View
             NewMotor.ShowDialog();
             if(NewMotor.IsSubmitted())
             {
-                DataRow row = AddNewRow();
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                DataRow row = dt.NewRow(); ;
                 row["Name"] = NewMotor.getMotorName();
                 row["IPAddress"] = NewMotor.getIPAddress();
                 row["Description"] = NewMotor.getDesc();
@@ -81,6 +82,8 @@ namespace Proof_Productions.View
                 row["LimitMaxDeceleration"] = NewMotor.getMaxDecel();
                 row["LimitMaxNegPosition"] = NewMotor.getMaxNegPos();
                 row["LimitMaxPosPosition"] = NewMotor.getMaxPosPos();
+                Controller.insertMotor(row);
+                refresh();
             }
         }
 
