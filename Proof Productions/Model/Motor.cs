@@ -9,8 +9,7 @@ using Proof_Productions.Model.Output;
 namespace Proof_Productions.Model
 {
     public class Motor
-    {
-        public String[] DataRow; //represents a datarow in the table - may move to controller bc bad design
+    { 
         public String IPAddress, Name = "DefaultMotor", Description;
         public PLC ConnectedPLC;
         public FieldbusInputData InputData = new FieldbusInputData();
