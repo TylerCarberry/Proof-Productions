@@ -51,8 +51,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Common\bin\Debug\ModbusTCP.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.4\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -116,6 +116,12 @@
     <Compile Include="Model\Output\StatusWordO3.cs" />
     <Compile Include="Model\Output\SubStatusWord.cs" />
     <Compile Include="Controller\PacketController.cs" />
+    <Compile Include="View\NewMotorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewMotorForm.Designer.cs">
+      <DependentUpon>NewMotorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SetupCuesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoggerForm.resx">
       <DependentUpon>LoggerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewMotorForm.resx">
+      <DependentUpon>NewMotorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SetupCuesForm.resx">
       <DependentUpon>SetupCuesForm.cs</DependentUpon>

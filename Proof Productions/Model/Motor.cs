@@ -36,21 +36,31 @@ namespace Proof_Productions.Model
             Scaler = new RotationalScaler(this);
         }
 
+        public Motor(String IPAddress, String Name, String Description, PLC ConnectedPLC, 
+                     int LimitMaxVelocity, int LimitMaxAcceleration, int LimitMaxDeceleration,
+                     int LimitMaxNegPosition, int LimitMaxPosPosition)
+        {
+            this.IPAddress = IPAddress;
+            this.Name = Name;
+            this.Description = Description;
+            this.ConnectedPLC = ConnectedPLC;
+            this.LimitMaxVelocity = LimitMaxVelocity;
+            this.LimitMaxAcceleration = LimitMaxAcceleration;
+            this.LimitMaxDeceleration = LimitMaxDeceleration;
+            this.LimitMaxNegPosition = LimitMaxNegPosition;
+            this.LimitMaxPosPosition = LimitMaxPosPosition;
+        }
+
+        /// <summary>
+        /// Simple hashcode function
+        /// </summary>
+        /// <returns> Integer representation of the hashcode </returns>
         public override int GetHashCode()
         {
             int hashcode = IPAddress.GetHashCode() + Name.GetHashCode() +
                            LimitMaxVelocity + LimitMaxAcceleration + LimitMaxDeceleration +
                            LimitMaxNegPosition + LimitMaxPosPosition;
             return hashcode;
-        }
-
-        public String[] dataRow()
-        {
-            //we could just calculate this once and store it
-            String[] dataRow = { Name, IPAddress, Description, ConnectedPLC.Name, LimitMaxVelocity.ToString(),
-                                 LimitMaxAcceleration.ToString(), LimitMaxDeceleration.ToString(),
-                                 LimitMaxNegPosition.ToString(), LimitMaxPosPosition.ToString()};
-            return dataRow;
         }
     }
 }
