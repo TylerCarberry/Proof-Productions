@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Controller\Logger.cs" />
     <Compile Include="Controller\PlayCueController.cs" />
+    <Compile Include="Controller\SetupCueController.cs" />
     <Compile Include="Controller\SetupMotorController.cs" />
     <Compile Include="Model\Cue.cs" />
     <Compile Include="Model\CueItem.cs" />

@@ -8,8 +8,6 @@ using System.Data;
 using ModbusTCP;
 using System.Diagnostics;
 using Proof_Productions.Model;
-using Proof_Productions.Model.Input;
-using Proof_Productions.Model.Output;
 using System.Collections.Generic;
 
 namespace Proof_Productions.Controller
@@ -185,7 +183,6 @@ namespace Proof_Productions.Controller
         {
             return (Index >= 0 && Index < ListSize);
         }
-
     }
 }
 

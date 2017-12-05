@@ -48,6 +48,7 @@ namespace Proof_Productions.Controller
             {
                 MessageBox.Show(row["Name"] + " could not be added due to : /n " + e.ToString());
             }
+            MessageBox.Show(row["Name"] + " has been updated");
         }
 
         public void insertMotor(DataRow row)
@@ -62,6 +63,7 @@ namespace Proof_Productions.Controller
             {
                 MessageBox.Show(e.ToString());
             }
+            MessageBox.Show("Motor has been added");
         }
 
         public void deleteMotor(DataRow row, DataTable table)
@@ -76,6 +78,7 @@ namespace Proof_Productions.Controller
             {
                 MessageBox.Show(e.ToString());
             }
+            MessageBox.Show(row["Name"] + " has been deleted");
         }
     }
 }

@@ -14,9 +14,13 @@ namespace Proof_Productions.View
 {
     public partial class SetupCueForm : BaseForm
     {
+        private SetupCueController Controller;
+
         public SetupCueForm()
         {
             InitializeComponent();
+            Controller = new SetupCueController();
+            initCueComboBox();
         }
 
         /* Inserts a new row after the currently selected row in the motorDataGridView.
@@ -25,15 +29,16 @@ namespace Proof_Productions.View
          * */
         private void insertRowButton_Click(object sender, EventArgs e)
         {
-            int rowCount = motorDataGridView.RowCount;
+            int rowCount = cueDataGridView.RowCount;
             //rowCount of 1 counts NewRow -> CurrentRow is null because no selected row 
-            if (rowCount == 1 || motorDataGridView.CurrentRow.Index == rowCount - 1)
-                motorDataGridView.Rows.Add(new DataGridViewRow());
+            if (rowCount == 1 || cueDataGridView.CurrentRow.Index == rowCount - 1)
+                cueDataGridView.Rows.Add(new DataGridViewRow());
             else
-                motorDataGridView.Rows.Insert((motorDataGridView.CurrentCell.RowIndex + 1), new DataGridViewRow());
+                cueDataGridView.Rows.Insert((cueDataGridView.CurrentCell.RowIndex + 1), new DataGridViewRow());
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             new AboutForm().Show();
         }
 
@@ -59,7 +64,7 @@ namespace Proof_Productions.View
         {
             Cue cue = new Cue();
 
-            foreach(DataGridViewRow row in motorDataGridView.Rows)
+            foreach (DataGridViewRow row in cueDataGridView.Rows)
             {
 
                 try
@@ -81,11 +86,12 @@ namespace Proof_Productions.View
                     {
                         speed = int.Parse(speedStr);
                     }
-                    else{
+                    else
+                    {
                         MessageBox.Show("Invalid Velocity entered.");
                     }
 
-                    if(InputValidator.IsValidAcceleration(accelerationStr))
+                    if (InputValidator.IsValidAcceleration(accelerationStr))
                     {
                         accel = int.Parse(accelerationStr);
                     }
@@ -94,7 +100,7 @@ namespace Proof_Productions.View
                         MessageBox.Show("Invalid Acceleration entered.");
                     }
 
-                    if(InputValidator.IsValidAcceleration(decelerationStr))
+                    if (InputValidator.IsValidAcceleration(decelerationStr))
                     {
                         decel = int.Parse(decelerationStr);
                     }
@@ -118,10 +124,10 @@ namespace Proof_Productions.View
                     return;
                 }
 
-               
-                
 
-                
+
+
+
 
             }
 
@@ -140,18 +146,42 @@ namespace Proof_Productions.View
             if (answer == DialogResult.Yes)
             {
                 //if nothing has ever been added to table - CurrentRow is null
-                if (motorDataGridView.CurrentRow == null || motorDataGridView.CurrentRow.IsNewRow)
+                if (cueDataGridView.CurrentRow == null || cueDataGridView.CurrentRow.IsNewRow)
                     return;
                 else
                 {
-                    int rowIndex = motorDataGridView.CurrentRow.Index;
-                    if (rowIndex < motorDataGridView.Rows.Count)
+                    int rowIndex = cueDataGridView.CurrentRow.Index;
+                    if (rowIndex < cueDataGridView.Rows.Count)
                     {
-                        motorDataGridView.Rows.RemoveAt(rowIndex);
+                        cueDataGridView.Rows.RemoveAt(rowIndex);
                         // TODO: Also remove the CueItem from the Cue
-                    }  
+                    }
                 }
 
+            }
+        }
+
+        public void initCueComboBox()
+        {
+            DataTable table = Controller.getCueNames();
+            int column = 0;
+            for(int i = 0; i < table.Rows.Count; i++)
+            {
+                cueComboBox.Items.Add(table.Rows[i][column].ToString());
+            }
+        }
+
+        public void refresh(String Name)
+        {
+            cueDataGridView.DataSource = Controller.getCueItems(Name);
+        }
+
+        private void cueComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //-1 is default index - nothing selected
+            if(cueComboBox.SelectedIndex > -1)
+            {
+                refresh(cueComboBox.Text);
             }
         }
     }
