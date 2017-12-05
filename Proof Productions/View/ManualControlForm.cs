@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Proof_Productions.View
 {
-    public partial class ManualControlForm : Form
+    public partial class ManualControlForm : BaseForm
     {
         Timer timer = new Timer();
         Stopwatch sw = new Stopwatch();
@@ -246,19 +246,11 @@ namespace Proof_Productions.View
         }
 
         private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new SetupCueForm());
+            SwitchToForm(new SetupCueForm());
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new MainMenuForm());
-        }
-
-        private void switchToForm(Form form) {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
-            
-            this.Hide();
+            SwitchToForm(new MainMenuForm());
         }
 
         private void calibrationMotorChecklist_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,12 +285,12 @@ namespace Proof_Productions.View
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupMotorForm());
+            SwitchToForm(new SetupMotorForm());
         }
 
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new LoggerForm());
+            SwitchToForm(new LoggerForm());
         }
 
         private void ManualControlForm_Load(object sender, EventArgs e)

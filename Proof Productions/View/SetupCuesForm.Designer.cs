@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.motorDataGridView = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.startDelay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorDirection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.motorSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorAccel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deceleration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,14 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cueComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.startDelay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorDirection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.motorSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorAccel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deceleration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,8 +68,58 @@
             this.motorDataGridView.Location = new System.Drawing.Point(12, 76);
             this.motorDataGridView.MultiSelect = false;
             this.motorDataGridView.Name = "motorDataGridView";
-            this.motorDataGridView.Size = new System.Drawing.Size(689, 285);
+            this.motorDataGridView.Size = new System.Drawing.Size(873, 285);
             this.motorDataGridView.TabIndex = 9;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.Width = 150;
+            // 
+            // motorName
+            // 
+            this.motorName.HeaderText = "Motor";
+            this.motorName.Items.AddRange(new object[] {
+            "Motor 1"});
+            this.motorName.Name = "motorName";
+            this.motorName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.motorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // startDelay
+            // 
+            this.startDelay.HeaderText = "Start Delay";
+            this.startDelay.Name = "startDelay";
+            // 
+            // duration
+            // 
+            this.duration.HeaderText = "Duration";
+            this.duration.Name = "duration";
+            // 
+            // motorDirection
+            // 
+            this.motorDirection.HeaderText = "Clockwise";
+            this.motorDirection.Name = "motorDirection";
+            this.motorDirection.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.motorDirection.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.motorDirection.Width = 80;
+            // 
+            // motorSpeed
+            // 
+            this.motorSpeed.HeaderText = "Speed";
+            this.motorSpeed.Name = "motorSpeed";
+            this.motorSpeed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // motorAccel
+            // 
+            this.motorAccel.HeaderText = "Acceleration";
+            this.motorAccel.Name = "motorAccel";
+            this.motorAccel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // deceleration
+            // 
+            this.deceleration.HeaderText = "Deceleration";
+            this.deceleration.Name = "deceleration";
             // 
             // menuStrip1
             // 
@@ -82,7 +132,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -168,61 +218,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
             // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.Width = 150;
-            // 
-            // motorName
-            // 
-            this.motorName.HeaderText = "Motor";
-            this.motorName.Items.AddRange(new object[] {
-            "Motor 1"});
-            this.motorName.Name = "motorName";
-            this.motorName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.motorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // startDelay
-            // 
-            this.startDelay.HeaderText = "Start Delay";
-            this.startDelay.Name = "startDelay";
-            // 
-            // duration
-            // 
-            this.duration.HeaderText = "Duration";
-            this.duration.Name = "duration";
-            // 
-            // motorDirection
-            // 
-            this.motorDirection.HeaderText = "Clockwise";
-            this.motorDirection.Name = "motorDirection";
-            this.motorDirection.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.motorDirection.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.motorDirection.Width = 80;
-            // 
-            // motorSpeed
-            // 
-            this.motorSpeed.HeaderText = "Speed";
-            this.motorSpeed.Name = "motorSpeed";
-            this.motorSpeed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // motorAccel
-            // 
-            this.motorAccel.HeaderText = "Acceleration";
-            this.motorAccel.Name = "motorAccel";
-            this.motorAccel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // deceleration
-            // 
-            this.deceleration.HeaderText = "Deceleration";
-            this.deceleration.Name = "deceleration";
-            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 423);
+            this.ClientSize = new System.Drawing.Size(846, 423);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cueComboBox);
             this.Controls.Add(this.label1);
@@ -231,7 +231,7 @@
             this.Controls.Add(this.motorDataGridView);
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "SetupCueForm";
-            this.Text = "Setup Cues";
+            this.Text = "Proof Productions: Setup Cues";
             ((System.ComponentModel.ISupportInitialize)(this.motorDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

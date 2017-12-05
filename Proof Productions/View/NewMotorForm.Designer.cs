@@ -241,7 +241,7 @@
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SubmitButton);
             this.Name = "NewMotorForm";
-            this.Text = "NewMotorForm";
+            this.Text = "New Motor";
             this.ResumeLayout(false);
             this.PerformLayout();
 
