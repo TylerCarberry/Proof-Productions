@@ -28,50 +28,27 @@ namespace Proof_Productions.Model
         /// </summary>
         public DataAccess()
         {
-            
-            //cmd = new MySqlCommand();
             adapter = new MySqlDataAdapter();
-           
+
         }
 
         /// <summary>
         /// Connects to the database using the set connection string
         /// </summary>
-        /// <returns> True if the connection is successful, false otherwise </returns>
-        public Boolean connect()
+        public void connect()
         {
-            try
-            {
-                con = new MySqlConnection(CONNECTION_STRING);
-                con.Open();
-                cmd.Connection = con;
-                if (testing) Console.WriteLine("Connected to database");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Connection to database failed due to " + e.ToString());
-                return false;
-            }
-            return true;
+            con = new MySqlConnection(CONNECTION_STRING);
+            con.Open();
+            if (testing) Console.WriteLine("Connected to database");
         }
 
         /// <summary>
-        /// Terminates the connection with the associated database
+        /// Terminates connection to the database
         /// </summary>
-        /// <returns> True if database disconnects successfully, false otherwise </returns>
-        public Boolean disconnect()
+        public void disconnect()
         {
-            try
-            {
-                con.Close();
-                if (testing) Console.WriteLine("Closed database connection");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Connection to database could not be close due to " + e.ToString());
-                return false;
-            }
-            return true;
+            con.Close();
+            if (testing) Console.WriteLine("Closed database connection");
         }
 
         /// <summary>
@@ -164,39 +141,6 @@ namespace Proof_Productions.Model
             return true;
         }
 
-        /// <summary>
-        /// Insert's a Motor's information into the database
-        /// </summary>
-        /// <param name="motor"> The Motor to be added </param>
-        /// <returns> True if Motor information is added successfully, false otherwise</returns>
-        public Boolean insertMotor(DataRow row)
-        {
-            try
-            {
-                cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".motor (IPAddress, Name, Description, PLCName, " +
-                                  "LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition) " +
-                                  "VALUES (@IPAddress, @Name, @Description, @PLCName, " +
-                                  "@LimitMaxVelocity, @LimitMaxAcceleration, @LimitMaxDeceleration, @LimitMaxNegPosition, @LimitMaxPosPosition)", con);
-                cmd.Parameters.AddWithValue("@IPAddress", row["IPAddress"]);
-                cmd.Parameters.AddWithValue("@Name", row["Name"]);
-                cmd.Parameters.AddWithValue("@Description", row["Description"]);
-                cmd.Parameters.AddWithValue("@PLCName", row["PLCName"]);
-                cmd.Parameters.AddWithValue("@LimitMaxVelocity", row["LimitMaxVelocity"]);
-                cmd.Parameters.AddWithValue("@LimitMaxAcceleration", row["LimitMaxAcceleration"]);
-                cmd.Parameters.AddWithValue("@LimitMaxDeceleration", row["LimitMaxDeceleration"]);
-                cmd.Parameters.AddWithValue("@LimitMaxNegPosition", row["LimitMaxNegPosition"]);
-                cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
-                adapter.InsertCommand = cmd;
-                adapter.InsertCommand.ExecuteNonQuery();
-                if (testing) Console.WriteLine("Inserted Motor");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Insert motor failed: " + e.ToString());
-                return false;
-            }
-            return true;
-        }
 
         public Boolean insertPLC(PLC plc)
         {
@@ -225,17 +169,6 @@ namespace Proof_Productions.Model
             return table;
         }
 
-        
-        public DataTable getMotors()
-        {
-            cmd = new MySqlCommand("SELECT IPAddress, Name, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
-                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor", con);
-            adapter.SelectCommand = cmd;
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
-        }
-
         public DataTable selectMotor(Motor motor)
         {
             cmd.CommandText = "SELECT IPAddress, Name, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
@@ -247,7 +180,7 @@ namespace Proof_Productions.Model
             adapter.Fill(table);
             return table;
         }
-        
+
         public int getCueID(Cue cue)
         {
             cmd.CommandText = "SELECT CueID FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name";
@@ -255,7 +188,7 @@ namespace Proof_Productions.Model
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
-            return (int) table.Rows[0]["CueID"];
+            return (int)table.Rows[0]["CueID"];
         }
 
         public int getMotorID(Motor motor)
@@ -292,14 +225,57 @@ namespace Proof_Productions.Model
             return table;
         }
 
-        public Boolean updateMotor(DataRow row, DataTable d)
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // Database motor table functions
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        
+        /// <summary>
+        /// Get all of the motors from the database
+        /// </summary>
+        /// <returns> Return all the motors in a DataTable </returns>
+        public DataTable getMotors()
+        {
+            cmd = new MySqlCommand("SELECT Name, IPAddress, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
+                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor", con);
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        /// <summary>
+        /// Insert's a Motor's information into the database
+        /// </summary>
+        /// <param name="motor"> The Motor to be added </param>
+        /// <returns> True if Motor information is added successfully, false otherwise</returns>
+        public void insertMotor(DataRow row)
+        {
+            cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".motor (IPAddress, Name, Description, PLCName, " +
+                              "LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition) " +
+                              "VALUES (@IPAddress, @Name, @Description, @PLCName, " +
+                              "@LimitMaxVelocity, @LimitMaxAcceleration, @LimitMaxDeceleration, @LimitMaxNegPosition, @LimitMaxPosPosition)", con);
+            cmd.Parameters.AddWithValue("@IPAddress", row["IPAddress"]);
+            cmd.Parameters.AddWithValue("@Name", row["Name"]);
+            cmd.Parameters.AddWithValue("@Description", row["Description"]);
+            cmd.Parameters.AddWithValue("@PLCName", row["PLCName"]);
+            cmd.Parameters.AddWithValue("@LimitMaxVelocity", row["LimitMaxVelocity"]);
+            cmd.Parameters.AddWithValue("@LimitMaxAcceleration", row["LimitMaxAcceleration"]);
+            cmd.Parameters.AddWithValue("@LimitMaxDeceleration", row["LimitMaxDeceleration"]);
+            cmd.Parameters.AddWithValue("@LimitMaxNegPosition", row["LimitMaxNegPosition"]);
+            cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
+            adapter.InsertCommand = cmd;
+            adapter.InsertCommand.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Inserted Motor");
+        }
+
+        public void updateMotor(DataRow row, DataTable table)
         {
             cmd = new MySqlCommand("UPDATE " + SCHEMA_NAME + ".motor " +
-                              "SET IPAddress = @IPAddress, Description = @Description, " +
-                              "LimitMaxVelocity = @LimitMaxVelocity, LimitMaxAcceleration = @LimitMaxAcceleration, " +
-                              "LimitMaxDeceleration = @LimitMaxDeceleration, LimitMaxNegPosition = @LimitMaxNegPosition, " +
-                              "LimitMaxPosPosition = @LimitMaxPosPosition " +
-                              "WHERE Name = @Name", con);
+                                "SET IPAddress = @IPAddress, Description = @Description, " +
+                                "LimitMaxVelocity = @LimitMaxVelocity, LimitMaxAcceleration = @LimitMaxAcceleration, " +
+                                "LimitMaxDeceleration = @LimitMaxDeceleration, LimitMaxNegPosition = @LimitMaxNegPosition, " +
+                                "LimitMaxPosPosition = @LimitMaxPosPosition " +
+                                "WHERE Name = @Name", con);
             cmd.Parameters.AddWithValue("@IPAddress", row["IPAddress"]);
             cmd.Parameters.AddWithValue("@Description", row["Description"]);
             cmd.Parameters.AddWithValue("@LimitMaxVelocity", row["LimitMaxVelocity"]);
@@ -309,9 +285,18 @@ namespace Proof_Productions.Model
             cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
             cmd.Parameters.AddWithValue("@Name", row["Name"]);
             adapter.UpdateCommand = cmd;
-            adapter.Update(d);
-            return true;
+            adapter.Update(table);
+            if (testing) Console.WriteLine("Motor updated");
+        }
 
+        public void deleteMotor(DataRow row, DataTable table)
+        {
+            cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".motor " +
+                                    "WHERE Name = @Name", con);
+            cmd.Parameters.AddWithValue("@Name", row["Name"]);
+            adapter.DeleteCommand = cmd;
+            adapter.DeleteCommand.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Motor Deleted");
         }
     }
 }

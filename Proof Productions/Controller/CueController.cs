@@ -109,29 +109,32 @@ namespace Proof_Productions.Controller
 
                 if (!FinishedCue)
                 {
-                    NumberRunning = MasterList.Count;
-                    if ((stopwatch.Elapsed.Seconds >= Item.DelayBefore) && Item.Running)
+                    if (stopwatch.Elapsed.Seconds >= Item.DelayBefore)
                     {
-                        if (stopwatch.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
+                        if (Item.Running)
                         {
-                            if (!Item.Stopping)
+                            if (stopwatch.Elapsed.Seconds >= (Item.DelayBefore + Item.RunTime - (Item.CueMotor.InputData.SetpointVelocity.Get() / Item.CueMotor.InputData.Deceleration.Get())))
                             {
-                                Item.Stopping = true;
-                                Item.SetVelocity = 0;
+                                if (!Item.Stopping)
+                                {
+                                    Item.Stopping = true;
+                                    Item.SetVelocity = 0;
+                                }
+                                else if (Item.CueMotor.OutputData.Velocity.Get() == 0)
+                                {
+                                    Item.Running = false;
+                                    Logger.LogInfo("Motor " + Item.CueMotor.Name + " has stopped running");
+                                }
                             }
-                            else if (Item.CueMotor.OutputData.Velocity.Get() == 0)
-                            {
-                                Item.Running = false;
-                                Logger.LogInfo("Motor " + Item.CueMotor.Name + " has stopped running");
-                            }
+                            Item.UpdateInputFields();
+                            MasterList[Count].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[Count].CueMotor.InputData.GetValues(), ref result);
+                            Item.CueMotor.OutputData.SetValues(result);
                         }
-                        Item.UpdateInputFields();
-                        MasterList[Count].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[Count].CueMotor.InputData.GetValues(), ref result);
-                        Item.CueMotor.OutputData.SetValues(result);
-                    } else {
-                        NumberRunning--;
+                        else
+                        {
+                            NumberRunning--;
+                        }
                     }
-
                     if (NumberRunning == 0)
                     {
                         FinishedCue = true;

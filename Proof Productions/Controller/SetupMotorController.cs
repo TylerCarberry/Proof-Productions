@@ -21,23 +21,32 @@ namespace Proof_Productions.Controller
         //Get all of the motors
         public DataTable fetchAllMotors()
         {
-            data.connect();
-            DataTable motortable = data.getMotors();
-            data.disconnect();
-            return motortable;
-        }
-
-        public void update(DataRow row, DataTable d)
-        {
+            DataTable motortable = null; //null is placeholder - May cause null exception
+                                         //if somehow reaches bottom of method w/o going into trycatch
             try
             {
                 data.connect();
-                data.updateMotor(row, d);
+                motortable = data.getMotors();
                 data.disconnect();
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Could not fetch motors due to : \n " + e.ToString());
+            }
+            return motortable;
+        }
+
+        public void updateMotor(DataRow row, DataTable table)
+        {
+            try
+            {
+                data.connect();
+                data.updateMotor(row, table);
+                data.disconnect();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(row["Name"] + " could not be added due to : /n " + e.ToString());
             }
         }
 
@@ -47,6 +56,20 @@ namespace Proof_Productions.Controller
             {
                 data.connect();
                 data.insertMotor(row);
+                data.disconnect();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void deleteMotor(DataRow row, DataTable table)
+        {
+            try
+            {
+                data.connect();
+                data.deleteMotor(row, table);
                 data.disconnect();
             }
             catch(Exception e)

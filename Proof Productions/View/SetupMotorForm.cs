@@ -24,8 +24,11 @@ namespace Proof_Productions.View
 
         public void refresh()
         {
-            //TODO-ON THIS - works but adds columns to current table
+
             dataGridView1.DataSource = Controller.fetchAllMotors();
+            //Make motor name unchangeable for consistency purposes for now
+            //The names should pull from the list of motors
+            dataGridView1.Columns["Name"].ReadOnly = true;
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -87,50 +90,25 @@ namespace Proof_Productions.View
             }
         }
 
-        private DataRow AddNewRow()
-        {
-            int rowCount = dataGridView1.RowCount;
-            //when table is bound to a data source we can't add explicitly to datagridview
-            DataTable dt = (DataTable)dataGridView1.DataSource;
-            DataRow row = dt.NewRow();
-            //rowCount of 1 counts NewRow -> CurrentRow is null because no selected row 
-            if (rowCount == 1 || dataGridView1.CurrentRow.Index == rowCount - 1)
-                dt.Rows.Add(row);
-            else
-                dt.Rows.InsertAt(row, dataGridView1.CurrentCell.RowIndex + 1);
-            return row;
-        }
-
-        private void RemoveRow()
-        {
-            DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
-                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (answer == DialogResult.Yes)
-            {
-                //if nothing has ever been added to table - CurrentRow is null
-                if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.IsNewRow)
-                    return;
-                else
-                {
-                    int rowIndex = dataGridView1.CurrentRow.Index;
-                    if (rowIndex < dataGridView1.Rows.Count)
-                    {
-                        dataGridView1.Rows.RemoveAt(rowIndex);
-                    }
-                }
-            }
-        }
-
         private void UpdateMotorButton_Click(object sender, EventArgs e)
         {
             DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-            Controller.update(row, (DataTable)dataGridView1.DataSource);
+            Controller.updateMotor(row, (DataTable)dataGridView1.DataSource);
             MessageBox.Show(row["Name"] + " has been updated");
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)
         {
-            RemoveRow();
+            //prompt user if they really want to remove the row
+            DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                Controller.deleteMotor(row, (DataTable)dataGridView1.DataSource);
+                MessageBox.Show(row["Name"] + " has been deleted");
+                refresh();
+            }
         }
     }
 }
