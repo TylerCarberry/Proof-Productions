@@ -10,5 +10,13 @@ namespace Proof_Productions.Model
     {
         public String Name;
         //TODO Figure out and create methods and variables for a PLC
+        public PLC()
+        {
+            Name = "Default PLC";
+        }
+        public PLC(String Name)
+        {
+            this.Name = Name;
+        }
     }
 }

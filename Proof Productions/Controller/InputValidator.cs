@@ -14,7 +14,8 @@ namespace Proof_Productions.Controller
         //and does not go outside of predetermined boundaries
         public static Boolean IsValidVelocity(String input)
         {
-            if (int.TryParse(input, out int v))
+            int v;
+            if (int.TryParse(input, out v))
             {
                 return v >= 0 && v <= 1750;
             }
@@ -26,7 +27,8 @@ namespace Proof_Productions.Controller
         //and does not go outside of predetermined boundaries
         public static Boolean IsValidAcceleration(String input)
         {
-            if(int.TryParse(input, out int a))
+            int a;
+            if(int.TryParse(input, out a))
             {
                 return a >= 0 && a <= 1750;
             }
@@ -37,7 +39,8 @@ namespace Proof_Productions.Controller
         //will be entered into the Position text box is a number
         public static Boolean IsValidPosition(String input)
         {
-            return int.TryParse(input, out int num);
+            int num;
+            return int.TryParse(input, out num);
         }
         
     }
