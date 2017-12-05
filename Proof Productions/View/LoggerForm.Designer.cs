@@ -85,6 +85,7 @@
             // displayErrorButton
             // 
             this.displayErrorButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.displayErrorButton.Enabled = false;
             this.displayErrorButton.Location = new System.Drawing.Point(85, 35);
             this.displayErrorButton.Name = "displayErrorButton";
             this.displayErrorButton.Size = new System.Drawing.Size(75, 41);
@@ -96,6 +97,7 @@
             // displayLogButton
             // 
             this.displayLogButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.displayLogButton.Enabled = false;
             this.displayLogButton.Location = new System.Drawing.Point(176, 35);
             this.displayLogButton.Name = "displayLogButton";
             this.displayLogButton.Size = new System.Drawing.Size(75, 41);
@@ -117,6 +119,7 @@
             // 
             // searchBox
             // 
+            this.searchBox.Enabled = false;
             this.searchBox.Location = new System.Drawing.Point(393, 51);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(131, 20);
@@ -203,7 +206,7 @@
             this.Controls.Add(this.logGridView);
             this.Controls.Add(this.menuStrip1);
             this.Name = "LoggerForm";
-            this.Text = "Logger";
+            this.Text = "Proof Productions: Logs";
             ((System.ComponentModel.ISupportInitialize)(this.logGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

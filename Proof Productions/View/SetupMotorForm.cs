@@ -11,7 +11,7 @@ using Proof_Productions.Model;
 using Proof_Productions.Controller;
 namespace Proof_Productions.View
 {
-    public partial class SetupMotorForm : Form
+    public partial class SetupMotorForm : BaseForm
     {
 
         private SetupMotorController Controller;
@@ -36,31 +36,22 @@ namespace Proof_Productions.View
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new MainMenuForm());
-        }
-
-        private void switchToForm(Form form)
-        {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
-
-            this.Hide();
+            SwitchToForm(new MainMenuForm());
         }
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new ManualControlForm());
+            SwitchToForm(new ManualControlForm());
         }
 
         private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupCueForm());
+            SwitchToForm(new SetupCueForm());
         }
 
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new LoggerForm());
+            SwitchToForm(new LoggerForm());
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +100,11 @@ namespace Proof_Productions.View
                 MessageBox.Show(row["Name"] + " has been deleted");
                 refresh();
             }
+        }
+
+        private void SetupMotorForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,8 +45,6 @@
             this.cueManagerLabel = new System.Windows.Forms.Label();
             this.MotorListLabel = new System.Windows.Forms.Label();
             this.cueDescriptionLabel = new System.Windows.Forms.Label();
-            this.moveCueUpButton = new System.Windows.Forms.Button();
-            this.moveCueDownButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +52,8 @@
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveCueDownButton = new System.Windows.Forms.Button();
+            this.moveCueUpButton = new System.Windows.Forms.Button();
             this.cueActionFlowLayoutPanel.SuspendLayout();
             this.cueFlowLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -241,28 +241,6 @@
             this.cueDescriptionLabel.TabIndex = 8;
             this.cueDescriptionLabel.Text = "Cue Description";
             // 
-            // moveCueUpButton
-            // 
-            this.moveCueUpButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.moveCueUpButton.Location = new System.Drawing.Point(12, 143);
-            this.moveCueUpButton.Name = "moveCueUpButton";
-            this.moveCueUpButton.Size = new System.Drawing.Size(47, 42);
-            this.moveCueUpButton.TabIndex = 9;
-            this.moveCueUpButton.Text = "up";
-            this.moveCueUpButton.UseVisualStyleBackColor = false;
-            this.moveCueUpButton.Click += new System.EventHandler(this.moveCueUpButton_Click);
-            // 
-            // moveCueDownButton
-            // 
-            this.moveCueDownButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.moveCueDownButton.Location = new System.Drawing.Point(12, 202);
-            this.moveCueDownButton.Name = "moveCueDownButton";
-            this.moveCueDownButton.Size = new System.Drawing.Size(47, 41);
-            this.moveCueDownButton.TabIndex = 10;
-            this.moveCueDownButton.Text = "down";
-            this.moveCueDownButton.UseVisualStyleBackColor = false;
-            this.moveCueDownButton.Click += new System.EventHandler(this.moveCueDownButton_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -321,6 +299,30 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // moveCueDownButton
+            // 
+            this.moveCueDownButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.moveCueDownButton.Enabled = false;
+            this.moveCueDownButton.Location = new System.Drawing.Point(12, 202);
+            this.moveCueDownButton.Name = "moveCueDownButton";
+            this.moveCueDownButton.Size = new System.Drawing.Size(47, 41);
+            this.moveCueDownButton.TabIndex = 10;
+            this.moveCueDownButton.Text = "down";
+            this.moveCueDownButton.UseVisualStyleBackColor = false;
+            this.moveCueDownButton.Click += new System.EventHandler(this.moveCueDownButton_Click);
+            // 
+            // moveCueUpButton
+            // 
+            this.moveCueUpButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.moveCueUpButton.Enabled = false;
+            this.moveCueUpButton.Location = new System.Drawing.Point(12, 143);
+            this.moveCueUpButton.Name = "moveCueUpButton";
+            this.moveCueUpButton.Size = new System.Drawing.Size(47, 42);
+            this.moveCueUpButton.TabIndex = 9;
+            this.moveCueUpButton.Text = "up";
+            this.moveCueUpButton.UseVisualStyleBackColor = false;
+            this.moveCueUpButton.Click += new System.EventHandler(this.moveCueUpButton_Click);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,7 +338,7 @@
             this.Controls.Add(this.motorList);
             this.Controls.Add(this.cueFlowLayoutPanel);
             this.Name = "MainMenuForm";
-            this.Text = "Main Menu";
+            this.Text = "Proof Productions: Home";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.cueActionFlowLayoutPanel.ResumeLayout(false);
             this.cueFlowLayoutPanel.ResumeLayout(false);
@@ -352,8 +354,6 @@
         private System.Windows.Forms.FlowLayoutPanel cueFlowLayoutPanel;
         private System.Windows.Forms.ListView cueManager;
         private System.Windows.Forms.Label cueManagerLabel;
-        private System.Windows.Forms.Button moveCueUpButton;
-        private System.Windows.Forms.Button moveCueDownButton;
         private System.Windows.Forms.Button removeCueButton;
         private System.Windows.Forms.Button editCueButton;
         private System.Windows.Forms.Button addCueButton;
@@ -380,5 +380,7 @@
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button moveCueDownButton;
+        private System.Windows.Forms.Button moveCueUpButton;
     }
 }

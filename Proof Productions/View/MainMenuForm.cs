@@ -12,7 +12,7 @@ using Proof_Productions.Model;
 
 namespace Proof_Productions.View
 {
-    public partial class MainMenuForm : Form
+    public partial class MainMenuForm : BaseForm
     {
         public MainMenuForm()
         {
@@ -56,10 +56,10 @@ namespace Proof_Productions.View
 
         }
 
-        CueController C1;
+        PlayCueController C1;
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            C1 = new CueController();
+            C1 = new PlayCueController();
             C1.PlayCurrentCue();
         }
 
@@ -99,34 +99,25 @@ namespace Proof_Productions.View
         }
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new ManualControlForm());
+            SwitchToForm(new ManualControlForm());
         }
 
         private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new SetupCueForm());
+            SwitchToForm(new SetupCueForm());
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
             new AboutForm().Show();
         }
 
-        private void switchToForm(Form form)
-        {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
-
-            this.Hide();
-        }
-
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new LoggerForm());
+            SwitchToForm(new LoggerForm());
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupMotorForm());
+            SwitchToForm(new SetupMotorForm());
         }
 
     }

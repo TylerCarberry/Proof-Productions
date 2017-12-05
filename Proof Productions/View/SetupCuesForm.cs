@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Proof_Productions.View
 {
-    public partial class SetupCueForm : Form
+    public partial class SetupCueForm : BaseForm
     {
         public SetupCueForm()
         {
@@ -38,29 +38,21 @@ namespace Proof_Productions.View
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new MainMenuForm());
+            SwitchToForm(new MainMenuForm());
         }
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
-            switchToForm(new ManualControlForm());
+            SwitchToForm(new ManualControlForm());
         }
-
-        private void switchToForm(Form form) {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
-
-            this.Hide();
-        }
-
+        
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new LoggerForm());
+            SwitchToForm(new LoggerForm());
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupMotorForm());
+            SwitchToForm(new SetupMotorForm());
         }
 
         private void saveCueButton_Click(object sender, EventArgs e)
