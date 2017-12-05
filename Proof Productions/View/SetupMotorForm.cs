@@ -94,7 +94,6 @@ namespace Proof_Productions.View
         {
             DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
             Controller.updateMotor(row, (DataTable)dataGridView1.DataSource);
-            MessageBox.Show(row["Name"] + " has been updated");
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)
@@ -106,7 +105,6 @@ namespace Proof_Productions.View
             {
                 DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
                 Controller.deleteMotor(row, (DataTable)dataGridView1.DataSource);
-                MessageBox.Show(row["Name"] + " has been deleted");
                 refresh();
             }
         }

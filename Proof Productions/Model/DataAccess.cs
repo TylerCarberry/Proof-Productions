@@ -13,7 +13,7 @@ namespace Proof_Productions.Model
     public class DataAccess
     {
         private readonly Boolean testing = true; //testing purposes only for print statements
-        protected static readonly String CONNECTION_STRING = "";
+        protected static readonly String CONNECTION_STRING = "server = elvis.rowan.edu; user id = caow2; password = doggbert97";
         protected static readonly String SCHEMA_NAME = "caow2";
 
         MySqlConnection con;
@@ -157,15 +157,6 @@ namespace Proof_Productions.Model
             return true;
         }
 
-        public DataTable getCueNames()
-        {
-            cmd.CommandText = "SELECT CueName FROM " + SCHEMA_NAME + ".cue";
-            adapter.SelectCommand = cmd;
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
-        }
-
         public DataTable selectMotor(Motor motor)
         {
             cmd.CommandText = "SELECT IPAddress, Name, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
@@ -223,7 +214,7 @@ namespace Proof_Productions.Model
         }
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Database motor table functions
+        // Functions for SetupMotor Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
         
         /// <summary>
@@ -294,6 +285,36 @@ namespace Proof_Productions.Model
             adapter.DeleteCommand = cmd;
             adapter.DeleteCommand.ExecuteNonQuery();
             if (testing) Console.WriteLine("Motor Deleted");
+        }
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // Database cue table functions
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getCueNames()
+        {
+            cmd = new MySqlCommand("SELECT Name FROM " + SCHEMA_NAME + ".cue", con);
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getCueItems(String CueName)
+        {
+            cmd = new MySqlCommand("SELECT Number, MotorName 'Motor', DelayBefore 'Start Delay', " +
+                                   "Runtime 'Duration', Clockwise, CounterClockwise, " +
+                                   "SetVelocity 'Speed', SetAcceleration 'Acceleration', SetDeceleration 'Deceleration' " +
+                                   "FROM " + SCHEMA_NAME + ".cueitem WHERE CueName = @CueName", con);
+            cmd.Parameters.AddWithValue("@CueName", CueName);
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
     }
 }
