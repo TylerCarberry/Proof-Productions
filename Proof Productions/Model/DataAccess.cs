@@ -13,7 +13,7 @@ namespace Proof_Productions.Model
     public class DataAccess
     {
         private readonly Boolean testing = true; //testing purposes only for print statements
-        protected static readonly String CONNECTION_STRING = "";
+        protected static readonly String CONNECTION_STRING = "server = elvis.rowan.edu; user id = caow2; password = doggbert97";
         protected static readonly String SCHEMA_NAME = "caow2";
 
         MySqlConnection con;
@@ -245,7 +245,7 @@ namespace Proof_Productions.Model
             cmd.Parameters.AddWithValue("@LimitMaxPosPosition", row["LimitMaxPosPosition"]);
             cmd.Parameters.AddWithValue("@Name", row["Name"]);
             adapter.UpdateCommand = cmd;
-            adapter.Update(table);
+            adapter.UpdateCommand.ExecuteNonQuery();
             if (testing) Console.WriteLine("Motor updated");
         }
 
@@ -297,11 +297,20 @@ namespace Proof_Productions.Model
         /// <returns> True if the cue is added into the database, false otherwise </returns>
         public void insertCue(String CueName)
         {
-            cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name )", con);
+            cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name)", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
             adapter.InsertCommand = cmd;
             adapter.InsertCommand.ExecuteNonQuery();
-            if (testing) Console.WriteLine("Inserted Cue :" + CueName);
+            if (testing) Console.WriteLine("Inserted Cue : " + CueName);
+        }
+
+        public void deleteCue(String CueName)
+        {
+            cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name", con);
+            cmd.Parameters.AddWithValue("@Name", CueName);
+            adapter.DeleteCommand = cmd;
+            adapter.DeleteCommand.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Deleted Cue : " + CueName);
         }
     }
 }

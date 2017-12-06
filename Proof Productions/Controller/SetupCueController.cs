@@ -29,7 +29,7 @@ namespace Proof_Productions.Controller
             }
             catch(Exception e)
             {
-                MessageBox.Show("Could not get cue names : \n" + e.ToString());
+                MessageBox.Show("Error getting cue names : \n" + e.ToString());
             }
             return cuenames;
         }
@@ -45,7 +45,7 @@ namespace Proof_Productions.Controller
             }
             catch(Exception e)
             {
-                MessageBox.Show("Could not get cue items for cue " + CueName + " : \n " + e.ToString());
+                MessageBox.Show("Error getting cue items for cue " + CueName + " : \n " + e.ToString());
             }
             return cueitems;
         }
@@ -57,12 +57,28 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.insertCue(CueName);
                 data.disconnect();
-                MessageBox.Show("Cue " + CueName + " has been added");
             }
             catch(Exception e)
             {
-                MessageBox.Show("Could not add new cue " + CueName + " : \n" + e.ToString()); 
+                MessageBox.Show("Error adding new cue " + CueName + " : \n" + e.ToString()); 
             }
+            MessageBox.Show("Cue " + CueName + " has been added");
+        }
+
+        public void deleteCue(String CueName)
+        {
+            //TODO - can't just delete cue - must delete cueitems associated with cue too
+            try
+            {
+                data.connect();
+                data.deleteCue(CueName);
+                data.disconnect();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error deleting cue " + CueName + " : \n" + e.ToString());
+            }
+            MessageBox.Show("Cue " + CueName + " has been deleted");
         }
     }
 }
