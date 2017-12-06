@@ -26,7 +26,7 @@ namespace Proof_Productions.View
         }
 
 
-        public bool IsSubmitted()
+        public bool isSubmitted()
         {
             return submitted;
         }

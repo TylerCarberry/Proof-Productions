@@ -63,7 +63,7 @@ namespace Proof_Productions.View
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
-            if(NewMotor.IsSubmitted())
+            if(NewMotor.isSubmitted())
             {
                 DataTable dt = (DataTable)dataGridView1.DataSource;
                 DataRow row = dt.NewRow(); ;

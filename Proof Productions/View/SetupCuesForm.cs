@@ -20,7 +20,7 @@ namespace Proof_Productions.View
         {
             InitializeComponent();
             Controller = new SetupCueController();
-            initCueComboBox();
+            refreshCueComboBox();
         }
 
         /* Inserts a new row after the currently selected row in the motorDataGridView.
@@ -161,8 +161,11 @@ namespace Proof_Productions.View
             }
         }
 
-        public void initCueComboBox()
+        public void refreshCueComboBox()
         {
+            //reset combobox and refetch
+            //from database to show consistent ordering of items
+            cueComboBox.Items.Clear(); 
             DataTable table = Controller.getCueNames();
             int column = 0;
             for(int i = 0; i < table.Rows.Count; i++)
@@ -182,6 +185,17 @@ namespace Proof_Productions.View
             if(cueComboBox.SelectedIndex > -1)
             {
                 refresh(cueComboBox.Text);
+            }
+        }
+
+        private void newCueButton_Click(object sender, EventArgs e)
+        {
+            NewCueForm newCue = new NewCueForm();
+            newCue.ShowDialog();
+            if(newCue.isSubmitted())
+            {
+                Controller.addNewCue(newCue.getCueName());
+                refreshCueComboBox();
             }
         }
     }

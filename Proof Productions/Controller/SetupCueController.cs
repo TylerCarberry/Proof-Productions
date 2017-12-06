@@ -49,5 +49,20 @@ namespace Proof_Productions.Controller
             }
             return cueitems;
         }
+
+        public void addNewCue(String CueName)
+        {
+            try
+            {
+                data.connect();
+                data.insertCue(CueName);
+                data.disconnect();
+                MessageBox.Show("Cue " + CueName + " has been added");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Could not add new cue " + CueName + " : \n" + e.ToString()); 
+            }
+        }
     }
 }

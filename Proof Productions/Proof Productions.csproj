@@ -120,6 +120,12 @@
     <Compile Include="Model\Output\StatusWordO3.cs" />
     <Compile Include="Model\Output\SubStatusWord.cs" />
     <Compile Include="Controller\PacketController.cs" />
+    <Compile Include="View\NewCueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewCueForm.Designer.cs">
+      <DependentUpon>NewCueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NewMotorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoggerForm.resx">
       <DependentUpon>LoggerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewCueForm.resx">
+      <DependentUpon>NewCueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewMotorForm.resx">
       <DependentUpon>NewMotorForm.cs</DependentUpon>
