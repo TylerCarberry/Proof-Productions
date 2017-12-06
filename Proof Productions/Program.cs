@@ -28,17 +28,33 @@ namespace Proof_Productions
             Console.WriteLine("Testing");
             da.disconnect();
             */
+
+
+            BaseForm form = new MainMenuForm();
+            BaseForm formToShowNext = null;
+
+            int leftPosition = 0;
+            int topPosition = 0;
+
+            while (form != null)
+            {
+                using (form)
+                {
+
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Top = topPosition;
+                    form.Left = leftPosition;
+                    Application.Run(form);
+
+                    formToShowNext = form.FormToOpenNext;
+
+                    leftPosition = form.Left;
+                    topPosition = form.Top;
+                }
+
+                form = formToShowNext;
+            }
             
-
-
-            //Run different Forms
-            Application.Run(new MainMenuForm());
-
-            /**TODO - Program doesn't terminate properly when closing 
-               from a Form other than MainMenuForm
-               Possible solutions/suggestions are below */
-            //Application.Exit();
-            //new MainMenuForm().Close();
         }
     }
 }

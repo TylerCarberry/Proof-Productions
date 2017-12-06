@@ -14,6 +14,9 @@ namespace Proof_Productions.View
 {
     public partial class MainMenuForm : BaseForm
     {
+
+        private PlayCueController C1;
+
         public MainMenuForm()
         {
             InitializeComponent();
@@ -55,8 +58,7 @@ namespace Proof_Productions.View
         {
 
         }
-
-        PlayCueController C1;
+        
         private void playCueButton_Click(object sender, EventArgs e)
         {
             C1 = new PlayCueController();
