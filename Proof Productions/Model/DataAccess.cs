@@ -48,34 +48,6 @@ namespace Proof_Productions.Model
             if (testing) Console.WriteLine("Closed database connection");
         }
 
-        /// <summary>
-        /// Inserts a Cue's information into the database 
-        /// </summary>
-        /// <param name="PlayName"> The name of the play that this cue is associated with </param>
-        /// <param name="cue"> The name of this cue </param>
-        /// <returns> True if the cue is added into the database, false otherwise </returns>
-        public Boolean insertCue(Cue cue)
-        {
-            try
-            {
-                //TODO - once Play is implemented
-                //cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".cue (PlayName, CueName) VALUES (@PlayName, @CueName )";
-                //TODO - once Play is implemented
-                //cmd.Parameters.AddWithValue("@PlayName", playName);
-                cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name )";
-                cmd.Parameters.AddWithValue("@Name", cue.Name);
-                adapter.InsertCommand = cmd;
-                adapter.InsertCommand.ExecuteNonQuery();
-                if (testing) Console.WriteLine("Inserted Cue");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Insert Cue Failed: " + e.ToString());
-                return false;
-            }
-            return true;
-        }
-
         /** TODO - play is unimplemented
         public Boolean insertPlay(Play play)
         {
@@ -216,7 +188,7 @@ namespace Proof_Productions.Model
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Functions for SetupMotor Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        
+
         /// <summary>
         /// Get all of the motors from the database
         /// </summary>
@@ -290,7 +262,7 @@ namespace Proof_Productions.Model
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Database cue table functions
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -315,6 +287,21 @@ namespace Proof_Productions.Model
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+
+        /// <summary>
+        /// Inserts a Cue's information into the database 
+        /// </summary>
+        /// <param name="PlayName"> The name of the play that this cue is associated with </param>
+        /// <param name="cue"> The name of this cue </param>
+        /// <returns> True if the cue is added into the database, false otherwise </returns>
+        public void insertCue(String CueName)
+        {
+            cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name )", con);
+            cmd.Parameters.AddWithValue("@Name", CueName);
+            adapter.InsertCommand = cmd;
+            adapter.InsertCommand.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Inserted Cue :" + CueName);
         }
     }
 }

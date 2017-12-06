@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cueComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.newCueButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -149,11 +150,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
             // 
+            // newCueButton
+            // 
+            this.newCueButton.Location = new System.Drawing.Point(330, 37);
+            this.newCueButton.Name = "newCueButton";
+            this.newCueButton.Size = new System.Drawing.Size(83, 23);
+            this.newCueButton.TabIndex = 22;
+            this.newCueButton.Text = "Add New Cue";
+            this.newCueButton.UseVisualStyleBackColor = true;
+            this.newCueButton.Click += new System.EventHandler(this.newCueButton_Click);
+            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 423);
+            this.Controls.Add(this.newCueButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cueComboBox);
             this.Controls.Add(this.label1);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cueComboBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button newCueButton;
     }
 }
