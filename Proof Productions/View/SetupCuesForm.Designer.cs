@@ -41,6 +41,7 @@
             this.cueComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.newCueButton = new System.Windows.Forms.Button();
+            this.deleteCueButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,11 +161,22 @@
             this.newCueButton.UseVisualStyleBackColor = true;
             this.newCueButton.Click += new System.EventHandler(this.newCueButton_Click);
             // 
+            // deleteCueButton
+            // 
+            this.deleteCueButton.Location = new System.Drawing.Point(428, 37);
+            this.deleteCueButton.Name = "deleteCueButton";
+            this.deleteCueButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteCueButton.TabIndex = 23;
+            this.deleteCueButton.Text = "Delete Cue";
+            this.deleteCueButton.UseVisualStyleBackColor = true;
+            this.deleteCueButton.Click += new System.EventHandler(this.deleteCueButton_Click);
+            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 423);
+            this.Controls.Add(this.deleteCueButton);
             this.Controls.Add(this.newCueButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cueComboBox);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.ComboBox cueComboBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button newCueButton;
+        private System.Windows.Forms.Button deleteCueButton;
     }
 }

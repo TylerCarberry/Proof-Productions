@@ -209,5 +209,26 @@ namespace Proof_Productions.View
                 refreshCueComboBox();
             }
         }
+
+        private void deleteCueButton_Click(object sender, EventArgs e)
+        {
+            //no cue is selected
+            if (cueComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a valid cue to delete");
+            }
+            else {
+                DialogResult answer = MessageBox.Show("Are you sure you want to delete the selected cue?", "Remove Cue",
+                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (answer == DialogResult.Yes)
+                {
+                    String currentCue = cueComboBox.Text;
+                    Controller.deleteCue(currentCue);
+                    cueComboBox.SelectedIndex = -1; //set selected text to empty
+                    refreshCueComboBox();
+               
+                }
+            }
+        }
     }
 }
