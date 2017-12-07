@@ -186,9 +186,9 @@ namespace Proof_Productions.Controller
             return (Index >= 0 && Index < ListSize);
         }
 
-        public Boolean IsRunning()
+        public Boolean HasFinishedCue()
         {
-            return !FinishedCue;
+            return FinishedCue;
         }
     }
 }

@@ -290,7 +290,7 @@ namespace Proof_Productions.View
 
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchToForm(new LoggerForm());
+            new LoggerForm().Show();
         }
 
         private void ManualControlForm_Load(object sender, EventArgs e)

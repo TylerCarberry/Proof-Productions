@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Proof_Productions.View
 {
-    public partial class LoggerForm : BaseForm
+    public partial class LoggerForm : Form
     {
         public LoggerForm()
         {
@@ -71,34 +71,6 @@ namespace Proof_Productions.View
 
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwitchToForm(new MainMenuForm());
-        }
-
-        private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwitchToForm(new SetupMotorForm());
-        }
-
-        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwitchToForm(new ManualControlForm());
-        }
-
-        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwitchToForm(new SetupCueForm());
-        }
-
-        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TODO - Do we even need this? Already at Logger page
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new AboutForm().Show();
-        }
+       
     }
 }

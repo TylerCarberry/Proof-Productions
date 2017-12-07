@@ -23,7 +23,7 @@ namespace Proof_Productions.View
          * @param sender
          * @param e 
          * */
-        private void insertRowButton_Click(object sender, EventArgs e)
+        private void InsertRowButton_Click(object sender, EventArgs e)
         {
             int rowCount = motorDataGridView.RowCount;
             //rowCount of 1 counts NewRow -> CurrentRow is null because no selected row 
@@ -33,29 +33,29 @@ namespace Proof_Productions.View
                 motorDataGridView.Rows.Insert((motorDataGridView.CurrentCell.RowIndex + 1), new DataGridViewRow());
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e) {
             new AboutForm().Show();
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void MainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
             SwitchToForm(new MainMenuForm());
         }
 
-        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void ManualControlToolStripMenuItem_Click(object sender, EventArgs e) {
             SwitchToForm(new ManualControlForm());
         }
         
-        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchToForm(new LoggerForm());
+            new LoggerForm().Show();
         }
 
-        private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SetupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new SetupMotorForm());
         }
 
-        private void saveCueButton_Click(object sender, EventArgs e)
+        private void SaveCueButton_Click(object sender, EventArgs e)
         {
             Cue cue = new Cue();
 

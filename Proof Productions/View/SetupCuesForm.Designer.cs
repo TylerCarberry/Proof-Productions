@@ -141,21 +141,21 @@
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.mainMenuToolStripMenuItem.Text = "Home";
-            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.MainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
             this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
             this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.manualControlToolStripMenuItem.Text = "Manual Control";
-            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.manualControlToolStripMenuItem_Click);
+            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.ManualControlToolStripMenuItem_Click);
             // 
             // setupMotorsToolStripMenuItem
             // 
             this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
             this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
-            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.setupMotorsToolStripMenuItem_Click);
+            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.SetupMotorsToolStripMenuItem_Click);
             // 
             // setupCuesToolStripMenuItem
             // 
@@ -169,14 +169,14 @@
             this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
             this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.loggerToolStripMenuItem.Text = "Logs";
-            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.LoggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // saveCueButton
             // 
@@ -186,7 +186,7 @@
             this.saveCueButton.TabIndex = 18;
             this.saveCueButton.Text = "Save";
             this.saveCueButton.UseVisualStyleBackColor = true;
-            this.saveCueButton.Click += new System.EventHandler(this.saveCueButton_Click);
+            this.saveCueButton.Click += new System.EventHandler(this.SaveCueButton_Click);
             // 
             // label1
             // 

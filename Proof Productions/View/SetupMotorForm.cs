@@ -15,14 +15,15 @@ namespace Proof_Productions.View
     {
 
         private SetupMotorController Controller;
+
         public SetupMotorForm()
         {
             InitializeComponent();
             Controller = new SetupMotorController();
-            refresh();
+            RefreshData();
         }
 
-        public void refresh()
+        public void RefreshData()
         {
 
             dataGridView1.DataSource = Controller.fetchAllMotors();
@@ -30,31 +31,31 @@ namespace Proof_Productions.View
             //The names should pull from the list of motors
             dataGridView1.Columns["Name"].ReadOnly = true;
         }
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void MainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
             SwitchToForm(new MainMenuForm());
         }
 
-        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManualControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new ManualControlForm());
         }
 
-        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SetupCuesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new SetupCueForm());
         }
 
-        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchToForm(new LoggerForm());
+            new LoggerForm().Show();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutForm().Show();
         }
@@ -77,7 +78,7 @@ namespace Proof_Productions.View
                 row["LimitMaxNegPosition"] = NewMotor.getMaxNegPos();
                 row["LimitMaxPosPosition"] = NewMotor.getMaxPosPos();
                 Controller.insertMotor(row);
-                refresh();
+                RefreshData();
             }
         }
 
@@ -98,7 +99,7 @@ namespace Proof_Productions.View
                 DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
                 Controller.deleteMotor(row, (DataTable)dataGridView1.DataSource);
                 MessageBox.Show(row["Name"] + " has been deleted");
-                refresh();
+                RefreshData();
             }
         }
 
