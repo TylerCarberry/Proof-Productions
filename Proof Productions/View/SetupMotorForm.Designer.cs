@@ -166,7 +166,6 @@
             this.Controls.Add(this.AddMotorButton);
             this.Name = "SetupMotorForm";
             this.Text = "Proof Productions: Setup Motors";
-            this.Load += new System.EventHandler(this.SetupMotorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
