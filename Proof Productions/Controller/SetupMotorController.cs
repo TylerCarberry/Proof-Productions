@@ -36,13 +36,13 @@ namespace Proof_Productions.Controller
             return motortable;
         }
 
-        public void updateMotor(DataRow row, DataTable table)
+        public void updateMotor(DataRow row)
         {
             String motorName = row["Name"].ToString();
             try
             {
                 data.connect();
-                data.updateMotor(row, table);
+                data.updateMotor(row);
                 data.disconnect(); 
             }
             catch(Exception e)
