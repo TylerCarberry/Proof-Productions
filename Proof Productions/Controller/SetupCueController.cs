@@ -27,58 +27,91 @@ namespace Proof_Productions.Controller
                 cuenames = data.getCueNames();
                 data.disconnect();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Error getting cue names : \n" + e.ToString());
             }
             return cuenames;
         }
 
-        public DataTable getCueItems(String CueName)
+        public DataTable getCueItems(String cueName)
         {
             DataTable cueitems = null; //placeholder
             try
             {
                 data.connect();
-                cueitems = data.getCueItems(CueName);
+                cueitems = data.getCueItems(cueName);
                 data.disconnect();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show("Error getting cue items for cue " + CueName + " : \n " + e.ToString());
+                MessageBox.Show("Error getting cue items for cue " + cueName + " : \n " + e.ToString());
             }
             return cueitems;
         }
 
-        public void addNewCue(String CueName)
+        public void addCue(String cueName)
         {
             try
             {
                 data.connect();
-                data.insertCue(CueName);
+                data.insertCue(cueName);
                 data.disconnect();
+                MessageBox.Show("Cue " + cueName + " has been added");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show("Error adding new cue " + CueName + " : \n" + e.ToString()); 
+                MessageBox.Show("Error adding new cue " + cueName + " : \n" + e.ToString());
             }
-            MessageBox.Show("Cue " + CueName + " has been added");
         }
 
-        public void deleteCue(String CueName)
+        public void deleteCue(String cueName)
         {
-            //TODO - can't just delete cue - must delete cueitems associated with cue too
+            //Deleting a cue will delete its cueitems due to foreign key constraints -- ON DELETE
             try
             {
                 data.connect();
-                data.deleteCue(CueName);
+                data.deleteCue(cueName);
                 data.disconnect();
+                MessageBox.Show("Cue " + cueName + " has been deleted");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show("Error deleting cue " + CueName + " : \n" + e.ToString());
+                MessageBox.Show("Error deleting cue " + cueName + " : \n" + e.ToString());
             }
-            MessageBox.Show("Cue " + CueName + " has been deleted");
+        }
+
+        public void addCueItem(DataRow row, String cueName)
+        {
+            String itemName = row["Name"].ToString();
+            try
+            {
+                data.connect();
+                data.insertCueItem(row, cueName);
+                data.disconnect();
+                MessageBox.Show("Inserted new cue item " + itemName + " cueName");
+            }
+            catch (Exception e)
+            {
+                //add more info
+                MessageBox.Show("Error inserting cue item " + itemName + " : \n" + e.ToString());
+            }
+        }
+
+        public void updateCueItem(DataRow row)
+        {
+            String itemName = row["Name"].ToString();
+            try
+            {
+                data.connect();
+                data.UpdateCueItem(row);
+                data.disconnect();
+                MessageBox.Show("Updated cue item " + itemName);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error updating cue item " + itemName + " : \n " + e.ToString());
+            }
         }
     }
 }

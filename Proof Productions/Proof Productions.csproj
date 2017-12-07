@@ -123,6 +123,12 @@
     <Compile Include="View\NewCueForm.Designer.cs">
       <DependentUpon>NewCueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NewCueItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewCueItemForm.Designer.cs">
+      <DependentUpon>NewCueItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NewMotorForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -70,47 +70,6 @@ namespace Proof_Productions.Model
         */
 
 
-
-        /// <summary>
-        /// Inserts a CueItem's information into the database 
-        /// </summary>
-        /// <param name="item"> The CueItem to be added </param>
-        /// <param name="cue"> The Cue this CueItem is associated with </param>
-        /// <returns> True if the CueItem is added into the database, false otherwise </returns>
-        public Boolean insertCueItem(CueItem item, Cue cue)
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".cueitem (CueItemName, DelayBefore, RunTime, SetVelocity, SetAcceleration, SetDeceleration, " +
-                                  "SetPosition, PositiveDirection, Running, Stopping, CueID, MotorID)" +
-                                  "VALUES (@CueItemName, @DelayBefore, @RunTime, @SetVelocity, @SetAcceleration, @SetDeceleration, @SetPosition, " +
-                                  "@PositiveDirection, @Running, @Stopping, @CueID, @MotorID)";
-                cmd.Parameters.AddWithValue("@CueItemName", item.Number);
-                cmd.Parameters.AddWithValue("@DelayBefore", item.DelayBefore);
-                cmd.Parameters.AddWithValue("@RunTime", item.RunTime);
-                cmd.Parameters.AddWithValue("@SetVelocity", item.SetVelocity);
-                cmd.Parameters.AddWithValue("@SetAcceleration", item.SetAcceleration);
-                cmd.Parameters.AddWithValue("@SetDeceleration", item.SetDeceleration);
-                cmd.Parameters.AddWithValue("@SetPosition", item.SetPosition);
-                cmd.Parameters.AddWithValue("@PositiveDirection", item.PositiveDirection);
-                cmd.Parameters.AddWithValue("@Running", item.Running);
-                cmd.Parameters.AddWithValue("@Stopping", item.Stopping);
-                cmd.Parameters.AddWithValue("@CueName", getCueID(cue));
-                //cmd.Parameters.AddWithValue("@MotorID", getMotorID(item.CueMotor));
-                adapter.InsertCommand = cmd;
-                adapter.InsertCommand.ExecuteNonQuery();
-                if (testing) Console.WriteLine("Inserted CueItem");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Insert CueItem Failed :" + e.ToString());
-                return false;
-            }
-            return true;
-        }
-
-
         public Boolean insertPLC(PLC plc)
         {
             try
@@ -143,35 +102,8 @@ namespace Proof_Productions.Model
             return table;
         }
 
-        public int getCueID(Cue cue)
-        {
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT CueID FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name";
-            cmd.Parameters.AddWithValue("@Name", cue.Name);
-            adapter.SelectCommand = cmd;
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return (int)table.Rows[0]["CueID"];
-        }
-
-        /// <summary>
-        /// Gets all the CueItems for the specified Cue
-        /// </summary>
-        /// <param name="cue"> The specified Cue </param>
-        /// <returns> A DataTable with all of the CueItems for a Cue</returns>
-        public DataTable getCueItemsForCue(Cue cue)
-        {
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT CueItemName, DelayBefore, RunTime, SetVelocity, SetAcceleration, SetDeceleration, SetPosition " +
-                              "FROM " + SCHEMA_NAME + ".cueitem JOIN " + SCHEMA_NAME + ".cue USING (@CueName)";
-            cmd.Parameters.AddWithValue("@CueName", cue.Name);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
-        }
-
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Functions for motor table
+        // Functions for SetupMotor Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
@@ -207,14 +139,15 @@ namespace Proof_Productions.Model
         {
             MySqlCommand cmd = new MySqlCommand("SELECT m.Name, IPAddress, Description, p.Name as PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
                               "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor m " +
-                              "JOIN " + SCHEMA_NAME + ".plc p USING (PLCID)", con);
+                              "JOIN " + SCHEMA_NAME + ".plc p USING (PLCID) " +
+                              "ORDER BY m.Name ", con);
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
         }
 
-        
+
         /// <summary>
         /// Insert's a Motor's information into the database
         /// </summary>
@@ -276,7 +209,7 @@ namespace Proof_Productions.Model
         }
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Functions for cue table
+        // Functions for SetupCue Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
@@ -292,12 +225,22 @@ namespace Proof_Productions.Model
             return table;
         }
 
+        /// <summary>
+        /// Get all of the CueItems for a specific cue
+        /// </summary>
+        /// <param name="CueName"> The name fo the specified cue </param>
+        /// <returns> Associated CueItem information in a DataTable </returns>
         public DataTable getCueItems(String CueName)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT Number, MotorName 'Motor', DelayBefore 'Start Delay', " +
-                                   "Runtime 'Duration', Clockwise, CounterClockwise, " +
-                                   "SetVelocity 'Speed', SetAcceleration 'Acceleration', SetDeceleration 'Deceleration' " +
-                                   "FROM " + SCHEMA_NAME + ".cueitem WHERE CueName = @CueName", con);
+
+            MySqlCommand cmd = new MySqlCommand("SELECT Number, ci.Name , m.Name 'Motor', DelayBefore 'Start Delay', " +
+                                   "Runtime 'Duration', Clockwise, CounterClockwise, SetVelocity 'Speed', " +
+                                   "SetAcceleration 'Acceleration', SetDeceleration 'Deceleration', SetPosition 'Position' " +
+                                   "FROM " + SCHEMA_NAME + ".cueitem ci " +
+                                   "JOIN " + SCHEMA_NAME + ".cue c USING (CueID) " +
+                                   "JOIN " + SCHEMA_NAME + ".motor m USING (MotorID) " +
+                                   "WHERE c.name = @CueName " +
+                                   "ORDER BY Number ", con);
             cmd.Parameters.AddWithValue("@CueName", CueName);
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -315,18 +258,82 @@ namespace Proof_Productions.Model
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name)", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
-            adapter.InsertCommand = cmd;
-            adapter.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Inserted Cue : " + CueName);
         }
 
         public void deleteCue(String CueName)
         {
+            //Foreign key constraint from cueitem to cue should have ON DELETE set to cascade
+            //When deleting a cue, all cueitems associated with that cue will also be deleted
             MySqlCommand cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
-            adapter.DeleteCommand = cmd;
-            adapter.DeleteCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Deleted Cue : " + CueName);
+        }
+
+
+        public int getCueID(String CueName)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT CueID FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name", con);
+            cmd.Parameters.AddWithValue("@Name", CueName);
+            return (int)cmd.ExecuteScalar();
+        }
+
+        /// <summary>
+        /// Inserts a CueItem's information into the database 
+        /// </summary>
+        /// <param name="item"> The CueItem to be added </param>
+        public void insertCueItem(DataRow row, String CueName)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cueitem " +
+                              "(Name, Number, DelayBefore, RunTime, SetVelocity, SetAcceleration, " +
+                              "SetDeceleration, SetPosition, CounterClockwise, Clockwise, CueID, MotorID)" +
+                              "VALUES (@Name, @Number, @DelayBefore, @RunTime, @SetVelocity, @SetAcceleration, @SetDeceleration, " +
+                              "@SetPosition, @CounterClockwise, @Clockwise, @CueID, @MotorID)", con);
+            cmd.Parameters.AddWithValue("@Name", row["Name"]);
+            cmd.Parameters.AddWithValue("@Number", row["Number"]);
+            cmd.Parameters.AddWithValue("@DelayBefore", row["Start Delay"]);
+            cmd.Parameters.AddWithValue("@RunTime", row["Duration"]);
+            cmd.Parameters.AddWithValue("@SetVelocity", row["Speed"]);
+            cmd.Parameters.AddWithValue("@SetAcceleration", row["Acceleration"]);
+            cmd.Parameters.AddWithValue("@SetDeceleration", row["Deceleration"]);
+            cmd.Parameters.AddWithValue("@Clockwise", row["Clockwise"]);
+            cmd.Parameters.AddWithValue("@CounterClockwise", row["CounterClockwise"]);
+            cmd.Parameters.AddWithValue("@SetPosition", row["Position"]);
+            cmd.Parameters.AddWithValue("@CueID", getCueID(CueName));
+            cmd.Parameters.AddWithValue("@MotorID", getMotorID(row["Motor"].ToString()));
+
+            cmd.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Inserted CueItem");
+        }
+
+        public void UpdateCueItem(DataRow row)
+        {
+            //Currently doesn't update number
+            //CueItem name shall not change - acts as alternate key for the table aside from CueItemID
+            //Note: Does not allow user to change the cue this cueitem belongs to - would have to make a new cue
+            MySqlCommand cmd = new MySqlCommand("UPDATE " + SCHEMA_NAME + ".cueitem " +
+                               "SET Number = @Number, DelayBefore = @DelayBefore, " +
+                               "RunTime = @RunTime, SetVelocity = @SetVelocity, " +
+                               "SetAcceleration = @SetAcceleration, SetDeceleration = @SetDeceleration, " +
+                               "SetPosition = @SetPosition, CounterClockwise = @CounterClockwise, " +
+                               "Clockwise = @Clockwise, MotorID = @MotorID " +
+                               "WHERE Name = @Name ", con);
+            cmd.Parameters.AddWithValue("@Number", row["Number"]);
+            cmd.Parameters.AddWithValue("@DelayBefore", row["Start Delay"]);
+            cmd.Parameters.AddWithValue("@RunTime", row["Duration"]);
+            cmd.Parameters.AddWithValue("@SetVelocity", row["Speed"]);
+            cmd.Parameters.AddWithValue("@SetAcceleration", row["Acceleration"]);
+            cmd.Parameters.AddWithValue("@SetDeceleration", row["Deceleration"]);
+            cmd.Parameters.AddWithValue("@SetPosition", row["Position"]);
+            cmd.Parameters.AddWithValue("@CounterClockwise", row["CounterClockwise"]);
+            cmd.Parameters.AddWithValue("@Clockwise", row["Clockwise"]);
+            cmd.Parameters.AddWithValue("@MotorID", getMotorID(row["Motor"].ToString()));
+            cmd.Parameters.AddWithValue("@Name", row["Name"]);
+
+            cmd.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Updated cue item");
         }
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -339,5 +346,10 @@ namespace Proof_Productions.Model
             cmd.Parameters.AddWithValue("@Name", PLCName);
             return (int)cmd.ExecuteScalar();
         }
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // Functions for cueitem table
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+
     }
 }
