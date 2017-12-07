@@ -15,7 +15,7 @@ namespace Proof_Productions.View
     public partial class MainMenuForm : BaseForm
     {
 
-        private PlayCueController C1;
+        private PlayCueController playCueController1;
 
         public MainMenuForm()
         {
@@ -25,6 +25,20 @@ namespace Proof_Productions.View
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (playCueController1 != null && playCueController1.IsRunning())
+            {
+                DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
+            }
         }
 
         private void EstopButtonClick(object sender, EventArgs e)
@@ -61,8 +75,8 @@ namespace Proof_Productions.View
         
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            C1 = new PlayCueController();
-            C1.PlayCurrentCue();
+            playCueController1 = new PlayCueController();
+            playCueController1.PlayCurrentCue();
         }
 
         private void pauseCueButton_Click(object sender, EventArgs e)
@@ -82,7 +96,7 @@ namespace Proof_Productions.View
 
         private void stopCueButton_Click(object sender, EventArgs e)
         {
-            C1.StopCurrentCue();
+            playCueController1.StopCurrentCue();
         }
 
         private void moveCueUpButton_Click(object sender, EventArgs e)

@@ -1,4 +1,6 @@
-﻿namespace Proof_Productions.View
+﻿using System.Windows.Forms;
+
+namespace Proof_Productions.View
 {
     partial class MainMenuForm
     {
@@ -340,6 +342,7 @@
             this.Name = "MainMenuForm";
             this.Text = "Proof Productions: Home";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
             this.cueActionFlowLayoutPanel.ResumeLayout(false);
             this.cueFlowLayoutPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
