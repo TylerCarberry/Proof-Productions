@@ -26,16 +26,19 @@ namespace Proof_Productions.View
         {
 
             dataGridView1.DataSource = Controller.fetchAllMotors();
-            dataGridView1.Columns["Name"].ReadOnly = true;
             //Make motor name unchangeable for consistency purposes for now
             //The names should pull from the list of motors
+            dataGridView1.Columns["Name"].ReadOnly = true;
+            dataGridView1.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
+
         }
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             switchToForm(new MainMenuForm());
         }
 
@@ -72,7 +75,7 @@ namespace Proof_Productions.View
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
-            if(NewMotor.isSubmitted())
+            if (NewMotor.isSubmitted())
             {
                 DataTable dt = (DataTable)dataGridView1.DataSource;
                 DataRow row = dt.NewRow(); ;
@@ -92,8 +95,13 @@ namespace Proof_Productions.View
 
         private void UpdateMotorButton_Click(object sender, EventArgs e)
         {
-            DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-            Controller.updateMotor(row);
+            DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                Controller.updateMotor(row);
+            }
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)

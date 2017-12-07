@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Logger.cs" />
-    <Compile Include="Controller\CueController.cs" />
+    <Compile Include="Controller\PlayCueController.cs" />
     <Compile Include="Controller\SetupCueController.cs" />
     <Compile Include="Controller\SetupMotorController.cs" />
     <Compile Include="Model\Cue.cs" />
@@ -82,6 +82,9 @@
     </Compile>
     <Compile Include="View\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LoggerForm.cs">
       <SubType>Form</SubType>
@@ -169,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewCueForm.resx">
       <DependentUpon>NewCueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewCueItemForm.resx">
+      <DependentUpon>NewCueItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewMotorForm.resx">
       <DependentUpon>NewMotorForm.cs</DependentUpon>

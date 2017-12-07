@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Proof_Productions.View
 {
-    public partial class LoggerForm : Form
+    public partial class LoggerForm : BaseForm
     {
         public LoggerForm()
         {
@@ -71,33 +71,24 @@ namespace Proof_Productions.View
 
         }
 
-        private void switchToForm(Form form)
-        {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
-
-            this.Hide();
-        }
-
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new MainMenuForm());
+            SwitchToForm(new MainMenuForm());
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupMotorForm());
+            SwitchToForm(new SetupMotorForm());
         }
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new ManualControlForm());
+            SwitchToForm(new ManualControlForm());
         }
 
         private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchToForm(new SetupCueForm());
+            SwitchToForm(new SetupCueForm());
         }
 
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)

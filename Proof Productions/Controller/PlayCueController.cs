@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace Proof_Productions.Controller
 {
-    public class CueController
+    public class PlayCueController
     {
         private Cue CurrentCue = new Cue();
         private byte[] result;
@@ -25,7 +25,7 @@ namespace Proof_Productions.Controller
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Proof of concept hard coded cue sample in constructor
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        public CueController()
+        public PlayCueController()
         {
 
             Cue Cue1 = new Cue();
