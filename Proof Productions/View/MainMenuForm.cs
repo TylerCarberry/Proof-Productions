@@ -29,7 +29,7 @@ namespace Proof_Productions.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (playCueController1 != null || playCueController1.HasFinishedCue())
+            if (playCueController1 != null && playCueController1.HasFinishedCue())
             {
                 DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
