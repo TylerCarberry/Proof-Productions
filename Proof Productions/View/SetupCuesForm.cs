@@ -23,6 +23,11 @@ namespace Proof_Productions.View
             refreshCueComboBox();
         }
 
+        public string getCurrentCue()
+        {
+            return cueComboBox.Text;
+        }
+
         /* Inserts a new row after the currently selected row in the motorDataGridView.
          * @param sender
          * @param e 
@@ -174,9 +179,11 @@ namespace Proof_Productions.View
             }
         }
 
-        public void refresh(String Name)
+        public void refreshCueItemGrid(String Name)
         {
             cueDataGridView.DataSource = Controller.getCueItems(Name);
+            cueDataGridView.Columns["Name"].ReadOnly = true;
+            cueDataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
         }
 
         private void cueComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,7 +191,7 @@ namespace Proof_Productions.View
             //-1 is default index - nothing selected
             if(cueComboBox.SelectedIndex > -1)
             {
-                refresh(cueComboBox.Text);
+                refreshCueItemGrid(this.getCurrentCue());
             }
         }
 
@@ -194,7 +201,7 @@ namespace Proof_Productions.View
             newCue.ShowDialog();
             if(newCue.isSubmitted())
             {
-                Controller.addNewCue(newCue.getCueName());
+                Controller.addCue(newCue.getCueName());
                 refreshCueComboBox();
             }
         }
@@ -203,11 +210,9 @@ namespace Proof_Productions.View
         {
             //no cue is selected
             if (cueComboBox.SelectedIndex == -1)
-            {
                 MessageBox.Show("Please select a valid cue to delete");
-            }
             else {
-                DialogResult answer = MessageBox.Show("Are you sure you want to delete the selected cue?", "Remove Cue",
+                DialogResult answer = MessageBox.Show("Are you sure?", "Remove Cue",
                                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (answer == DialogResult.Yes)
                 {
@@ -216,6 +221,52 @@ namespace Proof_Productions.View
                     cueComboBox.SelectedIndex = -1; //set selected text to empty
                     refreshCueComboBox();
                
+                }
+            }
+        }
+
+        private void addCueItemButton_Click(object sender, EventArgs e)
+        {
+            if (cueComboBox.SelectedIndex == -1)
+                MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
+            else {
+                //a cue has been selected already
+                NewCueItemForm Item = new NewCueItemForm(this);
+                Item.ShowDialog();
+                if (Item.isSubmitted())
+                {
+                    DataTable dt = (DataTable)cueDataGridView.DataSource;
+                    DataRow row = dt.NewRow();
+                    row["Name"] = Item.getCueItemName();
+                    row["Number"] = Item.getCueItemNumber();
+                    row["Motor"] = Item.getMotor();
+                    row["Start Delay"] = Item.getStartDelay();
+                    row["Duration"] = Item.getDuration();
+                    row["Clockwise"] = Item.getCW();
+                    row["CounterClockwise"] = Item.getCCW();
+                    row["Speed"] = Item.getVelocity();
+                    row["Acceleration"] = Item.getAccel();
+                    row["Deceleration"] = Item.getDecel();
+                    row["Position"] = Item.getPosition();
+                    Controller.addCueItem(row, this.getCurrentCue());
+                    refreshCueItemGrid(this.getCurrentCue());
+                }
+            }
+        }
+
+        private void UpdateCueItemButton_Click(object sender, EventArgs e)
+        {
+            if (cueComboBox.SelectedIndex == -1)
+                MessageBox.Show("Please select a cue and a cue item to update");
+            else
+            {
+                DialogResult answer = MessageBox.Show("Are you sure you want to update the selected cue item?",
+                                    "Remove Cue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(answer == DialogResult.Yes)
+                {
+                    DataRow row = ((DataRowView)cueDataGridView.CurrentRow.DataBoundItem).Row;
+                    Controller.updateCueItem(row);
+                    refreshCueItemGrid(this.getCurrentCue());
                 }
             }
         }

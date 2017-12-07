@@ -50,28 +50,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.newCueButton = new System.Windows.Forms.Button();
             this.deleteCueButton = new System.Windows.Forms.Button();
+            this.addCueItemButton = new System.Windows.Forms.Button();
+            this.UpdateCueItemButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cueDataGridView
             // 
-            this.motorDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.motorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.motorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.motorName,
-            this.startDelay,
-            this.duration,
-            this.motorDirection,
-            this.motorSpeed,
-            this.motorAccel,
-            this.deceleration});
-            this.motorDataGridView.Location = new System.Drawing.Point(12, 76);
-            this.motorDataGridView.MultiSelect = false;
-            this.motorDataGridView.Name = "motorDataGridView";
-            this.motorDataGridView.Size = new System.Drawing.Size(873, 285);
-            this.motorDataGridView.TabIndex = 9;
+            this.cueDataGridView.AllowUserToAddRows = false;
+            this.cueDataGridView.AllowUserToDeleteRows = false;
+            this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
+            this.cueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cueDataGridView.Location = new System.Drawing.Point(12, 76);
+            this.cueDataGridView.MultiSelect = false;
+            this.cueDataGridView.Name = "cueDataGridView";
+            this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
+            this.cueDataGridView.TabIndex = 9;
             // 
             // name
             // 
@@ -210,7 +205,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 378);
+            this.button1.Location = new System.Drawing.Point(289, 376);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 23);
             this.button1.TabIndex = 21;
@@ -238,11 +233,33 @@
             this.deleteCueButton.UseVisualStyleBackColor = true;
             this.deleteCueButton.Click += new System.EventHandler(this.deleteCueButton_Click);
             // 
+            // addCueItemButton
+            // 
+            this.addCueItemButton.Location = new System.Drawing.Point(12, 376);
+            this.addCueItemButton.Name = "addCueItemButton";
+            this.addCueItemButton.Size = new System.Drawing.Size(122, 23);
+            this.addCueItemButton.TabIndex = 24;
+            this.addCueItemButton.Text = "Add New Cue Item";
+            this.addCueItemButton.UseVisualStyleBackColor = true;
+            this.addCueItemButton.Click += new System.EventHandler(this.addCueItemButton_Click);
+            // 
+            // UpdateCueItemButton
+            // 
+            this.UpdateCueItemButton.Location = new System.Drawing.Point(157, 376);
+            this.UpdateCueItemButton.Name = "UpdateCueItemButton";
+            this.UpdateCueItemButton.Size = new System.Drawing.Size(105, 23);
+            this.UpdateCueItemButton.TabIndex = 25;
+            this.UpdateCueItemButton.Text = "Update Cue Item";
+            this.UpdateCueItemButton.UseVisualStyleBackColor = true;
+            this.UpdateCueItemButton.Click += new System.EventHandler(this.UpdateCueItemButton_Click);
+            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 423);
+            this.Controls.Add(this.UpdateCueItemButton);
+            this.Controls.Add(this.addCueItemButton);
             this.Controls.Add(this.deleteCueButton);
             this.Controls.Add(this.newCueButton);
             this.Controls.Add(this.button1);
@@ -277,5 +294,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button newCueButton;
         private System.Windows.Forms.Button deleteCueButton;
+        private System.Windows.Forms.Button addCueItemButton;
+        private System.Windows.Forms.Button UpdateCueItemButton;
     }
 }

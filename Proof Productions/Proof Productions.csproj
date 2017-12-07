@@ -126,6 +126,12 @@
     <Compile Include="View\NewCueForm.Designer.cs">
       <DependentUpon>NewCueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NewCueItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewCueItemForm.Designer.cs">
+      <DependentUpon>NewCueItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NewMotorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewCueForm.resx">
       <DependentUpon>NewCueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewCueItemForm.resx">
+      <DependentUpon>NewCueItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewMotorForm.resx">
       <DependentUpon>NewMotorForm.cs</DependentUpon>
