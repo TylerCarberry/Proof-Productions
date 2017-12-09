@@ -30,6 +30,8 @@ namespace Proof_Productions.View
             //Make motor name unchangeable for consistency purposes for now
             //The names should pull from the list of motors
             dataGridView1.Columns["Name"].ReadOnly = true;
+            dataGridView1.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
+
         }
         private void Label2_Click(object sender, EventArgs e)
         {
@@ -64,7 +66,7 @@ namespace Proof_Productions.View
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
-            if(NewMotor.IsSubmitted())
+            if (NewMotor.isSubmitted())
             {
                 DataTable dt = (DataTable)dataGridView1.DataSource;
                 DataRow row = dt.NewRow(); ;
@@ -84,9 +86,13 @@ namespace Proof_Productions.View
 
         private void UpdateMotorButton_Click(object sender, EventArgs e)
         {
-            DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-            Controller.updateMotor(row, (DataTable)dataGridView1.DataSource);
-            MessageBox.Show(row["Name"] + " has been updated");
+            DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                Controller.updateMotor(row);
+            }
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)
@@ -101,11 +107,6 @@ namespace Proof_Productions.View
                 MessageBox.Show(row["Name"] + " has been deleted");
                 RefreshData();
             }
-        }
-
-        private void SetupMotorForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
