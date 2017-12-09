@@ -298,9 +298,44 @@ namespace Proof_Productions.View
 
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (sw.IsRunning)
+            {
+                DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
+                else
+                {
+                    Estop();
+                }
+            }
+        }
+
         private void estopButton_Click(object sender, EventArgs e)
         {
-
+            Estop();
         }
+
+        private void Estop()
+        {
+            if (timer != null)
+            {
+                timer.Stop();
+            }
+
+            if (sw != null)
+            {
+                sw.Stop();
+            }
+
+            stopTimer = true;
+            Elapsed = sw.ElapsedMilliseconds;
+        }
+
     }
 }

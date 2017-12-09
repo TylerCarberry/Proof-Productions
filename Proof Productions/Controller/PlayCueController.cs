@@ -190,6 +190,14 @@ namespace Proof_Productions.Controller
         {
             return FinishedCue;
         }
+
+        public void Estop()
+        {
+            stopwatch.Stop();
+            timer.Stop();
+            DisconnectMotors();
+            Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
+        }
     }
 }
 
