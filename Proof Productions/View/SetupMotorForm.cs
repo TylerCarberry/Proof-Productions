@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proof_Productions.Model;
 using Proof_Productions.Controller;
 namespace Proof_Productions.View
 {
@@ -30,11 +24,6 @@ namespace Proof_Productions.View
             //The names should pull from the list of motors
             dataGridView.Columns["Name"].ReadOnly = true;
             dataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
-
-        }
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void MainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -65,19 +54,19 @@ namespace Proof_Productions.View
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
-            if (NewMotor.isSubmitted())
+            if (NewMotor.IsSubmitted())
             {
                 DataTable dt = (DataTable)dataGridView.DataSource;
                 DataRow row = dt.NewRow(); ;
-                row["Name"] = NewMotor.getMotorName();
-                row["IPAddress"] = NewMotor.getIPAddress();
-                row["Description"] = NewMotor.getDesc();
-                row["PLCName"] = NewMotor.getPLCName();
-                row["LimitMaxVelocity"] = NewMotor.getMaxVel();
-                row["LimitMaxAcceleration"] = NewMotor.getMaxAccel();
-                row["LimitMaxDeceleration"] = NewMotor.getMaxDecel();
-                row["LimitMaxNegPosition"] = NewMotor.getMaxNegPos();
-                row["LimitMaxPosPosition"] = NewMotor.getMaxPosPos();
+                row["Name"] = NewMotor.GetMotorName();
+                row["IPAddress"] = NewMotor.GetIPAddress();
+                row["Description"] = NewMotor.GetDesc();
+                row["PLCName"] = NewMotor.GetPLCName();
+                row["LimitMaxVelocity"] = NewMotor.GetMaxVel();
+                row["LimitMaxAcceleration"] = NewMotor.GetMaxAccel();
+                row["LimitMaxDeceleration"] = NewMotor.GetMaxDecel();
+                row["LimitMaxNegPosition"] = NewMotor.GetMaxNegPos();
+                row["LimitMaxPosPosition"] = NewMotor.GetMaxPosPos();
                 Controller.insertMotor(row);
                 RefreshData();
             }
@@ -115,12 +104,7 @@ namespace Proof_Productions.View
             hasModifiedSinceLastSave = true;
         }
 
-        private void SetupMotorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void SetupMotorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (hasModifiedSinceLastSave)
             {

@@ -250,7 +250,7 @@
             this.SubmitButton.TabIndex = 27;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
-            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click_1);
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // CueItemNameTextBox
             // 

@@ -167,7 +167,7 @@
             this.Controls.Add(this.AddMotorButton);
             this.Name = "SetupMotorForm";
             this.Text = "Proof Productions: Setup Motors";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupMotorForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

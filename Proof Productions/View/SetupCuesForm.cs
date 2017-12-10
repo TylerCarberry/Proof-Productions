@@ -15,14 +15,13 @@ namespace Proof_Productions.View
     public partial class SetupCueForm : BaseForm
     {
         private SetupCueController Controller;
-
         private Boolean hasModifiedSinceLastSave;
 
         public SetupCueForm()
         {
             InitializeComponent();
             Controller = new SetupCueController();
-            refreshCueComboBox();
+            RefreshCueComboBox();
         }
 
         public string getCurrentCue()
@@ -71,7 +70,7 @@ namespace Proof_Productions.View
          *  @param sender
          *  @param e
          * */
-        private void deleteCueItemButton_Click(object sender, EventArgs e)
+        private void DeleteCueItemButton_Click(object sender, EventArgs e)
         {
             DialogResult answer = MessageBox.Show("Are you sure?", "Remove Cue",
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -93,7 +92,7 @@ namespace Proof_Productions.View
             }
         }
 
-        public void refreshCueComboBox()
+        public void RefreshCueComboBox()
         {
             //reset combobox and refetch
             //from database to show consistent ordering of items
@@ -106,34 +105,34 @@ namespace Proof_Productions.View
             }
         }
 
-        public void refreshCueItemGrid(String Name)
+        public void RefreshCueItemGrid(String Name)
         {
             cueDataGridView.DataSource = Controller.getCueItems(Name);
             cueDataGridView.Columns["Name"].ReadOnly = true;
             cueDataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
         }
 
-        private void cueComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void CueComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //-1 is default index - nothing selected
             if (cueComboBox.SelectedIndex > -1)
             {
-                refreshCueItemGrid(this.getCurrentCue());
+                RefreshCueItemGrid(this.getCurrentCue());
             }
         }
 
-        private void newCueButton_Click(object sender, EventArgs e)
+        private void NewCueButton_Click(object sender, EventArgs e)
         {
             NewCueForm newCue = new NewCueForm();
             newCue.ShowDialog();
             if (newCue.isSubmitted())
             {
                 Controller.addCue(newCue.getCueName());
-                refreshCueComboBox();
+                RefreshCueComboBox();
             }
         }
 
-        private void deleteCueButton_Click(object sender, EventArgs e)
+        private void DeleteCueButton_Click(object sender, EventArgs e)
         {
             //no cue is selected
             if (cueComboBox.SelectedIndex == -1)
@@ -147,13 +146,13 @@ namespace Proof_Productions.View
                     String currentCue = cueComboBox.Text;
                     Controller.deleteCue(currentCue);
                     cueComboBox.SelectedIndex = -1; //set selected text to empty
-                    refreshCueComboBox();
+                    RefreshCueComboBox();
 
                 }
             }
         }
 
-        private void addCueItemButton_Click(object sender, EventArgs e)
+        private void AddCueItemButton_Click(object sender, EventArgs e)
         {
             if (cueComboBox.SelectedIndex == -1)
                 MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
@@ -162,23 +161,23 @@ namespace Proof_Productions.View
                 //a cue has been selected already
                 NewCueItemForm Item = new NewCueItemForm(this);
                 Item.ShowDialog();
-                if (Item.isSubmitted())
+                if (Item.IsSubmitted())
                 {
                     DataTable dt = (DataTable)cueDataGridView.DataSource;
                     DataRow row = dt.NewRow();
-                    row["Name"] = Item.getCueItemName();
-                    row["Number"] = Item.getCueItemNumber();
-                    row["Motor"] = Item.getMotor();
-                    row["Start Delay"] = Item.getStartDelay();
-                    row["Duration"] = Item.getDuration();
-                    row["Clockwise"] = Item.getCW();
-                    row["CounterClockwise"] = Item.getCCW();
-                    row["Speed"] = Item.getVelocity();
-                    row["Acceleration"] = Item.getAccel();
-                    row["Deceleration"] = Item.getDecel();
-                    row["Position"] = Item.getPosition();
+                    row["Name"] = Item.GetCueItemName();
+                    row["Number"] = Item.GetCueItemNumber();
+                    row["Motor"] = Item.GetMotor();
+                    row["Start Delay"] = Item.GetStartDelay();
+                    row["Duration"] = Item.GetDuration();
+                    row["Clockwise"] = Item.GetCW();
+                    row["CounterClockwise"] = Item.GetCCW();
+                    row["Speed"] = Item.GetVelocity();
+                    row["Acceleration"] = Item.GetAccel();
+                    row["Deceleration"] = Item.GetDecel();
+                    row["Position"] = Item.GetPosition();
                     Controller.addCueItem(row, this.getCurrentCue());
-                    refreshCueItemGrid(this.getCurrentCue());
+                    RefreshCueItemGrid(this.getCurrentCue());
                 }
             }
         }
@@ -195,14 +194,14 @@ namespace Proof_Productions.View
                 {
                     DataRow row = ((DataRowView)cueDataGridView.CurrentRow.DataBoundItem).Row;
                     Controller.updateCueItem(row);
-                    refreshCueItemGrid(this.getCurrentCue());
+                    RefreshCueItemGrid(this.getCurrentCue());
 
                     hasModifiedSinceLastSave = false;
                 }
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void SetupCuesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (hasModifiedSinceLastSave)
             {
@@ -219,11 +218,6 @@ namespace Proof_Productions.View
         private void cueDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             hasModifiedSinceLastSave = true;
-        }
-
-        private void SetupCueForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
