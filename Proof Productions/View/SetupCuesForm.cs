@@ -16,6 +16,8 @@ namespace Proof_Productions.View
     {
         private SetupCueController Controller;
 
+        private Boolean hasModifiedSinceLastSave;
+
         public SetupCueForm()
         {
             InitializeComponent();
@@ -62,75 +64,6 @@ namespace Proof_Productions.View
         private void SetupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new SetupMotorForm());
-        }
-
-        private void SaveCueButton_Click(object sender, EventArgs e)
-        {
-            Cue cue = new Cue();
-
-            foreach (DataGridViewRow row in cueDataGridView.Rows)
-            {
-
-                try
-                {
-                    String name = row.Cells[0].Value.ToString();
-                    String motorStr = row.Cells[1].Value.ToString();
-                    String startDelayStr = row.Cells[2].Value.ToString();
-                    String durationStr = row.Cells[3].Value.ToString();
-                    Boolean clockwise = row.Cells[4].Value.ToString().Equals("true");
-                    String speedStr = row.Cells[5].Value.ToString();
-                    String accelerationStr = row.Cells[6].Value.ToString();
-                    String decelerationStr = row.Cells[7].Value.ToString();
-
-                    int speed = 0;
-                    int accel = 0;
-                    int decel = 0;
-
-                    if (InputValidator.IsValidVelocity(speedStr))
-                    {
-                        speed = int.Parse(speedStr);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Velocity entered.");
-                    }
-
-                    if (InputValidator.IsValidAcceleration(accelerationStr))
-                    {
-                        accel = int.Parse(accelerationStr);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Acceleration entered.");
-                    }
-
-                    if (InputValidator.IsValidAcceleration(decelerationStr))
-                    {
-                        decel = int.Parse(decelerationStr);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Deceleration entered.");
-                    }
-
-                    int startDelay = int.Parse(startDelayStr);
-                    int duration = int.Parse(durationStr);
-
-                    // TODO: Don't hardcode the IP address or description
-                    Motor motor = new Motor("192.168.10.4", name, "This is the main motor for controlling the curtain", new PLC());
-
-                    CueItem cueItem = new CueItem(startDelay, duration, motor, speed, accel, decel, clockwise, 0);
-                    cue.Add(cueItem);
-                }
-                catch (NullReferenceException exception)
-                {
-                    // TODO For Tom, show a dialog
-                    return;
-                }
-
-            }
-
-            // TODO Save cueItems to the database
         }
 
         /** Prompt user if they want to remove a row. If yes, Removes the currently selected row,
@@ -263,8 +196,34 @@ namespace Proof_Productions.View
                     DataRow row = ((DataRowView)cueDataGridView.CurrentRow.DataBoundItem).Row;
                     Controller.updateCueItem(row);
                     refreshCueItemGrid(this.getCurrentCue());
+
+                    hasModifiedSinceLastSave = false;
                 }
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (hasModifiedSinceLastSave)
+            {
+                DialogResult answer = MessageBox.Show("You have unsaved changes. Are you sure you want to leave without saving?", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
+            }
+        }
+
+        private void cueDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            hasModifiedSinceLastSave = true;
+        }
+
+        private void SetupCueForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

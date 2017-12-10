@@ -13,8 +13,8 @@ namespace Proof_Productions.View
 {
     public partial class SetupMotorForm : BaseForm
     {
-
         private SetupMotorController Controller;
+        private Boolean hasModifiedSinceLastSave;
 
         public SetupMotorForm()
         {
@@ -25,12 +25,11 @@ namespace Proof_Productions.View
 
         public void RefreshData()
         {
-
-            dataGridView1.DataSource = Controller.fetchAllMotors();
+            dataGridView.DataSource = Controller.fetchAllMotors();
             //Make motor name unchangeable for consistency purposes for now
             //The names should pull from the list of motors
-            dataGridView1.Columns["Name"].ReadOnly = true;
-            dataGridView1.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
+            dataGridView.Columns["Name"].ReadOnly = true;
+            dataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
 
         }
         private void Label2_Click(object sender, EventArgs e)
@@ -68,7 +67,7 @@ namespace Proof_Productions.View
             NewMotor.ShowDialog();
             if (NewMotor.isSubmitted())
             {
-                DataTable dt = (DataTable)dataGridView1.DataSource;
+                DataTable dt = (DataTable)dataGridView.DataSource;
                 DataRow row = dt.NewRow(); ;
                 row["Name"] = NewMotor.getMotorName();
                 row["IPAddress"] = NewMotor.getIPAddress();
@@ -90,9 +89,11 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
                 Controller.updateMotor(row);
             }
+
+            hasModifiedSinceLastSave = false;
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)
@@ -102,10 +103,34 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-                Controller.deleteMotor(row, (DataTable)dataGridView1.DataSource);
+                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
+                Controller.deleteMotor(row, (DataTable)dataGridView.DataSource);
                 MessageBox.Show(row["Name"] + " has been deleted");
                 RefreshData();
+            }
+        }
+
+        private void dataGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            hasModifiedSinceLastSave = true;
+        }
+
+        private void SetupMotorForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (hasModifiedSinceLastSave)
+            {
+                DialogResult answer = MessageBox.Show("You have unsaved changes. Are you sure you want to leave without saving?", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
             }
         }
     }
