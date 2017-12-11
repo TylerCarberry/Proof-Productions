@@ -70,6 +70,7 @@
             this.motorDataGridView.Name = "motorDataGridView";
             this.motorDataGridView.Size = new System.Drawing.Size(873, 285);
             this.motorDataGridView.TabIndex = 9;
+            this.motorDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.motorDataGridView_EditingControlShowing);
             // 
             // name
             // 

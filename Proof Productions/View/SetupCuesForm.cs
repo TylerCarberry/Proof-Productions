@@ -114,7 +114,7 @@ namespace Proof_Productions.View
                 }
                 catch (NullReferenceException exception)
                 {
-                    // TODO For Tom, show a dialog
+                    MessageBox.Show("Empty field detected.");
                     return;
                 }
 
@@ -127,6 +127,8 @@ namespace Proof_Productions.View
 
             // TODO Save cueItems to the database
         }
+
+        
 
         /** Prompt user if they want to remove a row. If yes, Removes the currently selected row,
          *  or does nothing if there is no row to remove.
@@ -152,6 +154,25 @@ namespace Proof_Productions.View
                     }  
                 }
 
+            }
+        }
+
+        private void motorDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            //only apply character input check to non-name columns
+            if (this.motorDataGridView.CurrentCell.ColumnIndex == 2)
+            {
+                var txtEdit = (TextBox)e.Control;
+                txtEdit.KeyPress += EditKeyPress;
+            }
+        }
+
+        private void EditKeyPress(object sender, KeyPressEventArgs e)
+        {
+            //only allowed to input numerals
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
