@@ -25,5 +25,14 @@ namespace Proof_Productions.View
             }
             catch { }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://www.youtube.com/results?search_query=funny+cat+videos");
+            }
+            catch { }
+        }
     }
 }
