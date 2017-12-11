@@ -1,60 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proof_Productions.Model;
 using Proof_Productions.Controller;
 namespace Proof_Productions.View
 {
     public partial class SetupMotorForm : BaseForm
     {
-
         private SetupMotorController Controller;
+        private Boolean hasModifiedSinceLastSave;
+
         public SetupMotorForm()
         {
             InitializeComponent();
             Controller = new SetupMotorController();
-            refresh();
+            RefreshData();
         }
 
-        public void refresh()
+        public void RefreshData()
         {
-
-            dataGridView1.DataSource = Controller.fetchAllMotors();
+            dataGridView.DataSource = Controller.fetchAllMotors();
             //Make motor name unchangeable for consistency purposes for now
             //The names should pull from the list of motors
-            dataGridView1.Columns["Name"].ReadOnly = true;
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            dataGridView.Columns["Name"].ReadOnly = true;
+            dataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void MainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
             SwitchToForm(new MainMenuForm());
         }
 
-        private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManualControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new ManualControlForm());
         }
 
-        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SetupCuesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new SetupCueForm());
         }
 
-        private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchToForm(new LoggerForm());
+            new LoggerForm().Show();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutForm().Show();
         }
@@ -63,29 +54,35 @@ namespace Proof_Productions.View
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
-            if(NewMotor.IsSubmitted())
+            if (NewMotor.IsSubmitted())
             {
-                DataTable dt = (DataTable)dataGridView1.DataSource;
+                DataTable dt = (DataTable)dataGridView.DataSource;
                 DataRow row = dt.NewRow(); ;
-                row["Name"] = NewMotor.getMotorName();
-                row["IPAddress"] = NewMotor.getIPAddress();
-                row["Description"] = NewMotor.getDesc();
-                row["PLCName"] = NewMotor.getPLCName();
-                row["LimitMaxVelocity"] = NewMotor.getMaxVel();
-                row["LimitMaxAcceleration"] = NewMotor.getMaxAccel();
-                row["LimitMaxDeceleration"] = NewMotor.getMaxDecel();
-                row["LimitMaxNegPosition"] = NewMotor.getMaxNegPos();
-                row["LimitMaxPosPosition"] = NewMotor.getMaxPosPos();
+                row["Name"] = NewMotor.GetMotorName();
+                row["IPAddress"] = NewMotor.GetIPAddress();
+                row["Description"] = NewMotor.GetDesc();
+                row["PLCName"] = NewMotor.GetPLCName();
+                row["LimitMaxVelocity"] = NewMotor.GetMaxVel();
+                row["LimitMaxAcceleration"] = NewMotor.GetMaxAccel();
+                row["LimitMaxDeceleration"] = NewMotor.GetMaxDecel();
+                row["LimitMaxNegPosition"] = NewMotor.GetMaxNegPos();
+                row["LimitMaxPosPosition"] = NewMotor.GetMaxPosPos();
                 Controller.insertMotor(row);
-                refresh();
+                RefreshData();
             }
         }
 
         private void UpdateMotorButton_Click(object sender, EventArgs e)
         {
-            DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-            Controller.updateMotor(row, (DataTable)dataGridView1.DataSource);
-            MessageBox.Show(row["Name"] + " has been updated");
+            DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (answer == DialogResult.Yes)
+            {
+                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
+                Controller.updateMotor(row);
+            }
+
+            hasModifiedSinceLastSave = false;
         }
 
         private void RemoveMotorButton_Click(object sender, EventArgs e)
@@ -95,16 +92,30 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                DataRow row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-                Controller.deleteMotor(row, (DataTable)dataGridView1.DataSource);
+                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
+                Controller.deleteMotor(row, (DataTable)dataGridView.DataSource);
                 MessageBox.Show(row["Name"] + " has been deleted");
-                refresh();
+                RefreshData();
             }
         }
 
-        private void SetupMotorForm_Load(object sender, EventArgs e)
+        private void dataGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
         {
+            hasModifiedSinceLastSave = true;
+        }
 
+        private void SetupMotorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (hasModifiedSinceLastSave)
+            {
+                DialogResult answer = MessageBox.Show("You have unsaved changes. Are you sure you want to leave without saving?", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
+            }
         }
     }
 }

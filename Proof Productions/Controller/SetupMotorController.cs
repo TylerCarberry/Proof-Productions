@@ -31,27 +31,30 @@ namespace Proof_Productions.Controller
             }
             catch(Exception e)
             {
-                MessageBox.Show("Could not fetch motors due to : \n " + e.ToString());
+                MessageBox.Show("Error getting motors due to : \n " + e.ToString());
             }
             return motortable;
         }
 
-        public void updateMotor(DataRow row, DataTable table)
+        public void updateMotor(DataRow row)
         {
+            String motorName = row["Name"].ToString();
             try
             {
                 data.connect();
-                data.updateMotor(row, table);
-                data.disconnect();
+                data.updateMotor(row);
+                data.disconnect(); 
             }
             catch(Exception e)
             {
-                MessageBox.Show(row["Name"] + " could not be added due to : /n " + e.ToString());
-            }
+                MessageBox.Show("Error updating " +motorName + " due to : /n " + e.ToString());
+            };
+            MessageBox.Show(motorName + " has been updated");
         }
 
         public void insertMotor(DataRow row)
         {
+            String motorName = row["Name"].ToString();
             try
             {
                 data.connect();
@@ -60,12 +63,14 @@ namespace Proof_Productions.Controller
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Error adding " + motorName + " due to : \n " + e.ToString());
             }
+            MessageBox.Show(motorName + " has been added");
         }
 
         public void deleteMotor(DataRow row, DataTable table)
         {
+            String motorName = row["Name"].ToString();
             try
             {
                 data.connect();
@@ -74,8 +79,9 @@ namespace Proof_Productions.Controller
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Error deleting " + motorName + " due to : \n " + e.ToString());
             }
+            MessageBox.Show(motorName + " has been deleted");
         }
     }
 }

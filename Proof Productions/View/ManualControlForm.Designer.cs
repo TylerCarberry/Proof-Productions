@@ -1,4 +1,6 @@
-﻿namespace Proof_Productions.View
+﻿using System.Windows.Forms;
+
+namespace Proof_Productions.View
 {
     partial class ManualControlForm
     {
@@ -835,6 +837,7 @@
             this.Name = "ManualControlForm";
             this.Text = "Proof Productions: Manual Control";
             this.Load += new System.EventHandler(this.ManualControlForm_Load);
+            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.motorPanelRight.ResumeLayout(false);

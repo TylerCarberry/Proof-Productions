@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.AddMotorButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.removeMotorButton = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupMotorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +41,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.UpdateMotorButton = new System.Windows.Forms.Button();
             this.MotorLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddMotorButton
@@ -55,48 +55,49 @@
             this.AddMotorButton.UseVisualStyleBackColor = true;
             this.AddMotorButton.Click += new System.EventHandler(this.AddMotorButton_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 73);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(825, 264);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(26, 73);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(825, 264);
+            this.dataGridView.TabIndex = 1;
+            this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentChanged);
             // 
-            // button3
+            // removeMotorButton
             // 
-            this.button3.Location = new System.Drawing.Point(118, 358);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Remove Motor";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.RemoveMotorButton_Click);
+            this.removeMotorButton.Location = new System.Drawing.Point(118, 358);
+            this.removeMotorButton.Name = "removeMotorButton";
+            this.removeMotorButton.Size = new System.Drawing.Size(91, 23);
+            this.removeMotorButton.TabIndex = 13;
+            this.removeMotorButton.Text = "Remove Motor";
+            this.removeMotorButton.UseVisualStyleBackColor = true;
+            this.removeMotorButton.Click += new System.EventHandler(this.RemoveMotorButton_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainMenuToolStripMenuItem,
             this.manualControlToolStripMenuItem,
             this.setupMotorsToolStripMenuItem,
             this.setupCuesToolStripMenuItem,
             this.loggerToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(874, 24);
-            this.menuStrip1.TabIndex = 18;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(874, 24);
+            this.menuStrip.TabIndex = 18;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.mainMenuToolStripMenuItem.Text = "Home";
-            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.MainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -104,7 +105,7 @@
             this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
             this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.manualControlToolStripMenuItem.Text = "Manual Control";
-            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.manualControlToolStripMenuItem_Click);
+            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.ManualControlToolStripMenuItem_Click);
             // 
             // setupMotorsToolStripMenuItem
             // 
@@ -118,21 +119,21 @@
             this.setupCuesToolStripMenuItem.Name = "setupCuesToolStripMenuItem";
             this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.setupCuesToolStripMenuItem.Text = "Setup Cues";
-            this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.setupCuesToolStripMenuItem_Click);
+            this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.SetupCuesToolStripMenuItem_Click);
             // 
             // loggerToolStripMenuItem
             // 
             this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
             this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.loggerToolStripMenuItem.Text = "Logs";
-            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.LoggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // UpdateMotorButton
             // 
@@ -160,16 +161,16 @@
             this.ClientSize = new System.Drawing.Size(874, 393);
             this.Controls.Add(this.MotorLabel);
             this.Controls.Add(this.UpdateMotorButton);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.removeMotorButton);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.AddMotorButton);
             this.Name = "SetupMotorForm";
             this.Text = "Proof Productions: Setup Motors";
-            this.Load += new System.EventHandler(this.SetupMotorForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupMotorForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,9 +178,9 @@
 
         #endregion
         private System.Windows.Forms.Button AddMotorButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button removeMotorButton;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupMotorsToolStripMenuItem;
