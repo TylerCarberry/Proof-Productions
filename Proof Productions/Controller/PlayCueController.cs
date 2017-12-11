@@ -184,7 +184,7 @@ namespace Proof_Productions.Controller
             return (Index >= 0 && Index < ListSize);
         }
 
-        public Boolean HasFinishedCue()
+        public Boolean HasCueFinished()
         {
             return FinishedCue;
         }
@@ -194,6 +194,7 @@ namespace Proof_Productions.Controller
             stopwatch.Stop();
             timer.Stop();
             DisconnectMotors();
+            Logger.LogError("EStop was pressed for cue " + CurrentCue.Name);
             Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
         }
     }

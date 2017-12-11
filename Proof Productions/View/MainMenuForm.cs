@@ -29,7 +29,7 @@ namespace Proof_Productions.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (playCueController1 != null && !playCueController1.HasFinishedCue())
+            if (playCueController1 != null && !playCueController1.HasCueFinished())
             {
                 DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -40,6 +40,7 @@ namespace Proof_Productions.View
                 }
                 else
                 {
+                    Logger.LogError("Main form was closed while the motor is running");
                     playCueController1.Estop();
                 }
             }
@@ -47,6 +48,7 @@ namespace Proof_Productions.View
 
         private void EstopButtonClick(object sender, EventArgs e)
         {
+            Logger.LogInfo("Estop button was pressed");
             if (playCueController1 != null)
             {
                 playCueController1.Estop();
