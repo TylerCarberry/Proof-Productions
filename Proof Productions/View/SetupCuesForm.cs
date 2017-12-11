@@ -219,5 +219,29 @@ namespace Proof_Productions.View
         {
             hasModifiedSinceLastSave = true;
         }
+
+        private void cueDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cueDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            //only apply character input check to non-name columns
+            if (this.cueDataGridView.CurrentCell.ColumnIndex == 3)
+            {
+                var txtEdit = (TextBox)e.Control;
+                txtEdit.KeyPress += EditKeyPress;
+            }
+        }
+
+        private void EditKeyPress(object sender, KeyPressEventArgs e)
+        {
+            //only allowed to input numerals
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

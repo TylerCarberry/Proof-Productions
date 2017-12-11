@@ -60,7 +60,9 @@ namespace Proof_Productions.View
             this.cueDataGridView.Name = "cueDataGridView";
             this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
             this.cueDataGridView.TabIndex = 9;
+            this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
             this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
+            this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
             // 
             // menuStrip1
             // 
@@ -119,11 +121,11 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // label1
+            // selectCueLabel
             // 
             this.selectCueLabel.AutoSize = true;
             this.selectCueLabel.Location = new System.Drawing.Point(12, 37);
-            this.selectCueLabel.Name = "label1";
+            this.selectCueLabel.Name = "selectCueLabel";
             this.selectCueLabel.Size = new System.Drawing.Size(62, 13);
             this.selectCueLabel.TabIndex = 19;
             this.selectCueLabel.Text = "Select Cue:";
@@ -137,10 +139,10 @@ namespace Proof_Productions.View
             this.cueComboBox.TabIndex = 20;
             this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
             // 
-            // button1
+            // deleteCueItemButton
             // 
             this.deleteCueItemButton.Location = new System.Drawing.Point(289, 376);
-            this.deleteCueItemButton.Name = "button1";
+            this.deleteCueItemButton.Name = "deleteCueItemButton";
             this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
             this.deleteCueItemButton.TabIndex = 21;
             this.deleteCueItemButton.Text = "Delete Cue Item";
