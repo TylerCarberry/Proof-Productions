@@ -147,7 +147,6 @@ namespace Proof_Productions.View
                     Controller.deleteCue(currentCue);
                     cueComboBox.SelectedIndex = -1; //set selected text to empty
                     RefreshCueComboBox();
-
                 }
             }
         }
@@ -215,6 +214,25 @@ namespace Proof_Productions.View
             }
         }
 
+        private void motorDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            //only apply character input check to non-name columns
+            if (this.motorDataGridView.CurrentCell.ColumnIndex == 2)
+            {
+                var txtEdit = (TextBox)e.Control;
+                txtEdit.KeyPress += EditKeyPress;
+            }
+        }
+
+        private void EditKeyPress(object sender, KeyPressEventArgs e)
+        {
+            //only allowed to input numerals
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        
         private void cueDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             hasModifiedSinceLastSave = true;

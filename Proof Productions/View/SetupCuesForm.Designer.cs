@@ -49,8 +49,52 @@ namespace Proof_Productions.View
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cueDataGridView
+            // motorDataGridView
             // 
+            this.motorDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.motorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.motorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.motorName,
+            this.startDelay,
+            this.duration,
+            this.motorDirection,
+            this.motorSpeed,
+            this.motorAccel,
+            this.deceleration});
+            this.motorDataGridView.Location = new System.Drawing.Point(12, 76);
+            this.motorDataGridView.MultiSelect = false;
+            this.motorDataGridView.Name = "motorDataGridView";
+            this.motorDataGridView.Size = new System.Drawing.Size(873, 285);
+            this.motorDataGridView.TabIndex = 9;
+            this.motorDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.motorDataGridView_EditingControlShowing);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.Width = 150;
+            // 
+            // motorName
+            // 
+            this.motorName.HeaderText = "Motor";
+            this.motorName.Items.AddRange(new object[] {
+            "Motor 1"});
+            this.motorName.Name = "motorName";
+            this.motorName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.motorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // startDelay
+            // 
+            this.startDelay.HeaderText = "Start Delay";
+            this.startDelay.Name = "startDelay";
+            // 
+            // duration
+            // 
+            this.duration.HeaderText = "Duration";
+            this.duration.Name = "duration";
+          
+            // cueDataGridView
             this.cueDataGridView.AllowUserToAddRows = false;
             this.cueDataGridView.AllowUserToDeleteRows = false;
             this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
