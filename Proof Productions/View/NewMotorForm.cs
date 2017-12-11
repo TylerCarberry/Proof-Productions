@@ -14,6 +14,7 @@ namespace Proof_Productions.View
     public partial class NewMotorForm : Form
     {
         protected bool submitted = false;
+
         public NewMotorForm()
         {
             InitializeComponent();
@@ -25,53 +26,52 @@ namespace Proof_Productions.View
             this.Close();
         }
 
-
-        public bool isSubmitted()
+        public bool IsSubmitted()
         {
             return submitted;
         }
 
-        public String getMotorName()
+        public String GetMotorName()
         {
             return NameTextBox.Text;
         }
 
-        public String getIPAddress()
+        public String GetIPAddress()
         {
             return IPAddressTextBox.Text;
         }
 
-        public String getDesc()
+        public String GetDesc()
         {
             return DescTextBox.Text;
         }
 
-        public String getPLCName()
+        public String GetPLCName()
         {
             return PLCNameTextBox.Text;
         }
 
-        public String getMaxVel()
+        public String GetMaxVel()
         {
             return MaxVelTextBox.Text;
         }
 
-        public String getMaxAccel()
+        public String GetMaxAccel()
         {
             return MaxAccelTextBox.Text;
         }
 
-        public String getMaxDecel()
+        public String GetMaxDecel()
         {
             return MaxDecelTextBox.Text;
         }
 
-        public String getMaxNegPos()
+        public String GetMaxNegPos()
         {
             return MaxNegPosTextBox.Text;
         }
 
-        public String getMaxPosPos()
+        public String GetMaxPosPos()
         {
             return MaxPosPosTextBox.Text;
         }

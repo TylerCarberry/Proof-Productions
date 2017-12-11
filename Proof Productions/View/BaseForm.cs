@@ -10,13 +10,12 @@ namespace Proof_Productions.View
     public class BaseForm : Form
     {
 
-        protected void SwitchToForm(Form form)
-        {
-            form.Show();
-            form.Left = this.Left;
-            form.Top = this.Top;
+        public BaseForm FormToOpenNext;
 
-            this.Hide();
+        protected void SwitchToForm(BaseForm form)
+        {
+            FormToOpenNext = form;
+            this.Close();
         }
 
     }

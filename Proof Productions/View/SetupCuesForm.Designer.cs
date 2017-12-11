@@ -1,4 +1,6 @@
-﻿namespace Proof_Productions.View
+﻿using System.Windows.Forms;
+
+namespace Proof_Productions.View
 {
     partial class SetupCueForm
     {
@@ -36,10 +38,9 @@
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveCueButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.selectCueLabel = new System.Windows.Forms.Label();
             this.cueComboBox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteCueItemButton = new System.Windows.Forms.Button();
             this.newCueButton = new System.Windows.Forms.Button();
             this.deleteCueButton = new System.Windows.Forms.Button();
             this.addCueItemButton = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@
             this.cueDataGridView.Name = "cueDataGridView";
             this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
             this.cueDataGridView.TabIndex = 9;
+            this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
             // 
             // menuStrip1
             // 
@@ -80,21 +82,21 @@
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.mainMenuToolStripMenuItem.Text = "Home";
-            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.MainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
             this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
             this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.manualControlToolStripMenuItem.Text = "Manual Control";
-            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.manualControlToolStripMenuItem_Click);
+            this.manualControlToolStripMenuItem.Click += new System.EventHandler(this.ManualControlToolStripMenuItem_Click);
             // 
             // setupMotorsToolStripMenuItem
             // 
             this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
             this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
-            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.setupMotorsToolStripMenuItem_Click);
+            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.SetupMotorsToolStripMenuItem_Click);
             // 
             // setupCuesToolStripMenuItem
             // 
@@ -108,33 +110,23 @@
             this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
             this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.loggerToolStripMenuItem.Text = "Logs";
-            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.LoggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // saveCueButton
-            // 
-            this.saveCueButton.Location = new System.Drawing.Point(238, 37);
-            this.saveCueButton.Name = "saveCueButton";
-            this.saveCueButton.Size = new System.Drawing.Size(75, 23);
-            this.saveCueButton.TabIndex = 18;
-            this.saveCueButton.Text = "Save";
-            this.saveCueButton.UseVisualStyleBackColor = true;
-            this.saveCueButton.Click += new System.EventHandler(this.saveCueButton_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Select Cue:";
+            this.selectCueLabel.AutoSize = true;
+            this.selectCueLabel.Location = new System.Drawing.Point(12, 37);
+            this.selectCueLabel.Name = "label1";
+            this.selectCueLabel.Size = new System.Drawing.Size(62, 13);
+            this.selectCueLabel.TabIndex = 19;
+            this.selectCueLabel.Text = "Select Cue:";
             // 
             // cueComboBox
             // 
@@ -143,37 +135,37 @@
             this.cueComboBox.Name = "cueComboBox";
             this.cueComboBox.Size = new System.Drawing.Size(121, 21);
             this.cueComboBox.TabIndex = 20;
-            this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.cueComboBox_SelectedIndexChanged);
+            this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(289, 376);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Delete cue item";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.deleteCueItemButton_Click);
+            this.deleteCueItemButton.Location = new System.Drawing.Point(289, 376);
+            this.deleteCueItemButton.Name = "button1";
+            this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
+            this.deleteCueItemButton.TabIndex = 21;
+            this.deleteCueItemButton.Text = "Delete Cue Item";
+            this.deleteCueItemButton.UseVisualStyleBackColor = true;
+            this.deleteCueItemButton.Click += new System.EventHandler(this.DeleteCueItemButton_Click);
             // 
             // newCueButton
             // 
-            this.newCueButton.Location = new System.Drawing.Point(330, 37);
+            this.newCueButton.Location = new System.Drawing.Point(226, 34);
             this.newCueButton.Name = "newCueButton";
             this.newCueButton.Size = new System.Drawing.Size(83, 23);
             this.newCueButton.TabIndex = 22;
             this.newCueButton.Text = "Add New Cue";
             this.newCueButton.UseVisualStyleBackColor = true;
-            this.newCueButton.Click += new System.EventHandler(this.newCueButton_Click);
+            this.newCueButton.Click += new System.EventHandler(this.NewCueButton_Click);
             // 
             // deleteCueButton
             // 
-            this.deleteCueButton.Location = new System.Drawing.Point(428, 37);
+            this.deleteCueButton.Location = new System.Drawing.Point(315, 34);
             this.deleteCueButton.Name = "deleteCueButton";
             this.deleteCueButton.Size = new System.Drawing.Size(75, 23);
             this.deleteCueButton.TabIndex = 23;
             this.deleteCueButton.Text = "Delete Cue";
             this.deleteCueButton.UseVisualStyleBackColor = true;
-            this.deleteCueButton.Click += new System.EventHandler(this.deleteCueButton_Click);
+            this.deleteCueButton.Click += new System.EventHandler(this.DeleteCueButton_Click);
             // 
             // addCueItemButton
             // 
@@ -183,7 +175,7 @@
             this.addCueItemButton.TabIndex = 24;
             this.addCueItemButton.Text = "Add New Cue Item";
             this.addCueItemButton.UseVisualStyleBackColor = true;
-            this.addCueItemButton.Click += new System.EventHandler(this.addCueItemButton_Click);
+            this.addCueItemButton.Click += new System.EventHandler(this.AddCueItemButton_Click);
             // 
             // UpdateCueItemButton
             // 
@@ -204,15 +196,15 @@
             this.Controls.Add(this.addCueItemButton);
             this.Controls.Add(this.deleteCueButton);
             this.Controls.Add(this.newCueButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteCueItemButton);
             this.Controls.Add(this.cueComboBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.saveCueButton);
+            this.Controls.Add(this.selectCueLabel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cueDataGridView);
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "SetupCueForm";
             this.Text = "Setup Cues";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupCuesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -230,10 +222,9 @@
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Button saveCueButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label selectCueLabel;
         private System.Windows.Forms.ComboBox cueComboBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteCueItemButton;
         private System.Windows.Forms.Button newCueButton;
         private System.Windows.Forms.Button deleteCueButton;
         private System.Windows.Forms.Button addCueItemButton;

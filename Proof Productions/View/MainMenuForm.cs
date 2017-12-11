@@ -14,6 +14,9 @@ namespace Proof_Productions.View
 {
     public partial class MainMenuForm : BaseForm
     {
+
+        private PlayCueController playCueController1;
+
         public MainMenuForm()
         {
             InitializeComponent();
@@ -24,9 +27,32 @@ namespace Proof_Productions.View
 
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (playCueController1 != null && !playCueController1.HasCueFinished())
+            {
+                DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
+                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (answer != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                    FormToOpenNext = null;
+                }
+                else
+                {
+                    Logger.LogError("Main form was closed while the motor is running");
+                    playCueController1.Estop();
+                }
+            }
+        }
+
         private void EstopButtonClick(object sender, EventArgs e)
         {
-
+            Logger.LogInfo("Estop button was pressed");
+            if (playCueController1 != null)
+            {
+                playCueController1.Estop();
+            }
         }
 
         private void addCueButton_Click(object sender, EventArgs e)
@@ -55,12 +81,11 @@ namespace Proof_Productions.View
         {
 
         }
-
-        PlayCueController C1;
+        
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            C1 = new PlayCueController();
-            C1.PlayCurrentCue();
+            playCueController1 = new PlayCueController();
+            playCueController1.PlayCurrentCue();
         }
 
         private void pauseCueButton_Click(object sender, EventArgs e)
@@ -80,7 +105,7 @@ namespace Proof_Productions.View
 
         private void stopCueButton_Click(object sender, EventArgs e)
         {
-            C1.StopCurrentCue();
+            playCueController1.StopCurrentCue();
         }
 
         private void moveCueUpButton_Click(object sender, EventArgs e)
@@ -112,7 +137,7 @@ namespace Proof_Productions.View
 
         private void loggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SwitchToForm(new LoggerForm());
+            new LoggerForm().Show();
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace Proof_Productions.View
     public partial class NewCueItemForm : Form
     {
         protected bool submitted = false;
+
         public NewCueItemForm(SetupCueForm SetupCue)
         {
             InitializeComponent();
@@ -28,79 +29,73 @@ namespace Proof_Productions.View
             this.Close();
         }
 
-        public bool isSubmitted()
+        public bool IsSubmitted()
         {
             return submitted;
         }
 
-        public String getCueItemName()
+        public String GetCueItemName()
         {
             return NameTextBox.Text;
         }
 
-        public String getCueItemNumber()
+        public String GetCueItemNumber()
         {
             return CueItemNumberTextBox.Text;
 
         }
 
-        public String getStartDelay()
+        public String GetStartDelay()
         {
             return DelayTextbox.Text;
         }
 
-        public String getDuration()
+        public String GetDuration()
         {
             return DurationTextBox.Text;
         }
 
-        public String getVelocity()
+        public String GetVelocity()
         {
             return VelocityTextBox.Text;
         }
 
-        public String getAccel()
+        public String GetAccel()
         {
             return AccelTextBox.Text;
         }
 
-        public String getDecel()
+        public String GetDecel()
         {
             return DecelTextBox.Text;
         }
 
-        public Boolean getCCW()
+        public Boolean GetCCW()
         {
             return CCWRadioButton.Checked;
         }
 
-        public Boolean getCW()
+        public Boolean GetCW()
         {
             return CWRadioButton.Checked;
         }
 
-        public String getCue()
+        public String GetCue()
         {
             return CueTextBox.Text;
         }
 
-        public String getMotor()
+        public String GetMotor()
         {
             return MotorTextBox.Text;
         }
 
-        public String getPosition()
+        public String GetPosition()
         {
             return PositionTextBox.Text;
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
-        {
-            submitted = true;
-            this.Close();
-        }
-
-        private void SubmitButton_Click_1(object sender, EventArgs e)
         {
             submitted = true;
             this.Close();

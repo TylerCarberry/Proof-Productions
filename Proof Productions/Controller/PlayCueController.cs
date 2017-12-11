@@ -183,6 +183,20 @@ namespace Proof_Productions.Controller
         {
             return (Index >= 0 && Index < ListSize);
         }
+
+        public Boolean HasCueFinished()
+        {
+            return FinishedCue;
+        }
+
+        public void Estop()
+        {
+            stopwatch.Stop();
+            timer.Stop();
+            DisconnectMotors();
+            Logger.LogError("EStop was pressed for cue " + CurrentCue.Name);
+            Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
+        }
     }
 }
 
