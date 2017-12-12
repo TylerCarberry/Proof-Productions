@@ -26,23 +26,21 @@ namespace Proof_Productions.Model
             Description = "Default constructor only used for testing and proof of concept purposes only";
         }
 
-        public Motor(String IPAddress, String Name, String Description, PLC ConnectedPLC)
+        public Motor(String IPAddress, String Name, String Description)
         {
             this.IPAddress = IPAddress;
             this.Name = Name;
             this.Description = Description;
-            this.ConnectedPLC = ConnectedPLC;
             Scaler = new RotationalScaler(this);
         }
 
-        public Motor(String IPAddress, String Name, String Description, PLC ConnectedPLC, 
+        public Motor(String IPAddress, String Name, String Description, 
                      int LimitMaxVelocity, int LimitMaxAcceleration, int LimitMaxDeceleration,
                      int LimitMaxNegPosition, int LimitMaxPosPosition)
         {
             this.IPAddress = IPAddress;
             this.Name = Name;
             this.Description = Description;
-            this.ConnectedPLC = ConnectedPLC;
             this.LimitMaxVelocity = LimitMaxVelocity;
             this.LimitMaxAcceleration = LimitMaxAcceleration;
             this.LimitMaxDeceleration = LimitMaxDeceleration;

@@ -14,6 +14,14 @@ namespace Proof_Productions.Model
         List<CueItem> ItemList = new List<CueItem>();
         public String Name = "Default Cue";
 
+
+        public Cue() { }
+
+        public Cue(String Name)
+        {
+            this.Name = Name;
+        }
+
         public void Add(CueItem Item)
         {
             ItemList.Add(Item);

@@ -20,6 +20,18 @@ namespace Proof_Productions.View
         public MainMenuForm()
         {
             InitializeComponent();
+            playCueController1 = new PlayCueController();
+            playCueController1.InitObjects();
+            populateView();
+            
+        }
+
+        public void populateView()
+        {
+            foreach(Cue c in playCueController1.GetCueList())
+            {
+                cueManager.Items.Add((c.Name));
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -69,12 +81,6 @@ namespace Proof_Productions.View
         {
             MessageBox.Show("Are you sure?", "Remove Cue",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-        }
-
-
-        private void cueManager_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void motorList_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,5 +151,9 @@ namespace Proof_Productions.View
             SwitchToForm(new SetupMotorForm());
         }
 
+        private void cueManager_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
