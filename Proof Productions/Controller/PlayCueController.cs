@@ -17,6 +17,7 @@ namespace Proof_Productions.Controller
         private Cue CurrentCue = new Cue();
         private byte[] result;
         private bool FinishedCue;
+        private bool estopped = false;
         private List<Cue> CueList = new List<Cue>();
         private List<Master> MasterList = new List<Master>();
         Timer timer = new Timer();
@@ -69,6 +70,11 @@ namespace Proof_Productions.Controller
 
         private void MBmaster_OnException(ushort id, byte unit, byte function, byte exception)
         {
+            if (estopped)
+            {
+                return;
+            }
+
             string exc = "Modbus says error: ";
             switch (exception)
             {
@@ -191,6 +197,14 @@ namespace Proof_Productions.Controller
 
         public void Estop()
         {
+            estopped = true;
+
+            for (int i = 0; i < MasterList.Count; i++)
+            {
+                CurrentCue.GetList()[i].CueMotor.InputData.Control_I3.ControllerInhibit = true;
+                MasterList[i].ReadWriteMultipleRegister(8, 0, 4, 12, 4, CurrentCue.GetList()[i].CueMotor.InputData.GetValues(), ref result);
+            }
+
             stopwatch.Stop();
             timer.Stop();
             DisconnectMotors();
