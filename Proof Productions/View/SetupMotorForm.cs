@@ -80,8 +80,8 @@ namespace Proof_Productions.View
             {
                 DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
                 Controller.updateMotor(row);
+                this.RefreshData();
             }
-
             hasModifiedSinceLastSave = false;
         }
 
