@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -65,20 +65,20 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Made by Team Cats";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Location = new System.Drawing.Point(13, 39);
+            this.authorLabel.Name = "label4";
+            this.authorLabel.Size = new System.Drawing.Size(102, 13);
+            this.authorLabel.TabIndex = 3;
+            this.authorLabel.Text = "Made by Team Cats";
+            this.authorLabel.Click += new System.EventHandler(this.AuthorLabel_Click);
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 126);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -94,6 +94,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label authorLabel;
     }
 }

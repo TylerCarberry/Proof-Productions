@@ -26,7 +26,7 @@ namespace Proof_Productions.View
             catch { }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void AuthorLabel_Click(object sender, EventArgs e)
         {
             try
             {
