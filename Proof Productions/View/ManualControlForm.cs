@@ -332,6 +332,9 @@ namespace Proof_Productions.View
             {
                 sw.Stop();
             }
+            
+            input1.Control_I3.ControllerInhibit = true;
+            writeToMotorOnce();
 
             stopTimer = true;
             Elapsed = sw.ElapsedMilliseconds;

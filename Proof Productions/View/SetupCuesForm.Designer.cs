@@ -205,7 +205,7 @@ namespace Proof_Productions.View
             this.Controls.Add(this.cueDataGridView);
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "SetupCueForm";
-            this.Text = "Setup Cues";
+            this.Text = "Proof Productions: Setup Cues";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupCuesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);

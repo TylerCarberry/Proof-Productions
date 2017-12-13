@@ -33,6 +33,7 @@ namespace Proof_Productions.View
                 return;
             }
 
+            logGridView.Rows.Clear();
             foreach (String item in logArray)
             {
                 String date = item.Substring(0, item.IndexOf("-"));
@@ -43,14 +44,9 @@ namespace Proof_Productions.View
             }
         }
 
-        private void displayErrorButton_Click(object sender, EventArgs e)
+        private void refreshButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void displayLogButton_Click(object sender, EventArgs e)
-        {
-
+            ReadFromFile();
         }
 
         private void logLocationButton_Click(object sender, EventArgs e)
@@ -70,7 +66,5 @@ namespace Proof_Productions.View
         {
 
         }
-
-       
     }
 }
