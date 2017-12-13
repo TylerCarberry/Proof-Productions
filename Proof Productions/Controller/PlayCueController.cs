@@ -54,6 +54,7 @@ namespace Proof_Productions.Controller
                     MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
                     Logger.LogInfo("Successfully connected to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     MasterList.Add(MBmaster);
+                    Item.CueMotor.InputData.Control_I3.ControllerInhibit = false;
                     Item.UpdateInputFields();
                     Item.Running = true;
                     Item.Stopping = false;

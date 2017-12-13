@@ -41,7 +41,7 @@ namespace Proof_Productions.View
                 else
                 {
                     Logger.LogError("Main form was closed while the motor is running");
-                    //playCueController1.Estop();
+                    playCueController1.Estop();
                 }
             }
         }
