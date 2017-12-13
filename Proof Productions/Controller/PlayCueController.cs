@@ -14,6 +14,7 @@ namespace Proof_Productions.Controller
 {
     public class PlayCueController
     {
+        private DataAccess data = new DataAccess();
         private Cue CurrentCue = new Cue();
         private byte[] result;
         private bool FinishedCue;
@@ -28,7 +29,6 @@ namespace Proof_Productions.Controller
         // --------------------------------------------------------------------------------------------------------------------------------------------
         public PlayCueController()
         {
-
             Cue Cue1 = new Cue();
             Motor Motor1 = new Motor();
             CueItem Item = new CueItem(5, 10, Motor1, 500, 100, 100, false, 0);
@@ -212,6 +212,63 @@ namespace Proof_Productions.Controller
             Logger.LogError("EStop was pressed for cue " + CurrentCue.Name);
             Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
         }
+
+        /// <summary>
+        /// Create Object representations of Cues, CueItems, and Motors from the associated database
+        /// and store the Cues into CueList
+        /// </summary>
+        public void InitObjects()
+        {
+            try
+            {
+                data.connect();
+
+                DataTable CueTable = data.getCueNames();
+                foreach (DataRow CueRow in CueTable.Rows)
+                {
+                    Cue NewCue = new Cue(CueRow["Name"].ToString());
+                    DataTable CueItemTable = data.GetAllFromCueMotor(NewCue.Name);
+                    foreach (DataRow CueItemRow in CueItemTable.Rows)
+                    {
+                        Motor CueMotor = new Motor(CueItemRow["IPAddress"].ToString(),
+                                                   CueItemRow["MotorName"].ToString(),
+                                                   CueItemRow["Description"].ToString(),  //PLC is Placeholder
+                                                   (int)CueItemRow["LimitMaxVelocity"],
+                                                   (int)CueItemRow["LimitMaxAcceleration"],
+                                                   (int)CueItemRow["LimitMaxDeceleration"],
+                                                   (int)CueItemRow["LimitMaxNegPosition"],
+                                                   (int)CueItemRow["LimitMaxPosPosition"]);
+
+                        CueItem Item = new CueItem(Double.Parse(CueItemRow["DelayBefore"].ToString()),
+                                                   Double.Parse(CueItemRow["RunTime"].ToString()),
+                                                   CueMotor,
+                                                   (int)CueItemRow["SetVelocity"],
+                                                   (int)CueItemRow["SetAcceleration"],
+                                                   (int)CueItemRow["SetDeceleration"],
+                                                   Convert.ToBoolean(CueItemRow["CounterClockwise"]),
+                                                   (int)CueItemRow["SetPosition"]);
+
+                        NewCue.Add(Item);
+                    }
+                    CueList.Add(NewCue);
+                }
+                data.disconnect();
+                foreach(Cue c in CueList)
+                {
+                    Console.WriteLine(c.Name);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public List<Cue> GetCueList()
+        {
+            return CueList;
+        }
+        
     }
 }
 

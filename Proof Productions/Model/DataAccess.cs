@@ -147,6 +147,19 @@ namespace Proof_Productions.Model
             return table;
         }
 
+        //Doesn't fetch PLC
+        public DataTable GetMotorByID(int MotorID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT m.Name, IPAddress, Description, LimitMaxVelocity, LimitMaxAcceleration, " +
+                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor m " +
+                              "WHERE MotorID = @MotorID ", con);
+            cmd.Parameters.AddWithValue("@motorID", MotorID);
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
 
         /// <summary>
         /// Insert's a Motor's information into the database
@@ -211,7 +224,6 @@ namespace Proof_Productions.Model
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Functions for SetupCue Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
-
         /// <summary>
         /// 
         /// </summary>
@@ -335,6 +347,29 @@ namespace Proof_Productions.Model
             cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Updated cue item");
         }
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        // Functions for MainMenu Form
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        
+        public DataTable GetAllFromCueMotor(String CueName)
+        {
+            //Clockwise is Negative Direction
+            MySqlCommand cmd = new MySqlCommand("SELECT c.Name 'CueName', Number, DelayBefore, RunTime, SetVelocity, " +
+                                                "SetAcceleration, SetDeceleration, SetPosition, CounterClockwise, " +
+                                                "Running, Stopping, m.Name 'MotorName', IPAddress, Description, " +
+                                                "LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition " + 
+                                                "FROM " + SCHEMA_NAME + ".cueitem c " +
+                                                "JOIN " + SCHEMA_NAME + ".motor m USING (MotorID) " +
+                                                "WHERE CueID = @CueID ", con);
+            cmd.Parameters.AddWithValue("@CueID", this.getCueID(CueName));
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+            
+        }
+
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Functions for plc table
