@@ -17,12 +17,7 @@ namespace Proof_Productions.View
 {
     public partial class ManualControlForm : BaseForm
     {
-        Timer timer = new Timer();
-        Stopwatch sw = new Stopwatch();
-        PacketController p1;
-        FieldbusInputData input1;
-        Boolean stopTimer;
-        long Elapsed;
+        ManualController Controller1, Controller2;
 
         public ManualControlForm()
         {
@@ -52,72 +47,27 @@ namespace Proof_Productions.View
 
         private void motor1Start_Click(object sender, EventArgs e)
         {
-            if (p1 == null)
+            if (Controller1 == null)
             {
-                p1 = new PacketController();
-                p1.ConnectMotor();
-
-                input1 = new FieldbusInputData();
-                Console.WriteLine("Created input1");
+                Controller1 = new ManualController();
+                Controller1.ConnectMotor();
             }
 
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
             String decelStr = motor1Decel.Text;
-
-            int speed = 0, acceleration = 0, deceleration = 0;
-            if (int.TryParse(speedStr, out speed) && (int.TryParse(accelStr, out acceleration) || int.TryParse(decelStr, out deceleration)))
-            {
-
-                //writeToMotor();
-                input1.SetpointVelocity.Set(speed);
-                input1.Acceleration.Set(acceleration);
-                input1.Deceleration.Set(deceleration);
-                input1.Control_I3.Positive = motor1Backward.Checked;
-                input1.Control_I3.Negative = motor1Forward.Checked;
-
-                stopTimer = false;
-                timer.Interval = 100;
-                timer.Tick += new EventHandler(timerTick);
-                sw.Start();
-                timer.Start();
-                //p.WriteMotor(speed, acceleration, true);
-            }
-
-            else
-            {
-                // TODO Show a dialog
-
-            }
-        }
-
-        private void timerTick(object sender, EventArgs e)
-        {
-            Console.Out.WriteLine("TICK");
-            writeToMotorOnce();
-            if (stopTimer)
-            {
-                Console.WriteLine(Elapsed + " " + sw.ElapsedMilliseconds + " " + sw.Elapsed);
-                if (sw.ElapsedMilliseconds >= (Elapsed + 1500))
-                {
-                    timer.Stop();
-                    sw.Stop();
-                }
-            }
-        }
-
-        private void writeToMotorOnce()
-        {
-            p1.WriteMotor(input1);
-            Console.WriteLine("Writing to motor");
+         
+            int.TryParse(speedStr, out int Speed);
+            int.TryParse(accelStr, out int Acceleration);
+            int.TryParse(decelStr, out int Deceleration);
+                
+            Controller1.WriteMotor(Speed, Acceleration, Deceleration, motor1Forward.Checked);
         }
 
         private void motor1Stop_Click(object sender, EventArgs e)
         {
-            input1.Deceleration.Set(input1.SetpointVelocity.Get() / 2);
-            input1.SetpointVelocity.Set(0);
-            stopTimer = true;
-            Elapsed = sw.ElapsedMilliseconds;
+            if(Controller1 != null)
+                Controller1.StopMotor();
         }
 
         private void motor1Clear_Click(object sender, EventArgs e)
@@ -163,12 +113,30 @@ namespace Proof_Productions.View
 
         private void motor2Start_Click(object sender, EventArgs e)
         {
+            if (Controller2 == null)
+            {
+                Controller2 = new ManualController();
+                Controller2.ConnectMotor();
+            }
 
+            String speedStr = motor2Spd.Text;
+            String accelStr = motor2Accel.Text;
+            String decelStr = motor2Decel.Text;
+            String countStr = motor2Counts.Text;
+            String degreeStr = Motor2Degrees.Text;
+
+            int.TryParse(speedStr, out int Speed);
+            int.TryParse(accelStr, out int Acceleration);
+            int.TryParse(decelStr, out int Deceleration);
+            double.TryParse(countStr, out double Counts);
+            double.TryParse(degreeStr, out double Degrees);
+            Controller2.WriteMotor(Speed, Acceleration, Deceleration, Counts, Degrees);
         }
 
         private void motor2Stop_Click(object sender, EventArgs e)
         {
-
+            if(Controller2 != null)
+                Controller2.StopMotor();
         }
 
         private void motor2Clear_Click(object sender, EventArgs e)
@@ -178,7 +146,8 @@ namespace Proof_Productions.View
             motor2Spd.Text = "";
             motor2Accel.Text = "";
             motor2Decel.Text = "";
-            motor2Forward.Checked = true;
+            motor2Counts.Text = "";
+            Motor2Degrees.Text = "";
         }
 
         private void motor2Forward_CheckedChanged(object sender, EventArgs e)
@@ -303,7 +272,7 @@ namespace Proof_Productions.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (sw.IsRunning)
+            if ((Controller1 != null && Controller1.TimerIsRunning()) || (Controller2 != null && Controller2.TimerIsRunning()))
             {
                 DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -326,23 +295,12 @@ namespace Proof_Productions.View
 
         private void Estop()
         {
-            if (timer != null)
-            {
-                timer.Stop();
-            }
-
-            if (sw != null)
-            {
-                sw.Stop();
-            }
-
-            input1.Control_I3.ControllerInhibit = true;
-            writeToMotorOnce();
-
-            stopTimer = true;
-            Elapsed = sw.ElapsedMilliseconds;
+            if(Controller1 != null)
+                Controller1.Estop();
+            if(Controller2 != null)
+                Controller2.Estop();
         }
-
+        
         private void motor1Spd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

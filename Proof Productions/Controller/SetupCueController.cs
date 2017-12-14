@@ -24,7 +24,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.connect();
-                cuenames = data.getCueNames();
+                cuenames = data.getCues();
                 data.disconnect();
             }
             catch (Exception e)
@@ -50,12 +50,12 @@ namespace Proof_Productions.Controller
             return cueitems;
         }
 
-        public void addCue(String cueName)
+        public void addCue(String cueName, String Description)
         {
             try
             {
                 data.connect();
-                data.insertCue(cueName);
+                data.insertCue(cueName, Description);
                 data.disconnect();
                 MessageBox.Show("Cue " + cueName + " has been added");
             }

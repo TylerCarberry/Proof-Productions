@@ -62,6 +62,7 @@ namespace Proof_Productions.View
             this.cueDataGridView.TabIndex = 9;
             this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
             this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
+            this.cueDataGridView.CellMouseUp += new DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
             this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
             // 
             // menuStrip1

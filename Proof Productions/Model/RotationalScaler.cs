@@ -8,14 +8,34 @@ namespace Proof_Productions.Model
 {
     public class RotationalScaler
     {
-        Motor CueMotor;
-        int ScaleDegrees = 2100;
-        public RotationalScaler(Motor CueMotor)
+        double CountsPerRev;
+        int InitialPosition;
+
+        public RotationalScaler(double CountsPerRevolution, int InitialPosition)
         {
-            this.CueMotor = CueMotor;
+            CountsPerRev = CountsPerRevolution;
+            this.InitialPosition = InitialPosition;
         }
 
+        public void SetCountsPerRev(double Counts)
+        {
+            CountsPerRev = Counts;
+        }
 
+        public double GetCountsPerRev()
+        {
+            return CountsPerRev;
+        }
+
+        public void SetInitialPosition(int Position)
+        {
+            InitialPosition = Position;
+        }
+
+        public int GetInitialPosition()
+        {
+            return InitialPosition;
+        }
 
 
 
