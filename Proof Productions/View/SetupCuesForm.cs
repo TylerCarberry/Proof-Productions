@@ -217,12 +217,41 @@ namespace Proof_Productions.View
 
         private void cueDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            {
+                int rowIndex = e.RowIndex;
+                int currentCollumnIndex = e.ColumnIndex;
+                int coorespondingIndex = currentCollumnIndex == 5 ? 6 : 5;
+
+                Object value = cueDataGridView.Rows[e.RowIndex].Cells[currentCollumnIndex].Value;
+
+                if (value.Equals(true))
+                {
+                    cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = false;
+                } else
+                {
+                    cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = true;
+                }
+            }
             hasModifiedSinceLastSave = true;
+
+
+            hasModifiedSinceLastSave = true;
+        }
+
+        private void myDataGrid_OnCellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // End of edition on each click on column of checkbox
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            {
+                cueDataGridView.EndEdit();
+            }
         }
 
         private void cueDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            cueDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
         private void cueDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -243,5 +272,6 @@ namespace Proof_Productions.View
                 e.Handled = true;
             }
         }
+
     }
 }
