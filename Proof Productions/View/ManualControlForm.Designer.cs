@@ -384,6 +384,7 @@ namespace Proof_Productions.View
             this.motor3Decel.Name = "motor3Decel";
             this.motor3Decel.Size = new System.Drawing.Size(148, 21);
             this.motor3Decel.TabIndex = 5;
+            this.motor3Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Decel_KeyPress);
             // 
             // motor3Accel
             // 
@@ -400,6 +401,7 @@ namespace Proof_Productions.View
             this.motor3Accel.Size = new System.Drawing.Size(149, 21);
             this.motor3Accel.TabIndex = 4;
             this.motor3Accel.SelectedIndexChanged += new System.EventHandler(this.motor3Accel_SelectedIndexChanged);
+            this.motor3Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Accel_KeyPress);
             // 
             // motor3Spd
             // 
@@ -416,6 +418,7 @@ namespace Proof_Productions.View
             this.motor3Spd.Size = new System.Drawing.Size(149, 21);
             this.motor3Spd.TabIndex = 3;
             this.motor3Spd.SelectedIndexChanged += new System.EventHandler(this.motor3Spd_SelectedIndexChanged);
+            this.motor3Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Spd_KeyPress);
             // 
             // motorBox3
             // 
@@ -573,6 +576,7 @@ namespace Proof_Productions.View
             this.motor2Decel.Name = "motor2Decel";
             this.motor2Decel.Size = new System.Drawing.Size(148, 21);
             this.motor2Decel.TabIndex = 5;
+            this.motor2Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Decel_KeyPress);
             // 
             // motor2Accel
             // 
@@ -589,6 +593,7 @@ namespace Proof_Productions.View
             this.motor2Accel.Size = new System.Drawing.Size(149, 21);
             this.motor2Accel.TabIndex = 4;
             this.motor2Accel.SelectedIndexChanged += new System.EventHandler(this.motor2Accel_SelectedIndexChanged);
+            this.motor2Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Accel_KeyPress);
             // 
             // motor2Spd
             // 
@@ -605,6 +610,7 @@ namespace Proof_Productions.View
             this.motor2Spd.Size = new System.Drawing.Size(149, 21);
             this.motor2Spd.TabIndex = 3;
             this.motor2Spd.SelectedIndexChanged += new System.EventHandler(this.motor2Spd_SelectedIndexChanged);
+            this.motor2Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Spd_KeyPress);
             // 
             // motorBox2
             // 
@@ -761,7 +767,7 @@ namespace Proof_Productions.View
             this.motor1Decel.Size = new System.Drawing.Size(148, 21);
             this.motor1Decel.TabIndex = 5;
             this.motor1Decel.Text = "80";
-            this.motor1Decel.SelectedIndexChanged += new System.EventHandler(this.motor1Decel_SelectedIndexChanged);
+            this.motor1Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Decel_KeyPress);
             // 
             // motor1Accel
             // 
@@ -779,6 +785,7 @@ namespace Proof_Productions.View
             this.motor1Accel.TabIndex = 4;
             this.motor1Accel.Text = "80";
             this.motor1Accel.SelectedIndexChanged += new System.EventHandler(this.motor1Accel_SelectedIndexChanged);
+            this.motor1Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Accel_KeyPress);
             // 
             // motor1Spd
             // 
