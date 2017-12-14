@@ -155,5 +155,10 @@ namespace Proof_Productions.View
         {
 
         }
+
+        private void cueDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
