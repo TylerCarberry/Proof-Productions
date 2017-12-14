@@ -56,17 +56,18 @@ namespace Proof_Productions.View
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
             String decelStr = motor1Decel.Text;
-
-            int Speed = 0, Acceleration = 0, Deceleration = 0;
-            if (int.TryParse(speedStr, out Speed) && (int.TryParse(accelStr, out Acceleration) || int.TryParse(decelStr, out Deceleration)))
-            {
-                Controller1.WriteMotor(Speed, Acceleration, Deceleration);
-            }
+         
+            int.TryParse(speedStr, out int Speed);
+            int.TryParse(accelStr, out int Acceleration);
+            int.TryParse(decelStr, out int Deceleration);
+                
+            Controller1.WriteMotor(Speed, Acceleration, Deceleration, motor1Forward.Checked);
         }
 
         private void motor1Stop_Click(object sender, EventArgs e)
         {
-            Controller1.StopMotor();
+            if(Controller1 != null)
+                Controller1.StopMotor();
         }
 
         private void motor1Clear_Click(object sender, EventArgs e)
@@ -124,20 +125,18 @@ namespace Proof_Productions.View
             String countStr = motor2Counts.Text;
             String degreeStr = Motor2Degrees.Text;
 
-            int Speed = 0, Acceleration = 0, Deceleration = 0;
-            double Counts = 0, Degrees = 0;
-            int.TryParse(speedStr, out Speed);
-            int.TryParse(accelStr, out Acceleration);
-            int.TryParse(decelStr, out Deceleration);
-            double.TryParse(countStr, out Counts);
-            double.TryParse(degreeStr, out Degrees);
-
+            int.TryParse(speedStr, out int Speed);
+            int.TryParse(accelStr, out int Acceleration);
+            int.TryParse(decelStr, out int Deceleration);
+            double.TryParse(countStr, out double Counts);
+            double.TryParse(degreeStr, out double Degrees);
             Controller2.WriteMotor(Speed, Acceleration, Deceleration, Counts, Degrees);
         }
 
         private void motor2Stop_Click(object sender, EventArgs e)
         {
-            Controller2.StopMotor();
+            if(Controller2 != null)
+                Controller2.StopMotor();
         }
 
         private void motor2Clear_Click(object sender, EventArgs e)
@@ -293,8 +292,10 @@ namespace Proof_Productions.View
 
         private void Estop()
         {
-            Controller1.Estop();
-            Controller2.Estop();
+            if(Controller1 != null)
+                Controller1.Estop();
+            if(Controller2 != null)
+                Controller2.Estop();
         }
     }
 }

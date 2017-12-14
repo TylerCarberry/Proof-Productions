@@ -61,6 +61,8 @@ namespace Proof_Productions.View
             this.motorBox3 = new System.Windows.Forms.ComboBox();
             this.motor3Desc = new System.Windows.Forms.TextBox();
             this.motorPanelCenter = new System.Windows.Forms.Panel();
+            this.degreesLabel3 = new System.Windows.Forms.Label();
+            this.Motor2Degrees = new System.Windows.Forms.ComboBox();
             this.countsLabel3 = new System.Windows.Forms.Label();
             this.decelLabel2 = new System.Windows.Forms.Label();
             this.accelLabel2 = new System.Windows.Forms.Label();
@@ -90,8 +92,6 @@ namespace Proof_Productions.View
             this.motor1Spd = new System.Windows.Forms.ComboBox();
             this.motorBox1 = new System.Windows.Forms.ComboBox();
             this.motor1Desc = new System.Windows.Forms.TextBox();
-            this.degreesLabel3 = new System.Windows.Forms.Label();
-            this.Motor2Degrees = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.motorPanelRight.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -461,6 +461,24 @@ namespace Proof_Productions.View
             this.motorPanelCenter.Size = new System.Drawing.Size(190, 410);
             this.motorPanelCenter.TabIndex = 11;
             // 
+            // degreesLabel3
+            // 
+            this.degreesLabel3.AutoSize = true;
+            this.degreesLabel3.Location = new System.Drawing.Point(18, 323);
+            this.degreesLabel3.Name = "degreesLabel3";
+            this.degreesLabel3.Size = new System.Drawing.Size(82, 13);
+            this.degreesLabel3.TabIndex = 29;
+            this.degreesLabel3.Text = "Rotate Degrees";
+            // 
+            // Motor2Degrees
+            // 
+            this.Motor2Degrees.FormattingEnabled = true;
+            this.Motor2Degrees.Location = new System.Drawing.Point(20, 337);
+            this.Motor2Degrees.Name = "Motor2Degrees";
+            this.Motor2Degrees.Size = new System.Drawing.Size(148, 21);
+            this.Motor2Degrees.TabIndex = 28;
+            this.Motor2Degrees.Text = "50";
+            // 
             // countsLabel3
             // 
             this.countsLabel3.AutoSize = true;
@@ -534,6 +552,7 @@ namespace Proof_Productions.View
             this.motor2Counts.Name = "motor2Counts";
             this.motor2Counts.Size = new System.Drawing.Size(148, 21);
             this.motor2Counts.TabIndex = 6;
+            this.motor2Counts.Text = "2000";
             // 
             // motor2Decel
             // 
@@ -549,6 +568,7 @@ namespace Proof_Productions.View
             this.motor2Decel.Name = "motor2Decel";
             this.motor2Decel.Size = new System.Drawing.Size(148, 21);
             this.motor2Decel.TabIndex = 5;
+            this.motor2Decel.Text = "100";
             // 
             // motor2Accel
             // 
@@ -564,6 +584,7 @@ namespace Proof_Productions.View
             this.motor2Accel.Name = "motor2Accel";
             this.motor2Accel.Size = new System.Drawing.Size(149, 21);
             this.motor2Accel.TabIndex = 4;
+            this.motor2Accel.Text = "100";
             this.motor2Accel.SelectedIndexChanged += new System.EventHandler(this.motor2Accel_SelectedIndexChanged);
             // 
             // motor2Spd
@@ -580,6 +601,7 @@ namespace Proof_Productions.View
             this.motor2Spd.Name = "motor2Spd";
             this.motor2Spd.Size = new System.Drawing.Size(149, 21);
             this.motor2Spd.TabIndex = 3;
+            this.motor2Spd.Text = "300";
             this.motor2Spd.SelectedIndexChanged += new System.EventHandler(this.motor2Spd_SelectedIndexChanged);
             // 
             // motorBox2
@@ -793,23 +815,6 @@ namespace Proof_Productions.View
             this.motor1Desc.Size = new System.Drawing.Size(148, 117);
             this.motor1Desc.TabIndex = 0;
             this.motor1Desc.TextChanged += new System.EventHandler(this.motor1Desc_TextChanged);
-            // 
-            // degreesLabel3
-            // 
-            this.degreesLabel3.AutoSize = true;
-            this.degreesLabel3.Location = new System.Drawing.Point(18, 323);
-            this.degreesLabel3.Name = "degreesLabel3";
-            this.degreesLabel3.Size = new System.Drawing.Size(82, 13);
-            this.degreesLabel3.TabIndex = 29;
-            this.degreesLabel3.Text = "Rotate Degrees";
-            // 
-            // Motor2Degrees
-            // 
-            this.Motor2Degrees.FormattingEnabled = true;
-            this.Motor2Degrees.Location = new System.Drawing.Point(20, 337);
-            this.Motor2Degrees.Name = "Motor2Degrees";
-            this.Motor2Degrees.Size = new System.Drawing.Size(148, 21);
-            this.Motor2Degrees.TabIndex = 28;
             // 
             // ManualControlForm
             // 

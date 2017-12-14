@@ -71,15 +71,17 @@ namespace Proof_Productions.Controller
             MessageBox.Show(exc, "Modbus slave exception");
         }
 
-        public void WriteMotor(int Velocity, int Acceleration, int Deceleration)
+        public void WriteMotor(int Velocity, int Acceleration, int Deceleration, bool Negative)
         {
-
+            Console.WriteLine("Deceleration Set at " + Deceleration);
             ManualMotor.InputData.SetpointVelocity.Set(Velocity);
             ManualMotor.InputData.Acceleration.Set(Acceleration);
             ManualMotor.InputData.Deceleration.Set(Deceleration);
-
+            ManualMotor.InputData.Control_I3.Negative = Negative;
+            ManualMotor.InputData.Control_I3.Positive = !Negative;
+            
             running = true;
-            timer.Interval = 100; //ms
+            timer.Interval = 50; //ms
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
         }
@@ -91,7 +93,16 @@ namespace Proof_Productions.Controller
             ManualMotor.InputData.SetpointVelocity.Set(Velocity);
             ManualMotor.InputData.Acceleration.Set(Acceleration);
             ManualMotor.InputData.Deceleration.Set(Deceleration);
-
+            if (Degrees < 0) //Counterclockwise
+            {
+                ManualMotor.InputData.Control_I3.Negative = false;
+                ManualMotor.InputData.Control_I3.Positive = true;
+            }
+            else
+            {
+                ManualMotor.InputData.Control_I3.Negative = true;
+                ManualMotor.InputData.Control_I3.Positive = false;
+            }
             UpdateMotor();
 
             RotationalScaler Scaler = new RotationalScaler(Counts, ManualMotor.OutputData.Position.Get());
@@ -109,6 +120,7 @@ namespace Proof_Productions.Controller
             ManualMotor.InputData.SetpointVelocity.Set(0);
             if (ManualMotor.InputData.Deceleration.Get() == 0)
                 ManualMotor.InputData.Deceleration.Set(ManualMotor.OutputData.Velocity.Get()/2);
+            UpdateMotor();
         }
 
         public void UpdateMotor()
@@ -134,29 +146,47 @@ namespace Proof_Productions.Controller
                 Logger.LogError("Attempting to write to null motor. Write failed.");
                 return;
             }
-
-            if(running)
+            if (running)
             {
-                if(ManualMotor.HasScaler())
+                if (ManualMotor.HasScaler())
                 {
-                    double DecelTime = ManualMotor.OutputData.Velocity.Get() / ManualMotor.InputData.Deceleration.Get();
-                    double AvgVelocity = ManualMotor.OutputData.Velocity.Get() / 2;
+                    double DecelTime = Math.Abs(ManualMotor.OutputData.Velocity.Get() / ManualMotor.InputData.Deceleration.Get());
+                    double AvgVelocity = ManualMotor.OutputData.Velocity.Get() / 2; 
                     double Distance = AvgVelocity * DecelTime;
-                    double TargetPosition = ManualMotor.GetScaler().GetInitialPosition() + (Degrees * ManualMotor.GetScaler().GetCountsPerRev());
-                    if ((TargetPosition - Distance) <= 0)
+                    double TargetPosition = 0;
+                    TargetPosition = ManualMotor.GetScaler().GetInitialPosition() - (Degrees * ManualMotor.GetScaler().GetCountsPerRev());
+                   
+                    Console.WriteLine("Degrees " + Degrees);
+                    Console.WriteLine("Current Velocity " + ManualMotor.OutputData.Velocity.Get());
+                    Console.WriteLine("Target Pos " + (TargetPosition));
+                    Console.WriteLine("Current Pos " + ManualMotor.OutputData.Position.Get());
+                    Console.WriteLine("-------------------------");
+
+                    if (TargetPosition < 0)
                     {
-                        StopMotor();
+                        if (ManualMotor.InputData.Control_I3.Positive && ManualMotor.OutputData.Position.Get() >= (TargetPosition - Distance*100))
+                            StopMotor();
+                        else if (ManualMotor.InputData.Control_I3.Negative && (ManualMotor.OutputData.Position.Get() <= (TargetPosition - Distance*100)))
+                            StopMotor();
+                    }
+                    else
+                    {
+                        if (ManualMotor.InputData.Control_I3.Positive && ManualMotor.OutputData.Position.Get() >= (TargetPosition - Distance*100))
+                            StopMotor();
+                        else if (ManualMotor.InputData.Control_I3.Negative && (ManualMotor.OutputData.Position.Get() <= (TargetPosition - Distance*100)))
+                            StopMotor();
                     }
                 }
-                UpdateMotor();     
             }
             else
             {
                 if (ManualMotor.OutputData.Velocity.Get() == 0)
                 {
                     timer.Stop();
+                    Console.WriteLine("Final Position" + ManualMotor.OutputData.Position.Get());
                 }
             }
+            UpdateMotor();
         }
 
         public bool TimerIsRunning()
