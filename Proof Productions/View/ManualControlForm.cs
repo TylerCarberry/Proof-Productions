@@ -251,7 +251,6 @@ namespace Proof_Productions.View
             SwitchToForm(new SetupCueForm());
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new MainMenuForm());
@@ -342,6 +341,11 @@ namespace Proof_Productions.View
 
             stopTimer = true;
             Elapsed = sw.ElapsedMilliseconds;
+        }
+
+        private void motor1Decel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void motor1Spd_KeyPress(object sender, KeyPressEventArgs e)
