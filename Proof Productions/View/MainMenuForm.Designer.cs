@@ -31,7 +31,6 @@ namespace Proof_Productions.View
         private void InitializeComponent()
         {
             this.estopButton = new System.Windows.Forms.Button();
-            this.motorList = new System.Windows.Forms.ListView();
             this.cueActionFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.cueDescription = new System.Windows.Forms.RichTextBox();
             this.playCueButton = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveCueDownButton = new System.Windows.Forms.Button();
             this.moveCueUpButton = new System.Windows.Forms.Button();
+            this.motorList = new System.Windows.Forms.ListBox();
             this.cueActionFlowLayoutPanel.SuspendLayout();
             this.cueFlowLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -73,15 +73,6 @@ namespace Proof_Productions.View
             this.estopButton.Text = "EMERGENCY STOP";
             this.estopButton.UseVisualStyleBackColor = false;
             this.estopButton.Click += new System.EventHandler(this.EstopButtonClick);
-            // 
-            // motorList
-            // 
-            this.motorList.Location = new System.Drawing.Point(251, 70);
-            this.motorList.Name = "motorList";
-            this.motorList.Size = new System.Drawing.Size(167, 245);
-            this.motorList.TabIndex = 4;
-            this.motorList.UseCompatibleStateImageBehavior = false;
-            this.motorList.SelectedIndexChanged += new System.EventHandler(this.motorList_SelectedIndexChanged);
             // 
             // cueActionFlowLayoutPanel
             // 
@@ -325,11 +316,21 @@ namespace Proof_Productions.View
             this.moveCueUpButton.UseVisualStyleBackColor = false;
             this.moveCueUpButton.Click += new System.EventHandler(this.moveCueUpButton_Click);
             // 
+            // motorList
+            // 
+            this.motorList.FormattingEnabled = true;
+            this.motorList.Location = new System.Drawing.Point(258, 70);
+            this.motorList.Name = "motorList";
+            this.motorList.Size = new System.Drawing.Size(160, 251);
+            this.motorList.TabIndex = 17;
+            this.motorList.SelectedIndexChanged += new System.EventHandler(this.motorList_SelectedIndexChanged_1);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 425);
+            this.Controls.Add(this.motorList);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.moveCueDownButton);
             this.Controls.Add(this.moveCueUpButton);
@@ -337,7 +338,6 @@ namespace Proof_Productions.View
             this.Controls.Add(this.MotorListLabel);
             this.Controls.Add(this.cueManagerLabel);
             this.Controls.Add(this.cueActionFlowLayoutPanel);
-            this.Controls.Add(this.motorList);
             this.Controls.Add(this.cueFlowLayoutPanel);
             this.Name = "MainMenuForm";
             this.Text = "Proof Productions: Home";
@@ -359,9 +359,6 @@ namespace Proof_Productions.View
         private System.Windows.Forms.Button removeCueButton;
         private System.Windows.Forms.Button editCueButton;
         private System.Windows.Forms.Button addCueButton;
-
-        //Motor List components
-        private System.Windows.Forms.ListView motorList;
         private System.Windows.Forms.Label MotorListLabel;
 
 
@@ -385,5 +382,6 @@ namespace Proof_Productions.View
         private System.Windows.Forms.Button moveCueDownButton;
         private System.Windows.Forms.Button moveCueUpButton;
         private ListBox cueManager;
+        private ListBox motorList;
     }
 }

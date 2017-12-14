@@ -223,10 +223,10 @@ namespace Proof_Productions.Controller
             {
                 data.connect();
 
-                DataTable CueTable = data.getCueNames();
+                DataTable CueTable = data.getCues();
                 foreach (DataRow CueRow in CueTable.Rows)
                 {
-                    Cue NewCue = new Cue(CueRow["Name"].ToString());
+                    Cue NewCue = new Cue(CueRow["Name"].ToString(), CueRow["Description"].ToString());
                     DataTable CueItemTable = data.GetAllFromCueMotor(NewCue.Name);
                     foreach (DataRow CueItemRow in CueItemTable.Rows)
                     {
