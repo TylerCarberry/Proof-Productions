@@ -761,6 +761,7 @@ namespace Proof_Productions.View
             this.motor1Decel.Size = new System.Drawing.Size(148, 21);
             this.motor1Decel.TabIndex = 5;
             this.motor1Decel.Text = "80";
+            this.motor1Decel.SelectedIndexChanged += new System.EventHandler(this.motor1Decel_SelectedIndexChanged);
             // 
             // motor1Accel
             // 
@@ -795,6 +796,7 @@ namespace Proof_Productions.View
             this.motor1Spd.TabIndex = 3;
             this.motor1Spd.Text = "300";
             this.motor1Spd.SelectedIndexChanged += new System.EventHandler(this.motor1Spd_SelectedIndexChanged);
+            this.motor1Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Spd_KeyPress);
             // 
             // motorBox1
             // 
@@ -836,8 +838,8 @@ namespace Proof_Productions.View
             this.Controls.Add(this.motorPanelLeft);
             this.Name = "ManualControlForm";
             this.Text = "Proof Productions: Manual Control";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.ManualControlForm_Load);
-            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.motorPanelRight.ResumeLayout(false);

@@ -142,6 +142,7 @@
             this.DelayTextbox.Name = "DelayTextbox";
             this.DelayTextbox.Size = new System.Drawing.Size(100, 20);
             this.DelayTextbox.TabIndex = 12;
+            this.DelayTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelayTextbox_KeyPress);
             // 
             // DurationTextBox
             // 
@@ -149,6 +150,7 @@
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(100, 20);
             this.DurationTextBox.TabIndex = 13;
+            this.DurationTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DurationTextBox_KeyPress);
             // 
             // VelocityTextBox
             // 
@@ -156,6 +158,7 @@
             this.VelocityTextBox.Name = "VelocityTextBox";
             this.VelocityTextBox.Size = new System.Drawing.Size(100, 20);
             this.VelocityTextBox.TabIndex = 14;
+            this.VelocityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VelocityTextBox_KeyPress);
             // 
             // AccelTextBox
             // 
@@ -163,6 +166,7 @@
             this.AccelTextBox.Name = "AccelTextBox";
             this.AccelTextBox.Size = new System.Drawing.Size(100, 20);
             this.AccelTextBox.TabIndex = 15;
+            this.AccelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AccelTextBox_KeyPress);
             // 
             // DecelTextBox
             // 
@@ -170,6 +174,7 @@
             this.DecelTextBox.Name = "DecelTextBox";
             this.DecelTextBox.Size = new System.Drawing.Size(100, 20);
             this.DecelTextBox.TabIndex = 16;
+            this.DecelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecelTextBox_KeyPress);
             // 
             // CueTextBox
             // 

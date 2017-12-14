@@ -54,19 +54,19 @@ namespace Proof_Productions.View
         {
             if (p1 == null)
             {
-                p1 = new PacketController();          
+                p1 = new PacketController();
                 p1.ConnectMotor();
 
                 input1 = new FieldbusInputData();
                 Console.WriteLine("Created input1");
             }
-            
+
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
             String decelStr = motor1Decel.Text;
 
-            int speed= 0, acceleration = 0, deceleration = 0;
-            if (int.TryParse(speedStr, out speed) && (int.TryParse(accelStr, out acceleration) || int.TryParse(decelStr, out deceleration) ) )
+            int speed = 0, acceleration = 0, deceleration = 0;
+            if (int.TryParse(speedStr, out speed) && (int.TryParse(accelStr, out acceleration) || int.TryParse(decelStr, out deceleration)))
             {
 
                 //writeToMotor();
@@ -96,7 +96,7 @@ namespace Proof_Productions.View
             Console.Out.WriteLine("TICK");
             writeToMotorOnce();
             if (stopTimer)
-            { 
+            {
                 Console.WriteLine(Elapsed + " " + sw.ElapsedMilliseconds + " " + sw.Elapsed);
                 if (sw.ElapsedMilliseconds >= (Elapsed + 1500))
                 {
@@ -111,10 +111,10 @@ namespace Proof_Productions.View
             p1.WriteMotor(input1);
             Console.WriteLine("Writing to motor");
         }
-        
+
         private void motor1Stop_Click(object sender, EventArgs e)
         {
-            input1.Deceleration.Set(input1.SetpointVelocity.Get()/2);
+            input1.Deceleration.Set(input1.SetpointVelocity.Get() / 2);
             input1.SetpointVelocity.Set(0);
             stopTimer = true;
             Elapsed = sw.ElapsedMilliseconds;
@@ -144,7 +144,7 @@ namespace Proof_Productions.View
         {
 
         }
- 
+
 
         private void motorBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -241,15 +241,19 @@ namespace Proof_Productions.View
 
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             new AboutForm().Show();
         }
 
-        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             SwitchToForm(new SetupCueForm());
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             SwitchToForm(new MainMenuForm());
         }
 
@@ -280,7 +284,7 @@ namespace Proof_Productions.View
 
         private void stopCalibrationBtn_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void setupMotorsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -332,13 +336,22 @@ namespace Proof_Productions.View
             {
                 sw.Stop();
             }
-            
+
             input1.Control_I3.ControllerInhibit = true;
             writeToMotorOnce();
 
             stopTimer = true;
             Elapsed = sw.ElapsedMilliseconds;
         }
+
+        private void motor1Spd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
 
     }
 }
