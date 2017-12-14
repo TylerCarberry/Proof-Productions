@@ -41,7 +41,7 @@ namespace Proof_Productions.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (playCueController1 != null && !playCueController1.HasCueFinished())
+            if (playCueController1 != null && playCueController1.HasCueFinished())
             {
                 DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -90,7 +90,7 @@ namespace Proof_Productions.View
         
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            playCueController1 = new PlayCueController();
+            playCueController1 = new PlayCueController(); //do we need to reinitialize? 
             playCueController1.PlayCurrentCue();
         }
 
@@ -153,7 +153,29 @@ namespace Proof_Productions.View
 
         private void cueManager_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            motorList.Items.Clear();
+            HashSet<String> motors = new HashSet<String>();
+            Cue CurrentCue = playCueController1.GetCueList()[cueManager.SelectedIndex];
+            //populate motor list with only UNIQUE motors
+            foreach (CueItem Item in CurrentCue.GetList())
+            {
+                String CueMotorName = Item.CueMotor.Name;
+                if (!(motors.Contains(CueMotorName)))
+                {
+                    motors.Add(CueMotorName);
+                    motorList.Items.Add(CueMotorName);
+                }
+            }
+
+            //populate description text box
+            cueDescription.Text = CurrentCue.Description;
+        }
+
+        private void motorList_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
         }
+
+    
     }
 }
