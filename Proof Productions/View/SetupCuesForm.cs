@@ -224,18 +224,9 @@ namespace Proof_Productions.View
                 int currentCollumnIndex = e.ColumnIndex;
                 int coorespondingIndex = currentCollumnIndex == 5 ? 6 : 5;
 
-                Object value = cueDataGridView.Rows[e.RowIndex].Cells[currentCollumnIndex].Value;
-
-                if (value.Equals(true))
-                {
-                    cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = false;
-                } else
-                {
-                    cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = true;
-                }
+                bool isChecked = cueDataGridView.Rows[e.RowIndex].Cells[currentCollumnIndex].Value.Equals(true);
+                cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = !isChecked;
             }
-            hasModifiedSinceLastSave = true;
-
 
             hasModifiedSinceLastSave = true;
         }
