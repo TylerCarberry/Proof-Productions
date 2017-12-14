@@ -119,7 +119,7 @@
     <Compile Include="Model\Output\StatusWordO1.cs" />
     <Compile Include="Model\Output\StatusWordO3.cs" />
     <Compile Include="Model\Output\SubStatusWord.cs" />
-    <Compile Include="Controller\PacketController.cs" />
+    <Compile Include="Controller\ManualController.cs" />
     <Compile Include="View\NewCueForm.cs">
       <SubType>Form</SubType>
     </Compile>
