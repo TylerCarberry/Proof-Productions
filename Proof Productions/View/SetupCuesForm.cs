@@ -127,7 +127,7 @@ namespace Proof_Productions.View
             newCue.ShowDialog();
             if (newCue.isSubmitted())
             {
-                Controller.addCue(newCue.getCueName());
+                Controller.addCue(newCue.getCueName(), newCue.getDescription());
                 RefreshCueComboBox();
             }
         }

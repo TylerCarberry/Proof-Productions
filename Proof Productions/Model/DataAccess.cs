@@ -228,9 +228,9 @@ namespace Proof_Productions.Model
         /// 
         /// </summary>
         /// <returns></returns>
-        public DataTable getCueNames()
+        public DataTable getCues()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT Name FROM " + SCHEMA_NAME + ".cue", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT Name, Description FROM " + SCHEMA_NAME + ".cue", con);
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -266,10 +266,12 @@ namespace Proof_Productions.Model
         /// <param name="PlayName"> The name of the play that this cue is associated with </param>
         /// <param name="cue"> The name of this cue </param>
         /// <returns> True if the cue is added into the database, false otherwise </returns>
-        public void insertCue(String CueName)
+        public void insertCue(String CueName, String Description)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name) VALUES (@Name)", con);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name, Description) " +
+                                                "VALUES (@Name, @Description)", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
+            cmd.Parameters.AddWithValue("@Description", Description);
             cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Inserted Cue : " + CueName);
         }
@@ -366,8 +368,7 @@ namespace Proof_Productions.Model
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
-            return table;
-            
+            return table;    
         }
 
 
