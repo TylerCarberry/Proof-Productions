@@ -44,7 +44,7 @@ namespace Proof_Productions.View
                 String time = item.Substring(item.IndexOf("-") + 2, item.IndexOf("|") - item.IndexOf("-") - 2);
                 String message = item.Substring(item.IndexOf("|") + 2);
 
-               logGridView.Rows.Add(date, time, message);
+               logGridView.Rows.Insert(0, date, time, message);
             }
         }
 
