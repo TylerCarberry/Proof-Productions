@@ -52,7 +52,8 @@
             this.time,
             this.entry});
             this.logGridView.Location = new System.Drawing.Point(16, 78);
-            this.logGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.logGridView.MinimumSize = new System.Drawing.Size(893, 369);
             this.logGridView.Name = "logGridView";
             this.logGridView.Size = new System.Drawing.Size(893, 369);
             this.logGridView.TabIndex = 0;
@@ -83,7 +84,7 @@
             // 
             this.refreshLogsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.refreshLogsButton.Location = new System.Drawing.Point(40, 14);
-            this.refreshLogsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.refreshLogsButton.Margin = new System.Windows.Forms.Padding(4);
             this.refreshLogsButton.Name = "refreshLogsButton";
             this.refreshLogsButton.Size = new System.Drawing.Size(100, 50);
             this.refreshLogsButton.TabIndex = 1;
@@ -95,7 +96,7 @@
             // 
             this.logLocationButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.logLocationButton.Location = new System.Drawing.Point(164, 14);
-            this.logLocationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logLocationButton.Margin = new System.Windows.Forms.Padding(4);
             this.logLocationButton.Name = "logLocationButton";
             this.logLocationButton.Size = new System.Drawing.Size(100, 50);
             this.logLocationButton.TabIndex = 3;
@@ -107,7 +108,7 @@
             // 
             this.searchBox.Enabled = false;
             this.searchBox.Location = new System.Drawing.Point(327, 33);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(173, 23);
             this.searchBox.TabIndex = 4;
@@ -134,7 +135,8 @@
             this.Controls.Add(this.refreshLogsButton);
             this.Controls.Add(this.logGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(945, 501);
             this.Name = "LoggerForm";
             this.Text = "Proof Productions: Logs";
             ((System.ComponentModel.ISupportInitialize)(this.logGridView)).EndInit();

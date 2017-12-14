@@ -61,7 +61,7 @@ namespace Proof_Productions.View
             this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.cueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cueDataGridView.Location = new System.Drawing.Point(16, 94);
-            this.cueDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cueDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.cueDataGridView.MultiSelect = false;
             this.cueDataGridView.Name = "cueDataGridView";
             this.cueDataGridView.Size = new System.Drawing.Size(919, 351);
@@ -142,7 +142,7 @@ namespace Proof_Productions.View
             // 
             this.cueComboBox.FormattingEnabled = true;
             this.cueComboBox.Location = new System.Drawing.Point(107, 42);
-            this.cueComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cueComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.cueComboBox.Name = "cueComboBox";
             this.cueComboBox.Size = new System.Drawing.Size(160, 24);
             this.cueComboBox.TabIndex = 20;
@@ -152,7 +152,7 @@ namespace Proof_Productions.View
             // 
             this.deleteCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteCueItemButton.Location = new System.Drawing.Point(385, 463);
-            this.deleteCueItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteCueItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteCueItemButton.Name = "deleteCueItemButton";
             this.deleteCueItemButton.Size = new System.Drawing.Size(131, 28);
             this.deleteCueItemButton.TabIndex = 21;
@@ -163,7 +163,7 @@ namespace Proof_Productions.View
             // newCueButton
             // 
             this.newCueButton.Location = new System.Drawing.Point(301, 42);
-            this.newCueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newCueButton.Margin = new System.Windows.Forms.Padding(4);
             this.newCueButton.Name = "newCueButton";
             this.newCueButton.Size = new System.Drawing.Size(111, 28);
             this.newCueButton.TabIndex = 22;
@@ -174,7 +174,7 @@ namespace Proof_Productions.View
             // deleteCueButton
             // 
             this.deleteCueButton.Location = new System.Drawing.Point(420, 42);
-            this.deleteCueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteCueButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteCueButton.Name = "deleteCueButton";
             this.deleteCueButton.Size = new System.Drawing.Size(100, 28);
             this.deleteCueButton.TabIndex = 23;
@@ -186,7 +186,7 @@ namespace Proof_Productions.View
             // 
             this.addCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addCueItemButton.Location = new System.Drawing.Point(16, 463);
-            this.addCueItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addCueItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.addCueItemButton.Name = "addCueItemButton";
             this.addCueItemButton.Size = new System.Drawing.Size(163, 28);
             this.addCueItemButton.TabIndex = 24;
@@ -198,7 +198,7 @@ namespace Proof_Productions.View
             // 
             this.UpdateCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UpdateCueItemButton.Location = new System.Drawing.Point(209, 463);
-            this.UpdateCueItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UpdateCueItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateCueItemButton.Name = "UpdateCueItemButton";
             this.UpdateCueItemButton.Size = new System.Drawing.Size(140, 28);
             this.UpdateCueItemButton.TabIndex = 25;
@@ -222,7 +222,8 @@ namespace Proof_Productions.View
             this.Controls.Add(this.cueDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(961, 560);
             this.Name = "SetupCueForm";
             this.Text = "Proof Productions: Setup Cues";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupCuesForm_FormClosing);

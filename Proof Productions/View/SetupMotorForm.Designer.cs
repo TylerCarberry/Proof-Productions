@@ -51,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MotorLabel.AutoSize = true;
             this.MotorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MotorLabel.Location = new System.Drawing.Point(31, 70);
+            this.MotorLabel.Location = new System.Drawing.Point(31, 44);
             this.MotorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MotorLabel.Name = "MotorLabel";
             this.MotorLabel.Size = new System.Drawing.Size(51, 17);
@@ -153,11 +153,12 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(34, 91);
+            this.dataGridView.Location = new System.Drawing.Point(34, 65);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView.MinimumSize = new System.Drawing.Size(1101, 303);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(1101, 303);
+            this.dataGridView.Size = new System.Drawing.Size(1101, 340);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentChanged);
             // 
@@ -187,6 +188,7 @@
             this.Controls.Add(this.AddMotorButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1181, 523);
             this.Name = "SetupMotorForm";
             this.Text = "Proof Productions: Setup Motors";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupMotorForm_FormClosing);

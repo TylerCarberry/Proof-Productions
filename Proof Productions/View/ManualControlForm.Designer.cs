@@ -110,6 +110,7 @@ namespace Proof_Productions.View
             this.estopButton.ForeColor = System.Drawing.Color.White;
             this.estopButton.Location = new System.Drawing.Point(28, 499);
             this.estopButton.Margin = new System.Windows.Forms.Padding(4);
+            this.estopButton.MinimumSize = new System.Drawing.Size(204, 67);
             this.estopButton.Name = "estopButton";
             this.estopButton.Size = new System.Drawing.Size(204, 67);
             this.estopButton.TabIndex = 24;
@@ -915,6 +916,7 @@ namespace Proof_Productions.View
             this.Controls.Add(this.motorPanelLeft);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1149, 626);
             this.Name = "ManualControlForm";
             this.Text = "Proof Productions: Manual Control";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
