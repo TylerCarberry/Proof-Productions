@@ -136,6 +136,7 @@
             this.CueItemNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.CueItemNumberTextBox.TabIndex = 11;
             this.CueItemNumberTextBox.TextChanged += new System.EventHandler(this.CueItemNumberTextBox_TextChanged);
+            this.CueItemNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CueItemNumberTextBox_KeyPress);
             // 
             // DelayTextbox
             // 
@@ -143,8 +144,8 @@
             this.DelayTextbox.Name = "DelayTextbox";
             this.DelayTextbox.Size = new System.Drawing.Size(100, 20);
             this.DelayTextbox.TabIndex = 12;
-            this.DelayTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelayTextbox_KeyPress);
             this.DelayTextbox.TextChanged += new System.EventHandler(this.DelayTextbox_TextChanged);
+            this.DelayTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelayTextbox_KeyPress);
             // 
             // DurationTextBox
             // 
@@ -152,8 +153,8 @@
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(100, 20);
             this.DurationTextBox.TabIndex = 13;
-            this.DurationTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DurationTextBox_KeyPress);
             this.DurationTextBox.TextChanged += new System.EventHandler(this.DurationTextBox_TextChanged);
+            this.DurationTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DurationTextBox_KeyPress);
             // 
             // VelocityTextBox
             // 

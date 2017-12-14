@@ -121,7 +121,7 @@ namespace Proof_Productions.View
         private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             //only apply character input check to non-name columns
-            if (this.dataGridView.CurrentCell.ColumnIndex == 4 || this.dataGridView.CurrentCell.ColumnIndex == 5 || this.dataGridView.CurrentCell.ColumnIndex == 6)
+            if (this.dataGridView.CurrentCell.ColumnIndex == 4)
             {
                 var txtEdit = (TextBox)e.Control;
                 txtEdit.KeyPress += EditKeyPress;
