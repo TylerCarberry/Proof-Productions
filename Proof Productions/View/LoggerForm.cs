@@ -32,6 +32,10 @@ namespace Proof_Productions.View
             {
                 return;
             }
+            catch (DirectoryNotFoundException e)
+            {
+                return;
+            }
 
             logGridView.Rows.Clear();
             foreach (String item in logArray)
@@ -51,7 +55,7 @@ namespace Proof_Productions.View
 
         private void logLocationButton_Click(object sender, EventArgs e)
         {
-            String filePath = Logger.getLogPath();
+            String filePath = Logger.getLogFolder();
             String argument = "/select, \"" + filePath + "\"";
 
             System.Diagnostics.Process.Start("explorer.exe", argument);
