@@ -210,15 +210,18 @@ namespace Proof_Productions.View
 
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             new AboutForm().Show();
         }
 
-        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void setupCuesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             SwitchToForm(new SetupCueForm());
         }
 
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             SwitchToForm(new MainMenuForm());
         }
 
@@ -296,6 +299,78 @@ namespace Proof_Productions.View
                 Controller1.Estop();
             if(Controller2 != null)
                 Controller2.Estop();
+        }
+        
+        private void motor1Spd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor1Accel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor1Decel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor2Spd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor2Accel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor2Decel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor3Spd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor3Accel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void motor3Decel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

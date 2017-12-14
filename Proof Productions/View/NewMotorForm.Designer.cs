@@ -186,6 +186,7 @@
             this.MaxVelTextBox.Name = "MaxVelTextBox";
             this.MaxVelTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxVelTextBox.TabIndex = 15;
+            this.MaxVelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxVelTextBox_KeyPress);
             // 
             // MaxAccelTextBox
             // 
@@ -193,6 +194,7 @@
             this.MaxAccelTextBox.Name = "MaxAccelTextBox";
             this.MaxAccelTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxAccelTextBox.TabIndex = 16;
+            this.MaxAccelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxAccelTextBox_KeyPress);
             // 
             // MaxDecelTextBox
             // 
@@ -200,6 +202,7 @@
             this.MaxDecelTextBox.Name = "MaxDecelTextBox";
             this.MaxDecelTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxDecelTextBox.TabIndex = 17;
+            this.MaxDecelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxDecelTextBox_KeyPress);
             // 
             // MaxNegPosTextBox
             // 
