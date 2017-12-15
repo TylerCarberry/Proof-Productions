@@ -38,38 +38,37 @@
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeMotorButton = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.AddMotorButton = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.UpdateMotorButton = new System.Windows.Forms.Button();
+            this.MotorLabel = new System.Windows.Forms.Label();
+            this.UpdateAllButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // MotorLabel
-            // 
-            this.MotorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MotorLabel.AutoSize = true;
-            this.MotorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MotorLabel.Location = new System.Drawing.Point(31, 44);
-            this.MotorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MotorLabel.Name = "MotorLabel";
-            this.MotorLabel.Size = new System.Drawing.Size(51, 17);
-            this.MotorLabel.TabIndex = 20;
-            this.MotorLabel.Text = "Motors";
+            //
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(26, 73);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(825, 264);
+            this.dataGridView.TabIndex = 1;
+            this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentChanged);
+            this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
             // UpdateMotorButton
             // 
-            this.UpdateMotorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UpdateMotorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateMotorButton.Location = new System.Drawing.Point(315, 435);
-            this.UpdateMotorButton.Margin = new System.Windows.Forms.Padding(4);
-            this.UpdateMotorButton.Name = "UpdateMotorButton";
-            this.UpdateMotorButton.Size = new System.Drawing.Size(117, 34);
-            this.UpdateMotorButton.TabIndex = 19;
-            this.UpdateMotorButton.Text = "Update Motor";
-            this.UpdateMotorButton.UseVisualStyleBackColor = true;
-            this.UpdateMotorButton.Click += new System.EventHandler(this.UpdateMotorButton_Click);
+            this.removeMotorButton.Location = new System.Drawing.Point(348, 358);
+            this.removeMotorButton.Name = "removeMotorButton";
+            this.removeMotorButton.Size = new System.Drawing.Size(91, 23);
+            this.removeMotorButton.TabIndex = 13;
+            this.removeMotorButton.Text = "Remove Motor";
+            this.removeMotorButton.UseVisualStyleBackColor = true;
+            this.removeMotorButton.Click += new System.EventHandler(this.RemoveMotorButton_Click);
             // 
             // menuStrip
             // 
@@ -131,17 +130,14 @@
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // removeMotorButton
-            // 
-            this.removeMotorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeMotorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeMotorButton.Location = new System.Drawing.Point(173, 435);
-            this.removeMotorButton.Margin = new System.Windows.Forms.Padding(4);
-            this.removeMotorButton.Name = "removeMotorButton";
-            this.removeMotorButton.Size = new System.Drawing.Size(117, 34);
-            this.removeMotorButton.TabIndex = 13;
-            this.removeMotorButton.Text = "Remove Motor";
-            this.removeMotorButton.UseVisualStyleBackColor = true;
-            this.removeMotorButton.Click += new System.EventHandler(this.RemoveMotorButton_Click);
+            //
+            this.UpdateMotorButton.Location = new System.Drawing.Point(118, 358);
+            this.UpdateMotorButton.Name = "UpdateMotorButton";
+            this.UpdateMotorButton.Size = new System.Drawing.Size(82, 23);
+            this.UpdateMotorButton.TabIndex = 19;
+            this.UpdateMotorButton.Text = "Update Motor";
+            this.UpdateMotorButton.UseVisualStyleBackColor = true;
+            this.UpdateMotorButton.Click += new System.EventHandler(this.UpdateMotorButton_Click);
             // 
             // dataGridView
             // 
@@ -175,11 +171,22 @@
             this.AddMotorButton.UseVisualStyleBackColor = true;
             this.AddMotorButton.Click += new System.EventHandler(this.AddMotorButton_Click);
             // 
+            // UpdateAllButton
+            // 
+            this.UpdateAllButton.Location = new System.Drawing.Point(216, 358);
+            this.UpdateAllButton.Name = "UpdateAllButton";
+            this.UpdateAllButton.Size = new System.Drawing.Size(114, 23);
+            this.UpdateAllButton.TabIndex = 21;
+            this.UpdateAllButton.Text = "Update All Motors";
+            this.UpdateAllButton.UseVisualStyleBackColor = true;
+            this.UpdateAllButton.Click += new System.EventHandler(this.UpdateAllButton_Click);
+            // 
             // SetupMotorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 484);
+            this.ClientSize = new System.Drawing.Size(874, 393);
+            this.Controls.Add(this.UpdateAllButton);
             this.Controls.Add(this.MotorLabel);
             this.Controls.Add(this.UpdateMotorButton);
             this.Controls.Add(this.menuStrip);
@@ -214,5 +221,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button UpdateMotorButton;
         private System.Windows.Forms.Label MotorLabel;
+        private System.Windows.Forms.Button UpdateAllButton;
     }
 }

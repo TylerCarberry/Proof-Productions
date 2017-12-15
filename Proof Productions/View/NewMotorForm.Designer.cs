@@ -205,6 +205,7 @@
             this.MaxVelTextBox.Name = "MaxVelTextBox";
             this.MaxVelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxVelTextBox.TabIndex = 15;
+            this.MaxVelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxVelTextBox_KeyPress);
             // 
             // MaxAccelTextBox
             // 
@@ -213,6 +214,7 @@
             this.MaxAccelTextBox.Name = "MaxAccelTextBox";
             this.MaxAccelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxAccelTextBox.TabIndex = 16;
+            this.MaxAccelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxAccelTextBox_KeyPress);
             // 
             // MaxDecelTextBox
             // 
@@ -221,22 +223,27 @@
             this.MaxDecelTextBox.Name = "MaxDecelTextBox";
             this.MaxDecelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxDecelTextBox.TabIndex = 17;
+            this.MaxDecelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxDecelTextBox_KeyPress);
             // 
             // MaxNegPosTextBox
             // 
             this.MaxNegPosTextBox.Location = new System.Drawing.Point(460, 122);
             this.MaxNegPosTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxNegPosTextBox.Name = "MaxNegPosTextBox";
-            this.MaxNegPosTextBox.Size = new System.Drawing.Size(169, 23);
+            this.MaxNegPosTextBox.ReadOnly = true;
+            this.MaxNegPosTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxNegPosTextBox.TabIndex = 18;
+            this.MaxNegPosTextBox.Text = "200000000";
             // 
             // MaxPosPosTextBox
             // 
             this.MaxPosPosTextBox.Location = new System.Drawing.Point(460, 154);
             this.MaxPosPosTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxPosPosTextBox.Name = "MaxPosPosTextBox";
-            this.MaxPosPosTextBox.Size = new System.Drawing.Size(169, 23);
+            this.MaxPosPosTextBox.ReadOnly = true;
+            this.MaxPosPosTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxPosPosTextBox.TabIndex = 19;
+            this.MaxPosPosTextBox.Text = "200000000";
             // 
             // NewMotorForm
             // 

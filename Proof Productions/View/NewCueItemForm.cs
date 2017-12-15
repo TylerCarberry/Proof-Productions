@@ -97,8 +97,204 @@ namespace Proof_Productions.View
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            submitted = true;
-            this.Close();
+            if (validInputs())
+            {
+                submitted = true;
+                this.Close();
+            }
+        }
+
+        private bool validInputs()
+        {
+            //TODO - changing valid is repetitive - find some way to abstract it to an outer if block
+            bool valid = true;
+            StringBuilder Message = new StringBuilder("The following inputs are invalid: \n");
+
+            if (!validateName())
+            {
+                Message.Append("Cue Item Name\n");
+                valid = false;
+            }
+            if(!validateCueItemNumber())
+            {
+                Message.Append("Cue Item Number\n");
+                valid = false;
+            }
+            if(!validateDelay())
+            {
+                Message.Append("Start Delay\n");
+                valid = false;
+            }
+            if(!validateDuration())
+            {
+                Message.Append("Duration\n");
+                valid = false;
+            }
+            if(!validateVelocity())
+            {
+                Message.Append("Velocity\n");
+                valid = false;
+            }
+            if(!validateAcceleration())
+            {
+                Message.Append("Acceleration\n");
+                valid = false;
+            }
+            if(!validateDeceleration())
+            {
+                Message.Append("Deceleration\n");
+                valid = false;
+            }
+            if(!validatePosition())
+            {
+                Message.Append("Position\n");
+                valid = false;
+            }
+
+            if (!valid) MessageBox.Show(Message.ToString());
+            return valid;
+        }
+
+        public bool validateName()
+        {
+            return NameTextBox.TextLength > 0;
+        }
+
+        public bool validateCueItemNumber()
+        {
+            return CueItemNumberTextBox.TextLength > 0;
+        }
+
+        public bool validateDelay()
+        {
+            double output;
+            return DelayTextbox.TextLength > 0 || double.TryParse(GetStartDelay(), out output);
+        }
+
+        public bool validateDuration()
+        {
+            double output;
+            return DurationTextBox.TextLength > 0 || double.TryParse(GetDuration(), out output);
+        }
+
+        public bool validateVelocity()
+        {
+            if (VelocityTextBox.TextLength == 0) return false;
+            else if (GetVelocity().Equals("") || Int32.Parse(GetVelocity()) > 1750) return false;
+            return true;
+        }
+
+        public bool validateAcceleration()
+        {
+            return AccelTextBox.TextLength > 0;
+        }
+
+        public bool validateDeceleration()
+        {
+            return DecelTextBox.TextLength > 0;
+        }
+
+        public bool validatePosition()
+        {
+            return PositionTextBox.TextLength > 0;
+        }
+
+        private void CueItemNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //makes sure that only digits are entered
+            //if any non digits are inputted - reset text
+            if (System.Text.RegularExpressions.Regex.IsMatch(CueItemNumberTextBox.Text, "[^0-9]"))
+            {
+                if(CueItemNumberTextBox.TextLength > 0)
+                    MessageBox.Show("Please enter only numbers.");
+                CueItemNumberTextBox.Clear();
+            }
+        }
+
+        private void DurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DelayTextbox_TextChanged(object sender, EventArgs e)
+        {
+            //Currently only checks integers and periods
+            //TODO - Try to check as a double as users are inputting it
+            if (System.Text.RegularExpressions.Regex.IsMatch(DelayTextbox.Text, "[^0-9\\.]"))
+            {
+                if (DelayTextbox.TextLength > 0)
+                    MessageBox.Show("Please enter only numbers.");
+                DelayTextbox.Clear();
+            }
+        }
+
+        private void cueItemInputCheck(object sender, EventArgs e)
+        {
+            foreach (Control tb in this.Controls)
+            {
+                if (tb is TextBox)
+                {
+                    TextBox tb1 = (TextBox)tb;
+                    tb1.KeyPress += EditKeyPress;
+                }
+            }
+        }
+
+        private void EditKeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void DelayTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void DurationTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void VelocityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AccelTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void DecelTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CueItemNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

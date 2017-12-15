@@ -9,13 +9,24 @@ namespace Proof_Productions.Controller
     class Logger
     {
 
+        public static String getLogFolder()
+        {
+            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\proofProductionLogs\\";
+        }
+        
         public static String getLogPath()
         {
-            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/proofLog" + DateTime.Now.ToString("MMddyyyy") + ".txt";
+            return getLogFolder() + "log-" + DateTime.Now.ToString("MMddyyyy") + ".txt";
+        }
+
+        public static void makeLogFolderIfDoesntExist()
+        {
+            System.IO.Directory.CreateDirectory(getLogFolder());
         }
 
         public static void LogInfo(String message)
         {
+            makeLogFolderIfDoesntExist();
             System.IO.File.AppendAllText(getLogPath(), CurrentTime() + " | ");
             System.IO.File.AppendAllText(getLogPath(), FormatMessage(message));
             System.IO.File.AppendAllText(getLogPath(), System.Environment.NewLine);
@@ -23,6 +34,7 @@ namespace Proof_Productions.Controller
 
         public static void LogError(String message)
         {
+            makeLogFolderIfDoesntExist();
             System.IO.File.AppendAllText(getLogPath(), CurrentTime() + " | ERROR ");
             System.IO.File.AppendAllText(getLogPath(), FormatMessage(message));
             System.IO.File.AppendAllText(getLogPath(), System.Environment.NewLine);

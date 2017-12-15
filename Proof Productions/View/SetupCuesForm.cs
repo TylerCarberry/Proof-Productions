@@ -80,19 +80,23 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                //if nothing has ever been added to table - CurrentRow is null
-                if (cueDataGridView.CurrentRow == null || cueDataGridView.CurrentRow.IsNewRow)
-                    return;
+                if (cueComboBox.SelectedIndex == -1)
+                    MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
                 else
                 {
-                    int rowIndex = cueDataGridView.CurrentRow.Index;
-                    if (rowIndex < cueDataGridView.Rows.Count)
+                    //if nothing has ever been added to table - CurrentRow is null
+                    if (cueDataGridView.CurrentRow == null || cueDataGridView.CurrentRow.IsNewRow)
+                        return;
+                    else
                     {
-                        cueDataGridView.Rows.RemoveAt(rowIndex);
-                        // TODO: Also remove the CueItem from the Cue
+                        int rowIndex = cueDataGridView.CurrentRow.Index;
+                        if (rowIndex < cueDataGridView.Rows.Count)
+                        {
+                            cueDataGridView.Rows.RemoveAt(rowIndex);
+                            RefreshCueItemGrid(getCurrentCue());
+                        }
                     }
                 }
-
             }
         }
 
@@ -133,7 +137,7 @@ namespace Proof_Productions.View
             newCue.ShowDialog();
             if (newCue.isSubmitted())
             {
-                Controller.addCue(newCue.getCueName());
+                Controller.addCue(newCue.getCueName(), newCue.getDescription());
                 RefreshCueComboBox();
             }
         }
@@ -153,7 +157,7 @@ namespace Proof_Productions.View
                     Controller.deleteCue(currentCue);
                     cueComboBox.SelectedIndex = -1; //set selected text to empty
                     RefreshCueComboBox();
-
+                    RefreshCueItemGrid(getCurrentCue());
                 }
             }
         }
@@ -223,12 +227,32 @@ namespace Proof_Productions.View
 
         private void cueDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            {
+                int rowIndex = e.RowIndex;
+                int currentCollumnIndex = e.ColumnIndex;
+                int coorespondingIndex = currentCollumnIndex == 5 ? 6 : 5;
+
+                bool isChecked = cueDataGridView.Rows[e.RowIndex].Cells[currentCollumnIndex].Value.Equals(true);
+                cueDataGridView.Rows[rowIndex].Cells[coorespondingIndex].Value = !isChecked;
+            }
+
             hasModifiedSinceLastSave = true;
+        }
+
+        private void myDataGrid_OnCellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // End of edition on each click on column of checkbox
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            {
+                cueDataGridView.EndEdit();
+            }
         }
 
         private void cueDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            cueDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
         private void cueDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -248,6 +272,18 @@ namespace Proof_Productions.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void UpdateAllButton_Click(object sender, EventArgs e)
+        {
+            if (cueComboBox.SelectedIndex == -1)
+                MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
+            else
+            {
+                Controller.updateAllCueItem(cueDataGridView);
+                RefreshCueItemGrid(getCurrentCue());
+            }
+   
         }
     }
 }

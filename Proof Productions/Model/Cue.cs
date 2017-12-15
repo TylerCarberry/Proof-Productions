@@ -13,13 +13,15 @@ namespace Proof_Productions.Model
     {
         List<CueItem> ItemList = new List<CueItem>();
         public String Name = "Default Cue";
+        public String Description;
 
 
         public Cue() { }
 
-        public Cue(String Name)
+        public Cue(String Name, String Description)
         {
             this.Name = Name;
+            this.Description = Description;
         }
 
         public void Add(CueItem Item)

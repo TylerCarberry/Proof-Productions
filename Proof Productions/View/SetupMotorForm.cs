@@ -117,5 +117,30 @@ namespace Proof_Productions.View
                 }
             }
         }
+
+        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            //only apply character input check to non-name columns
+            if (this.dataGridView.CurrentCell.ColumnIndex == 4)
+            {
+                var txtEdit = (TextBox)e.Control;
+                txtEdit.KeyPress += EditKeyPress;
+            }
+        }
+
+        private void EditKeyPress(object sender, KeyPressEventArgs e)
+        {
+            //only allowed to input numerals
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void UpdateAllButton_Click(object sender, EventArgs e)
+        {
+            Controller.updateAllMotor(dataGridView);
+            RefreshData();
+        }
     }
 }

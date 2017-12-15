@@ -29,14 +29,7 @@ namespace Proof_Productions.Controller
         // --------------------------------------------------------------------------------------------------------------------------------------------
         public PlayCueController()
         {
-            Cue Cue1 = new Cue();
-            Motor Motor1 = new Motor();
-            CueItem Item = new CueItem(5, 10, Motor1, 500, 100, 100, false, 0);
-            Cue1.Add(Item);
-            Item = new CueItem(25, 20, Motor1, 300, 100, 100, false, 0);
-            Cue1.Add(Item);
-            CueList.Add(Cue1);
-            CurrentCue = CueList[0];
+
         }
 
         // ---------------------------------------------------------------
@@ -50,7 +43,6 @@ namespace Proof_Productions.Controller
                 try
                 {
                     Master MBmaster = new Master(Item.CueMotor.IPAddress, 502);
-                    Console.WriteLine("Adding Motor " + Item.CueMotor.IPAddress);
                     MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
                     Logger.LogInfo("Successfully connected to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     MasterList.Add(MBmaster);
@@ -191,9 +183,9 @@ namespace Proof_Productions.Controller
             return (Index >= 0 && Index < ListSize);
         }
 
-        public Boolean HasCueFinished()
+        public Boolean IsCueRunning()
         {
-            return FinishedCue;
+            return timer.Enabled;
         }
 
         public void Estop()
@@ -223,16 +215,16 @@ namespace Proof_Productions.Controller
             {
                 data.connect();
 
-                DataTable CueTable = data.getCueNames();
+                DataTable CueTable = data.getCues();
                 foreach (DataRow CueRow in CueTable.Rows)
                 {
-                    Cue NewCue = new Cue(CueRow["Name"].ToString());
+                    Cue NewCue = new Cue(CueRow["Name"].ToString(), CueRow["Description"].ToString());
                     DataTable CueItemTable = data.GetAllFromCueMotor(NewCue.Name);
                     foreach (DataRow CueItemRow in CueItemTable.Rows)
                     {
                         Motor CueMotor = new Motor(CueItemRow["IPAddress"].ToString(),
                                                    CueItemRow["MotorName"].ToString(),
-                                                   CueItemRow["Description"].ToString(),  //PLC is Placeholder
+                                                   CueItemRow["Description"].ToString(),
                                                    (int)CueItemRow["LimitMaxVelocity"],
                                                    (int)CueItemRow["LimitMaxAcceleration"],
                                                    (int)CueItemRow["LimitMaxDeceleration"],
@@ -249,6 +241,7 @@ namespace Proof_Productions.Controller
                                                    (int)CueItemRow["SetPosition"]);
 
                         NewCue.Add(Item);
+                        Console.WriteLine("Added Item");
                     }
                     CueList.Add(NewCue);
                 }

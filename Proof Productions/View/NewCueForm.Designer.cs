@@ -32,30 +32,29 @@
             this.cueNameTextBox = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.CueDescBox = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CueNameLabel
             // 
             this.CueNameLabel.AutoSize = true;
-            this.CueNameLabel.Location = new System.Drawing.Point(33, 63);
-            this.CueNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CueNameLabel.Location = new System.Drawing.Point(17, 25);
             this.CueNameLabel.Name = "CueNameLabel";
             this.CueNameLabel.Size = new System.Drawing.Size(74, 17);
             this.CueNameLabel.TabIndex = 0;
             this.CueNameLabel.Text = "Cue Name";
             // 
             // cueNameTextBox
-            // 
-            this.cueNameTextBox.Location = new System.Drawing.Point(129, 59);
-            this.cueNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            //
+            this.cueNameTextBox.Location = new System.Drawing.Point(105, 22);
             this.cueNameTextBox.Name = "cueNameTextBox";
-            this.cueNameTextBox.Size = new System.Drawing.Size(165, 23);
+            this.cueNameTextBox.Size = new System.Drawing.Size(117, 20);
             this.cueNameTextBox.TabIndex = 1;
             // 
             // submitButton
-            // 
-            this.submitButton.Location = new System.Drawing.Point(92, 144);
-            this.submitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            //
+            this.submitButton.Location = new System.Drawing.Point(66, 210);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(100, 28);
             this.submitButton.TabIndex = 2;
@@ -64,9 +63,8 @@
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // CancelButton
-            // 
-            this.CancelButton.Location = new System.Drawing.Point(217, 144);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            //
+            this.CancelButton.Location = new System.Drawing.Point(147, 210);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 3;
@@ -74,11 +72,30 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // CueDescBox
+            // 
+            this.CueDescBox.Location = new System.Drawing.Point(105, 55);
+            this.CueDescBox.Name = "CueDescBox";
+            this.CueDescBox.Size = new System.Drawing.Size(185, 134);
+            this.CueDescBox.TabIndex = 4;
+            this.CueDescBox.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Cue Description";
+            // 
             // NewCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 261);
+            this.ClientSize = new System.Drawing.Size(310, 261);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CueDescBox);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.cueNameTextBox);
@@ -100,5 +117,7 @@
         private System.Windows.Forms.TextBox cueNameTextBox;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.RichTextBox CueDescBox;
+        private System.Windows.Forms.Label label1;
     }
 }

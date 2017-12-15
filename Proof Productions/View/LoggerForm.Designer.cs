@@ -34,8 +34,6 @@
             this.entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refreshLogsButton = new System.Windows.Forms.Button();
             this.logLocationButton = new System.Windows.Forms.Button();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.searchLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,33 +102,11 @@
             this.logLocationButton.UseVisualStyleBackColor = false;
             this.logLocationButton.Click += new System.EventHandler(this.logLocationButton_Click);
             // 
-            // searchBox
-            // 
-            this.searchBox.Enabled = false;
-            this.searchBox.Location = new System.Drawing.Point(327, 33);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(173, 23);
-            this.searchBox.TabIndex = 4;
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
-            // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(323, 14);
-            this.searchLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(53, 17);
-            this.searchLabel.TabIndex = 5;
-            this.searchLabel.Text = "Search";
-            // 
             // LoggerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 462);
-            this.Controls.Add(this.searchLabel);
-            this.Controls.Add(this.searchBox);
+            this.ClientSize = new System.Drawing.Size(697, 375);
             this.Controls.Add(this.logLocationButton);
             this.Controls.Add(this.refreshLogsButton);
             this.Controls.Add(this.logGridView);
@@ -141,7 +117,6 @@
             this.Text = "Proof Productions: Logs";
             ((System.ComponentModel.ISupportInitialize)(this.logGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -153,8 +128,6 @@
         //Buttons and remaining components
         private System.Windows.Forms.Button refreshLogsButton;
         private System.Windows.Forms.Button logLocationButton;
-        private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.DataGridViewTextBoxColumn entry;

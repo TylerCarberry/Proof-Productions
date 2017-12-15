@@ -14,7 +14,7 @@ namespace Proof_Productions.Model
         public PLC ConnectedPLC;
         public FieldbusInputData InputData = new FieldbusInputData();
         public FieldbusOutputData OutputData = new FieldbusOutputData();
-        public RotationalScaler Scaler;
+        RotationalScaler Scaler;
 
         //TODO Implement Motor Limits
         public int LimitMaxVelocity, LimitMaxAcceleration, LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition;
@@ -31,7 +31,6 @@ namespace Proof_Productions.Model
             this.IPAddress = IPAddress;
             this.Name = Name;
             this.Description = Description;
-            Scaler = new RotationalScaler(this);
         }
 
         public Motor(String IPAddress, String Name, String Description, 
@@ -46,6 +45,23 @@ namespace Proof_Productions.Model
             this.LimitMaxDeceleration = LimitMaxDeceleration;
             this.LimitMaxNegPosition = LimitMaxNegPosition;
             this.LimitMaxPosPosition = LimitMaxPosPosition;
+        }
+
+        public void AddScaler(RotationalScaler Scale)
+        {
+            Scaler = Scale;
+        }
+
+        public RotationalScaler GetScaler()
+        {
+            return Scaler;
+        }
+
+        public bool HasScaler()
+        {
+            if (Scaler == null)
+                return false;
+            return true;
         }
 
         /// <summary>
