@@ -107,6 +107,11 @@ namespace Proof_Productions.View
             {
                 cueComboBox.Items.Add(table.Rows[i][column].ToString());
             }
+
+            if (cueComboBox.Items.Count > 0)
+            {
+                cueComboBox.SelectedIndex = 0;
+            }
         }
 
         public void RefreshCueItemGrid(String Name)

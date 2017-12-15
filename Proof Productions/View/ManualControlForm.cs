@@ -24,9 +24,11 @@ namespace Proof_Productions.View
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
             String decelStr = motor1Decel.Text;
-            int.TryParse(speedStr, out int Speed);
-            int.TryParse(accelStr, out int Acceleration);
-            int.TryParse(decelStr, out int Deceleration);
+
+            int Speed, Acceleration, Deceleration;
+            int.TryParse(speedStr, out Speed);
+            int.TryParse(accelStr, out Acceleration);
+            int.TryParse(decelStr, out Deceleration);
 
             Controller1.WriteMotor(Speed, Acceleration, Deceleration, motor1Forward.Checked); 
         }
@@ -61,11 +63,13 @@ namespace Proof_Productions.View
             String countStr = motor2Counts.Text;
             String degreeStr = Motor2Degrees.Text;
 
-            int.TryParse(speedStr, out int Speed);
-            int.TryParse(accelStr, out int Acceleration);
-            int.TryParse(decelStr, out int Deceleration);
-            double.TryParse(countStr, out double Counts);
-            double.TryParse(degreeStr, out double Degrees);
+            int Speed, Acceleration, Deceleration;
+            double Counts, Degrees;
+            int.TryParse(speedStr, out Speed);
+            int.TryParse(accelStr, out Acceleration);
+            int.TryParse(decelStr, out Deceleration);
+            double.TryParse(countStr, out Counts);
+            double.TryParse(degreeStr, out Degrees);
 
             Controller2.WriteMotor(Speed, Acceleration, Deceleration, Counts, Degrees);
         }

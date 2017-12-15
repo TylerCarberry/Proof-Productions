@@ -38,6 +38,7 @@ namespace Proof_Productions.Model.Output
             return Value;
         }
 
+        // Used for debugging
         public override String ToString()
         {
             String Debug = "SubStatusWord \r\n";

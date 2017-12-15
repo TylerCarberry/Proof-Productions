@@ -148,6 +148,10 @@ namespace Proof_Productions.View
             //populate description text box
             cueDescription.Text = CurrentCue.Description;
         }
-    
+
+        private void cueDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
