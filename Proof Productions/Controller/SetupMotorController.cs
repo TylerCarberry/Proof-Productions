@@ -44,7 +44,7 @@ namespace Proof_Productions.Controller
                 foreach (DataGridViewRow dgvRow in view.Rows)
                 {
                     DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
-                    data.IpdateMotor(Row);
+                    data.UpdateMotor(Row);
                 }
                 data.Disconnect();
                 MessageBox.Show("All motors have been updated");
@@ -62,7 +62,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.IpdateMotor(row);
+                data.UpdateMotor(row);
                 data.Disconnect(); 
                 MessageBox.Show(motorName + " has been updated");
             }
