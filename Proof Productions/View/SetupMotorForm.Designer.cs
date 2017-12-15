@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.AddMotorButton = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.motorGridView = new System.Windows.Forms.DataGridView();
             this.removeMotorButton = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +42,7 @@
             this.UpdateMotorButton = new System.Windows.Forms.Button();
             this.MotorLabel = new System.Windows.Forms.Label();
             this.UpdateAllButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motorGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,24 +58,18 @@
             this.AddMotorButton.UseVisualStyleBackColor = true;
             this.AddMotorButton.Click += new System.EventHandler(this.AddMotorButton_Click);
             // 
-            // dataGridView
+            // motorGridView
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(35, 60);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(1100, 325);
-            this.dataGridView.TabIndex = 1;
-            this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentChanged);
-            this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            this.motorGridView.AllowUserToAddRows = false;
+            this.motorGridView.AllowUserToDeleteRows = false;
+            this.motorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.motorGridView.Location = new System.Drawing.Point(26, 73);
+            this.motorGridView.MultiSelect = false;
+            this.motorGridView.Name = "motorGridView";
+            this.motorGridView.Size = new System.Drawing.Size(825, 264);
+            this.motorGridView.TabIndex = 1;
+            this.motorGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.MotorGridView_CellContentChanged);
+            this.motorGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.motorGridView_EditingControlShowing);
             // 
             // removeMotorButton
             // 
@@ -192,7 +186,7 @@
             this.Controls.Add(this.UpdateMotorButton);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.removeMotorButton);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.motorGridView);
             this.Controls.Add(this.AddMotorButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -200,7 +194,7 @@
             this.Name = "SetupMotorForm";
             this.Text = "Proof Productions: Setup Motors";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupMotorForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motorGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -210,7 +204,7 @@
 
         #endregion
         private System.Windows.Forms.Button AddMotorButton;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView motorGridView;
         private System.Windows.Forms.Button removeMotorButton;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
