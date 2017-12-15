@@ -26,7 +26,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                motortable = data.getMotors();
+                motortable = data.GetMotors();
                 data.Disconnect();
             }
             catch (Exception e)
@@ -44,7 +44,7 @@ namespace Proof_Productions.Controller
                 foreach (DataGridViewRow dgvRow in view.Rows)
                 {
                     DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
-                    data.updateMotor(Row);
+                    data.IpdateMotor(Row);
                 }
                 data.Disconnect();
                 MessageBox.Show("All motors have been updated");
@@ -62,7 +62,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.updateMotor(row);
+                data.IpdateMotor(row);
                 data.Disconnect(); 
                 MessageBox.Show(motorName + " has been updated");
             }
@@ -78,7 +78,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.insertMotor(row);
+                data.InsertMotor(row);
                 data.Disconnect();
                 MessageBox.Show(motorName + " has been added");
             }
@@ -88,13 +88,13 @@ namespace Proof_Productions.Controller
             }
         }
 
-        public void deleteMotor(DataRow row, DataTable table)
+        public void deleteMotor(DataRow row)
         {
             String motorName = row["Name"].ToString();
             try
             {
                 data.Connect();
-                data.deleteMotor(row, table);
+                data.DeleteMotor(row);
                 data.Disconnect();
                 MessageBox.Show(motorName + " has been deleted");
             }

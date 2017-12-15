@@ -24,7 +24,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                cuenames = data.getCues();
+                cuenames = data.GetCues();
                 data.Disconnect();
             }
             catch (Exception e)
@@ -40,7 +40,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                cueitems = data.getCueItems(cueName);
+                cueitems = data.GetCueItems(cueName);
                 data.Disconnect();
             }
             catch (Exception e)
@@ -55,7 +55,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.insertCue(cueName, Description);
+                data.InsertCue(cueName, Description);
                 data.Disconnect();
                 MessageBox.Show("Cue '" + cueName + "' has been added");
             }
@@ -71,7 +71,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.deleteCue(cueName);
+                data.DeleteCue(cueName);
                 data.Disconnect();
                 MessageBox.Show("Cue '" + cueName + "' has been deleted");
             }
@@ -87,7 +87,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                data.insertCueItem(row, cueName);
+                data.InsertCueItem(row, cueName);
                 data.Disconnect();
                 MessageBox.Show("Inserted new cue item '" + itemName + "' into Cue '" + cueName + "'");
             }
