@@ -153,6 +153,7 @@ namespace Proof_Productions.Controller
                     timer.Stop();
                     DisconnectMotors();
                     Logger.LogInfo("Cue " + CurrentCue.Name + " has stopped running");
+                    return;
                 }
             }
         }
