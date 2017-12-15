@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Proof_Productions.Controller;
+using System.Data;
 
 namespace Proof_Productions.View
 {
@@ -11,15 +12,15 @@ namespace Proof_Productions.View
         public ManualControlForm()
         {
             InitializeComponent();
+            Controller1 = new ManualController();
+            Controller2 = new ManualController();
+            populateComboBox(motorBox1, Controller1);
+            populateComboBox(motorBox2, Controller2);
         }
 
         private void Motor1Start_Click(object sender, EventArgs e)
         {
-            if (Controller1 == null)
-            {
-                Controller1 = new ManualController();
-                Controller1.ConnectMotor();
-            }
+            Controller1.ConnectMotor();
 
             String speedStr = motor1Spd.Text;
             String accelStr = motor1Accel.Text;
@@ -51,11 +52,7 @@ namespace Proof_Productions.View
 
         private void Motor2Start_Click(object sender, EventArgs e)
         {
-            if (Controller2 == null)
-            {
-                Controller2 = new ManualController();
-                Controller2.ConnectMotor();
-            }
+            Controller2.ConnectMotor();
 
             String speedStr = motor2Spd.Text;
             String accelStr = motor2Accel.Text;
@@ -165,5 +162,54 @@ namespace Proof_Productions.View
             }
         }
 
+        private void motorBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (motorBox1.SelectedIndex != -1) {
+                if (motorBox2.Text.Equals(motorBox1.Text))
+                {
+                    MessageBox.Show("Motor is already in use");
+                    motorBox1.SelectedIndex = -1;
+                    motor1Desc.Clear();
+                }
+                else
+                {
+                    DataTable table = Controller1.GetMotorInfo(motorBox1.Text);
+                    DataRow row = table.Rows[0];
+                    motor1Desc.Text = row["Description"].ToString();
+                }
+            }
+        }
+
+        private void motorBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (motorBox2.SelectedIndex != -1)
+            {
+                if (motorBox1.Text.Equals(motorBox2.Text))
+                {
+                    MessageBox.Show("Motor is already in use");
+                    motorBox2.SelectedIndex = -1;
+                    motor2Desc.Clear();
+                }
+                else
+                {
+                    DataTable table = Controller2.GetMotorInfo(motorBox2.Text);
+                    DataRow row = table.Rows[0];
+                    motor2Desc.Text = row["Description"].ToString();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populate a specific ComboBox with the names of all the motors
+        /// </summary>
+        /// <param name="Box"></param>
+        /// <param name="Controller"></param>
+        public void populateComboBox(ComboBox Box, ManualController Controller)
+        {
+            Box.Items.Clear();
+            DataTable table = Controller.GetMotors();
+            foreach (DataRow row in table.Rows)
+                Box.Items.Add(row["Name"].ToString());
+        }
     }
 }

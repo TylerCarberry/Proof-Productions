@@ -13,8 +13,9 @@ using Proof_Productions.Model.Output;
 
 namespace Proof_Productions.Controller
 {
-    class ManualController
+    public class ManualController
     {
+        private DataAccess data = new DataAccess();
         private ModbusTCP.Master MBmaster;
         private byte[] result;
         Motor ManualMotor = new Motor();
@@ -245,6 +246,47 @@ namespace Proof_Productions.Controller
                 UpdateMotor();
                 timer.Stop();
             }
+        }
+
+        /// <summary>
+        /// Retrieve all of the motors and their information
+        /// </summary>
+        /// <returns> A DataTable with all motors and their information </returns>
+        public DataTable GetMotors()
+        {
+            DataTable table = null;
+            try
+            {
+                data.Connect();
+                table = data.GetMotors();
+                data.Disconnect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not fetch motors due to : \n" + e.ToString());
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// Retrieve all correspoonding information for the specified motor name
+        /// </summary>
+        /// <param name="Name"> The name of the motor </param>
+        /// <returns> A DataTable containing all the motor's information </returns>
+        public DataTable GetMotorInfo(String Name)
+        {
+            DataTable table = null;
+            try
+            {
+                data.Connect();
+                table = data.GetMotorInfo(Name);
+                data.Disconnect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not fetch motors due to : \n" + e.ToString());
+            }
+            return table;
         }
     }
 }
