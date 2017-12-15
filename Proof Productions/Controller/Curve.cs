@@ -71,12 +71,19 @@ namespace Proof_Productions.Controller
 
         private void SetupCue()
         {
-            CurrentCue.Add(new CueItem(1, 0, ControlMotor, 100, 20, 20, true, 0));
-            CurrentCue.Add(new CueItem(8, 0, ControlMotor, 800, 100, 100, true, 0));
-            CurrentCue.Add(new CueItem(19, 0, ControlMotor, 500, 30, 30, true, 0));
-            CurrentCue.Add(new CueItem(26, 0, ControlMotor, 300, 70, 70, true, 0));
-            CurrentCue.Add(new CueItem(32, 0, ControlMotor, 600, 35, 35, true, 0));
-            CurrentCue.Add(new CueItem(40, 10, ControlMotor, 100, 30, 30, true, 0));
+            CurrentCue.Add(new CueItem(1, 0, ControlMotor, 100, 10, 10, true, 0));
+            CurrentCue.Add(new CueItem(4, 0, ControlMotor, 100, 20, 20, true, 0));
+            CurrentCue.Add(new CueItem(8, 0, ControlMotor, 900, 100, 100, true, 0));
+            CurrentCue.Add(new CueItem(12, 0, ControlMotor, 900, 30, 30, true, 0));
+            CurrentCue.Add(new CueItem(14, 0, ControlMotor, 900, 100, 100, true, 0));
+            CurrentCue.Add(new CueItem(19, 0, ControlMotor, 500, 10, 10, true, 0));
+            CurrentCue.Add(new CueItem(23, 0, ControlMotor, 500, 30, 30, true, 0));
+            CurrentCue.Add(new CueItem(26, 0, ControlMotor, 500, 90, 90, true, 0));
+            CurrentCue.Add(new CueItem(34, 0, ControlMotor, 0, 10, 10, true, 0));
+            CurrentCue.Add(new CueItem(36, 0, ControlMotor, 0, 20, 20, true, 0));
+            CurrentCue.Add(new CueItem(38, 0, ControlMotor, 0, 30, 30, true, 0));
+            CurrentCue.Add(new CueItem(42, 5, ControlMotor, 0, 100, 100, true, 0));
+
 
             ItemList = CurrentCue.GetList();
             foreach(CueItem Item in ItemList)
