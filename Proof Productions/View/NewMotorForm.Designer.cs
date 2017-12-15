@@ -208,15 +208,19 @@
             // 
             this.MaxNegPosTextBox.Location = new System.Drawing.Point(345, 99);
             this.MaxNegPosTextBox.Name = "MaxNegPosTextBox";
+            this.MaxNegPosTextBox.ReadOnly = true;
             this.MaxNegPosTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxNegPosTextBox.TabIndex = 18;
+            this.MaxNegPosTextBox.Text = "200000000";
             // 
             // MaxPosPosTextBox
             // 
             this.MaxPosPosTextBox.Location = new System.Drawing.Point(345, 125);
             this.MaxPosPosTextBox.Name = "MaxPosPosTextBox";
+            this.MaxPosPosTextBox.ReadOnly = true;
             this.MaxPosPosTextBox.Size = new System.Drawing.Size(128, 20);
             this.MaxPosPosTextBox.TabIndex = 19;
+            this.MaxPosPosTextBox.Text = "200000000";
             // 
             // NewMotorForm
             // 

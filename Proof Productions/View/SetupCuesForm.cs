@@ -76,19 +76,23 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                //if nothing has ever been added to table - CurrentRow is null
-                if (cueDataGridView.CurrentRow == null || cueDataGridView.CurrentRow.IsNewRow)
-                    return;
+                if (cueComboBox.SelectedIndex == -1)
+                    MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
                 else
                 {
-                    int rowIndex = cueDataGridView.CurrentRow.Index;
-                    if (rowIndex < cueDataGridView.Rows.Count)
+                    //if nothing has ever been added to table - CurrentRow is null
+                    if (cueDataGridView.CurrentRow == null || cueDataGridView.CurrentRow.IsNewRow)
+                        return;
+                    else
                     {
-                        cueDataGridView.Rows.RemoveAt(rowIndex);
-                        // TODO: Also remove the CueItem from the Cue
+                        int rowIndex = cueDataGridView.CurrentRow.Index;
+                        if (rowIndex < cueDataGridView.Rows.Count)
+                        {
+                            cueDataGridView.Rows.RemoveAt(rowIndex);
+                            RefreshCueItemGrid(getCurrentCue());
+                        }
                     }
                 }
-
             }
         }
 
@@ -147,7 +151,7 @@ namespace Proof_Productions.View
                     Controller.deleteCue(currentCue);
                     cueComboBox.SelectedIndex = -1; //set selected text to empty
                     RefreshCueComboBox();
-
+                    RefreshCueItemGrid(getCurrentCue());
                 }
             }
         }
@@ -264,5 +268,16 @@ namespace Proof_Productions.View
             }
         }
 
+        private void UpdateAllButton_Click(object sender, EventArgs e)
+        {
+            if (cueComboBox.SelectedIndex == -1)
+                MessageBox.Show("Please select or make a new Cue before adding a Cue Item");
+            else
+            {
+                Controller.updateAllCueItem(cueDataGridView);
+                RefreshCueItemGrid(getCurrentCue());
+            }
+   
+        }
     }
 }

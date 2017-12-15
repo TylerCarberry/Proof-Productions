@@ -41,6 +41,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.UpdateMotorButton = new System.Windows.Forms.Button();
             this.MotorLabel = new System.Windows.Forms.Label();
+            this.UpdateAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             // removeMotorButton
             // 
-            this.removeMotorButton.Location = new System.Drawing.Point(118, 358);
+            this.removeMotorButton.Location = new System.Drawing.Point(348, 358);
             this.removeMotorButton.Name = "removeMotorButton";
             this.removeMotorButton.Size = new System.Drawing.Size(91, 23);
             this.removeMotorButton.TabIndex = 13;
@@ -138,7 +139,7 @@
             // 
             // UpdateMotorButton
             // 
-            this.UpdateMotorButton.Location = new System.Drawing.Point(229, 358);
+            this.UpdateMotorButton.Location = new System.Drawing.Point(118, 358);
             this.UpdateMotorButton.Name = "UpdateMotorButton";
             this.UpdateMotorButton.Size = new System.Drawing.Size(82, 23);
             this.UpdateMotorButton.TabIndex = 19;
@@ -155,11 +156,22 @@
             this.MotorLabel.TabIndex = 20;
             this.MotorLabel.Text = "Motors";
             // 
+            // UpdateAllButton
+            // 
+            this.UpdateAllButton.Location = new System.Drawing.Point(216, 358);
+            this.UpdateAllButton.Name = "UpdateAllButton";
+            this.UpdateAllButton.Size = new System.Drawing.Size(114, 23);
+            this.UpdateAllButton.TabIndex = 21;
+            this.UpdateAllButton.Text = "Update All Motors";
+            this.UpdateAllButton.UseVisualStyleBackColor = true;
+            this.UpdateAllButton.Click += new System.EventHandler(this.UpdateAllButton_Click);
+            // 
             // SetupMotorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 393);
+            this.Controls.Add(this.UpdateAllButton);
             this.Controls.Add(this.MotorLabel);
             this.Controls.Add(this.UpdateMotorButton);
             this.Controls.Add(this.menuStrip);
@@ -191,5 +203,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button UpdateMotorButton;
         private System.Windows.Forms.Label MotorLabel;
+        private System.Windows.Forms.Button UpdateAllButton;
     }
 }
