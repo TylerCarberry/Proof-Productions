@@ -38,9 +38,7 @@ namespace Proof_Productions.View
             this.previousCueButton = new System.Windows.Forms.Button();
             this.nextCueButton = new System.Windows.Forms.Button();
             this.stopCueButton = new System.Windows.Forms.Button();
-            this.removeCueButton = new System.Windows.Forms.Button();
             this.editCueButton = new System.Windows.Forms.Button();
-            this.addCueButton = new System.Windows.Forms.Button();
             this.cueFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.cueManager = new System.Windows.Forms.ListBox();
             this.cueManagerLabel = new System.Windows.Forms.Label();
@@ -53,8 +51,6 @@ namespace Proof_Productions.View
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.moveCueDownButton = new System.Windows.Forms.Button();
-            this.moveCueUpButton = new System.Windows.Forms.Button();
             this.motorList = new System.Windows.Forms.ListBox();
             this.cueActionFlowLayoutPanel.SuspendLayout();
             this.cueFlowLayoutPanel.SuspendLayout();
@@ -66,10 +62,10 @@ namespace Proof_Productions.View
             this.estopButton.BackColor = System.Drawing.Color.Red;
             this.estopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estopButton.ForeColor = System.Drawing.Color.White;
-            this.estopButton.Location = new System.Drawing.Point(3, 257);
+            this.estopButton.Location = new System.Drawing.Point(3, 259);
             this.estopButton.Name = "estopButton";
             this.estopButton.Size = new System.Drawing.Size(160, 72);
-            this.estopButton.TabIndex = 2;
+            this.estopButton.TabIndex = 10;
             this.estopButton.Text = "EMERGENCY STOP";
             this.estopButton.UseVisualStyleBackColor = false;
             this.estopButton.Click += new System.EventHandler(this.EstopButtonClick);
@@ -79,11 +75,11 @@ namespace Proof_Productions.View
             this.cueActionFlowLayoutPanel.Controls.Add(this.cueDescription);
             this.cueActionFlowLayoutPanel.Controls.Add(this.playCueButton);
             this.cueActionFlowLayoutPanel.Controls.Add(this.pauseCueButton);
+            this.cueActionFlowLayoutPanel.Controls.Add(this.stopCueButton);
             this.cueActionFlowLayoutPanel.Controls.Add(this.previousCueButton);
             this.cueActionFlowLayoutPanel.Controls.Add(this.nextCueButton);
-            this.cueActionFlowLayoutPanel.Controls.Add(this.stopCueButton);
             this.cueActionFlowLayoutPanel.Controls.Add(this.estopButton);
-            this.cueActionFlowLayoutPanel.Location = new System.Drawing.Point(440, 67);
+            this.cueActionFlowLayoutPanel.Location = new System.Drawing.Point(396, 56);
             this.cueActionFlowLayoutPanel.Name = "cueActionFlowLayoutPanel";
             this.cueActionFlowLayoutPanel.Size = new System.Drawing.Size(166, 335);
             this.cueActionFlowLayoutPanel.TabIndex = 5;
@@ -95,7 +91,7 @@ namespace Proof_Productions.View
             this.cueDescription.Name = "cueDescription";
             this.cueDescription.ReadOnly = true;
             this.cueDescription.Size = new System.Drawing.Size(160, 103);
-            this.cueDescription.TabIndex = 0;
+            this.cueDescription.TabIndex = 4;
             this.cueDescription.Text = "";
             // 
             // playCueButton
@@ -104,7 +100,7 @@ namespace Proof_Productions.View
             this.playCueButton.Location = new System.Drawing.Point(3, 112);
             this.playCueButton.Name = "playCueButton";
             this.playCueButton.Size = new System.Drawing.Size(160, 23);
-            this.playCueButton.TabIndex = 1;
+            this.playCueButton.TabIndex = 5;
             this.playCueButton.Text = "Play Cue";
             this.playCueButton.UseVisualStyleBackColor = false;
             this.playCueButton.Click += new System.EventHandler(this.playCueButton_Click);
@@ -116,7 +112,7 @@ namespace Proof_Productions.View
             this.pauseCueButton.Location = new System.Drawing.Point(3, 141);
             this.pauseCueButton.Name = "pauseCueButton";
             this.pauseCueButton.Size = new System.Drawing.Size(160, 23);
-            this.pauseCueButton.TabIndex = 2;
+            this.pauseCueButton.TabIndex = 6;
             this.pauseCueButton.Text = "Pause Cue";
             this.pauseCueButton.UseVisualStyleBackColor = false;
             this.pauseCueButton.Click += new System.EventHandler(this.pauseCueButton_Click);
@@ -124,10 +120,11 @@ namespace Proof_Productions.View
             // previousCueButton
             // 
             this.previousCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.previousCueButton.Location = new System.Drawing.Point(3, 170);
+            this.previousCueButton.Location = new System.Drawing.Point(3, 204);
+            this.previousCueButton.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.previousCueButton.Name = "previousCueButton";
             this.previousCueButton.Size = new System.Drawing.Size(160, 23);
-            this.previousCueButton.TabIndex = 3;
+            this.previousCueButton.TabIndex = 8;
             this.previousCueButton.Text = "Previous Cue";
             this.previousCueButton.UseVisualStyleBackColor = false;
             this.previousCueButton.Click += new System.EventHandler(this.previousCueButton_Click);
@@ -135,10 +132,10 @@ namespace Proof_Productions.View
             // nextCueButton
             // 
             this.nextCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nextCueButton.Location = new System.Drawing.Point(3, 199);
+            this.nextCueButton.Location = new System.Drawing.Point(3, 230);
             this.nextCueButton.Name = "nextCueButton";
             this.nextCueButton.Size = new System.Drawing.Size(160, 23);
-            this.nextCueButton.TabIndex = 4;
+            this.nextCueButton.TabIndex = 9;
             this.nextCueButton.Text = "Next Cue";
             this.nextCueButton.UseVisualStyleBackColor = false;
             this.nextCueButton.Click += new System.EventHandler(this.nextCueButton_Click);
@@ -146,56 +143,32 @@ namespace Proof_Productions.View
             // stopCueButton
             // 
             this.stopCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.stopCueButton.Location = new System.Drawing.Point(3, 228);
+            this.stopCueButton.Location = new System.Drawing.Point(3, 170);
             this.stopCueButton.Name = "stopCueButton";
             this.stopCueButton.Size = new System.Drawing.Size(160, 23);
-            this.stopCueButton.TabIndex = 5;
+            this.stopCueButton.TabIndex = 7;
             this.stopCueButton.Text = "Stop Cue";
             this.stopCueButton.UseVisualStyleBackColor = false;
             this.stopCueButton.Click += new System.EventHandler(this.stopCueButton_Click);
             // 
-            // removeCueButton
-            // 
-            this.removeCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.removeCueButton.Location = new System.Drawing.Point(3, 318);
-            this.removeCueButton.Name = "removeCueButton";
-            this.removeCueButton.Size = new System.Drawing.Size(167, 23);
-            this.removeCueButton.TabIndex = 2;
-            this.removeCueButton.Text = "Remove Cue";
-            this.removeCueButton.UseVisualStyleBackColor = false;
-            this.removeCueButton.Click += new System.EventHandler(this.removeCueButton_Click);
-            // 
             // editCueButton
             // 
             this.editCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editCueButton.Location = new System.Drawing.Point(3, 289);
+            this.editCueButton.Location = new System.Drawing.Point(3, 260);
             this.editCueButton.Name = "editCueButton";
             this.editCueButton.Size = new System.Drawing.Size(167, 23);
-            this.editCueButton.TabIndex = 3;
+            this.editCueButton.TabIndex = 2;
             this.editCueButton.Text = "Edit Cue";
             this.editCueButton.UseVisualStyleBackColor = false;
             this.editCueButton.Click += new System.EventHandler(this.editCueButton_Click);
             // 
-            // addCueButton
-            // 
-            this.addCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addCueButton.Location = new System.Drawing.Point(3, 260);
-            this.addCueButton.Name = "addCueButton";
-            this.addCueButton.Size = new System.Drawing.Size(167, 23);
-            this.addCueButton.TabIndex = 1;
-            this.addCueButton.Text = "Add Cue";
-            this.addCueButton.UseVisualStyleBackColor = false;
-            this.addCueButton.Click += new System.EventHandler(this.addCueButton_Click);
-            // 
             // cueFlowLayoutPanel
             // 
             this.cueFlowLayoutPanel.Controls.Add(this.cueManager);
-            this.cueFlowLayoutPanel.Controls.Add(this.addCueButton);
             this.cueFlowLayoutPanel.Controls.Add(this.editCueButton);
-            this.cueFlowLayoutPanel.Controls.Add(this.removeCueButton);
-            this.cueFlowLayoutPanel.Location = new System.Drawing.Point(62, 67);
+            this.cueFlowLayoutPanel.Location = new System.Drawing.Point(18, 56);
             this.cueFlowLayoutPanel.Name = "cueFlowLayoutPanel";
-            this.cueFlowLayoutPanel.Size = new System.Drawing.Size(174, 343);
+            this.cueFlowLayoutPanel.Size = new System.Drawing.Size(174, 296);
             this.cueFlowLayoutPanel.TabIndex = 3;
             // 
             // cueManager
@@ -204,13 +177,13 @@ namespace Proof_Productions.View
             this.cueManager.Location = new System.Drawing.Point(3, 3);
             this.cueManager.Name = "cueManager";
             this.cueManager.Size = new System.Drawing.Size(167, 251);
-            this.cueManager.TabIndex = 4;
+            this.cueManager.TabIndex = 1;
             this.cueManager.SelectedIndexChanged += new System.EventHandler(this.cueManager_SelectedIndexChanged_1);
             // 
             // cueManagerLabel
             // 
             this.cueManagerLabel.AutoSize = true;
-            this.cueManagerLabel.Location = new System.Drawing.Point(113, 49);
+            this.cueManagerLabel.Location = new System.Drawing.Point(69, 38);
             this.cueManagerLabel.Name = "cueManagerLabel";
             this.cueManagerLabel.Size = new System.Drawing.Size(71, 13);
             this.cueManagerLabel.TabIndex = 6;
@@ -219,7 +192,7 @@ namespace Proof_Productions.View
             // MotorListLabel
             // 
             this.MotorListLabel.AutoSize = true;
-            this.MotorListLabel.Location = new System.Drawing.Point(307, 49);
+            this.MotorListLabel.Location = new System.Drawing.Point(263, 38);
             this.MotorListLabel.Name = "MotorListLabel";
             this.MotorListLabel.Size = new System.Drawing.Size(53, 13);
             this.MotorListLabel.TabIndex = 7;
@@ -228,7 +201,7 @@ namespace Proof_Productions.View
             // cueDescriptionLabel
             // 
             this.cueDescriptionLabel.AutoSize = true;
-            this.cueDescriptionLabel.Location = new System.Drawing.Point(484, 49);
+            this.cueDescriptionLabel.Location = new System.Drawing.Point(440, 38);
             this.cueDescriptionLabel.Name = "cueDescriptionLabel";
             this.cueDescriptionLabel.Size = new System.Drawing.Size(82, 13);
             this.cueDescriptionLabel.TabIndex = 8;
@@ -245,7 +218,7 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(618, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(594, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -292,48 +265,22 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // moveCueDownButton
-            // 
-            this.moveCueDownButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.moveCueDownButton.Enabled = false;
-            this.moveCueDownButton.Location = new System.Drawing.Point(12, 202);
-            this.moveCueDownButton.Name = "moveCueDownButton";
-            this.moveCueDownButton.Size = new System.Drawing.Size(47, 41);
-            this.moveCueDownButton.TabIndex = 10;
-            this.moveCueDownButton.Text = "down";
-            this.moveCueDownButton.UseVisualStyleBackColor = false;
-            this.moveCueDownButton.Click += new System.EventHandler(this.moveCueDownButton_Click);
-            // 
-            // moveCueUpButton
-            // 
-            this.moveCueUpButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.moveCueUpButton.Enabled = false;
-            this.moveCueUpButton.Location = new System.Drawing.Point(12, 143);
-            this.moveCueUpButton.Name = "moveCueUpButton";
-            this.moveCueUpButton.Size = new System.Drawing.Size(47, 42);
-            this.moveCueUpButton.TabIndex = 9;
-            this.moveCueUpButton.Text = "up";
-            this.moveCueUpButton.UseVisualStyleBackColor = false;
-            this.moveCueUpButton.Click += new System.EventHandler(this.moveCueUpButton_Click);
-            // 
             // motorList
             // 
             this.motorList.FormattingEnabled = true;
-            this.motorList.Location = new System.Drawing.Point(258, 70);
+            this.motorList.Location = new System.Drawing.Point(214, 59);
             this.motorList.Name = "motorList";
             this.motorList.Size = new System.Drawing.Size(160, 251);
-            this.motorList.TabIndex = 17;
+            this.motorList.TabIndex = 3;
             this.motorList.SelectedIndexChanged += new System.EventHandler(this.motorList_SelectedIndexChanged_1);
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 425);
+            this.ClientSize = new System.Drawing.Size(594, 401);
             this.Controls.Add(this.motorList);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.moveCueDownButton);
-            this.Controls.Add(this.moveCueUpButton);
             this.Controls.Add(this.cueDescriptionLabel);
             this.Controls.Add(this.MotorListLabel);
             this.Controls.Add(this.cueManagerLabel);
@@ -356,9 +303,7 @@ namespace Proof_Productions.View
         //Cue Manager components
         private System.Windows.Forms.FlowLayoutPanel cueFlowLayoutPanel;
         private System.Windows.Forms.Label cueManagerLabel;
-        private System.Windows.Forms.Button removeCueButton;
         private System.Windows.Forms.Button editCueButton;
-        private System.Windows.Forms.Button addCueButton;
         private System.Windows.Forms.Label MotorListLabel;
 
 
@@ -379,8 +324,6 @@ namespace Proof_Productions.View
         private System.Windows.Forms.ToolStripMenuItem setupCuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Button moveCueDownButton;
-        private System.Windows.Forms.Button moveCueUpButton;
         private ListBox cueManager;
         private ListBox motorList;
     }
