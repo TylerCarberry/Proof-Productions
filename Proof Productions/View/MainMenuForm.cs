@@ -23,7 +23,6 @@ namespace Proof_Productions.View
             playCueController1 = new PlayCueController();
             playCueController1.InitObjects();
             populateView();
-            
         }
 
         public void populateView()
@@ -41,7 +40,7 @@ namespace Proof_Productions.View
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (playCueController1 != null && playCueController1.HasCueFinished())
+            if (playCueController1 != null && playCueController1.IsCueRunning())
             {
                 DialogResult answer = MessageBox.Show("The motor is running. Closing this form will stop the cue.", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -90,7 +89,6 @@ namespace Proof_Productions.View
         
         private void playCueButton_Click(object sender, EventArgs e)
         {
-            playCueController1 = new PlayCueController(); //do we need to reinitialize? 
             playCueController1.PlayCurrentCue();
         }
 
@@ -166,6 +164,7 @@ namespace Proof_Productions.View
                     motorList.Items.Add(CueMotorName);
                 }
             }
+            playCueController1.ChangeCurrentCueWithIndex(cueManager.SelectedIndex);
 
             //populate description text box
             cueDescription.Text = CurrentCue.Description;

@@ -29,14 +29,7 @@ namespace Proof_Productions.Controller
         // --------------------------------------------------------------------------------------------------------------------------------------------
         public PlayCueController()
         {
-            Cue Cue1 = new Cue();
-            Motor Motor1 = new Motor();
-            CueItem Item = new CueItem(5, 10, Motor1, 500, 100, 100, false, 0);
-            Cue1.Add(Item);
-            Item = new CueItem(25, 20, Motor1, 300, 100, 100, false, 0);
-            Cue1.Add(Item);
-            CueList.Add(Cue1);
-            CurrentCue = CueList[0];
+
         }
 
         // ---------------------------------------------------------------
@@ -190,9 +183,9 @@ namespace Proof_Productions.Controller
             return (Index >= 0 && Index < ListSize);
         }
 
-        public Boolean HasCueFinished()
+        public Boolean IsCueRunning()
         {
-            return FinishedCue;
+            return timer.Enabled;
         }
 
         public void Estop()
@@ -248,6 +241,7 @@ namespace Proof_Productions.Controller
                                                    (int)CueItemRow["SetPosition"]);
 
                         NewCue.Add(Item);
+                        Console.WriteLine("Added Item");
                     }
                     CueList.Add(NewCue);
                 }
