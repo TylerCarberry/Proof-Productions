@@ -22,11 +22,6 @@ namespace Proof_Productions.View
             InitializeComponent();
             Controller = new SetupCueController();
             RefreshCueComboBox();
-
-            if (cueComboBox.Items.Count > 0) //if comboBox has items then select the first item
-            {
-                cueComboBox.SelectedIndex = 0; //sets initial index value
-            }
         }
 
         public string getCurrentCue()
@@ -111,6 +106,11 @@ namespace Proof_Productions.View
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 cueComboBox.Items.Add(table.Rows[i][column].ToString());
+            }
+
+            if (cueComboBox.Items.Count > 0)
+            {
+                cueComboBox.SelectedIndex = 0;
             }
         }
 
