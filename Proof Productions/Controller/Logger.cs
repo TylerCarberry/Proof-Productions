@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proof_Productions.Controller
 {
@@ -15,6 +11,7 @@ namespace Proof_Productions.Controller
         {
             return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\proofProductionLogs\\";
         }
+      
         /// <summary>
         /// This sets the name of the Log file to "log-MMddyyyy.txt", where MMddyyyy
         /// is the date at which the Log was created

@@ -47,6 +47,7 @@ namespace Proof_Productions.Model.Output
             DI17 = data[7];
         }
 
+        // Used for debugging
         public override String ToString()
         {
             String Debug = "BinaryInputsO10 \r\n";

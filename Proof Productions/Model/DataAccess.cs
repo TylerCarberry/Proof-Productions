@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Proof_Productions.Model
 {
-    /* Manages database access for the application, including connections, insert, update, select, and delete functions */
+    /// <summary>
+    /// Manages database access for the application, including connection, insert, update functions, etc.
+    /// </summary>
     public class DataAccess
     {
         private readonly Boolean testing = true; //testing purposes only for print statements
+
+        //Database access Strings
         protected static readonly String CONNECTION_STRING = "server = elvis.rowan.edu; user id = caow2; password = doggbert97";
         protected static readonly String SCHEMA_NAME = "caow2";
 
@@ -20,18 +19,17 @@ namespace Proof_Productions.Model
         MySqlDataAdapter adapter;
 
         /// <summary>
-        /// Constructor
+        /// Initializes a DataAccess object
         /// </summary>
         public DataAccess()
         {
             adapter = new MySqlDataAdapter();
-
         }
 
         /// <summary>
         /// Connects to the database using the set connection string
         /// </summary>
-        public void connect()
+        public void Connect()
         {
             con = new MySqlConnection(CONNECTION_STRING);
             con.Open();
@@ -41,65 +39,10 @@ namespace Proof_Productions.Model
         /// <summary>
         /// Terminates connection to the database
         /// </summary>
-        public void disconnect()
+        public void Disconnect()
         {
             con.Close();
             if (testing) Console.WriteLine("Closed database connection");
-        }
-
-        /** TODO - play is unimplemented
-        public Boolean insertPlay(Play play)
-        {
-            try
-            {
-                
-                cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".play (Name) VALUES ( @Name )";
-                //TODO - once Play is implemented
-                //cmd.Parameters.AddWithValue("@Name", play.name);
-                adapter.InsertCommand = cmd;
-                adapter.InsertCommand.ExecuteNonQuery();
-                if (testing) Console.WriteLine("Inserted Play");
-            }
-            catch (Exception e)
-            {
-                if(testing) Console.WriteLine("Insert Play Failed: " + e.ToString());
-                return false;
-            }
-            return true;
-        }
-        */
-
-
-        public Boolean insertPLC(PLC plc)
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "INSERT INTO " + SCHEMA_NAME + ".plc (PLCName) VALUES (@PLCName)";
-                cmd.Parameters.AddWithValue("@PLCName", plc.Name);
-                adapter.InsertCommand = cmd;
-                adapter.InsertCommand.ExecuteNonQuery();
-                if (testing) Console.WriteLine("Inserted PLC");
-            }
-            catch (Exception e)
-            {
-                if (testing) Console.WriteLine("Insert PLC failed: " + e.ToString());
-                return false;
-            }
-            return true;
-        }
-
-        public DataTable selectMotor(Motor motor)
-        {
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT IPAddress, Name, Description, PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
-                                                "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor " +
-                                                "WHERE Name = @Name";
-            cmd.Parameters.AddWithValue("@Name", motor.Name);
-            adapter.SelectCommand = cmd;
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
         }
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,7 +54,7 @@ namespace Proof_Productions.Model
         /// </summary>
         /// <param name="motorName"> The specifed motor name </param>
         /// <returns> The corresponding MotorID </returns>
-        public int getMotorID(String motorName)
+        public int GetMotorID(String motorName)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT MotorID FROM " + SCHEMA_NAME + ".motor WHERE Name = @Name", con);
             cmd.Parameters.AddWithValue("@Name", motorName);
@@ -119,11 +62,11 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Get the MotorName associated with this MotorID from the database
+        /// Get the motor's Name associated with this MotorID from the database
         /// </summary>
         /// <param name="MotorID"> The specified MotorID </param>
         /// <returns> The corresponding MotorName </returns>
-        public String getMotorName(int MotorID)
+        public String GetMotorName(int MotorID)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT Name from " + SCHEMA_NAME + ".motor " +
                                    "WHERE MotorID = @MotorID", con);
@@ -132,10 +75,10 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Get all of the motors from the database
+        /// Get motor information for all motors
         /// </summary>
-        /// <returns> Return all the motors in a DataTable </returns>
-        public DataTable getMotors()
+        /// <returns> Return all motor information in a DataTable </returns>
+        public DataTable GetMotors()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT m.Name, IPAddress, Description, p.Name as PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
                               "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor m " +
@@ -147,28 +90,14 @@ namespace Proof_Productions.Model
             return table;
         }
 
-        //Doesn't fetch PLC
-        public DataTable GetMotorByID(int MotorID)
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT m.Name, IPAddress, Description, LimitMaxVelocity, LimitMaxAcceleration, " +
-                              "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor m " +
-                              "WHERE MotorID = @MotorID ", con);
-            cmd.Parameters.AddWithValue("@motorID", MotorID);
-            adapter.SelectCommand = cmd;
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
-        }
-
 
         /// <summary>
-        /// Insert's a Motor's information into the database
+        /// Insert's a motor's information into the database
         /// </summary>
-        /// <param name="motor"> The Motor to be added </param>
-        /// <returns> True if Motor information is added successfully, false otherwise</returns>
-        public void insertMotor(DataRow row)
+        /// <param name="row"> The DataRow that contains the motor information </param>
+        public void InsertMotor(DataRow row)
         {
-            //The 0 is placeholder for an autoincremented ID column
+            //The 0 is placeholder for the autoincremented ID column
             MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".motor " +
                               "VALUES (0, @Name, @IPAddress, @Description, @PLCID, " +
                               "@LimitMaxVelocity, @LimitMaxAcceleration, @LimitMaxDeceleration, @LimitMaxNegPosition, @LimitMaxPosPosition)", con);
@@ -186,14 +115,16 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Updates a motor in the database using motor information passed by a DataRow
+        /// Updates a motor in the database
+        /// 
+        /// Note that the motor name cannot be changed since it is used to access the associated MotorID
+        /// Name is essentially a 'second' primary key
         /// </summary>
-        /// <param name="row"> The DataRow containing the information </param>
-        public void updateMotor(DataRow row)
+        /// <param name="row"> The DataRow containing the new motor information </param>
+        public void IpdateMotor(DataRow row)
         {
-            //Cannot change name - because if they do, can't access the ID from the database
-            //Name is essentially a secnod primary key
-            //TODO - PLC changes have not been accounted into this
+            //TODO - PLC changes have not been accounted into this since not much is known about it
+            //Therefore, the motor's PLC is currently not updated in the update query
             MySqlCommand cmd = new MySqlCommand("UPDATE " + SCHEMA_NAME + ".motor " +
                                 "SET IPAddress = @IPAddress, Description = @Description, " +
                                 "LimitMaxVelocity = @LimitMaxVelocity, LimitMaxAcceleration = @LimitMaxAcceleration, " +
@@ -212,7 +143,14 @@ namespace Proof_Productions.Model
             if (testing) Console.WriteLine("Motor updated");
         }
 
-        public void deleteMotor(DataRow row, DataTable table)
+        /// <summary>
+        /// Deletes a motor from the database
+        /// 
+        /// Deleting a motor will delete all associated cue items
+        /// </summary>
+        /// <param name="row"> The DataRow containing information about the motor to be deleted </param>
+        /// <param name="table"></param>
+        public void DeleteMotor(DataRow row)
         {
             MySqlCommand cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".motor " +
                                    "WHERE Name = @Name", con);
@@ -224,11 +162,12 @@ namespace Proof_Productions.Model
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Functions for SetupCue Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
+        
         /// <summary>
-        /// 
+        /// Retrieve the name and description of all cues
         /// </summary>
-        /// <returns></returns>
-        public DataTable getCues()
+        /// <returns> A DataTable containing all cue name and descriptions </returns>
+        public DataTable GetCues()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT Name, Description FROM " + SCHEMA_NAME + ".cue", con);
             adapter.SelectCommand = cmd;
@@ -238,13 +177,12 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Get all of the CueItems for a specific cue
+        /// Get all of the cue items for a specific cue
         /// </summary>
         /// <param name="CueName"> The name fo the specified cue </param>
-        /// <returns> Associated CueItem information in a DataTable </returns>
-        public DataTable getCueItems(String CueName)
+        /// <returns> A DataTable containing all associated cue item information </returns>
+        public DataTable GetCueItems(String CueName)
         {
-
             MySqlCommand cmd = new MySqlCommand("SELECT Number, ci.Name , m.Name 'Motor', DelayBefore 'Start Delay', " +
                                    "Runtime 'Duration', Clockwise, CounterClockwise, SetVelocity 'Speed', " +
                                    "SetAcceleration 'Acceleration', SetDeceleration 'Deceleration', SetPosition 'Position' " +
@@ -261,12 +199,11 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Inserts a Cue's information into the database 
+        /// Inserts a cue's information into the database 
         /// </summary>
-        /// <param name="PlayName"> The name of the play that this cue is associated with </param>
-        /// <param name="cue"> The name of this cue </param>
-        /// <returns> True if the cue is added into the database, false otherwise </returns>
-        public void insertCue(String CueName, String Description)
+        /// <param name="CueName"> The name for the cue </param>
+        /// <param name="Description"> The description for the cue </param>
+        public void InsertCue(String CueName, String Description)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cue (Name, Description) " +
                                                 "VALUES (@Name, @Description)", con);
@@ -276,18 +213,26 @@ namespace Proof_Productions.Model
             if (testing) Console.WriteLine("Inserted Cue : " + CueName);
         }
 
-        public void deleteCue(String CueName)
+        /// <summary>
+        /// Delete a cue from the database
+        /// 
+        /// Note that deleting a cue will delete all of its associated cue items
+        /// </summary>
+        /// <param name="CueName"> The name of the cue to be deleted</param>
+        public void DeleteCue(String CueName)
         {
-            //Foreign key constraint from cueitem to cue should have ON DELETE set to cascade
-            //When deleting a cue, all cueitems associated with that cue will also be deleted
             MySqlCommand cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
             cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Deleted Cue : " + CueName);
         }
 
-
-        public int getCueID(String CueName)
+        /// <summary>
+        /// Gets the CueID primary key for a specified cue
+        /// </summary>
+        /// <param name="CueName"> The name of the specific cue </param>
+        /// <returns> The associated CueID as an int </returns>
+        public int GetCueID(String CueName)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT CueID FROM " + SCHEMA_NAME + ".cue WHERE Name = @Name", con);
             cmd.Parameters.AddWithValue("@Name", CueName);
@@ -295,10 +240,11 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Inserts a CueItem's information into the database 
+        /// Insert a new cue item into the database
         /// </summary>
-        /// <param name="item"> The CueItem to be added </param>
-        public void insertCueItem(DataRow row, String CueName)
+        /// <param name="row"> The DataRow containing the cue item's information </param>
+        /// <param name="CueName"> The name of the cue that this cue item belongs to </param>
+        public void InsertCueItem(DataRow row, String CueName)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".cueitem " +
                               "(Name, Number, DelayBefore, RunTime, SetVelocity, SetAcceleration, " +
@@ -315,13 +261,19 @@ namespace Proof_Productions.Model
             cmd.Parameters.AddWithValue("@Clockwise", row["Clockwise"]);
             cmd.Parameters.AddWithValue("@CounterClockwise", row["CounterClockwise"]);
             cmd.Parameters.AddWithValue("@SetPosition", row["Position"]);
-            cmd.Parameters.AddWithValue("@CueID", getCueID(CueName));
-            cmd.Parameters.AddWithValue("@MotorID", getMotorID(row["Motor"].ToString()));
+            cmd.Parameters.AddWithValue("@CueID", GetCueID(CueName));
+            cmd.Parameters.AddWithValue("@MotorID", GetMotorID(row["Motor"].ToString()));
 
             cmd.ExecuteNonQuery();
             if (testing) Console.WriteLine("Inserted CueItem");
         }
 
+        /// <summary>
+        /// Updates a cue item in the database
+        /// 
+        /// Note that a cue item's name cannot be changed since it is used to access the CueItemID primary key
+        /// </summary>
+        /// <param name="row"> The DataRow for the updated cue item </param>
         public void UpdateCueItem(DataRow row)
         {
             //Currently doesn't update number
@@ -343,7 +295,7 @@ namespace Proof_Productions.Model
             cmd.Parameters.AddWithValue("@SetPosition", row["Position"]);
             cmd.Parameters.AddWithValue("@CounterClockwise", row["CounterClockwise"]);
             cmd.Parameters.AddWithValue("@Clockwise", row["Clockwise"]);
-            cmd.Parameters.AddWithValue("@MotorID", getMotorID(row["Motor"].ToString()));
+            cmd.Parameters.AddWithValue("@MotorID", GetMotorID(row["Motor"].ToString()));
             cmd.Parameters.AddWithValue("@Name", row["Name"]);
 
             cmd.ExecuteNonQuery();
@@ -354,6 +306,11 @@ namespace Proof_Productions.Model
         // Functions for MainMenu Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
         
+        /// <summary>
+        /// Gets all information of a cue item and its motor for a specified cue
+        /// </summary>
+        /// <param name="CueName"> The name of the specified cue </param>
+        /// <returns> A DataTable containing all cue items and motor information </returns>
         public DataTable GetAllFromCueMotor(String CueName)
         {
             //Clockwise is Negative Direction
@@ -364,7 +321,7 @@ namespace Proof_Productions.Model
                                                 "FROM " + SCHEMA_NAME + ".cueitem c " +
                                                 "JOIN " + SCHEMA_NAME + ".motor m USING (MotorID) " +
                                                 "WHERE CueID = @CueID ", con);
-            cmd.Parameters.AddWithValue("@CueID", this.getCueID(CueName));
+            cmd.Parameters.AddWithValue("@CueID", this.GetCueID(CueName));
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -373,9 +330,14 @@ namespace Proof_Productions.Model
 
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Functions for plc table
+        // Functions for plc table - Does not currently belong to a specific form 
         // --------------------------------------------------------------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Get the PLCID primary key for a PLC using the name of a PLC
+        /// </summary>
+        /// <param name="PLCName"> The name fo the PLC </param>
+        /// <returns> The associated PLCID </returns>
         public int getPLCID(String PLCName)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT PLCID FROM " + SCHEMA_NAME + ".plc WHERE Name = @Name", con);
@@ -383,9 +345,19 @@ namespace Proof_Productions.Model
             return (int)cmd.ExecuteScalar();
         }
 
-        // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Functions for cueitem table
-        // --------------------------------------------------------------------------------------------------------------------------------------------
-
+        /// <summary>
+        /// Inserts a new PLC into the associated database
+        /// 
+        /// Currently unused due to lack of information about a PLC
+        /// </summary>
+        /// <param name="plc"> The name of the PLC </param>
+        public void InsertPLC(PLC plc)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + SCHEMA_NAME + ".plc (PLCName) VALUES (@PLCName)",
+                                                con);
+            cmd.Parameters.AddWithValue("@PLCName", plc.Name);
+            cmd.ExecuteNonQuery();
+            if (testing) Console.WriteLine("Inserted PLC");
+        }
     }
 }
