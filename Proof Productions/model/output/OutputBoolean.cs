@@ -8,7 +8,6 @@ namespace Proof_Productions.Model.Output
 {
     public abstract class OutputBoolean
     {
-        //TODO - make this into convert byte to bool array
         protected static bool[] ConvertByteToBoolArray(byte b)
         {
             // prepare the return result

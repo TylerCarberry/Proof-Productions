@@ -22,7 +22,6 @@ namespace Proof_Productions.View
             InitializeComponent();
             Controller = new SetupCueController();
             RefreshCueComboBox();
-           
         }
 
         public string getCurrentCue()

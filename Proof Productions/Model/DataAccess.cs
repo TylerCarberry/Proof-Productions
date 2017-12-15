@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Proof_Productions.Model
 {
@@ -29,7 +24,6 @@ namespace Proof_Productions.Model
         public DataAccess()
         {
             adapter = new MySqlDataAdapter();
-
         }
 
         /// <summary>
@@ -127,7 +121,7 @@ namespace Proof_Productions.Model
         /// Name is essentially a 'second' primary key
         /// </summary>
         /// <param name="row"> The DataRow containing the new motor information </param>
-        public void IpdateMotor(DataRow row)
+        public void UpdateMotor(DataRow row)
         {
             //TODO - PLC changes have not been accounted into this since not much is known about it
             //Therefore, the motor's PLC is currently not updated in the update query
