@@ -73,7 +73,7 @@ namespace Proof_Productions.View
 
         private void editCueButton_Click(object sender, EventArgs e)
         {
-
+            SwitchToForm(new SetupCueForm());
         }
 
         private void removeCueButton_Click(object sender, EventArgs e)
@@ -99,12 +99,18 @@ namespace Proof_Productions.View
 
         private void nextCueButton_Click(object sender, EventArgs e)
         {
-
+            if (cueManager.SelectedIndex < cueManager.Items.Count - 1)
+            {
+                cueManager.SelectedIndex += 1;
+            }
         }
 
         private void previousCueButton_Click(object sender, EventArgs e)
         {
-
+            if (cueManager.SelectedIndex > 0)
+            {
+                cueManager.SelectedIndex -= 1;
+            }
         }
 
         private void stopCueButton_Click(object sender, EventArgs e)
@@ -151,6 +157,8 @@ namespace Proof_Productions.View
 
         private void cueManager_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            if (cueManager.SelectedIndex < 0) return;
+
             motorList.Items.Clear();
             HashSet<String> motors = new HashSet<String>();
             Cue CurrentCue = playCueController1.GetCueList()[cueManager.SelectedIndex];
