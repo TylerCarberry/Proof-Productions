@@ -195,14 +195,14 @@ namespace Proof_Productions.View
 
         public bool validateDeceleration()
         {
-            if (DecelTextBox.TextLength == 0 || Int32.Parse(AccelTextBox.Text) > Int32.MaxValue)
+            if (DecelTextBox.TextLength == 0 || Int32.Parse(DecelTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
         public bool validatePosition()
         {
-            if (PositionTextBox.TextLength == 0 || Int32.Parse(AccelTextBox.Text) > Int32.MaxValue)
+            if (PositionTextBox.TextLength == 0 || Int32.Parse(PositionTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
@@ -257,47 +257,12 @@ namespace Proof_Productions.View
             }
         }
 
-        private void DelayTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void NumberOnlyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            handleNumberOnlyInput(e);
         }
 
-        private void DurationTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void VelocityTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void AccelTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void DecelTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void CueItemNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void handleNumberOnlyInput(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
