@@ -127,22 +127,22 @@ namespace Proof_Productions.View
                 Message.Append("Max Velocity \n");
                 valid = false;
             }
-            if(! validateAcceleration())
+            if(! ValidateAcceleration())
             {
                 Message.Append("Max Acceleration \n");
                 valid = false;
             }
-            if (!validateDeceleration())
+            if (!ValidateDeceleration())
             {
                 Message.Append("Max Deceleration \n");
                 valid = false;
             }
-            if (!validateNegPosition())
+            if (!ValidateNegPosition())
             {
                 Message.Append("Max Negative Position \n");
                 valid = false;
             }
-            if (!validatePosPosition())
+            if (!ValidatePosPosition())
             {
                 Message.Append("Max Positive Position \n");
                 valid = false;
@@ -169,28 +169,28 @@ namespace Proof_Productions.View
             return true;
         }
 
-        public bool validateAcceleration()
+        public bool ValidateAcceleration()
         {
             if (MaxAccelTextBox.TextLength == 0 || Int32.Parse(MaxAccelTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
-        public bool validateDeceleration()
+        public bool ValidateDeceleration()
         {
             if (MaxDecelTextBox.TextLength == 0 || Int32.Parse(MaxDecelTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
-        public bool validateNegPosition()
+        public bool ValidateNegPosition()
         {
             if (MaxNegPosTextBox.TextLength == 0 || Int32.Parse(MaxNegPosTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
-        public bool validatePosPosition()
+        public bool ValidatePosPosition()
         {
             if (MaxPosPosTextBox.TextLength == 0 || Int32.Parse(MaxPosPosTextBox.Text) > Int32.MaxValue)
                 return false;

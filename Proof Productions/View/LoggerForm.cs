@@ -1,13 +1,6 @@
 ﻿using Proof_Productions.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proof_Productions.View
@@ -17,10 +10,12 @@ namespace Proof_Productions.View
         public LoggerForm()
         {
             InitializeComponent();
-
             ReadFromFile();
         }
 
+        /// <summary>
+        /// Read the  logs from a file and populate the GUI
+        /// </summary>
         private void ReadFromFile()
         {
             String[] logArray;
@@ -28,11 +23,7 @@ namespace Proof_Productions.View
             {
                 logArray = File.ReadAllLines(Logger.getLogPath());
             }
-            catch (FileNotFoundException e)
-            {
-                return;
-            }
-            catch (DirectoryNotFoundException e)
+            catch (IOException e)
             {
                 return;
             }
@@ -48,12 +39,15 @@ namespace Proof_Productions.View
             }
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
+        private void RefreshButton_Click(object sender, EventArgs e)
         {
             ReadFromFile();
         }
 
-        private void logLocationButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Open the log file in the file explorer
+        /// </summary>
+        private void LogLocationButton_Click(object sender, EventArgs e)
         {
             String filePath = Logger.getLogFolder();
             String argument = "/select, \"" + filePath + "\"";
@@ -61,14 +55,5 @@ namespace Proof_Productions.View
             System.Diagnostics.Process.Start("explorer.exe", argument);
         }
 
-        private void searchBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void logGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

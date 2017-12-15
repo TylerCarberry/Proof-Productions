@@ -109,7 +109,7 @@ namespace Proof_Productions.View
             this.estopButton.TabIndex = 100;
             this.estopButton.Text = "EMERGENCY STOP";
             this.estopButton.UseVisualStyleBackColor = false;
-            this.estopButton.Click += new System.EventHandler(this.estopButton_Click);
+            this.estopButton.Click += new System.EventHandler(this.EstopButton_Click);
             // 
             // stopCalibrationBtn
             // 
@@ -120,7 +120,6 @@ namespace Proof_Productions.View
             this.stopCalibrationBtn.TabIndex = 23;
             this.stopCalibrationBtn.Text = "Stop Calibration";
             this.stopCalibrationBtn.UseVisualStyleBackColor = true;
-            this.stopCalibrationBtn.Click += new System.EventHandler(this.stopCalibrationBtn_Click);
             // 
             // startCalibrationBtn
             // 
@@ -131,7 +130,6 @@ namespace Proof_Productions.View
             this.startCalibrationBtn.TabIndex = 21;
             this.startCalibrationBtn.Text = "Start Calibration";
             this.startCalibrationBtn.UseVisualStyleBackColor = true;
-            this.startCalibrationBtn.Click += new System.EventHandler(this.startCalibrationBtn_Click);
             // 
             // label2
             // 
@@ -142,7 +140,6 @@ namespace Proof_Productions.View
             this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "Motor Selection";
-            this.label2.Click += new System.EventHandler(this.selectMotorCalibrationLabel1);
             // 
             // Label1
             // 
@@ -153,7 +150,6 @@ namespace Proof_Productions.View
             this.Label1.Size = new System.Drawing.Size(89, 20);
             this.Label1.TabIndex = 19;
             this.Label1.Text = "Calibration";
-            this.Label1.Click += new System.EventHandler(this.calibrationLabel1);
             // 
             // calibrateMotorCheckList
             // 
@@ -178,7 +174,6 @@ namespace Proof_Productions.View
             this.calibrateMotorCheckList.Name = "calibrateMotorCheckList";
             this.calibrateMotorCheckList.Size = new System.Drawing.Size(144, 199);
             this.calibrateMotorCheckList.TabIndex = 18;
-            this.calibrateMotorCheckList.SelectedIndexChanged += new System.EventHandler(this.calibrationMotorChecklist_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -200,7 +195,7 @@ namespace Proof_Productions.View
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.mainMenuToolStripMenuItem.Text = "Home";
-            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.MainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -214,28 +209,28 @@ namespace Proof_Productions.View
             this.setupMotorsToolStripMenuItem.Name = "setupMotorsToolStripMenuItem";
             this.setupMotorsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.setupMotorsToolStripMenuItem.Text = "Setup Motors";
-            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.setupMotorsToolStripMenuItem_Click);
+            this.setupMotorsToolStripMenuItem.Click += new System.EventHandler(this.SetupMotorsToolStripMenuItem_Click);
             // 
             // setupCuesToolStripMenuItem
             // 
             this.setupCuesToolStripMenuItem.Name = "setupCuesToolStripMenuItem";
             this.setupCuesToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.setupCuesToolStripMenuItem.Text = "Setup Cues";
-            this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.setupCuesToolStripMenuItem_Click);
+            this.setupCuesToolStripMenuItem.Click += new System.EventHandler(this.SetupCuesToolStripMenuItem_Click);
             // 
             // loggerToolStripMenuItem
             // 
             this.loggerToolStripMenuItem.Name = "loggerToolStripMenuItem";
             this.loggerToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.loggerToolStripMenuItem.Text = "Logs";
-            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.loggerToolStripMenuItem_Click);
+            this.loggerToolStripMenuItem.Click += new System.EventHandler(this.LoggerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // motorPanelRight
             // 
@@ -277,7 +272,6 @@ namespace Proof_Productions.View
             this.motor3Backward.TabStop = true;
             this.motor3Backward.Text = "Backwards";
             this.motor3Backward.UseVisualStyleBackColor = true;
-            this.motor3Backward.CheckedChanged += new System.EventHandler(this.motor3Backward_CheckedChanged);
             // 
             // motor3Forward
             // 
@@ -289,7 +283,6 @@ namespace Proof_Productions.View
             this.motor3Forward.TabStop = true;
             this.motor3Forward.Text = "Forwards";
             this.motor3Forward.UseVisualStyleBackColor = true;
-            this.motor3Forward.CheckedChanged += new System.EventHandler(this.motor3Forward_CheckedChanged);
             // 
             // decelLabel3
             // 
@@ -326,7 +319,7 @@ namespace Proof_Productions.View
             this.motor3Clear.TabIndex = 9;
             this.motor3Clear.Text = "Clear";
             this.motor3Clear.UseVisualStyleBackColor = true;
-            this.motor3Clear.Click += new System.EventHandler(this.motor3Clear_Click);
+            this.motor3Clear.Click += new System.EventHandler(this.Motor3Clear_Click);
             // 
             // motor3Stop
             // 
@@ -336,7 +329,6 @@ namespace Proof_Productions.View
             this.motor3Stop.TabIndex = 8;
             this.motor3Stop.Text = "Stop";
             this.motor3Stop.UseVisualStyleBackColor = true;
-            this.motor3Stop.Click += new System.EventHandler(this.motor3Pause_Click);
             // 
             // motor3Start
             // 
@@ -346,7 +338,6 @@ namespace Proof_Productions.View
             this.motor3Start.TabIndex = 7;
             this.motor3Start.Text = "Start";
             this.motor3Start.UseVisualStyleBackColor = true;
-            this.motor3Start.Click += new System.EventHandler(this.motor3Start_Click);
             // 
             // comboBox13
             // 
@@ -370,7 +361,7 @@ namespace Proof_Productions.View
             this.motor3Decel.Name = "motor3Decel";
             this.motor3Decel.Size = new System.Drawing.Size(148, 21);
             this.motor3Decel.TabIndex = 5;
-            this.motor3Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Decel_KeyPress);
+            this.motor3Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor3Accel
             // 
@@ -386,8 +377,7 @@ namespace Proof_Productions.View
             this.motor3Accel.Name = "motor3Accel";
             this.motor3Accel.Size = new System.Drawing.Size(149, 21);
             this.motor3Accel.TabIndex = 4;
-            this.motor3Accel.SelectedIndexChanged += new System.EventHandler(this.motor3Accel_SelectedIndexChanged);
-            this.motor3Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Accel_KeyPress);
+            this.motor3Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor3Spd
             // 
@@ -403,8 +393,7 @@ namespace Proof_Productions.View
             this.motor3Spd.Name = "motor3Spd";
             this.motor3Spd.Size = new System.Drawing.Size(149, 21);
             this.motor3Spd.TabIndex = 3;
-            this.motor3Spd.SelectedIndexChanged += new System.EventHandler(this.motor3Spd_SelectedIndexChanged);
-            this.motor3Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor3Spd_KeyPress);
+            this.motor3Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motorBox3
             // 
@@ -415,7 +404,6 @@ namespace Proof_Productions.View
             this.motorBox3.Name = "motorBox3";
             this.motorBox3.Size = new System.Drawing.Size(148, 21);
             this.motorBox3.TabIndex = 1;
-            this.motorBox3.SelectedIndexChanged += new System.EventHandler(this.motorBox3_SelectedIndexChanged);
             // 
             // motor3Desc
             // 
@@ -427,7 +415,6 @@ namespace Proof_Productions.View
             this.motor3Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor3Desc.Size = new System.Drawing.Size(148, 117);
             this.motor3Desc.TabIndex = 0;
-            this.motor3Desc.TextChanged += new System.EventHandler(this.motor3Desc_TextChanged);
             // 
             // motorPanelCenter
             // 
@@ -513,7 +500,7 @@ namespace Proof_Productions.View
             this.motor2Clear.TabIndex = 29;
             this.motor2Clear.Text = "Clear";
             this.motor2Clear.UseVisualStyleBackColor = true;
-            this.motor2Clear.Click += new System.EventHandler(this.motor2Clear_Click);
+            this.motor2Clear.Click += new System.EventHandler(this.Motor2Clear_Click);
             // 
             // motor2Stop
             // 
@@ -523,7 +510,7 @@ namespace Proof_Productions.View
             this.motor2Stop.TabIndex = 28;
             this.motor2Stop.Text = "Stop";
             this.motor2Stop.UseVisualStyleBackColor = true;
-            this.motor2Stop.Click += new System.EventHandler(this.motor2Stop_Click);
+            this.motor2Stop.Click += new System.EventHandler(this.Motor2Stop_Click);
             // 
             // motor2Start
             // 
@@ -533,7 +520,7 @@ namespace Proof_Productions.View
             this.motor2Start.TabIndex = 27;
             this.motor2Start.Text = "Start";
             this.motor2Start.UseVisualStyleBackColor = true;
-            this.motor2Start.Click += new System.EventHandler(this.motor2Start_Click);
+            this.motor2Start.Click += new System.EventHandler(this.Motor2Start_Click);
             // 
             // motor2Counts
             // 
@@ -559,7 +546,7 @@ namespace Proof_Productions.View
             this.motor2Decel.Size = new System.Drawing.Size(148, 21);
             this.motor2Decel.TabIndex = 24;
             this.motor2Decel.Text = "100";
-            this.motor2Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Decel_KeyPress);
+            this.motor2Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor2Accel
             // 
@@ -576,8 +563,7 @@ namespace Proof_Productions.View
             this.motor2Accel.Size = new System.Drawing.Size(149, 21);
             this.motor2Accel.TabIndex = 23;
             this.motor2Accel.Text = "100";
-            this.motor2Accel.SelectedIndexChanged += new System.EventHandler(this.motor2Accel_SelectedIndexChanged);
-            this.motor2Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Accel_KeyPress);
+            this.motor2Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor2Spd
             // 
@@ -594,8 +580,7 @@ namespace Proof_Productions.View
             this.motor2Spd.Size = new System.Drawing.Size(149, 21);
             this.motor2Spd.TabIndex = 22;
             this.motor2Spd.Text = "300";
-            this.motor2Spd.SelectedIndexChanged += new System.EventHandler(this.motor2Spd_SelectedIndexChanged);
-            this.motor2Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor2Spd_KeyPress);
+            this.motor2Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motorBox2
             // 
@@ -606,7 +591,6 @@ namespace Proof_Productions.View
             this.motorBox2.Name = "motorBox2";
             this.motorBox2.Size = new System.Drawing.Size(148, 21);
             this.motorBox2.TabIndex = 20;
-            this.motorBox2.SelectedIndexChanged += new System.EventHandler(this.motorBox2_SelectedIndexChanged);
             // 
             // motor2Desc
             // 
@@ -617,7 +601,6 @@ namespace Proof_Productions.View
             this.motor2Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor2Desc.Size = new System.Drawing.Size(148, 117);
             this.motor2Desc.TabIndex = 21;
-            this.motor2Desc.TextChanged += new System.EventHandler(this.motor2Desc_TextChanged);
             // 
             // motorPanelLeft
             // 
@@ -656,7 +639,6 @@ namespace Proof_Productions.View
             this.motor1Backward.TabIndex = 7;
             this.motor1Backward.Text = "Backwards";
             this.motor1Backward.UseVisualStyleBackColor = true;
-            this.motor1Backward.CheckedChanged += new System.EventHandler(this.motor1Backward_CheckedChanged);
             // 
             // motor1Forward
             // 
@@ -669,7 +651,6 @@ namespace Proof_Productions.View
             this.motor1Forward.TabStop = true;
             this.motor1Forward.Text = "Forwards";
             this.motor1Forward.UseVisualStyleBackColor = true;
-            this.motor1Forward.CheckedChanged += new System.EventHandler(this.motor1Forward_CheckedChanged);
             // 
             // decelLabel1
             // 
@@ -706,7 +687,7 @@ namespace Proof_Productions.View
             this.motor1Clear.TabIndex = 10;
             this.motor1Clear.Text = "Clear";
             this.motor1Clear.UseVisualStyleBackColor = true;
-            this.motor1Clear.Click += new System.EventHandler(this.motor1Clear_Click);
+            this.motor1Clear.Click += new System.EventHandler(this.Motor1Clear_Click);
             // 
             // motor1Stop
             // 
@@ -716,7 +697,7 @@ namespace Proof_Productions.View
             this.motor1Stop.TabIndex = 9;
             this.motor1Stop.Text = "Stop";
             this.motor1Stop.UseVisualStyleBackColor = true;
-            this.motor1Stop.Click += new System.EventHandler(this.motor1Stop_Click);
+            this.motor1Stop.Click += new System.EventHandler(this.Motor1Stop_Click);
             // 
             // motor1Start
             // 
@@ -726,7 +707,7 @@ namespace Proof_Productions.View
             this.motor1Start.TabIndex = 8;
             this.motor1Start.Text = "Start";
             this.motor1Start.UseVisualStyleBackColor = true;
-            this.motor1Start.Click += new System.EventHandler(this.motor1Start_Click);
+            this.motor1Start.Click += new System.EventHandler(this.Motor1Start_Click);
             // 
             // motor1Decel
             // 
@@ -743,7 +724,7 @@ namespace Proof_Productions.View
             this.motor1Decel.Size = new System.Drawing.Size(148, 21);
             this.motor1Decel.TabIndex = 4;
             this.motor1Decel.Text = "80";
-            this.motor1Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Decel_KeyPress);
+            this.motor1Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor1Accel
             // 
@@ -760,8 +741,7 @@ namespace Proof_Productions.View
             this.motor1Accel.Size = new System.Drawing.Size(149, 21);
             this.motor1Accel.TabIndex = 3;
             this.motor1Accel.Text = "80";
-            this.motor1Accel.SelectedIndexChanged += new System.EventHandler(this.motor1Accel_SelectedIndexChanged);
-            this.motor1Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Accel_KeyPress);
+            this.motor1Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motor1Spd
             // 
@@ -778,8 +758,7 @@ namespace Proof_Productions.View
             this.motor1Spd.Size = new System.Drawing.Size(149, 21);
             this.motor1Spd.TabIndex = 2;
             this.motor1Spd.Text = "300";
-            this.motor1Spd.SelectedIndexChanged += new System.EventHandler(this.motor1Spd_SelectedIndexChanged);
-            this.motor1Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motor1Spd_KeyPress);
+            this.motor1Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
             // motorBox1
             // 
@@ -790,7 +769,6 @@ namespace Proof_Productions.View
             this.motorBox1.Name = "motorBox1";
             this.motorBox1.Size = new System.Drawing.Size(148, 21);
             this.motorBox1.TabIndex = 0;
-            this.motorBox1.SelectedIndexChanged += new System.EventHandler(this.motorBox1_SelectedIndexChanged);
             // 
             // motor1Desc
             // 
@@ -801,7 +779,6 @@ namespace Proof_Productions.View
             this.motor1Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor1Desc.Size = new System.Drawing.Size(148, 117);
             this.motor1Desc.TabIndex = 1;
-            this.motor1Desc.TextChanged += new System.EventHandler(this.motor1Desc_TextChanged);
             // 
             // ManualControlForm
             // 
@@ -821,7 +798,6 @@ namespace Proof_Productions.View
             this.Name = "ManualControlForm";
             this.Text = "Proof Productions: Manual Control";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.ManualControlForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.motorPanelRight.ResumeLayout(false);

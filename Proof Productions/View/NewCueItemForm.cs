@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proof_Productions.View
@@ -120,32 +115,32 @@ namespace Proof_Productions.View
                 Message.Append("Cue Item Number\n");
                 valid = false;
             }
-            if(!validateDelay())
+            if(!ValidateDelay())
             {
                 Message.Append("Start Delay\n");
                 valid = false;
             }
-            if(!validateDuration())
+            if(!ValidateDuration())
             {
                 Message.Append("Duration\n");
                 valid = false;
             }
-            if(!validateVelocity())
+            if(!ValidateVelocity())
             {
                 Message.Append("Velocity\n");
                 valid = false;
             }
-            if(!validateAcceleration())
+            if(!ValidateAcceleration())
             {
                 Message.Append("Acceleration\n");
                 valid = false;
             }
-            if(!validateDeceleration())
+            if(!ValidateDeceleration())
             {
                 Message.Append("Deceleration\n");
                 valid = false;
             }
-            if(!validatePosition())
+            if(!ValidatePosition())
             {
                 Message.Append("Position\n");
                 valid = false;
@@ -165,42 +160,42 @@ namespace Proof_Productions.View
             return CueItemNumberTextBox.TextLength > 0;
         }
 
-        public bool validateDelay()
+        public bool ValidateDelay()
         {
             double output;
             return DelayTextbox.TextLength > 0 || 
                    (double.TryParse(GetStartDelay(), out output) && output < Double.MaxValue);
         }
 
-        public bool validateDuration()
+        public bool ValidateDuration()
         {
             double output;
             return DurationTextBox.TextLength > 0 || 
                    (double.TryParse(GetDuration(), out output) && output < Double.MaxValue);
         }
 
-        public bool validateVelocity()
+        public bool ValidateVelocity()
         {
             if (VelocityTextBox.TextLength == 0 || Int32.Parse(GetVelocity()) > 1750)
                 return false;
             return true;
         }
 
-        public bool validateAcceleration()
+        public bool ValidateAcceleration()
         {
             if (AccelTextBox.TextLength == 0 || Int32.Parse(AccelTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
-        public bool validateDeceleration()
+        public bool ValidateDeceleration()
         {
             if (DecelTextBox.TextLength == 0 || Int32.Parse(DecelTextBox.Text) > Int32.MaxValue)
                 return false;
             return true;
         }
 
-        public bool validatePosition()
+        public bool ValidatePosition()
         {
             if (PositionTextBox.TextLength == 0 || Int32.Parse(PositionTextBox.Text) > Int32.MaxValue)
                 return false;
@@ -259,10 +254,10 @@ namespace Proof_Productions.View
 
         private void NumberOnlyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            handleNumberOnlyInput(e);
+            HandleNumberOnlyInput(e);
         }
 
-        private void handleNumberOnlyInput(KeyPressEventArgs e)
+        private void HandleNumberOnlyInput(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

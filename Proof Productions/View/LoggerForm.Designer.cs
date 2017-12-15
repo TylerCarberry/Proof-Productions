@@ -48,7 +48,6 @@
             this.logGridView.Name = "logGridView";
             this.logGridView.Size = new System.Drawing.Size(670, 300);
             this.logGridView.TabIndex = 0;
-            this.logGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.logGridView_CellContentClick);
             // 
             // date
             // 
@@ -80,7 +79,7 @@
             this.refreshLogsButton.TabIndex = 1;
             this.refreshLogsButton.Text = "Refresh";
             this.refreshLogsButton.UseVisualStyleBackColor = false;
-            this.refreshLogsButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.refreshLogsButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // logLocationButton
             // 
@@ -91,7 +90,7 @@
             this.logLocationButton.TabIndex = 3;
             this.logLocationButton.Text = "Log File Location";
             this.logLocationButton.UseVisualStyleBackColor = false;
-            this.logLocationButton.Click += new System.EventHandler(this.logLocationButton_Click);
+            this.logLocationButton.Click += new System.EventHandler(this.LogLocationButton_Click);
             // 
             // LoggerForm
             // 

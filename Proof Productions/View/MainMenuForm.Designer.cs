@@ -103,7 +103,7 @@ namespace Proof_Productions.View
             this.playCueButton.TabIndex = 5;
             this.playCueButton.Text = "Play Cue";
             this.playCueButton.UseVisualStyleBackColor = false;
-            this.playCueButton.Click += new System.EventHandler(this.playCueButton_Click);
+            this.playCueButton.Click += new System.EventHandler(this.PlayCueButton_Click);
             // 
             // pauseCueButton
             // 
@@ -115,7 +115,7 @@ namespace Proof_Productions.View
             this.pauseCueButton.TabIndex = 6;
             this.pauseCueButton.Text = "Pause Cue";
             this.pauseCueButton.UseVisualStyleBackColor = false;
-            this.pauseCueButton.Click += new System.EventHandler(this.pauseCueButton_Click);
+            this.pauseCueButton.Click += new System.EventHandler(this.PauseCueButton_Click);
             // 
             // previousCueButton
             // 
@@ -127,7 +127,7 @@ namespace Proof_Productions.View
             this.previousCueButton.TabIndex = 8;
             this.previousCueButton.Text = "Previous Cue";
             this.previousCueButton.UseVisualStyleBackColor = false;
-            this.previousCueButton.Click += new System.EventHandler(this.previousCueButton_Click);
+            this.previousCueButton.Click += new System.EventHandler(this.PreviousCueButton_Click);
             // 
             // nextCueButton
             // 
@@ -138,7 +138,7 @@ namespace Proof_Productions.View
             this.nextCueButton.TabIndex = 9;
             this.nextCueButton.Text = "Next Cue";
             this.nextCueButton.UseVisualStyleBackColor = false;
-            this.nextCueButton.Click += new System.EventHandler(this.nextCueButton_Click);
+            this.nextCueButton.Click += new System.EventHandler(this.NextCueButton_Click);
             // 
             // stopCueButton
             // 
@@ -149,7 +149,7 @@ namespace Proof_Productions.View
             this.stopCueButton.TabIndex = 7;
             this.stopCueButton.Text = "Stop Cue";
             this.stopCueButton.UseVisualStyleBackColor = false;
-            this.stopCueButton.Click += new System.EventHandler(this.stopCueButton_Click);
+            this.stopCueButton.Click += new System.EventHandler(this.StopCueButton_Click);
             // 
             // editCueButton
             // 
@@ -228,7 +228,6 @@ namespace Proof_Productions.View
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.mainMenuToolStripMenuItem.Text = "Home";
-            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -272,7 +271,6 @@ namespace Proof_Productions.View
             this.motorList.Name = "motorList";
             this.motorList.Size = new System.Drawing.Size(160, 251);
             this.motorList.TabIndex = 3;
-            this.motorList.SelectedIndexChanged += new System.EventHandler(this.motorList_SelectedIndexChanged_1);
             // 
             // MainMenuForm
             // 
@@ -289,7 +287,6 @@ namespace Proof_Productions.View
             this.Name = "MainMenuForm";
             this.Text = "Proof Productions: Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.cueActionFlowLayoutPanel.ResumeLayout(false);
             this.cueFlowLayoutPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);

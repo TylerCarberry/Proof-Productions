@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proof_Productions.View
@@ -17,22 +10,19 @@ namespace Proof_Productions.View
             InitializeComponent();
         }
 
-        private void urlLabel_Click(object sender, EventArgs e)
+        private void UrlLabel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("http://www.proofproductionsinc.com");
-            }
-            catch { }
+            OpenUrl("http://www.proofproductionsinc.com");
         }
 
         private void AuthorLabel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://www.youtube.com/results?search_query=funny+cat+videos");
-            }
-            catch { }
+            OpenUrl("https://www.youtube.com/results?search_query=funny+cat+videos");
+        }
+
+        private void OpenUrl(String url)
+        {
+            System.Diagnostics.Process.Start(url);
         }
     }
 }

@@ -129,9 +129,9 @@ namespace Proof_Productions.View
         {
             NewCueForm newCue = new NewCueForm();
             newCue.ShowDialog();
-            if (newCue.isSubmitted())
+            if (newCue.IsSubmitted())
             {
-                Controller.addCue(newCue.getCueName(), newCue.getDescription());
+                Controller.addCue(newCue.GetCueName(), newCue.GetDescription());
                 RefreshCueComboBox();
             }
         }
