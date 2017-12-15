@@ -24,17 +24,16 @@ namespace Proof_Productions.Controller
         Timer timer = new Timer();
         Stopwatch stopwatch = new Stopwatch();
 
-        // --------------------------------------------------------------------------------------------------------------------------------------------
-        // Proof of concept hard coded cue sample in constructor
-        // --------------------------------------------------------------------------------------------------------------------------------------------
+
         public PlayCueController()
         {
 
         }
 
-        // ---------------------------------------------------------------
-        // Methods
-        // ---------------------------------------------------------------
+        /// <summary>
+        /// Goes though a Cue and create ModbusTCP Master objects for every cue item.
+        /// Sets up every cue item in the Cue so it is ready to be played.
+        /// </summary>
         private void SetupMotors()
         {
             List<CueItem> ItemList = CurrentCue.GetList();
@@ -54,13 +53,16 @@ namespace Proof_Productions.Controller
                 }
                 catch (SystemException error)
                 {
-                    Logger.LogError("Error connecting to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     Logger.LogError(error.Message);
+                    Logger.LogError("Error connecting to: " + Item.CueMotor.Name + " at IP Address " + Item.CueMotor.IPAddress);
                     MessageBox.Show(error.Message);
                 }
             }
         }
 
+        /// <summary>
+        /// ModbusTCP exceptions from sample program.
+        /// </summary>
         private void MBmaster_OnException(ushort id, byte unit, byte function, byte exception)
         {
             if (estopped)
@@ -86,6 +88,9 @@ namespace Proof_Productions.Controller
             Logger.LogError(exc.ToString());
         }
 
+        /// <summary>
+        /// Plays the Cue that is selected
+        /// </summary>
         public void PlayCurrentCue()
         {
             Logger.LogInfo("Playing " + CurrentCue.Name);
@@ -97,6 +102,11 @@ namespace Proof_Productions.Controller
             timer.Start();
         }
 
+        /// <summary>
+        /// Private method for playing a cue.
+        /// Handles when each cue item starts or ends.
+        /// Handels when the cue is finished.
+        /// </summary>
         private void TimerTick(object sender, EventArgs e)
         {
             int NumberRunning = MasterList.Count;
@@ -147,6 +157,9 @@ namespace Proof_Productions.Controller
             }
         }
 
+        /// <summary>
+        /// Frees up all of the ModbusTCP Masters.
+        /// </summary>
         private void DisconnectMotors()
         {
             foreach (Master Item in MasterList)
@@ -155,39 +168,52 @@ namespace Proof_Productions.Controller
             }
         }
 
+        /// <summary>
+        /// Stops the currently playing cue.
+        /// </summary>
         public void StopCurrentCue()
         {
             FinishedCue = true;
         }
 
+        /// <summary>
+        /// Changes the currently selected cue by passing it a index.
+        /// </summary>
         public void ChangeCurrentCueWithIndex(int Index)
         {
-            CurrentCue = CueList[Index];
+            if(ValidIndexForLists(Index, CueList.Count))
+                CurrentCue = CueList[Index];
         }
-    
+
+        /// <summary>
+        /// Changes the currently selected cue by passing it a cue.
+        /// </summary>
         public void ChangeCurrentCueWithCue(Cue SelectedCue)
         {
             CurrentCue = SelectedCue;
         }
 
-        public void RemoveCueAtIndex(int Index)
-        {
-            if (ValidIndexForLists(Index, CueList.Count))
-                CueList.RemoveAt(Index);
-            else
-                MessageBox.Show("Cannot Remove: Invalid Index");
-        }
-
+        /// <summary>
+        /// Validation check for a valid index in a list.
+        /// True if the index is valid.
+        /// </summary>
         private Boolean ValidIndexForLists(int Index, int ListSize)
         {
             return (Index >= 0 && Index < ListSize);
         }
 
+        /// <summary>
+        /// Returns true if a cue is running.
+        /// </summary>
         public Boolean IsCueRunning()
         {
             return timer.Enabled;
         }
 
+        /// <summary>
+        /// Emergency stop for a cue.
+        /// Turns on the ControllerInibit bit for each motor to stop them as fast as possible.
+        /// </summary>
         public void Estop()
         {
             estopped = true;
@@ -257,6 +283,9 @@ namespace Proof_Productions.Controller
             }
         }
 
+        /// <summary>
+        /// Returns the list of cues.
+        /// </summary>
         public List<Cue> GetCueList()
         {
             return CueList;
