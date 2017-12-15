@@ -1,14 +1,11 @@
 ﻿//using Proof_Productions.Model.input.Proof_Productions.model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
     public class FieldbusInputData
     {
+        // A collection of all of the input for the motor
+
         public ControlWordI1 Control_I1;
         public BinaryOutputs_I2 BinaryOut_I2;
         public ControlWordI3 Control_I3;
@@ -35,6 +32,10 @@ namespace Proof_Productions.Model.Input
 
         }
 
+        /// <summary>
+        /// Convert the object to a byte array to be sent to the motor
+        /// </summary>
+        /// <returns></returns>
         public byte[] GetValues()
         {
             byte[] bytes = new byte[24];

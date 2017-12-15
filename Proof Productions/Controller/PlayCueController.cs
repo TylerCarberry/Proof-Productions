@@ -239,7 +239,7 @@ namespace Proof_Productions.Controller
         {
             try
             {
-                data.connect();
+                data.Connect();
 
                 DataTable CueTable = data.getCues();
                 foreach (DataRow CueRow in CueTable.Rows)
@@ -271,7 +271,7 @@ namespace Proof_Productions.Controller
                     }
                     CueList.Add(NewCue);
                 }
-                data.disconnect();
+                data.Disconnect();
                 foreach(Cue c in CueList)
                 {
                     Console.WriteLine(c.Name);

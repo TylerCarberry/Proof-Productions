@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proof_Productions.Model.Input
 {
     public abstract class InputValue
     {
+        // An InputValue is a simple integer class with a setter, getter, and encode
+
         private int Value { get; set; }
 
         public InputValue()
@@ -25,11 +23,13 @@ namespace Proof_Productions.Model.Input
             return Value;
         }
 
+        // Encode the first byte of the value
         public byte EncodeByte0()
         {
             return BitConverter.GetBytes(Value)[0];
         }
 
+        // Encode the second bit of the value
         public byte EncodeByte1()
         {
             return BitConverter.GetBytes(Value)[1];

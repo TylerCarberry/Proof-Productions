@@ -7,7 +7,7 @@ namespace Proof_Productions.Model.Input
     public class ControlWordI3 : InputBoolean
     {
         // First byte
-        public Boolean ControllerInhibit { get; set; }
+        public Boolean ControllerInhibit { get; set; }     // used for estop
         public Boolean EnableRapidStart { get; set; }
         public Boolean EnableStop { get; set; }
         public Boolean Bit3 { get; set; }

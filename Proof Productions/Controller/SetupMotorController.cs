@@ -25,9 +25,9 @@ namespace Proof_Productions.Controller
                                          //if somehow reaches bottom of method w/o going into trycatch
             try
             {
-                data.connect();
+                data.Connect();
                 motortable = data.getMotors();
-                data.disconnect();
+                data.Disconnect();
             }
             catch (Exception e)
             {
@@ -40,13 +40,13 @@ namespace Proof_Productions.Controller
         {
             try
             {
-                data.connect();
+                data.Connect();
                 foreach (DataGridViewRow dgvRow in view.Rows)
                 {
                     DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
                     data.updateMotor(Row);
                 }
-                data.disconnect();
+                data.Disconnect();
                 MessageBox.Show("All motors have been updated");
             }
             catch(Exception e)
@@ -61,9 +61,9 @@ namespace Proof_Productions.Controller
             String motorName = row["Name"].ToString();
             try
             {
-                data.connect();
+                data.Connect();
                 data.updateMotor(row);
-                data.disconnect(); 
+                data.Disconnect(); 
                 MessageBox.Show(motorName + " has been updated");
             }
             catch(Exception e)
@@ -77,9 +77,9 @@ namespace Proof_Productions.Controller
             String motorName = row["Name"].ToString();
             try
             {
-                data.connect();
+                data.Connect();
                 data.insertMotor(row);
-                data.disconnect();
+                data.Disconnect();
                 MessageBox.Show(motorName + " has been added");
             }
             catch(Exception e)
@@ -93,9 +93,9 @@ namespace Proof_Productions.Controller
             String motorName = row["Name"].ToString();
             try
             {
-                data.connect();
+                data.Connect();
                 data.deleteMotor(row, table);
-                data.disconnect();
+                data.Disconnect();
                 MessageBox.Show(motorName + " has been deleted");
             }
             catch(Exception e)

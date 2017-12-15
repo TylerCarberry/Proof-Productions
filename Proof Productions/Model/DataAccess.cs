@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Proof_Productions.Model
 {
-    /* Manages database access for the application, including connections, insert, update, select, and delete functions */
+    /* 
+     * Manages database access for the application, including connections,
+     * insert, update, select, and delete functions
+     */
     public class DataAccess
     {
         private readonly Boolean testing = true; //testing purposes only for print statements
@@ -25,13 +23,12 @@ namespace Proof_Productions.Model
         public DataAccess()
         {
             adapter = new MySqlDataAdapter();
-
         }
 
         /// <summary>
         /// Connects to the database using the set connection string
         /// </summary>
-        public void connect()
+        public void Connect()
         {
             con = new MySqlConnection(CONNECTION_STRING);
             con.Open();
@@ -41,7 +38,7 @@ namespace Proof_Productions.Model
         /// <summary>
         /// Terminates connection to the database
         /// </summary>
-        public void disconnect()
+        public void Disconnect()
         {
             con.Close();
             if (testing) Console.WriteLine("Closed database connection");
