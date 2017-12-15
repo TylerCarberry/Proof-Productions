@@ -177,12 +177,9 @@ namespace Proof_Productions.View
             //populate description text box
             cueDescription.Text = CurrentCue.Description;
         }
-
         private void motorList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
-
-    
     }
 }

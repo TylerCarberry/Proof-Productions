@@ -54,9 +54,15 @@ namespace Proof_Productions.View
             // 
             this.cueDataGridView.AllowUserToAddRows = false;
             this.cueDataGridView.AllowUserToDeleteRows = false;
+            this.cueDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cueDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.cueDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.cueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cueDataGridView.Location = new System.Drawing.Point(12, 76);
+            this.cueDataGridView.Location = new System.Drawing.Point(16, 94);
+            this.cueDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.cueDataGridView.MultiSelect = false;
             this.cueDataGridView.Name = "cueDataGridView";
             this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
@@ -77,7 +83,8 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(945, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -126,23 +133,25 @@ namespace Proof_Productions.View
             // selectCueLabel
             // 
             this.selectCueLabel.AutoSize = true;
-            this.selectCueLabel.Location = new System.Drawing.Point(12, 37);
+            this.selectCueLabel.Location = new System.Drawing.Point(16, 46);
+            this.selectCueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectCueLabel.Name = "selectCueLabel";
-            this.selectCueLabel.Size = new System.Drawing.Size(62, 13);
+            this.selectCueLabel.Size = new System.Drawing.Size(80, 17);
             this.selectCueLabel.TabIndex = 19;
             this.selectCueLabel.Text = "Select Cue:";
             // 
             // cueComboBox
             // 
             this.cueComboBox.FormattingEnabled = true;
-            this.cueComboBox.Location = new System.Drawing.Point(80, 34);
+            this.cueComboBox.Location = new System.Drawing.Point(107, 42);
+            this.cueComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.cueComboBox.Name = "cueComboBox";
             this.cueComboBox.Size = new System.Drawing.Size(121, 21);
             this.cueComboBox.TabIndex = 1;
             this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
             // 
             // deleteCueItemButton
-            // 
+            //
             this.deleteCueItemButton.Location = new System.Drawing.Point(403, 376);
             this.deleteCueItemButton.Name = "deleteCueItemButton";
             this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
@@ -153,7 +162,8 @@ namespace Proof_Productions.View
             // 
             // newCueButton
             // 
-            this.newCueButton.Location = new System.Drawing.Point(226, 34);
+            this.newCueButton.Location = new System.Drawing.Point(301, 42);
+            this.newCueButton.Margin = new System.Windows.Forms.Padding(4);
             this.newCueButton.Name = "newCueButton";
             this.newCueButton.Size = new System.Drawing.Size(83, 23);
             this.newCueButton.TabIndex = 2;
@@ -163,7 +173,8 @@ namespace Proof_Productions.View
             // 
             // deleteCueButton
             // 
-            this.deleteCueButton.Location = new System.Drawing.Point(315, 34);
+            this.deleteCueButton.Location = new System.Drawing.Point(420, 42);
+            this.deleteCueButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteCueButton.Name = "deleteCueButton";
             this.deleteCueButton.Size = new System.Drawing.Size(75, 23);
             this.deleteCueButton.TabIndex = 3;
@@ -173,7 +184,9 @@ namespace Proof_Productions.View
             // 
             // addCueItemButton
             // 
-            this.addCueItemButton.Location = new System.Drawing.Point(12, 376);
+            this.addCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addCueItemButton.Location = new System.Drawing.Point(16, 463);
+            this.addCueItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.addCueItemButton.Name = "addCueItemButton";
             this.addCueItemButton.Size = new System.Drawing.Size(122, 23);
             this.addCueItemButton.TabIndex = 20;
@@ -182,7 +195,7 @@ namespace Proof_Productions.View
             this.addCueItemButton.Click += new System.EventHandler(this.AddCueItemButton_Click);
             // 
             // UpdateCueItemButton
-            // 
+            //
             this.UpdateCueItemButton.Location = new System.Drawing.Point(280, 376);
             this.UpdateCueItemButton.Name = "UpdateCueItemButton";
             this.UpdateCueItemButton.Size = new System.Drawing.Size(105, 23);
@@ -203,7 +216,7 @@ namespace Proof_Productions.View
             // 
             // SetupCueForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 423);
             this.Controls.Add(this.UpdateAllButton);
@@ -216,7 +229,10 @@ namespace Proof_Productions.View
             this.Controls.Add(this.selectCueLabel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cueDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(961, 560);
             this.Name = "SetupCueForm";
             this.Text = "Proof Productions: Setup Cues";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupCuesForm_FormClosing);

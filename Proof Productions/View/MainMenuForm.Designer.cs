@@ -34,6 +34,7 @@ namespace Proof_Productions.View
             this.cueActionFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.cueDescription = new System.Windows.Forms.RichTextBox();
             this.playCueButton = new System.Windows.Forms.Button();
+            this.cueDescription = new System.Windows.Forms.RichTextBox();
             this.pauseCueButton = new System.Windows.Forms.Button();
             this.previousCueButton = new System.Windows.Forms.Button();
             this.nextCueButton = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@ namespace Proof_Productions.View
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // estopButton
+            // cueManagerLabel
             // 
             this.estopButton.BackColor = System.Drawing.Color.Red;
             this.estopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,8 +87,13 @@ namespace Proof_Productions.View
             // 
             // cueDescription
             // 
+            this.cueDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cueDescription.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cueDescription.Location = new System.Drawing.Point(3, 3);
+            this.cueDescription.Location = new System.Drawing.Point(812, 66);
+            this.cueDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.cueDescription.MaximumSize = new System.Drawing.Size(252, 276);
+            this.cueDescription.MinimumSize = new System.Drawing.Size(212, 126);
             this.cueDescription.Name = "cueDescription";
             this.cueDescription.ReadOnly = true;
             this.cueDescription.Size = new System.Drawing.Size(160, 103);
@@ -107,9 +113,11 @@ namespace Proof_Productions.View
             // 
             // pauseCueButton
             // 
+            this.pauseCueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pauseCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pauseCueButton.Enabled = false;
-            this.pauseCueButton.Location = new System.Drawing.Point(3, 141);
+            this.pauseCueButton.Location = new System.Drawing.Point(812, 231);
+            this.pauseCueButton.Margin = new System.Windows.Forms.Padding(4);
             this.pauseCueButton.Name = "pauseCueButton";
             this.pauseCueButton.Size = new System.Drawing.Size(160, 23);
             this.pauseCueButton.TabIndex = 6;
@@ -119,6 +127,7 @@ namespace Proof_Productions.View
             // 
             // previousCueButton
             // 
+            this.previousCueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.previousCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.previousCueButton.Location = new System.Drawing.Point(3, 204);
             this.previousCueButton.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
@@ -264,7 +273,7 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
+            //
             // motorList
             // 
             this.motorList.FormattingEnabled = true;
@@ -274,9 +283,19 @@ namespace Proof_Productions.View
             this.motorList.TabIndex = 3;
             this.motorList.SelectedIndexChanged += new System.EventHandler(this.motorList_SelectedIndexChanged_1);
             // 
+            // cueActionFlowLayoutPanel
+            // 
+            this.cueActionFlowLayoutPanel.AutoSize = true;
+            this.cueActionFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cueActionFlowLayoutPanel.Location = new System.Drawing.Point(587, 82);
+            this.cueActionFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.cueActionFlowLayoutPanel.Name = "cueActionFlowLayoutPanel";
+            this.cueActionFlowLayoutPanel.Size = new System.Drawing.Size(0, 0);
+            this.cueActionFlowLayoutPanel.TabIndex = 5;
+            // 
             // MainMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 401);
             this.Controls.Add(this.motorList);
@@ -290,8 +309,6 @@ namespace Proof_Productions.View
             this.Text = "Proof Productions: Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.cueActionFlowLayoutPanel.ResumeLayout(false);
-            this.cueFlowLayoutPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -300,8 +317,6 @@ namespace Proof_Productions.View
         }
 
         #endregion
-        //Cue Manager components
-        private System.Windows.Forms.FlowLayoutPanel cueFlowLayoutPanel;
         private System.Windows.Forms.Label cueManagerLabel;
         private System.Windows.Forms.Button editCueButton;
         private System.Windows.Forms.Label MotorListLabel;
@@ -309,14 +324,8 @@ namespace Proof_Productions.View
 
         //Cue Action components
         private System.Windows.Forms.FlowLayoutPanel cueActionFlowLayoutPanel;
-        private System.Windows.Forms.RichTextBox cueDescription;
         private System.Windows.Forms.Label cueDescriptionLabel;
         private System.Windows.Forms.Button estopButton;
-        private System.Windows.Forms.Button playCueButton;
-        private System.Windows.Forms.Button pauseCueButton;
-        private System.Windows.Forms.Button previousCueButton;
-        private System.Windows.Forms.Button nextCueButton;
-        private System.Windows.Forms.Button stopCueButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualControlToolStripMenuItem;

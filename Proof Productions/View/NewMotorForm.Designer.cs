@@ -52,9 +52,13 @@
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(134, 215);
+            this.SubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitButton.Location = new System.Drawing.Point(179, 265);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(75, 23);
+            this.SubmitButton.Size = new System.Drawing.Size(100, 28);
             this.SubmitButton.TabIndex = 0;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
@@ -62,9 +66,10 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(234, 215);
+            this.CancelButton.Location = new System.Drawing.Point(312, 265);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -73,140 +78,157 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(12, 24);
+            this.NameLabel.Location = new System.Drawing.Point(16, 30);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(65, 13);
+            this.NameLabel.Size = new System.Drawing.Size(85, 17);
             this.NameLabel.TabIndex = 2;
             this.NameLabel.Text = "Motor Name";
             // 
             // IPAddressLabel
             // 
             this.IPAddressLabel.AutoSize = true;
-            this.IPAddressLabel.Location = new System.Drawing.Point(12, 160);
+            this.IPAddressLabel.Location = new System.Drawing.Point(16, 197);
+            this.IPAddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IPAddressLabel.Name = "IPAddressLabel";
-            this.IPAddressLabel.Size = new System.Drawing.Size(58, 13);
+            this.IPAddressLabel.Size = new System.Drawing.Size(76, 17);
             this.IPAddressLabel.TabIndex = 3;
             this.IPAddressLabel.Text = "IP Address";
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(81, 21);
+            this.NameTextBox.Location = new System.Drawing.Point(108, 26);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(128, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(169, 23);
             this.NameTextBox.TabIndex = 4;
             // 
             // IPAddressTextBox
             // 
-            this.IPAddressTextBox.Location = new System.Drawing.Point(81, 157);
+            this.IPAddressTextBox.Location = new System.Drawing.Point(108, 193);
+            this.IPAddressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IPAddressTextBox.Name = "IPAddressTextBox";
-            this.IPAddressTextBox.Size = new System.Drawing.Size(128, 20);
+            this.IPAddressTextBox.Size = new System.Drawing.Size(169, 23);
             this.IPAddressTextBox.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Location = new System.Drawing.Point(16, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Description";
             // 
             // DescTextBox
             // 
-            this.DescTextBox.Location = new System.Drawing.Point(81, 47);
+            this.DescTextBox.Location = new System.Drawing.Point(108, 58);
+            this.DescTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DescTextBox.Name = "DescTextBox";
-            this.DescTextBox.Size = new System.Drawing.Size(128, 105);
+            this.DescTextBox.Size = new System.Drawing.Size(169, 128);
             this.DescTextBox.TabIndex = 7;
             this.DescTextBox.Text = "";
             // 
             // PLCNameTextBox
             // 
-            this.PLCNameTextBox.Location = new System.Drawing.Point(81, 183);
+            this.PLCNameTextBox.Location = new System.Drawing.Point(108, 225);
+            this.PLCNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PLCNameTextBox.Name = "PLCNameTextBox";
-            this.PLCNameTextBox.Size = new System.Drawing.Size(128, 20);
+            this.PLCNameTextBox.Size = new System.Drawing.Size(169, 23);
             this.PLCNameTextBox.TabIndex = 8;
             // 
             // PLCNameLabel
             // 
             this.PLCNameLabel.AutoSize = true;
-            this.PLCNameLabel.Location = new System.Drawing.Point(12, 186);
+            this.PLCNameLabel.Location = new System.Drawing.Point(16, 229);
+            this.PLCNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PLCNameLabel.Name = "PLCNameLabel";
-            this.PLCNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.PLCNameLabel.Size = new System.Drawing.Size(75, 17);
             this.PLCNameLabel.TabIndex = 9;
             this.PLCNameLabel.Text = "PLC Name";
             // 
             // MaxVelocityLabel
             // 
             this.MaxVelocityLabel.AutoSize = true;
-            this.MaxVelocityLabel.Location = new System.Drawing.Point(231, 24);
+            this.MaxVelocityLabel.Location = new System.Drawing.Point(308, 30);
+            this.MaxVelocityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaxVelocityLabel.Name = "MaxVelocityLabel";
-            this.MaxVelocityLabel.Size = new System.Drawing.Size(67, 13);
+            this.MaxVelocityLabel.Size = new System.Drawing.Size(86, 17);
             this.MaxVelocityLabel.TabIndex = 10;
             this.MaxVelocityLabel.Text = "Max Velocity";
             // 
             // MaxAccelerationLabel
             // 
             this.MaxAccelerationLabel.AutoSize = true;
-            this.MaxAccelerationLabel.Location = new System.Drawing.Point(231, 50);
+            this.MaxAccelerationLabel.Location = new System.Drawing.Point(308, 62);
+            this.MaxAccelerationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaxAccelerationLabel.Name = "MaxAccelerationLabel";
-            this.MaxAccelerationLabel.Size = new System.Drawing.Size(89, 13);
+            this.MaxAccelerationLabel.Size = new System.Drawing.Size(115, 17);
             this.MaxAccelerationLabel.TabIndex = 11;
             this.MaxAccelerationLabel.Text = "Max Acceleration";
             // 
             // MaxDecelerationLabel
             // 
             this.MaxDecelerationLabel.AutoSize = true;
-            this.MaxDecelerationLabel.Location = new System.Drawing.Point(231, 76);
+            this.MaxDecelerationLabel.Location = new System.Drawing.Point(308, 94);
+            this.MaxDecelerationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaxDecelerationLabel.Name = "MaxDecelerationLabel";
-            this.MaxDecelerationLabel.Size = new System.Drawing.Size(90, 13);
+            this.MaxDecelerationLabel.Size = new System.Drawing.Size(117, 17);
             this.MaxDecelerationLabel.TabIndex = 12;
             this.MaxDecelerationLabel.Text = "Max Deceleration";
             // 
             // MaxNegativePositionLabel
             // 
             this.MaxNegativePositionLabel.AutoSize = true;
-            this.MaxNegativePositionLabel.Location = new System.Drawing.Point(231, 102);
+            this.MaxNegativePositionLabel.Location = new System.Drawing.Point(308, 126);
+            this.MaxNegativePositionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaxNegativePositionLabel.Name = "MaxNegativePositionLabel";
-            this.MaxNegativePositionLabel.Size = new System.Drawing.Size(113, 13);
+            this.MaxNegativePositionLabel.Size = new System.Drawing.Size(147, 17);
             this.MaxNegativePositionLabel.TabIndex = 13;
             this.MaxNegativePositionLabel.Text = "Max Negative Position";
             // 
             // MaxPositivePositionLabel
             // 
             this.MaxPositivePositionLabel.AutoSize = true;
-            this.MaxPositivePositionLabel.Location = new System.Drawing.Point(231, 128);
+            this.MaxPositivePositionLabel.Location = new System.Drawing.Point(308, 158);
+            this.MaxPositivePositionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaxPositivePositionLabel.Name = "MaxPositivePositionLabel";
-            this.MaxPositivePositionLabel.Size = new System.Drawing.Size(107, 13);
+            this.MaxPositivePositionLabel.Size = new System.Drawing.Size(140, 17);
             this.MaxPositivePositionLabel.TabIndex = 14;
             this.MaxPositivePositionLabel.Text = "Max Positive Position";
             // 
             // MaxVelTextBox
             // 
-            this.MaxVelTextBox.Location = new System.Drawing.Point(345, 21);
+            this.MaxVelTextBox.Location = new System.Drawing.Point(460, 26);
+            this.MaxVelTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxVelTextBox.Name = "MaxVelTextBox";
-            this.MaxVelTextBox.Size = new System.Drawing.Size(128, 20);
+            this.MaxVelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxVelTextBox.TabIndex = 15;
             this.MaxVelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxVelTextBox_KeyPress);
             // 
             // MaxAccelTextBox
             // 
-            this.MaxAccelTextBox.Location = new System.Drawing.Point(345, 47);
+            this.MaxAccelTextBox.Location = new System.Drawing.Point(460, 58);
+            this.MaxAccelTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxAccelTextBox.Name = "MaxAccelTextBox";
-            this.MaxAccelTextBox.Size = new System.Drawing.Size(128, 20);
+            this.MaxAccelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxAccelTextBox.TabIndex = 16;
             this.MaxAccelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxAccelTextBox_KeyPress);
             // 
             // MaxDecelTextBox
             // 
-            this.MaxDecelTextBox.Location = new System.Drawing.Point(345, 73);
+            this.MaxDecelTextBox.Location = new System.Drawing.Point(460, 90);
+            this.MaxDecelTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxDecelTextBox.Name = "MaxDecelTextBox";
-            this.MaxDecelTextBox.Size = new System.Drawing.Size(128, 20);
+            this.MaxDecelTextBox.Size = new System.Drawing.Size(169, 23);
             this.MaxDecelTextBox.TabIndex = 17;
             this.MaxDecelTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxDecelTextBox_KeyPress);
             // 
             // MaxNegPosTextBox
             // 
-            this.MaxNegPosTextBox.Location = new System.Drawing.Point(345, 99);
+            this.MaxNegPosTextBox.Location = new System.Drawing.Point(460, 122);
+            this.MaxNegPosTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxNegPosTextBox.Name = "MaxNegPosTextBox";
             this.MaxNegPosTextBox.ReadOnly = true;
             this.MaxNegPosTextBox.Size = new System.Drawing.Size(128, 20);
@@ -215,7 +237,8 @@
             // 
             // MaxPosPosTextBox
             // 
-            this.MaxPosPosTextBox.Location = new System.Drawing.Point(345, 125);
+            this.MaxPosPosTextBox.Location = new System.Drawing.Point(460, 154);
+            this.MaxPosPosTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaxPosPosTextBox.Name = "MaxPosPosTextBox";
             this.MaxPosPosTextBox.ReadOnly = true;
             this.MaxPosPosTextBox.Size = new System.Drawing.Size(128, 20);
@@ -224,9 +247,9 @@
             // 
             // NewMotorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 248);
+            this.ClientSize = new System.Drawing.Size(647, 305);
             this.Controls.Add(this.MaxPosPosTextBox);
             this.Controls.Add(this.MaxNegPosTextBox);
             this.Controls.Add(this.MaxDecelTextBox);
@@ -247,6 +270,10 @@
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SubmitButton);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(663, 344);
+            this.MinimumSize = new System.Drawing.Size(663, 344);
             this.Name = "NewMotorForm";
             this.Text = "New Motor";
             this.ResumeLayout(false);
