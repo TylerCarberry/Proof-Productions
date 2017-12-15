@@ -85,12 +85,11 @@ namespace Proof_Productions.View
                         return;
                     else
                     {
-                        int rowIndex = cueDataGridView.CurrentRow.Index;
-                        if (rowIndex < cueDataGridView.Rows.Count)
-                        {
-                            cueDataGridView.Rows.RemoveAt(rowIndex);
-                            RefreshCueItemGrid(getCurrentCue());
-                        }
+                        DataRow row = ((DataRowView)cueDataGridView.CurrentRow.DataBoundItem).Row;
+                        
+                        Controller.deleteCueItem(row);
+                        RefreshCueItemGrid(getCurrentCue());
+                        
                     }
                 }
             }

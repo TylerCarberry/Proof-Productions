@@ -333,6 +333,14 @@ namespace Proof_Productions.Model
             if (testing) Console.WriteLine("Updated cue item");
         }
 
+        public void DeleteCueItem(DataRow Row)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM " + SCHEMA_NAME + ".cueitem " +
+                                                "WHERE Name = @Name", con);
+            cmd.Parameters.AddWithValue("@Name", Row["Name"]);
+            cmd.ExecuteNonQuery();
+        }
+
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Functions for MainMenu Form
         // --------------------------------------------------------------------------------------------------------------------------------------------
