@@ -75,7 +75,8 @@ namespace Proof_Productions.View
 
         private void PauseCueButton_Click(object sender, EventArgs e)
         {
-            // Not implemented yet
+            Curve Controller = new Curve();
+            Controller.PlayCurrentCue();
         }
 
         private void NextCueButton_Click(object sender, EventArgs e)

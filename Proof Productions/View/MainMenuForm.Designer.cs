@@ -35,9 +35,9 @@ namespace Proof_Productions.View
             this.cueDescription = new System.Windows.Forms.RichTextBox();
             this.playCueButton = new System.Windows.Forms.Button();
             this.pauseCueButton = new System.Windows.Forms.Button();
+            this.stopCueButton = new System.Windows.Forms.Button();
             this.previousCueButton = new System.Windows.Forms.Button();
             this.nextCueButton = new System.Windows.Forms.Button();
-            this.stopCueButton = new System.Windows.Forms.Button();
             this.editCueButton = new System.Windows.Forms.Button();
             this.cueFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.cueManager = new System.Windows.Forms.ListBox();
@@ -108,7 +108,6 @@ namespace Proof_Productions.View
             // pauseCueButton
             // 
             this.pauseCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pauseCueButton.Enabled = false;
             this.pauseCueButton.Location = new System.Drawing.Point(3, 141);
             this.pauseCueButton.Name = "pauseCueButton";
             this.pauseCueButton.Size = new System.Drawing.Size(160, 23);
@@ -116,6 +115,17 @@ namespace Proof_Productions.View
             this.pauseCueButton.Text = "Pause Cue";
             this.pauseCueButton.UseVisualStyleBackColor = false;
             this.pauseCueButton.Click += new System.EventHandler(this.PauseCueButton_Click);
+            // 
+            // stopCueButton
+            // 
+            this.stopCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.stopCueButton.Location = new System.Drawing.Point(3, 170);
+            this.stopCueButton.Name = "stopCueButton";
+            this.stopCueButton.Size = new System.Drawing.Size(160, 23);
+            this.stopCueButton.TabIndex = 7;
+            this.stopCueButton.Text = "Stop Cue";
+            this.stopCueButton.UseVisualStyleBackColor = false;
+            this.stopCueButton.Click += new System.EventHandler(this.StopCueButton_Click);
             // 
             // previousCueButton
             // 
@@ -139,17 +149,6 @@ namespace Proof_Productions.View
             this.nextCueButton.Text = "Next Cue";
             this.nextCueButton.UseVisualStyleBackColor = false;
             this.nextCueButton.Click += new System.EventHandler(this.NextCueButton_Click);
-            // 
-            // stopCueButton
-            // 
-            this.stopCueButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.stopCueButton.Location = new System.Drawing.Point(3, 170);
-            this.stopCueButton.Name = "stopCueButton";
-            this.stopCueButton.Size = new System.Drawing.Size(160, 23);
-            this.stopCueButton.TabIndex = 7;
-            this.stopCueButton.Text = "Stop Cue";
-            this.stopCueButton.UseVisualStyleBackColor = false;
-            this.stopCueButton.Click += new System.EventHandler(this.StopCueButton_Click);
             // 
             // editCueButton
             // 

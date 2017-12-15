@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Curve.cs" />
     <Compile Include="Controller\Logger.cs" />
     <Compile Include="Controller\PlayCueController.cs" />
     <Compile Include="Controller\SetupCueController.cs" />
