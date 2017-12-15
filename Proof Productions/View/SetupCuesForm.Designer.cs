@@ -30,7 +30,14 @@ namespace Proof_Productions.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.cueDataGridView = new System.Windows.Forms.DataGridView();
+            this.UpdateAllButton = new System.Windows.Forms.Button();
+            this.UpdateCueItemButton = new System.Windows.Forms.Button();
+            this.addCueItemButton = new System.Windows.Forms.Button();
+            this.deleteCueButton = new System.Windows.Forms.Button();
+            this.newCueButton = new System.Windows.Forms.Button();
+            this.deleteCueItemButton = new System.Windows.Forms.Button();
+            this.cueComboBox = new System.Windows.Forms.ComboBox();
+            this.selectCueLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,33 +45,100 @@ namespace Proof_Productions.View
             this.setupCuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectCueLabel = new System.Windows.Forms.Label();
-            this.cueComboBox = new System.Windows.Forms.ComboBox();
-            this.deleteCueItemButton = new System.Windows.Forms.Button();
-            this.newCueButton = new System.Windows.Forms.Button();
-            this.deleteCueButton = new System.Windows.Forms.Button();
-            this.addCueItemButton = new System.Windows.Forms.Button();
-            this.UpdateCueItemButton = new System.Windows.Forms.Button();
-            this.UpdateAllButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
+            this.cueDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // cueDataGridView
+            // UpdateAllButton
             // 
-            this.cueDataGridView.AllowUserToAddRows = false;
-            this.cueDataGridView.AllowUserToDeleteRows = false;
-            this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
-            this.cueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cueDataGridView.Location = new System.Drawing.Point(12, 76);
-            this.cueDataGridView.MultiSelect = false;
-            this.cueDataGridView.Name = "cueDataGridView";
-            this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
-            this.cueDataGridView.TabIndex = 10;
-            this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
-            this.cueDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
-            this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
-            this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
+            this.UpdateAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.UpdateAllButton.Location = new System.Drawing.Point(203, 463);
+            this.UpdateAllButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateAllButton.Name = "UpdateAllButton";
+            this.UpdateAllButton.Size = new System.Drawing.Size(140, 28);
+            this.UpdateAllButton.TabIndex = 26;
+            this.UpdateAllButton.Text = "Update All Cue Items";
+            this.UpdateAllButton.UseVisualStyleBackColor = true;
+            this.UpdateAllButton.Click += new System.EventHandler(this.UpdateAllButton_Click);
+            // 
+            // UpdateCueItemButton
+            // 
+            this.UpdateCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.UpdateCueItemButton.Location = new System.Drawing.Point(373, 463);
+            this.UpdateCueItemButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateCueItemButton.Name = "UpdateCueItemButton";
+            this.UpdateCueItemButton.Size = new System.Drawing.Size(140, 28);
+            this.UpdateCueItemButton.TabIndex = 21;
+            this.UpdateCueItemButton.Text = "Update Cue Item";
+            this.UpdateCueItemButton.UseVisualStyleBackColor = true;
+            this.UpdateCueItemButton.Click += new System.EventHandler(this.UpdateCueItemButton_Click);
+            // 
+            // addCueItemButton
+            // 
+            this.addCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addCueItemButton.Location = new System.Drawing.Point(16, 463);
+            this.addCueItemButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addCueItemButton.Name = "addCueItemButton";
+            this.addCueItemButton.Size = new System.Drawing.Size(163, 28);
+            this.addCueItemButton.TabIndex = 20;
+            this.addCueItemButton.Text = "Add New Cue Item";
+            this.addCueItemButton.UseVisualStyleBackColor = true;
+            this.addCueItemButton.Click += new System.EventHandler(this.AddCueItemButton_Click);
+            // 
+            // deleteCueButton
+            // 
+            this.deleteCueButton.Location = new System.Drawing.Point(420, 42);
+            this.deleteCueButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteCueButton.Name = "deleteCueButton";
+            this.deleteCueButton.Size = new System.Drawing.Size(100, 28);
+            this.deleteCueButton.TabIndex = 3;
+            this.deleteCueButton.Text = "Delete Cue";
+            this.deleteCueButton.UseVisualStyleBackColor = true;
+            this.deleteCueButton.Click += new System.EventHandler(this.DeleteCueButton_Click);
+            // 
+            // newCueButton
+            // 
+            this.newCueButton.Location = new System.Drawing.Point(301, 42);
+            this.newCueButton.Margin = new System.Windows.Forms.Padding(4);
+            this.newCueButton.Name = "newCueButton";
+            this.newCueButton.Size = new System.Drawing.Size(111, 28);
+            this.newCueButton.TabIndex = 2;
+            this.newCueButton.Text = "Add New Cue";
+            this.newCueButton.UseVisualStyleBackColor = true;
+            this.newCueButton.Click += new System.EventHandler(this.NewCueButton_Click);
+            // 
+            // deleteCueItemButton
+            // 
+            this.deleteCueItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteCueItemButton.Location = new System.Drawing.Point(537, 463);
+            this.deleteCueItemButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteCueItemButton.Name = "deleteCueItemButton";
+            this.deleteCueItemButton.Size = new System.Drawing.Size(131, 28);
+            this.deleteCueItemButton.TabIndex = 22;
+            this.deleteCueItemButton.Text = "Delete Cue Item";
+            this.deleteCueItemButton.UseVisualStyleBackColor = true;
+            this.deleteCueItemButton.Click += new System.EventHandler(this.DeleteCueItemButton_Click);
+            // 
+            // cueComboBox
+            // 
+            this.cueComboBox.FormattingEnabled = true;
+            this.cueComboBox.Location = new System.Drawing.Point(107, 42);
+            this.cueComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.cueComboBox.Name = "cueComboBox";
+            this.cueComboBox.Size = new System.Drawing.Size(160, 24);
+            this.cueComboBox.TabIndex = 1;
+            this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
+            // 
+            // selectCueLabel
+            // 
+            this.selectCueLabel.AutoSize = true;
+            this.selectCueLabel.Location = new System.Drawing.Point(16, 46);
+            this.selectCueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.selectCueLabel.Name = "selectCueLabel";
+            this.selectCueLabel.Size = new System.Drawing.Size(80, 17);
+            this.selectCueLabel.TabIndex = 19;
+            this.selectCueLabel.Text = "Select Cue:";
             // 
             // menuStrip1
             // 
@@ -77,7 +151,8 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(945, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,89 +198,33 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // selectCueLabel
+            // cueDataGridView
             // 
-            this.selectCueLabel.AutoSize = true;
-            this.selectCueLabel.Location = new System.Drawing.Point(12, 37);
-            this.selectCueLabel.Name = "selectCueLabel";
-            this.selectCueLabel.Size = new System.Drawing.Size(62, 13);
-            this.selectCueLabel.TabIndex = 19;
-            this.selectCueLabel.Text = "Select Cue:";
-            // 
-            // cueComboBox
-            // 
-            this.cueComboBox.FormattingEnabled = true;
-            this.cueComboBox.Location = new System.Drawing.Point(80, 34);
-            this.cueComboBox.Name = "cueComboBox";
-            this.cueComboBox.Size = new System.Drawing.Size(121, 21);
-            this.cueComboBox.TabIndex = 1;
-            this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
-            // 
-            // deleteCueItemButton
-            // 
-            this.deleteCueItemButton.Location = new System.Drawing.Point(403, 376);
-            this.deleteCueItemButton.Name = "deleteCueItemButton";
-            this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
-            this.deleteCueItemButton.TabIndex = 22;
-            this.deleteCueItemButton.Text = "Delete Cue Item";
-            this.deleteCueItemButton.UseVisualStyleBackColor = true;
-            this.deleteCueItemButton.Click += new System.EventHandler(this.DeleteCueItemButton_Click);
-            // 
-            // newCueButton
-            // 
-            this.newCueButton.Location = new System.Drawing.Point(226, 34);
-            this.newCueButton.Name = "newCueButton";
-            this.newCueButton.Size = new System.Drawing.Size(83, 23);
-            this.newCueButton.TabIndex = 2;
-            this.newCueButton.Text = "Add New Cue";
-            this.newCueButton.UseVisualStyleBackColor = true;
-            this.newCueButton.Click += new System.EventHandler(this.NewCueButton_Click);
-            // 
-            // deleteCueButton
-            // 
-            this.deleteCueButton.Location = new System.Drawing.Point(315, 34);
-            this.deleteCueButton.Name = "deleteCueButton";
-            this.deleteCueButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteCueButton.TabIndex = 3;
-            this.deleteCueButton.Text = "Delete Cue";
-            this.deleteCueButton.UseVisualStyleBackColor = true;
-            this.deleteCueButton.Click += new System.EventHandler(this.DeleteCueButton_Click);
-            // 
-            // addCueItemButton
-            // 
-            this.addCueItemButton.Location = new System.Drawing.Point(12, 376);
-            this.addCueItemButton.Name = "addCueItemButton";
-            this.addCueItemButton.Size = new System.Drawing.Size(122, 23);
-            this.addCueItemButton.TabIndex = 20;
-            this.addCueItemButton.Text = "Add New Cue Item";
-            this.addCueItemButton.UseVisualStyleBackColor = true;
-            this.addCueItemButton.Click += new System.EventHandler(this.AddCueItemButton_Click);
-            // 
-            // UpdateCueItemButton
-            // 
-            this.UpdateCueItemButton.Location = new System.Drawing.Point(280, 376);
-            this.UpdateCueItemButton.Name = "UpdateCueItemButton";
-            this.UpdateCueItemButton.Size = new System.Drawing.Size(105, 23);
-            this.UpdateCueItemButton.TabIndex = 21;
-            this.UpdateCueItemButton.Text = "Update Cue Item";
-            this.UpdateCueItemButton.UseVisualStyleBackColor = true;
-            this.UpdateCueItemButton.Click += new System.EventHandler(this.UpdateCueItemButton_Click);
-            // 
-            // UpdateAllButton
-            // 
-            this.UpdateAllButton.Location = new System.Drawing.Point(152, 376);
-            this.UpdateAllButton.Name = "UpdateAllButton";
-            this.UpdateAllButton.Size = new System.Drawing.Size(105, 23);
-            this.UpdateAllButton.TabIndex = 26;
-            this.UpdateAllButton.Text = "Update All Cue Items";
-            this.UpdateAllButton.UseVisualStyleBackColor = true;
-            this.UpdateAllButton.Click += new System.EventHandler(this.UpdateAllButton_Click);
+            this.cueDataGridView.AllowUserToAddRows = false;
+            this.cueDataGridView.AllowUserToDeleteRows = false;
+            this.cueDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cueDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.cueDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.cueDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
+            this.cueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cueDataGridView.Location = new System.Drawing.Point(16, 94);
+            this.cueDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.cueDataGridView.MultiSelect = false;
+            this.cueDataGridView.Name = "cueDataGridView";
+            this.cueDataGridView.Size = new System.Drawing.Size(919, 351);
+            this.cueDataGridView.TabIndex = 10;
+            this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
+            this.cueDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
+            this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
+            this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
             // 
             // SetupCueForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 423);
+            this.ClientSize = new System.Drawing.Size(945, 521);
             this.Controls.Add(this.UpdateAllButton);
             this.Controls.Add(this.UpdateCueItemButton);
             this.Controls.Add(this.addCueItemButton);
@@ -216,13 +235,16 @@ namespace Proof_Productions.View
             this.Controls.Add(this.selectCueLabel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cueDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(961, 560);
             this.Name = "SetupCueForm";
             this.Text = "Proof Productions: Setup Cues";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupCuesForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

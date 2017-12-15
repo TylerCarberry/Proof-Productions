@@ -100,12 +100,14 @@ namespace Proof_Productions.View
             // 
             // estopButton
             // 
+            this.estopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.estopButton.BackColor = System.Drawing.Color.Red;
             this.estopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estopButton.ForeColor = System.Drawing.Color.White;
-            this.estopButton.Location = new System.Drawing.Point(12, 373);
+            this.estopButton.Location = new System.Drawing.Point(16, 459);
+            this.estopButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.estopButton.Name = "estopButton";
-            this.estopButton.Size = new System.Drawing.Size(154, 59);
+            this.estopButton.Size = new System.Drawing.Size(205, 73);
             this.estopButton.TabIndex = 100;
             this.estopButton.Text = "EMERGENCY STOP";
             this.estopButton.UseVisualStyleBackColor = false;
@@ -113,20 +115,24 @@ namespace Proof_Productions.View
             // 
             // stopCalibrationBtn
             // 
+            this.stopCalibrationBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.stopCalibrationBtn.Enabled = false;
-            this.stopCalibrationBtn.Location = new System.Drawing.Point(38, 332);
+            this.stopCalibrationBtn.Location = new System.Drawing.Point(51, 409);
+            this.stopCalibrationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.stopCalibrationBtn.Name = "stopCalibrationBtn";
-            this.stopCalibrationBtn.Size = new System.Drawing.Size(106, 23);
+            this.stopCalibrationBtn.Size = new System.Drawing.Size(141, 28);
             this.stopCalibrationBtn.TabIndex = 23;
             this.stopCalibrationBtn.Text = "Stop Calibration";
             this.stopCalibrationBtn.UseVisualStyleBackColor = true;
             // 
             // startCalibrationBtn
             // 
+            this.startCalibrationBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.startCalibrationBtn.Enabled = false;
-            this.startCalibrationBtn.Location = new System.Drawing.Point(38, 303);
+            this.startCalibrationBtn.Location = new System.Drawing.Point(51, 373);
+            this.startCalibrationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startCalibrationBtn.Name = "startCalibrationBtn";
-            this.startCalibrationBtn.Size = new System.Drawing.Size(106, 23);
+            this.startCalibrationBtn.Size = new System.Drawing.Size(141, 28);
             this.startCalibrationBtn.TabIndex = 21;
             this.startCalibrationBtn.Text = "Start Calibration";
             this.startCalibrationBtn.UseVisualStyleBackColor = true;
@@ -135,7 +141,8 @@ namespace Proof_Productions.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label2.Location = new System.Drawing.Point(19, 66);
+            this.label2.Location = new System.Drawing.Point(25, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 20;
@@ -145,7 +152,8 @@ namespace Proof_Productions.View
             // 
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Label1.Location = new System.Drawing.Point(46, 36);
+            this.Label1.Location = new System.Drawing.Point(61, 44);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(89, 20);
             this.Label1.TabIndex = 19;
@@ -153,6 +161,8 @@ namespace Proof_Productions.View
             // 
             // calibrateMotorCheckList
             // 
+            this.calibrateMotorCheckList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.calibrateMotorCheckList.Enabled = false;
             this.calibrateMotorCheckList.FormattingEnabled = true;
             this.calibrateMotorCheckList.Items.AddRange(new object[] {
@@ -170,9 +180,10 @@ namespace Proof_Productions.View
             "Motor 12",
             "Motor 13",
             "Motor 14"});
-            this.calibrateMotorCheckList.Location = new System.Drawing.Point(22, 85);
+            this.calibrateMotorCheckList.Location = new System.Drawing.Point(29, 105);
+            this.calibrateMotorCheckList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.calibrateMotorCheckList.Name = "calibrateMotorCheckList";
-            this.calibrateMotorCheckList.Size = new System.Drawing.Size(144, 199);
+            this.calibrateMotorCheckList.Size = new System.Drawing.Size(191, 244);
             this.calibrateMotorCheckList.TabIndex = 18;
             // 
             // menuStrip1
@@ -186,7 +197,8 @@ namespace Proof_Productions.View
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(850, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1133, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -234,6 +246,7 @@ namespace Proof_Productions.View
             // 
             // motorPanelRight
             // 
+            this.motorPanelRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.motorPanelRight.Controls.Add(this.panel3);
             this.motorPanelRight.Controls.Add(this.decelLabel3);
             this.motorPanelRight.Controls.Add(this.accelLabel3);
@@ -248,26 +261,29 @@ namespace Proof_Productions.View
             this.motorPanelRight.Controls.Add(this.motorBox3);
             this.motorPanelRight.Controls.Add(this.motor3Desc);
             this.motorPanelRight.Enabled = false;
-            this.motorPanelRight.Location = new System.Drawing.Point(625, 36);
+            this.motorPanelRight.Location = new System.Drawing.Point(833, 44);
+            this.motorPanelRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorPanelRight.Name = "motorPanelRight";
-            this.motorPanelRight.Size = new System.Drawing.Size(190, 410);
+            this.motorPanelRight.Size = new System.Drawing.Size(253, 505);
             this.motorPanelRight.TabIndex = 12;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.motor3Backward);
             this.panel3.Controls.Add(this.motor3Forward);
-            this.panel3.Location = new System.Drawing.Point(20, 330);
+            this.panel3.Location = new System.Drawing.Point(27, 406);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(147, 27);
+            this.panel3.Size = new System.Drawing.Size(196, 33);
             this.panel3.TabIndex = 27;
             // 
             // motor3Backward
             // 
             this.motor3Backward.AutoSize = true;
-            this.motor3Backward.Location = new System.Drawing.Point(72, 4);
+            this.motor3Backward.Location = new System.Drawing.Point(96, 5);
+            this.motor3Backward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Backward.Name = "motor3Backward";
-            this.motor3Backward.Size = new System.Drawing.Size(78, 17);
+            this.motor3Backward.Size = new System.Drawing.Size(94, 21);
             this.motor3Backward.TabIndex = 1;
             this.motor3Backward.TabStop = true;
             this.motor3Backward.Text = "Backwards";
@@ -276,9 +292,10 @@ namespace Proof_Productions.View
             // motor3Forward
             // 
             this.motor3Forward.AutoSize = true;
-            this.motor3Forward.Location = new System.Drawing.Point(5, 4);
+            this.motor3Forward.Location = new System.Drawing.Point(7, 5);
+            this.motor3Forward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Forward.Name = "motor3Forward";
-            this.motor3Forward.Size = new System.Drawing.Size(68, 17);
+            this.motor3Forward.Size = new System.Drawing.Size(84, 21);
             this.motor3Forward.TabIndex = 0;
             this.motor3Forward.TabStop = true;
             this.motor3Forward.Text = "Forwards";
@@ -287,35 +304,39 @@ namespace Proof_Productions.View
             // decelLabel3
             // 
             this.decelLabel3.AutoSize = true;
-            this.decelLabel3.Location = new System.Drawing.Point(18, 243);
+            this.decelLabel3.Location = new System.Drawing.Point(24, 299);
+            this.decelLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.decelLabel3.Name = "decelLabel3";
-            this.decelLabel3.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel3.Size = new System.Drawing.Size(88, 17);
             this.decelLabel3.TabIndex = 17;
             this.decelLabel3.Text = "Deceleration";
             // 
             // accelLabel3
             // 
             this.accelLabel3.AutoSize = true;
-            this.accelLabel3.Location = new System.Drawing.Point(17, 199);
+            this.accelLabel3.Location = new System.Drawing.Point(23, 245);
+            this.accelLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accelLabel3.Name = "accelLabel3";
-            this.accelLabel3.Size = new System.Drawing.Size(66, 13);
+            this.accelLabel3.Size = new System.Drawing.Size(86, 17);
             this.accelLabel3.TabIndex = 15;
             this.accelLabel3.Text = "Acceleration";
             // 
             // spdLabel3
             // 
             this.spdLabel3.AutoSize = true;
-            this.spdLabel3.Location = new System.Drawing.Point(18, 158);
+            this.spdLabel3.Location = new System.Drawing.Point(24, 194);
+            this.spdLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.spdLabel3.Name = "spdLabel3";
-            this.spdLabel3.Size = new System.Drawing.Size(38, 13);
+            this.spdLabel3.Size = new System.Drawing.Size(49, 17);
             this.spdLabel3.TabIndex = 14;
             this.spdLabel3.Text = "Speed";
             // 
             // motor3Clear
             // 
-            this.motor3Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor3Clear.Location = new System.Drawing.Point(164, 455);
+            this.motor3Clear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Clear.Name = "motor3Clear";
-            this.motor3Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor3Clear.Size = new System.Drawing.Size(61, 28);
             this.motor3Clear.TabIndex = 9;
             this.motor3Clear.Text = "Clear";
             this.motor3Clear.UseVisualStyleBackColor = true;
@@ -323,18 +344,20 @@ namespace Proof_Productions.View
             // 
             // motor3Stop
             // 
-            this.motor3Stop.Location = new System.Drawing.Point(72, 370);
+            this.motor3Stop.Location = new System.Drawing.Point(96, 455);
+            this.motor3Stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Stop.Name = "motor3Stop";
-            this.motor3Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor3Stop.Size = new System.Drawing.Size(63, 28);
             this.motor3Stop.TabIndex = 8;
             this.motor3Stop.Text = "Stop";
             this.motor3Stop.UseVisualStyleBackColor = true;
             // 
             // motor3Start
             // 
-            this.motor3Start.Location = new System.Drawing.Point(20, 370);
+            this.motor3Start.Location = new System.Drawing.Point(27, 455);
+            this.motor3Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Start.Name = "motor3Start";
-            this.motor3Start.Size = new System.Drawing.Size(48, 23);
+            this.motor3Start.Size = new System.Drawing.Size(64, 28);
             this.motor3Start.TabIndex = 7;
             this.motor3Start.Text = "Start";
             this.motor3Start.UseVisualStyleBackColor = true;
@@ -342,9 +365,10 @@ namespace Proof_Productions.View
             // comboBox13
             // 
             this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(21, 292);
+            this.comboBox13.Location = new System.Drawing.Point(28, 359);
+            this.comboBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(148, 21);
+            this.comboBox13.Size = new System.Drawing.Size(196, 24);
             this.comboBox13.TabIndex = 6;
             // 
             // motor3Decel
@@ -357,9 +381,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor3Decel.Location = new System.Drawing.Point(21, 256);
+            this.motor3Decel.Location = new System.Drawing.Point(28, 315);
+            this.motor3Decel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Decel.Name = "motor3Decel";
-            this.motor3Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor3Decel.Size = new System.Drawing.Size(196, 24);
             this.motor3Decel.TabIndex = 5;
             this.motor3Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
@@ -373,9 +398,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor3Accel.Location = new System.Drawing.Point(20, 215);
+            this.motor3Accel.Location = new System.Drawing.Point(27, 265);
+            this.motor3Accel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Accel.Name = "motor3Accel";
-            this.motor3Accel.Size = new System.Drawing.Size(149, 21);
+            this.motor3Accel.Size = new System.Drawing.Size(197, 24);
             this.motor3Accel.TabIndex = 4;
             this.motor3Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
@@ -389,9 +415,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor3Spd.Location = new System.Drawing.Point(20, 175);
+            this.motor3Spd.Location = new System.Drawing.Point(27, 215);
+            this.motor3Spd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Spd.Name = "motor3Spd";
-            this.motor3Spd.Size = new System.Drawing.Size(149, 21);
+            this.motor3Spd.Size = new System.Drawing.Size(197, 24);
             this.motor3Spd.TabIndex = 3;
             this.motor3Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
             // 
@@ -400,24 +427,27 @@ namespace Proof_Productions.View
             this.motorBox3.FormattingEnabled = true;
             this.motorBox3.Items.AddRange(new object[] {
             "Motor 1"});
-            this.motorBox3.Location = new System.Drawing.Point(21, 13);
+            this.motorBox3.Location = new System.Drawing.Point(28, 16);
+            this.motorBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorBox3.Name = "motorBox3";
-            this.motorBox3.Size = new System.Drawing.Size(148, 21);
+            this.motorBox3.Size = new System.Drawing.Size(196, 24);
             this.motorBox3.TabIndex = 1;
             // 
             // motor3Desc
             // 
             this.motor3Desc.BackColor = System.Drawing.SystemColors.Window;
             this.motor3Desc.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.motor3Desc.Location = new System.Drawing.Point(21, 35);
+            this.motor3Desc.Location = new System.Drawing.Point(28, 43);
+            this.motor3Desc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor3Desc.Multiline = true;
             this.motor3Desc.Name = "motor3Desc";
             this.motor3Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.motor3Desc.Size = new System.Drawing.Size(148, 117);
+            this.motor3Desc.Size = new System.Drawing.Size(196, 143);
             this.motor3Desc.TabIndex = 0;
             // 
             // motorPanelCenter
             // 
+            this.motorPanelCenter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.motorPanelCenter.Controls.Add(this.degreesLabel3);
             this.motorPanelCenter.Controls.Add(this.Motor2Degrees);
             this.motorPanelCenter.Controls.Add(this.countsLabel3);
@@ -433,70 +463,78 @@ namespace Proof_Productions.View
             this.motorPanelCenter.Controls.Add(this.motor2Spd);
             this.motorPanelCenter.Controls.Add(this.motorBox2);
             this.motorPanelCenter.Controls.Add(this.motor2Desc);
-            this.motorPanelCenter.Location = new System.Drawing.Point(407, 36);
+            this.motorPanelCenter.Location = new System.Drawing.Point(543, 44);
+            this.motorPanelCenter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorPanelCenter.Name = "motorPanelCenter";
-            this.motorPanelCenter.Size = new System.Drawing.Size(190, 410);
+            this.motorPanelCenter.Size = new System.Drawing.Size(253, 505);
             this.motorPanelCenter.TabIndex = 11;
             // 
             // degreesLabel3
             // 
             this.degreesLabel3.AutoSize = true;
-            this.degreesLabel3.Location = new System.Drawing.Point(18, 323);
+            this.degreesLabel3.Location = new System.Drawing.Point(24, 398);
+            this.degreesLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.degreesLabel3.Name = "degreesLabel3";
-            this.degreesLabel3.Size = new System.Drawing.Size(82, 13);
+            this.degreesLabel3.Size = new System.Drawing.Size(108, 17);
             this.degreesLabel3.TabIndex = 29;
             this.degreesLabel3.Text = "Rotate Degrees";
             // 
             // Motor2Degrees
             // 
             this.Motor2Degrees.FormattingEnabled = true;
-            this.Motor2Degrees.Location = new System.Drawing.Point(20, 337);
+            this.Motor2Degrees.Location = new System.Drawing.Point(27, 415);
+            this.Motor2Degrees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Motor2Degrees.Name = "Motor2Degrees";
-            this.Motor2Degrees.Size = new System.Drawing.Size(148, 21);
+            this.Motor2Degrees.Size = new System.Drawing.Size(196, 24);
             this.Motor2Degrees.TabIndex = 26;
             this.Motor2Degrees.Text = "50";
             // 
             // countsLabel3
             // 
             this.countsLabel3.AutoSize = true;
-            this.countsLabel3.Location = new System.Drawing.Point(19, 278);
+            this.countsLabel3.Location = new System.Drawing.Point(25, 342);
+            this.countsLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.countsLabel3.Name = "countsLabel3";
-            this.countsLabel3.Size = new System.Drawing.Size(104, 13);
+            this.countsLabel3.Size = new System.Drawing.Size(136, 17);
             this.countsLabel3.TabIndex = 27;
             this.countsLabel3.Text = "Counts A Revolution";
             // 
             // decelLabel2
             // 
             this.decelLabel2.AutoSize = true;
-            this.decelLabel2.Location = new System.Drawing.Point(18, 241);
+            this.decelLabel2.Location = new System.Drawing.Point(24, 297);
+            this.decelLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.decelLabel2.Name = "decelLabel2";
-            this.decelLabel2.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel2.Size = new System.Drawing.Size(88, 17);
             this.decelLabel2.TabIndex = 16;
             this.decelLabel2.Text = "Deceleration";
             // 
             // accelLabel2
             // 
             this.accelLabel2.AutoSize = true;
-            this.accelLabel2.Location = new System.Drawing.Point(17, 197);
+            this.accelLabel2.Location = new System.Drawing.Point(23, 242);
+            this.accelLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accelLabel2.Name = "accelLabel2";
-            this.accelLabel2.Size = new System.Drawing.Size(66, 13);
+            this.accelLabel2.Size = new System.Drawing.Size(86, 17);
             this.accelLabel2.TabIndex = 12;
             this.accelLabel2.Text = "Acceleration";
             // 
             // spdLabel2
             // 
             this.spdLabel2.AutoSize = true;
-            this.spdLabel2.Location = new System.Drawing.Point(18, 156);
+            this.spdLabel2.Location = new System.Drawing.Point(24, 192);
+            this.spdLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.spdLabel2.Name = "spdLabel2";
-            this.spdLabel2.Size = new System.Drawing.Size(38, 13);
+            this.spdLabel2.Size = new System.Drawing.Size(49, 17);
             this.spdLabel2.TabIndex = 11;
             this.spdLabel2.Text = "Speed";
             // 
             // motor2Clear
             // 
-            this.motor2Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor2Clear.Location = new System.Drawing.Point(164, 455);
+            this.motor2Clear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Clear.Name = "motor2Clear";
-            this.motor2Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor2Clear.Size = new System.Drawing.Size(61, 28);
             this.motor2Clear.TabIndex = 29;
             this.motor2Clear.Text = "Clear";
             this.motor2Clear.UseVisualStyleBackColor = true;
@@ -504,9 +542,10 @@ namespace Proof_Productions.View
             // 
             // motor2Stop
             // 
-            this.motor2Stop.Location = new System.Drawing.Point(72, 370);
+            this.motor2Stop.Location = new System.Drawing.Point(96, 455);
+            this.motor2Stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Stop.Name = "motor2Stop";
-            this.motor2Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor2Stop.Size = new System.Drawing.Size(63, 28);
             this.motor2Stop.TabIndex = 28;
             this.motor2Stop.Text = "Stop";
             this.motor2Stop.UseVisualStyleBackColor = true;
@@ -514,9 +553,10 @@ namespace Proof_Productions.View
             // 
             // motor2Start
             // 
-            this.motor2Start.Location = new System.Drawing.Point(20, 370);
+            this.motor2Start.Location = new System.Drawing.Point(27, 455);
+            this.motor2Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Start.Name = "motor2Start";
-            this.motor2Start.Size = new System.Drawing.Size(48, 23);
+            this.motor2Start.Size = new System.Drawing.Size(64, 28);
             this.motor2Start.TabIndex = 27;
             this.motor2Start.Text = "Start";
             this.motor2Start.UseVisualStyleBackColor = true;
@@ -525,9 +565,10 @@ namespace Proof_Productions.View
             // motor2Counts
             // 
             this.motor2Counts.FormattingEnabled = true;
-            this.motor2Counts.Location = new System.Drawing.Point(21, 292);
+            this.motor2Counts.Location = new System.Drawing.Point(28, 359);
+            this.motor2Counts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Counts.Name = "motor2Counts";
-            this.motor2Counts.Size = new System.Drawing.Size(148, 21);
+            this.motor2Counts.Size = new System.Drawing.Size(196, 24);
             this.motor2Counts.TabIndex = 25;
             this.motor2Counts.Text = "2000";
             // 
@@ -541,9 +582,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor2Decel.Location = new System.Drawing.Point(21, 254);
+            this.motor2Decel.Location = new System.Drawing.Point(28, 313);
+            this.motor2Decel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Decel.Name = "motor2Decel";
-            this.motor2Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor2Decel.Size = new System.Drawing.Size(196, 24);
             this.motor2Decel.TabIndex = 24;
             this.motor2Decel.Text = "100";
             this.motor2Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -558,9 +600,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor2Accel.Location = new System.Drawing.Point(20, 213);
+            this.motor2Accel.Location = new System.Drawing.Point(27, 262);
+            this.motor2Accel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Accel.Name = "motor2Accel";
-            this.motor2Accel.Size = new System.Drawing.Size(149, 21);
+            this.motor2Accel.Size = new System.Drawing.Size(197, 24);
             this.motor2Accel.TabIndex = 23;
             this.motor2Accel.Text = "100";
             this.motor2Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -575,9 +618,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor2Spd.Location = new System.Drawing.Point(20, 173);
+            this.motor2Spd.Location = new System.Drawing.Point(27, 213);
+            this.motor2Spd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Spd.Name = "motor2Spd";
-            this.motor2Spd.Size = new System.Drawing.Size(149, 21);
+            this.motor2Spd.Size = new System.Drawing.Size(197, 24);
             this.motor2Spd.TabIndex = 22;
             this.motor2Spd.Text = "300";
             this.motor2Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -587,19 +631,21 @@ namespace Proof_Productions.View
             this.motorBox2.FormattingEnabled = true;
             this.motorBox2.Items.AddRange(new object[] {
             "Motor 1"});
-            this.motorBox2.Location = new System.Drawing.Point(21, 13);
+            this.motorBox2.Location = new System.Drawing.Point(28, 16);
+            this.motorBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorBox2.Name = "motorBox2";
-            this.motorBox2.Size = new System.Drawing.Size(148, 21);
+            this.motorBox2.Size = new System.Drawing.Size(196, 24);
             this.motorBox2.TabIndex = 20;
             // 
             // motor2Desc
             // 
             this.motor2Desc.BackColor = System.Drawing.SystemColors.Window;
-            this.motor2Desc.Location = new System.Drawing.Point(21, 35);
+            this.motor2Desc.Location = new System.Drawing.Point(28, 43);
+            this.motor2Desc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor2Desc.Multiline = true;
             this.motor2Desc.Name = "motor2Desc";
             this.motor2Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.motor2Desc.Size = new System.Drawing.Size(148, 117);
+            this.motor2Desc.Size = new System.Drawing.Size(196, 143);
             this.motor2Desc.TabIndex = 21;
             // 
             // motorPanelLeft
@@ -616,26 +662,29 @@ namespace Proof_Productions.View
             this.motorPanelLeft.Controls.Add(this.motor1Spd);
             this.motorPanelLeft.Controls.Add(this.motorBox1);
             this.motorPanelLeft.Controls.Add(this.motor1Desc);
-            this.motorPanelLeft.Location = new System.Drawing.Point(189, 36);
+            this.motorPanelLeft.Location = new System.Drawing.Point(252, 44);
+            this.motorPanelLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorPanelLeft.Name = "motorPanelLeft";
-            this.motorPanelLeft.Size = new System.Drawing.Size(190, 410);
+            this.motorPanelLeft.Size = new System.Drawing.Size(253, 505);
             this.motorPanelLeft.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.motor1Backward);
             this.panel1.Controls.Add(this.motor1Forward);
-            this.panel1.Location = new System.Drawing.Point(20, 290);
+            this.panel1.Location = new System.Drawing.Point(27, 357);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(149, 29);
+            this.panel1.Size = new System.Drawing.Size(199, 36);
             this.panel1.TabIndex = 5;
             // 
             // motor1Backward
             // 
             this.motor1Backward.AutoSize = true;
-            this.motor1Backward.Location = new System.Drawing.Point(72, 4);
+            this.motor1Backward.Location = new System.Drawing.Point(96, 5);
+            this.motor1Backward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Backward.Name = "motor1Backward";
-            this.motor1Backward.Size = new System.Drawing.Size(78, 17);
+            this.motor1Backward.Size = new System.Drawing.Size(94, 21);
             this.motor1Backward.TabIndex = 7;
             this.motor1Backward.Text = "Backwards";
             this.motor1Backward.UseVisualStyleBackColor = true;
@@ -644,9 +693,10 @@ namespace Proof_Productions.View
             // 
             this.motor1Forward.AutoSize = true;
             this.motor1Forward.Checked = true;
-            this.motor1Forward.Location = new System.Drawing.Point(5, 4);
+            this.motor1Forward.Location = new System.Drawing.Point(7, 5);
+            this.motor1Forward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Forward.Name = "motor1Forward";
-            this.motor1Forward.Size = new System.Drawing.Size(68, 17);
+            this.motor1Forward.Size = new System.Drawing.Size(84, 21);
             this.motor1Forward.TabIndex = 6;
             this.motor1Forward.TabStop = true;
             this.motor1Forward.Text = "Forwards";
@@ -655,35 +705,39 @@ namespace Proof_Productions.View
             // decelLabel1
             // 
             this.decelLabel1.AutoSize = true;
-            this.decelLabel1.Location = new System.Drawing.Point(19, 243);
+            this.decelLabel1.Location = new System.Drawing.Point(25, 299);
+            this.decelLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.decelLabel1.Name = "decelLabel1";
-            this.decelLabel1.Size = new System.Drawing.Size(67, 13);
+            this.decelLabel1.Size = new System.Drawing.Size(88, 17);
             this.decelLabel1.TabIndex = 15;
             this.decelLabel1.Text = "Deceleration";
             // 
             // spdLabel1
             // 
             this.spdLabel1.AutoSize = true;
-            this.spdLabel1.Location = new System.Drawing.Point(18, 158);
+            this.spdLabel1.Location = new System.Drawing.Point(24, 194);
+            this.spdLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.spdLabel1.Name = "spdLabel1";
-            this.spdLabel1.Size = new System.Drawing.Size(38, 13);
+            this.spdLabel1.Size = new System.Drawing.Size(49, 17);
             this.spdLabel1.TabIndex = 13;
             this.spdLabel1.Text = "Speed";
             // 
             // accelLabel1
             // 
             this.accelLabel1.AutoSize = true;
-            this.accelLabel1.Location = new System.Drawing.Point(18, 199);
+            this.accelLabel1.Location = new System.Drawing.Point(24, 245);
+            this.accelLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accelLabel1.Name = "accelLabel1";
-            this.accelLabel1.Size = new System.Drawing.Size(66, 13);
+            this.accelLabel1.Size = new System.Drawing.Size(86, 17);
             this.accelLabel1.TabIndex = 14;
             this.accelLabel1.Text = "Acceleration";
             // 
             // motor1Clear
             // 
-            this.motor1Clear.Location = new System.Drawing.Point(123, 370);
+            this.motor1Clear.Location = new System.Drawing.Point(164, 455);
+            this.motor1Clear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Clear.Name = "motor1Clear";
-            this.motor1Clear.Size = new System.Drawing.Size(46, 23);
+            this.motor1Clear.Size = new System.Drawing.Size(61, 28);
             this.motor1Clear.TabIndex = 10;
             this.motor1Clear.Text = "Clear";
             this.motor1Clear.UseVisualStyleBackColor = true;
@@ -691,9 +745,10 @@ namespace Proof_Productions.View
             // 
             // motor1Stop
             // 
-            this.motor1Stop.Location = new System.Drawing.Point(72, 370);
+            this.motor1Stop.Location = new System.Drawing.Point(96, 455);
+            this.motor1Stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Stop.Name = "motor1Stop";
-            this.motor1Stop.Size = new System.Drawing.Size(47, 23);
+            this.motor1Stop.Size = new System.Drawing.Size(63, 28);
             this.motor1Stop.TabIndex = 9;
             this.motor1Stop.Text = "Stop";
             this.motor1Stop.UseVisualStyleBackColor = true;
@@ -701,9 +756,10 @@ namespace Proof_Productions.View
             // 
             // motor1Start
             // 
-            this.motor1Start.Location = new System.Drawing.Point(20, 370);
+            this.motor1Start.Location = new System.Drawing.Point(27, 455);
+            this.motor1Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Start.Name = "motor1Start";
-            this.motor1Start.Size = new System.Drawing.Size(48, 23);
+            this.motor1Start.Size = new System.Drawing.Size(64, 28);
             this.motor1Start.TabIndex = 8;
             this.motor1Start.Text = "Start";
             this.motor1Start.UseVisualStyleBackColor = true;
@@ -719,9 +775,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor1Decel.Location = new System.Drawing.Point(21, 256);
+            this.motor1Decel.Location = new System.Drawing.Point(28, 315);
+            this.motor1Decel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Decel.Name = "motor1Decel";
-            this.motor1Decel.Size = new System.Drawing.Size(148, 21);
+            this.motor1Decel.Size = new System.Drawing.Size(196, 24);
             this.motor1Decel.TabIndex = 4;
             this.motor1Decel.Text = "80";
             this.motor1Decel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -736,9 +793,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor1Accel.Location = new System.Drawing.Point(20, 215);
+            this.motor1Accel.Location = new System.Drawing.Point(27, 265);
+            this.motor1Accel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Accel.Name = "motor1Accel";
-            this.motor1Accel.Size = new System.Drawing.Size(149, 21);
+            this.motor1Accel.Size = new System.Drawing.Size(197, 24);
             this.motor1Accel.TabIndex = 3;
             this.motor1Accel.Text = "80";
             this.motor1Accel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -753,9 +811,10 @@ namespace Proof_Productions.View
             "300",
             "400",
             "500"});
-            this.motor1Spd.Location = new System.Drawing.Point(20, 175);
+            this.motor1Spd.Location = new System.Drawing.Point(27, 215);
+            this.motor1Spd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Spd.Name = "motor1Spd";
-            this.motor1Spd.Size = new System.Drawing.Size(149, 21);
+            this.motor1Spd.Size = new System.Drawing.Size(197, 24);
             this.motor1Spd.TabIndex = 2;
             this.motor1Spd.Text = "300";
             this.motor1Spd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly_KeyPress);
@@ -765,26 +824,28 @@ namespace Proof_Productions.View
             this.motorBox1.FormattingEnabled = true;
             this.motorBox1.Items.AddRange(new object[] {
             "Motor 1"});
-            this.motorBox1.Location = new System.Drawing.Point(21, 13);
+            this.motorBox1.Location = new System.Drawing.Point(28, 16);
+            this.motorBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motorBox1.Name = "motorBox1";
-            this.motorBox1.Size = new System.Drawing.Size(148, 21);
+            this.motorBox1.Size = new System.Drawing.Size(196, 24);
             this.motorBox1.TabIndex = 0;
             // 
             // motor1Desc
             // 
             this.motor1Desc.BackColor = System.Drawing.SystemColors.Window;
-            this.motor1Desc.Location = new System.Drawing.Point(21, 35);
+            this.motor1Desc.Location = new System.Drawing.Point(28, 43);
+            this.motor1Desc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.motor1Desc.Multiline = true;
             this.motor1Desc.Name = "motor1Desc";
             this.motor1Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.motor1Desc.Size = new System.Drawing.Size(148, 117);
+            this.motor1Desc.Size = new System.Drawing.Size(196, 143);
             this.motor1Desc.TabIndex = 1;
             // 
             // ManualControlForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 477);
+            this.ClientSize = new System.Drawing.Size(1133, 587);
             this.Controls.Add(this.estopButton);
             this.Controls.Add(this.stopCalibrationBtn);
             this.Controls.Add(this.startCalibrationBtn);
@@ -795,6 +856,9 @@ namespace Proof_Productions.View
             this.Controls.Add(this.motorPanelRight);
             this.Controls.Add(this.motorPanelCenter);
             this.Controls.Add(this.motorPanelLeft);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1149, 626);
             this.Name = "ManualControlForm";
             this.Text = "Proof Productions: Manual Control";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
