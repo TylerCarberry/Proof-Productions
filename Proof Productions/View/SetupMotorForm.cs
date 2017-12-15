@@ -93,7 +93,7 @@ namespace Proof_Productions.View
             if (answer == DialogResult.Yes)
             {
                 DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
-                Controller.deleteMotor(row, (DataTable)dataGridView.DataSource);
+                Controller.deleteMotor(row);
                 RefreshData();
             }
         }
