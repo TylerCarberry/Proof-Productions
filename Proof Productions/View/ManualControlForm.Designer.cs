@@ -636,6 +636,7 @@ namespace Proof_Productions.View
             this.motorBox2.Name = "motorBox2";
             this.motorBox2.Size = new System.Drawing.Size(196, 24);
             this.motorBox2.TabIndex = 20;
+            this.motorBox2.SelectedIndexChanged += new System.EventHandler(this.motorBox2_SelectedIndexChanged);
             // 
             // motor2Desc
             // 
@@ -644,6 +645,7 @@ namespace Proof_Productions.View
             this.motor2Desc.Margin = new System.Windows.Forms.Padding(4);
             this.motor2Desc.Multiline = true;
             this.motor2Desc.Name = "motor2Desc";
+            this.motor2Desc.ReadOnly = true;
             this.motor2Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor2Desc.Size = new System.Drawing.Size(196, 143);
             this.motor2Desc.TabIndex = 21;
@@ -829,6 +831,7 @@ namespace Proof_Productions.View
             this.motorBox1.Name = "motorBox1";
             this.motorBox1.Size = new System.Drawing.Size(196, 24);
             this.motorBox1.TabIndex = 0;
+            this.motorBox1.SelectedIndexChanged += new System.EventHandler(this.motorBox1_SelectedIndexChanged);
             // 
             // motor1Desc
             // 
@@ -837,6 +840,7 @@ namespace Proof_Productions.View
             this.motor1Desc.Margin = new System.Windows.Forms.Padding(4);
             this.motor1Desc.Multiline = true;
             this.motor1Desc.Name = "motor1Desc";
+            this.motor1Desc.ReadOnly = true;
             this.motor1Desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.motor1Desc.Size = new System.Drawing.Size(196, 143);
             this.motor1Desc.TabIndex = 1;

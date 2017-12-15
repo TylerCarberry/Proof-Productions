@@ -26,7 +26,7 @@ namespace Proof_Productions.Controller
             try
             {
                 data.Connect();
-                motortable = data.GetMotors();
+                motortable = data.GetMotorPLC();
                 data.Disconnect();
             }
             catch (Exception e)
