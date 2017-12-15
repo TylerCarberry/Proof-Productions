@@ -5,11 +5,17 @@ using System.Windows.Forms;
 using Proof_Productions.Controller;
 namespace Proof_Productions.View
 {
+    /// <summary>
+    /// A form for setting up a new motor
+    /// </summary>
     public partial class SetupMotorForm : BaseForm
     {
         private SetupMotorController Controller;
-        private Boolean hasModifiedSinceLastSave;
+        private Boolean Modified;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SetupMotorForm()
         {
             InitializeComponent();
@@ -17,15 +23,22 @@ namespace Proof_Productions.View
             RefreshData();
         }
 
+        /// <summary>
+        /// Fetch motor information using Controller and repopulate the motor grid view
+        /// 
+        /// Note that motor name should not be changeable
+        /// TODO - PLC should be selectable from a ComboBox
+        /// </summary>
         public void RefreshData()
         {
-            dataGridView.DataSource = Controller.fetchAllMotors();
-            //Make motor name unchangeable for consistency purposes for now
-            //The names should pull from the list of motors
-            dataGridView.Columns["Name"].ReadOnly = true;
-            dataGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
+            motorGridView.DataSource = Controller.fetchAllMotors();
+            motorGridView.Columns["Name"].ReadOnly = true;
+            motorGridView.Columns["Name"].DefaultCellStyle.ForeColor = Color.Gray;
         }
 
+        /* The following methods creates a new form when switching
+         * TODO - instantiate each of the forms only once and when switching use show and close
+         * */
         private void MainMenuToolStripMenuItem_Click(object sender, EventArgs e) {
             SwitchToForm(new MainMenuForm());
         }
@@ -50,13 +63,20 @@ namespace Proof_Productions.View
             new AboutForm().Show();
         }
 
+        /// <summary>
+        /// Add a new motor
+        /// Users will be sent to a NewMotorForm to specify information for the new motor
+        /// If adding is successful, refresh the motor grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddMotorButton_Click(object sender, EventArgs e)
         {
             NewMotorForm NewMotor = new NewMotorForm();
             NewMotor.ShowDialog();
             if (NewMotor.IsSubmitted())
             {
-                DataTable dt = (DataTable)dataGridView.DataSource;
+                DataTable dt = (DataTable)motorGridView.DataSource;
                 DataRow row = dt.NewRow(); ;
                 row["Name"] = NewMotor.GetMotorName();
                 row["IPAddress"] = NewMotor.GetIPAddress();
@@ -72,19 +92,29 @@ namespace Proof_Productions.View
             }
         }
 
+        /// <summary>
+        /// Update the motor in the selected row of the motor grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateMotorButton_Click(object sender, EventArgs e)
         {
             DialogResult answer = MessageBox.Show("Are you sure?", "Remove Motor",
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
+                DataRow row = ((DataRowView)motorGridView.CurrentRow.DataBoundItem).Row;
                 Controller.updateMotor(row);
                 this.RefreshData();
             }
-            hasModifiedSinceLastSave = false;
+            Modified = false;
         }
 
+        /// <summary>
+        /// Remove a motor 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveMotorButton_Click(object sender, EventArgs e)
         {
             //prompt user if they really want to remove the row
@@ -92,20 +122,30 @@ namespace Proof_Productions.View
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer == DialogResult.Yes)
             {
-                DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
+                DataRow row = ((DataRowView)motorGridView.CurrentRow.DataBoundItem).Row;
                 Controller.deleteMotor(row);
                 RefreshData();
             }
         }
 
-        private void DataGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// If any cell has been changed, set Modified to true
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MotorGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
         {
-            hasModifiedSinceLastSave = true;
+            Modified = true;
         }
 
+        /// <summary>
+        /// Check if user wants to leave the form if any data has been modified and unsaved
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetupMotorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (hasModifiedSinceLastSave)
+            if (Modified)
             {
                 DialogResult answer = MessageBox.Show("You have unsaved changes. Are you sure you want to leave without saving?", "Are you sure?",
                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -117,16 +157,25 @@ namespace Proof_Productions.View
             }
         }
 
-        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        /// <summary>
+        /// Add character input check to the numeric columns
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void motorGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            //only apply character input check to non-name columns
-            if (this.dataGridView.CurrentCell.ColumnIndex == 4)
+            if (this.motorGridView.CurrentCell.ColumnIndex == 4)
             {
                 var txtEdit = (TextBox)e.Control;
                 txtEdit.KeyPress += EditKeyPress;
             }
         }
 
+        /// <summary>
+        /// Only allow numeric inputs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditKeyPress(object sender, KeyPressEventArgs e)
         {
             //only allowed to input numerals
@@ -136,9 +185,14 @@ namespace Proof_Productions.View
             }
         }
 
+        /// <summary>
+        /// Update all of the motors and refresh the motor grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateAllButton_Click(object sender, EventArgs e)
         {
-            Controller.updateAllMotor(dataGridView);
+            Controller.updateAllMotor(motorGridView);
             RefreshData();
         }
     }
