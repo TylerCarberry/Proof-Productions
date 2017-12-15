@@ -45,6 +45,7 @@ namespace Proof_Productions.View
             this.deleteCueButton = new System.Windows.Forms.Button();
             this.addCueItemButton = new System.Windows.Forms.Button();
             this.UpdateCueItemButton = new System.Windows.Forms.Button();
+            this.UpdateAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cueDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,8 +62,8 @@ namespace Proof_Productions.View
             this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
             this.cueDataGridView.TabIndex = 9;
             this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
+            this.cueDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
             this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
-            this.cueDataGridView.CellMouseUp += new DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
             this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
             // 
             // menuStrip1
@@ -142,7 +143,7 @@ namespace Proof_Productions.View
             // 
             // deleteCueItemButton
             // 
-            this.deleteCueItemButton.Location = new System.Drawing.Point(289, 376);
+            this.deleteCueItemButton.Location = new System.Drawing.Point(403, 376);
             this.deleteCueItemButton.Name = "deleteCueItemButton";
             this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
             this.deleteCueItemButton.TabIndex = 21;
@@ -182,7 +183,7 @@ namespace Proof_Productions.View
             // 
             // UpdateCueItemButton
             // 
-            this.UpdateCueItemButton.Location = new System.Drawing.Point(157, 376);
+            this.UpdateCueItemButton.Location = new System.Drawing.Point(280, 376);
             this.UpdateCueItemButton.Name = "UpdateCueItemButton";
             this.UpdateCueItemButton.Size = new System.Drawing.Size(105, 23);
             this.UpdateCueItemButton.TabIndex = 25;
@@ -190,11 +191,22 @@ namespace Proof_Productions.View
             this.UpdateCueItemButton.UseVisualStyleBackColor = true;
             this.UpdateCueItemButton.Click += new System.EventHandler(this.UpdateCueItemButton_Click);
             // 
+            // UpdateAllButton
+            // 
+            this.UpdateAllButton.Location = new System.Drawing.Point(152, 376);
+            this.UpdateAllButton.Name = "UpdateAllButton";
+            this.UpdateAllButton.Size = new System.Drawing.Size(105, 23);
+            this.UpdateAllButton.TabIndex = 26;
+            this.UpdateAllButton.Text = "Update All Cue Items";
+            this.UpdateAllButton.UseVisualStyleBackColor = true;
+            this.UpdateAllButton.Click += new System.EventHandler(this.UpdateAllButton_Click);
+            // 
             // SetupCueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 423);
+            this.Controls.Add(this.UpdateAllButton);
             this.Controls.Add(this.UpdateCueItemButton);
             this.Controls.Add(this.addCueItemButton);
             this.Controls.Add(this.deleteCueButton);
@@ -232,5 +244,6 @@ namespace Proof_Productions.View
         private System.Windows.Forms.Button deleteCueButton;
         private System.Windows.Forms.Button addCueItemButton;
         private System.Windows.Forms.Button UpdateCueItemButton;
+        private Button UpdateAllButton;
     }
 }

@@ -264,5 +264,10 @@ namespace Proof_Productions.View
             }
         }
 
+        private void UpdateAllButton_Click(object sender, EventArgs e)
+        {
+            Controller.updateAllCueItem(cueDataGridView);
+            RefreshCueItemGrid(getCurrentCue());
+        }
     }
 }

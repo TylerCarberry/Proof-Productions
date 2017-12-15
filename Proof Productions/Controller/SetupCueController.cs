@@ -57,11 +57,11 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.insertCue(cueName, Description);
                 data.disconnect();
-                MessageBox.Show("Cue " + cueName + " has been added");
+                MessageBox.Show("Cue '" + cueName + "' has been added");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error adding new cue " + cueName + " : \n" + e.ToString());
+                MessageBox.Show("Error adding new cue '" + cueName + "' : \n" + e.ToString());
             }
         }
 
@@ -73,11 +73,11 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.deleteCue(cueName);
                 data.disconnect();
-                MessageBox.Show("Cue " + cueName + " has been deleted");
+                MessageBox.Show("Cue '" + cueName + "' has been deleted");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error deleting cue " + cueName + " : \n" + e.ToString());
+                MessageBox.Show("Error deleting cue '" + cueName + "' : \n" + e.ToString());
             }
         }
 
@@ -89,12 +89,12 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.insertCueItem(row, cueName);
                 data.disconnect();
-                MessageBox.Show("Inserted new cue item " + itemName + " cueName");
+                MessageBox.Show("Inserted new cue item '" + itemName + "' into Cue '" + cueName + "'");
             }
             catch (Exception e)
             {
                 //add more info
-                MessageBox.Show("Error inserting cue item " + itemName + " : \n" + e.ToString());
+                MessageBox.Show("Error inserting cue item '" + itemName + "' : \n" + e.ToString());
             }
         }
 
@@ -106,11 +106,30 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.UpdateCueItem(row);
                 data.disconnect();
-                MessageBox.Show("Updated cue item " + itemName);
+                MessageBox.Show("Updated cue item '" + itemName + "'");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error updating cue item " + itemName + " : \n " + e.ToString());
+                MessageBox.Show("Error updating cue item '" + itemName + "' : \n " + e.ToString());
+            }
+        }
+
+        public void updateAllCueItem(DataGridView view)
+        {
+            try
+            {
+                data.connect();
+                foreach (DataGridViewRow dgvRow in view.Rows)
+                {
+                    DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
+                    data.UpdateCueItem(Row);
+                }
+                data.disconnect();
+                MessageBox.Show("All cue items have been updated for the current cue");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error updating all cue items : \n" + e.ToString());
             }
         }
     }

@@ -136,5 +136,11 @@ namespace Proof_Productions.View
                 e.Handled = true;
             }
         }
+
+        private void UpdateAllButton_Click(object sender, EventArgs e)
+        {
+            Controller.updateAllMotor(dataGridView);
+            RefreshData();
+        }
     }
 }

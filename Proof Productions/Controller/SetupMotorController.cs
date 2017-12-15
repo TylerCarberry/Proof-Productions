@@ -29,12 +29,32 @@ namespace Proof_Productions.Controller
                 motortable = data.getMotors();
                 data.disconnect();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Error getting motors due to : \n " + e.ToString());
             }
             return motortable;
         }
+
+        public void updateAllMotor(DataGridView view)
+        {
+            try
+            {
+                data.connect();
+                foreach (DataGridViewRow dgvRow in view.Rows)
+                {
+                    DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
+                    data.updateMotor(Row);
+                }
+                data.disconnect();
+                MessageBox.Show("All motors have been updated");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error updating motors : \n" + e.ToString());
+            }
+         }
+         
 
         public void updateMotor(DataRow row)
         {
@@ -44,12 +64,12 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.updateMotor(row);
                 data.disconnect(); 
+                MessageBox.Show(motorName + " has been updated");
             }
             catch(Exception e)
             {
                 MessageBox.Show("Error updating " +motorName + " due to : /n " + e.ToString());
-            };
-            MessageBox.Show(motorName + " has been updated");
+            }
         }
 
         public void insertMotor(DataRow row)
