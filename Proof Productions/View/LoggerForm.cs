@@ -21,7 +21,7 @@ namespace Proof_Productions.View
             String[] logArray;
             try
             {
-                logArray = File.ReadAllLines(Logger.getLogPath());
+                logArray = File.ReadAllLines(Logger.GetLogPath());
             }
             catch (IOException e)
             {
@@ -49,7 +49,7 @@ namespace Proof_Productions.View
         /// </summary>
         private void LogLocationButton_Click(object sender, EventArgs e)
         {
-            String filePath = Logger.getLogFolder();
+            String filePath = Logger.GetLogFolder();
             String argument = "/select, \"" + filePath + "\"";
 
             System.Diagnostics.Process.Start("explorer.exe", argument);
