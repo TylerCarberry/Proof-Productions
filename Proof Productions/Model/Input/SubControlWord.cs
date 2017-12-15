@@ -3,8 +3,8 @@
 namespace Proof_Productions.Model.Input
 {
     /*
-     * SubcontrolWord is a special case that does not belog to
-     * either InputBoolean nor InputValue as it contains both.
+     * SubcontrolWord is a special case that does not belong to
+     * neither InputBoolean nor InputValue as it contains both.
      */
 
     public class SubcontrolWord
