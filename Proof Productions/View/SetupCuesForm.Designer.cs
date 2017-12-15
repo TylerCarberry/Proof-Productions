@@ -59,10 +59,10 @@ namespace Proof_Productions.View
             this.cueDataGridView.MultiSelect = false;
             this.cueDataGridView.Name = "cueDataGridView";
             this.cueDataGridView.Size = new System.Drawing.Size(689, 285);
-            this.cueDataGridView.TabIndex = 9;
+            this.cueDataGridView.TabIndex = 10;
             this.cueDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellContentClick);
+            this.cueDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
             this.cueDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.cueDataGridView_CellValueChanged);
-            this.cueDataGridView.CellMouseUp += new DataGridViewCellMouseEventHandler(this.myDataGrid_OnCellMouseUp);
             this.cueDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.cueDataGridView_EditingControlShowing);
             // 
             // menuStrip1
@@ -137,7 +137,7 @@ namespace Proof_Productions.View
             this.cueComboBox.Location = new System.Drawing.Point(80, 34);
             this.cueComboBox.Name = "cueComboBox";
             this.cueComboBox.Size = new System.Drawing.Size(121, 21);
-            this.cueComboBox.TabIndex = 20;
+            this.cueComboBox.TabIndex = 1;
             this.cueComboBox.SelectedIndexChanged += new System.EventHandler(this.CueComboBox_SelectedIndexChanged);
             // 
             // deleteCueItemButton
@@ -145,7 +145,7 @@ namespace Proof_Productions.View
             this.deleteCueItemButton.Location = new System.Drawing.Point(289, 376);
             this.deleteCueItemButton.Name = "deleteCueItemButton";
             this.deleteCueItemButton.Size = new System.Drawing.Size(98, 23);
-            this.deleteCueItemButton.TabIndex = 21;
+            this.deleteCueItemButton.TabIndex = 22;
             this.deleteCueItemButton.Text = "Delete Cue Item";
             this.deleteCueItemButton.UseVisualStyleBackColor = true;
             this.deleteCueItemButton.Click += new System.EventHandler(this.DeleteCueItemButton_Click);
@@ -155,7 +155,7 @@ namespace Proof_Productions.View
             this.newCueButton.Location = new System.Drawing.Point(226, 34);
             this.newCueButton.Name = "newCueButton";
             this.newCueButton.Size = new System.Drawing.Size(83, 23);
-            this.newCueButton.TabIndex = 22;
+            this.newCueButton.TabIndex = 2;
             this.newCueButton.Text = "Add New Cue";
             this.newCueButton.UseVisualStyleBackColor = true;
             this.newCueButton.Click += new System.EventHandler(this.NewCueButton_Click);
@@ -165,7 +165,7 @@ namespace Proof_Productions.View
             this.deleteCueButton.Location = new System.Drawing.Point(315, 34);
             this.deleteCueButton.Name = "deleteCueButton";
             this.deleteCueButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteCueButton.TabIndex = 23;
+            this.deleteCueButton.TabIndex = 3;
             this.deleteCueButton.Text = "Delete Cue";
             this.deleteCueButton.UseVisualStyleBackColor = true;
             this.deleteCueButton.Click += new System.EventHandler(this.DeleteCueButton_Click);
@@ -175,7 +175,7 @@ namespace Proof_Productions.View
             this.addCueItemButton.Location = new System.Drawing.Point(12, 376);
             this.addCueItemButton.Name = "addCueItemButton";
             this.addCueItemButton.Size = new System.Drawing.Size(122, 23);
-            this.addCueItemButton.TabIndex = 24;
+            this.addCueItemButton.TabIndex = 20;
             this.addCueItemButton.Text = "Add New Cue Item";
             this.addCueItemButton.UseVisualStyleBackColor = true;
             this.addCueItemButton.Click += new System.EventHandler(this.AddCueItemButton_Click);
@@ -185,7 +185,7 @@ namespace Proof_Productions.View
             this.UpdateCueItemButton.Location = new System.Drawing.Point(157, 376);
             this.UpdateCueItemButton.Name = "UpdateCueItemButton";
             this.UpdateCueItemButton.Size = new System.Drawing.Size(105, 23);
-            this.UpdateCueItemButton.TabIndex = 25;
+            this.UpdateCueItemButton.TabIndex = 21;
             this.UpdateCueItemButton.Text = "Update Cue Item";
             this.UpdateCueItemButton.UseVisualStyleBackColor = true;
             this.UpdateCueItemButton.Click += new System.EventHandler(this.UpdateCueItemButton_Click);
