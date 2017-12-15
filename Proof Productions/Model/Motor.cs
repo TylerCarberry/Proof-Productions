@@ -21,6 +21,7 @@ namespace Proof_Productions.Model
 
         public Motor()
         {
+            // The default IP address of the motor in the lab
             IPAddress = "192.168.10.4";
             Name = "POC Motor";
             Description = "Default constructor only used for testing and proof of concept purposes only";

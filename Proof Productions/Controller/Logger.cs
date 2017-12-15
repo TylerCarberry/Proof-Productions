@@ -1,43 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proof_Productions.Controller
 {
     class Logger
     {
 
-        public static String getLogFolder()
+        // The log files get saved to my documents
+        public static String GetLogFolder()
         {
             return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\proofProductionLogs\\";
         }
         
-        public static String getLogPath()
+        // The files are named log-date
+        // Ex: log-12152017
+        public static String GetLogPath()
         {
-            return getLogFolder() + "log-" + DateTime.Now.ToString("MMddyyyy") + ".txt";
+            return GetLogFolder() + "log-" + DateTime.Now.ToString("MMddyyyy") + ".txt";
         }
 
-        public static void makeLogFolderIfDoesntExist()
+        public static void MakeLogFolderIfDoesntExist()
         {
-            System.IO.Directory.CreateDirectory(getLogFolder());
+            System.IO.Directory.CreateDirectory(GetLogFolder());
         }
 
         public static void LogInfo(String message)
         {
-            makeLogFolderIfDoesntExist();
-            System.IO.File.AppendAllText(getLogPath(), CurrentTime() + " | ");
-            System.IO.File.AppendAllText(getLogPath(), FormatMessage(message));
-            System.IO.File.AppendAllText(getLogPath(), System.Environment.NewLine);
+            MakeLogFolderIfDoesntExist();
+            System.IO.File.AppendAllText(GetLogPath(), CurrentTime() + " | ");
+            System.IO.File.AppendAllText(GetLogPath(), FormatMessage(message));
+            System.IO.File.AppendAllText(GetLogPath(), System.Environment.NewLine);
         }
 
         public static void LogError(String message)
         {
-            makeLogFolderIfDoesntExist();
-            System.IO.File.AppendAllText(getLogPath(), CurrentTime() + " | ERROR ");
-            System.IO.File.AppendAllText(getLogPath(), FormatMessage(message));
-            System.IO.File.AppendAllText(getLogPath(), System.Environment.NewLine);
+            MakeLogFolderIfDoesntExist();
+            System.IO.File.AppendAllText(GetLogPath(), CurrentTime() + " | ERROR ");
+            System.IO.File.AppendAllText(GetLogPath(), FormatMessage(message));
+            System.IO.File.AppendAllText(GetLogPath(), System.Environment.NewLine);
         }
 
         private static String CurrentTime()
