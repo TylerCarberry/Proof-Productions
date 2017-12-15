@@ -168,35 +168,43 @@ namespace Proof_Productions.View
         public bool validateDelay()
         {
             double output;
-            return DelayTextbox.TextLength > 0 || double.TryParse(GetStartDelay(), out output);
+            return DelayTextbox.TextLength > 0 || 
+                   (double.TryParse(GetStartDelay(), out output) && output < Double.MaxValue);
         }
 
         public bool validateDuration()
         {
             double output;
-            return DurationTextBox.TextLength > 0 || double.TryParse(GetDuration(), out output);
+            return DurationTextBox.TextLength > 0 || 
+                   (double.TryParse(GetDuration(), out output) && output < Double.MaxValue);
         }
 
         public bool validateVelocity()
         {
-            if (VelocityTextBox.TextLength == 0) return false;
-            else if (GetVelocity().Equals("") || Int32.Parse(GetVelocity()) > 1750) return false;
+            if (VelocityTextBox.TextLength == 0 || Int32.Parse(GetVelocity()) > 1750)
+                return false;
             return true;
         }
 
         public bool validateAcceleration()
         {
-            return AccelTextBox.TextLength > 0;
+            if (AccelTextBox.TextLength == 0 || Int32.Parse(AccelTextBox.Text) > Int32.MaxValue)
+                return false;
+            return true;
         }
 
         public bool validateDeceleration()
         {
-            return DecelTextBox.TextLength > 0;
+            if (DecelTextBox.TextLength == 0 || Int32.Parse(DecelTextBox.Text) > Int32.MaxValue)
+                return false;
+            return true;
         }
 
         public bool validatePosition()
         {
-            return PositionTextBox.TextLength > 0;
+            if (PositionTextBox.TextLength == 0 || Int32.Parse(PositionTextBox.Text) > Int32.MaxValue)
+                return false;
+            return true;
         }
 
         private void CueItemNumberTextBox_TextChanged(object sender, EventArgs e)
@@ -249,47 +257,12 @@ namespace Proof_Productions.View
             }
         }
 
-        private void DelayTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void NumberOnlyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            handleNumberOnlyInput(e);
         }
 
-        private void DurationTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void VelocityTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void AccelTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void DecelTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void CueItemNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void handleNumberOnlyInput(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
