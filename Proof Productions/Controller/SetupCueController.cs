@@ -23,9 +23,9 @@ namespace Proof_Productions.Controller
             DataTable cuenames = null; //placeholder
             try
             {
-                data.connect();
-                cuenames = data.getCues();
-                data.disconnect();
+                data.Connect();
+                cuenames = data.GetCues();
+                data.Disconnect();
             }
             catch (Exception e)
             {
@@ -39,9 +39,9 @@ namespace Proof_Productions.Controller
             DataTable cueitems = null; //placeholder
             try
             {
-                data.connect();
-                cueitems = data.getCueItems(cueName);
-                data.disconnect();
+                data.Connect();
+                cueitems = data.GetCueItems(cueName);
+                data.Disconnect();
             }
             catch (Exception e)
             {
@@ -54,9 +54,9 @@ namespace Proof_Productions.Controller
         {
             try
             {
-                data.connect();
-                data.insertCue(cueName, Description);
-                data.disconnect();
+                data.Connect();
+                data.InsertCue(cueName, Description);
+                data.Disconnect();
                 MessageBox.Show("Cue '" + cueName + "' has been added");
             }
             catch (Exception e)
@@ -70,9 +70,9 @@ namespace Proof_Productions.Controller
             //Deleting a cue will delete its cueitems due to foreign key constraints -- ON DELETE
             try
             {
-                data.connect();
-                data.deleteCue(cueName);
-                data.disconnect();
+                data.Connect();
+                data.DeleteCue(cueName);
+                data.Disconnect();
                 MessageBox.Show("Cue '" + cueName + "' has been deleted");
             }
             catch (Exception e)
@@ -86,9 +86,9 @@ namespace Proof_Productions.Controller
             String itemName = row["Name"].ToString();
             try
             {
-                data.connect();
-                data.insertCueItem(row, cueName);
-                data.disconnect();
+                data.Connect();
+                data.InsertCueItem(row, cueName);
+                data.Disconnect();
                 MessageBox.Show("Inserted new cue item '" + itemName + "' into Cue '" + cueName + "'");
             }
             catch (Exception e)
@@ -103,9 +103,9 @@ namespace Proof_Productions.Controller
             String itemName = row["Name"].ToString();
             try
             {
-                data.connect();
+                data.Connect();
                 data.UpdateCueItem(row);
-                data.disconnect();
+                data.Disconnect();
                 MessageBox.Show("Updated cue item '" + itemName + "'");
             }
             catch (Exception e)
@@ -118,13 +118,13 @@ namespace Proof_Productions.Controller
         {
             try
             {
-                data.connect();
+                data.Connect();
                 foreach (DataGridViewRow dgvRow in view.Rows)
                 {
                     DataRow Row = ((DataRowView)dgvRow.DataBoundItem).Row;
                     data.UpdateCueItem(Row);
                 }
-                data.disconnect();
+                data.Disconnect();
                 MessageBox.Show("All cue items have been updated for the current cue");
             }
             catch(Exception e)
