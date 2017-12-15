@@ -94,7 +94,6 @@ namespace Proof_Productions.View
             {
                 DataRow row = ((DataRowView)dataGridView.CurrentRow.DataBoundItem).Row;
                 Controller.deleteMotor(row, (DataTable)dataGridView.DataSource);
-                MessageBox.Show(row["Name"] + " has been deleted");
                 RefreshData();
             }
         }
