@@ -61,7 +61,7 @@
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "proofproductionsinc.com";
-            this.label3.Click += new System.EventHandler(this.urlLabel_Click);
+            this.label3.Click += new System.EventHandler(this.UrlLabel_Click);
             // 
             // label4
             // 

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proof_Productions.View
@@ -21,24 +15,24 @@ namespace Proof_Productions.View
             InitializeComponent();
         }
 
-        private void submitButton_Click(object sender, EventArgs e)
+        private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (validInputs()) {
+            if (ValidInputs()) {
                 submitted = true;
                 this.Close();
             }
         }
 
-        public bool isSubmitted()
+        public bool IsSubmitted()
         {
             return submitted;
         }
-        public String getCueName()
+        public String GetCueName()
         {
             return cueNameTextBox.Text;
         }
 
-        public String getDescription()
+        public String GetDescription()
         {
             return CueDescBox.Text;
         }
@@ -47,7 +41,7 @@ namespace Proof_Productions.View
             this.Close();
         }
 
-        private bool validInputs()
+        private bool ValidInputs()
         {
             //Don't need to check description for now
             bool valid = true;
@@ -59,7 +53,10 @@ namespace Proof_Productions.View
                 valid = false;
             }
 
-            if (!valid) MessageBox.Show(Message.ToString());
+            if (!valid)
+            {
+                MessageBox.Show(Message.ToString());
+            }
             return valid;
         }
     }

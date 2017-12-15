@@ -98,7 +98,7 @@ namespace Proof_Productions.View
             }
         }
 
-        private void dataGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView_CellContentChanged(object sender, DataGridViewCellEventArgs e)
         {
             hasModifiedSinceLastSave = true;
         }

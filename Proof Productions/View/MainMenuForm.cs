@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proof_Productions.Controller;
 using Proof_Productions.Model;
@@ -14,7 +8,6 @@ namespace Proof_Productions.View
 {
     public partial class MainMenuForm : BaseForm
     {
-
         private PlayCueController playCueController1;
 
         public MainMenuForm()
@@ -22,10 +15,10 @@ namespace Proof_Productions.View
             InitializeComponent();
             playCueController1 = new PlayCueController();
             playCueController1.InitObjects();
-            populateView();
+            PopulateView();
         }
 
-        public void populateView()
+        public void PopulateView()
         {
             foreach(Cue c in playCueController1.GetCueList())
             {
@@ -33,11 +26,9 @@ namespace Proof_Productions.View
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// If the form is closed while the motor is running, show a warning dialog
+        /// </summary>
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (playCueController1 != null && playCueController1.IsCueRunning())
@@ -66,11 +57,6 @@ namespace Proof_Productions.View
             }
         }
 
-        private void addCueButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void editCueButton_Click(object sender, EventArgs e)
         {
             SwitchToForm(new SetupCueForm());
@@ -81,23 +67,18 @@ namespace Proof_Productions.View
             MessageBox.Show("Are you sure?", "Remove Cue",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
-
-        private void motorList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         
-        private void playCueButton_Click(object sender, EventArgs e)
+        private void PlayCueButton_Click(object sender, EventArgs e)
         {
             playCueController1.PlayCurrentCue();
         }
 
-        private void pauseCueButton_Click(object sender, EventArgs e)
+        private void PauseCueButton_Click(object sender, EventArgs e)
         {
-
+            // Not implemented yet
         }
 
-        private void nextCueButton_Click(object sender, EventArgs e)
+        private void NextCueButton_Click(object sender, EventArgs e)
         {
             if (cueManager.SelectedIndex < cueManager.Items.Count - 1)
             {
@@ -105,7 +86,7 @@ namespace Proof_Productions.View
             }
         }
 
-        private void previousCueButton_Click(object sender, EventArgs e)
+        private void PreviousCueButton_Click(object sender, EventArgs e)
         {
             if (cueManager.SelectedIndex > 0)
             {
@@ -113,24 +94,9 @@ namespace Proof_Productions.View
             }
         }
 
-        private void stopCueButton_Click(object sender, EventArgs e)
+        private void StopCueButton_Click(object sender, EventArgs e)
         {
             playCueController1.StopCurrentCue();
-        }
-
-        private void moveCueUpButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void moveCueDownButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -157,11 +123,15 @@ namespace Proof_Productions.View
 
         private void cueManager_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cueManager.SelectedIndex < 0) return;
+            if (cueManager.SelectedIndex < 0)
+            {
+                return;
+            }
 
             motorList.Items.Clear();
             HashSet<String> motors = new HashSet<String>();
             Cue CurrentCue = playCueController1.GetCueList()[cueManager.SelectedIndex];
+            
             //populate motor list with only UNIQUE motors
             foreach (CueItem Item in CurrentCue.GetList())
             {
@@ -177,12 +147,6 @@ namespace Proof_Productions.View
             //populate description text box
             cueDescription.Text = CurrentCue.Description;
         }
-
-        private void motorList_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
     
     }
 }

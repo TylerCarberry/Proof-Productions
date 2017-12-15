@@ -19,20 +19,10 @@ namespace Proof_Productions
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*testing for database
-             * TODO - delete later
-            Cue cue = new Cue();
-            DataAccess da = new DataAccess();
-            da.connect();
-            //Console.WriteLine(da.getCueID());
-            Console.WriteLine("Testing");
-            da.disconnect();
-            */
-
-
+            
             BaseForm form = new MainMenuForm();
             BaseForm formToShowNext = null;
-
+            
             int leftPosition = 0;
             int topPosition = 0;
 
@@ -48,6 +38,7 @@ namespace Proof_Productions
 
                     formToShowNext = form.FormToOpenNext;
 
+                    // Prevents the GUI from jumping around as you switch forms
                     leftPosition = form.Left;
                     topPosition = form.Top;
                 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.SubmitButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelCreationButton = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
             this.IPAddressLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -62,13 +62,13 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(234, 215);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelCreationButton.Location = new System.Drawing.Point(234, 215);
+            this.CancelCreationButton.Name = "CancelButton";
+            this.CancelCreationButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelCreationButton.TabIndex = 1;
+            this.CancelCreationButton.Text = "Cancel";
+            this.CancelCreationButton.UseVisualStyleBackColor = true;
+            this.CancelCreationButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // NameLabel
             // 
@@ -245,7 +245,7 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.IPAddressLabel);
             this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelCreationButton);
             this.Controls.Add(this.SubmitButton);
             this.Name = "NewMotorForm";
             this.Text = "New Motor";
@@ -257,7 +257,7 @@
         #endregion
 
         private System.Windows.Forms.Button SubmitButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelCreationButton;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label IPAddressLabel;
         private System.Windows.Forms.TextBox NameTextBox;
