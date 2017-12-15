@@ -17,16 +17,20 @@ namespace Proof_Productions.Controller
     {
         private ModbusTCP.Master MBmaster;
         private byte[] result;
-        Motor ManualMotor;
+        Motor ManualMotor = new Motor();
         Timer timer = new Timer();
         bool running;
         double Degrees;
+        bool DebugFlag = true;
 
         public ManualController()
         {
-            ManualMotor = new Motor();
+
         }
 
+        /// <summary>
+        /// Create ModbusTCP Master object for the motor.
+        /// </summary>
         public void ConnectMotor()
         {
             try
@@ -45,7 +49,6 @@ namespace Proof_Productions.Controller
                 Logger.LogError("Failed to conntect to motor. " + error.ToString());
             }
         }
-
 
         // ------------------------------------------------------------------------
         // Modbus TCP slave exception
@@ -71,6 +74,10 @@ namespace Proof_Productions.Controller
             MessageBox.Show(exc, "Modbus slave exception");
         }
 
+        /// <summary>
+        /// Writes to a motor using only its Speed, Acceleration, Deceleration and Direction.
+        /// Basic Motor.
+        /// </summary>
         public void WriteMotor(int Velocity, int Acceleration, int Deceleration, bool Negative)
         {
             Console.WriteLine("Deceleration Set at " + Deceleration);
@@ -86,6 +93,12 @@ namespace Proof_Productions.Controller
             timer.Start();
         }
 
+        /// <summary>
+        /// Writes to a rotational motor using it Velocity, Acceleration, Deceleration, Degrees per Count, and Degrees
+        /// Motor will spin the entered degree amount and stop.
+        /// Tries to accounts for the distance traveled when slowing down.
+        /// May need more precision for stopping.
+        /// </summary>
         public void WriteMotor(int Velocity, int Acceleration, int Deceleration, double Counts, double Degrees)
         {
             this.Degrees = Degrees;
@@ -93,12 +106,12 @@ namespace Proof_Productions.Controller
             ManualMotor.InputData.SetpointVelocity.Set(Velocity);
             ManualMotor.InputData.Acceleration.Set(Acceleration);
             ManualMotor.InputData.Deceleration.Set(Deceleration);
-            if (Degrees < 0) //Counterclockwise
+            if (Degrees < 0) //Counterclockwise Spin
             {
                 ManualMotor.InputData.Control_I3.Negative = false;
                 ManualMotor.InputData.Control_I3.Positive = true;
             }
-            else
+            else //Clockwise Spin
             {
                 ManualMotor.InputData.Control_I3.Negative = true;
                 ManualMotor.InputData.Control_I3.Positive = false;
@@ -109,11 +122,14 @@ namespace Proof_Productions.Controller
             ManualMotor.AddScaler(Scaler);
 
             running = true;
-            timer.Interval = 100; //ms
+            timer.Interval = 100; //Timer uses ms
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
         }
 
+        /// <summary>
+        /// Stops a motor, works for both basic and rotational motors.
+        /// </summary>
         public void StopMotor()
         {
             running = false;
@@ -123,6 +139,10 @@ namespace Proof_Productions.Controller
             UpdateMotor();
         }
 
+        /// <summary>
+        /// Actually writes to the motor. 
+        /// Used when running and stopping the motor.
+        /// </summary>
         public void UpdateMotor()
         {
             ushort ID = 8;
@@ -134,11 +154,18 @@ namespace Proof_Productions.Controller
                 Logger.LogError("Attempting to write to null motor. Write failed.");
                 return;
             }
-
             MBmaster.ReadWriteMultipleRegister(ID, unit, StartAddress, 12, StartAddress, ManualMotor.InputData.GetValues(), ref result);
             ManualMotor.OutputData.SetValues(result);
         }
 
+        /// <summary>
+        /// Called every timer ticks.
+        /// If controlling a motor with degrees, then the stopping position is calculated
+        /// and the motor starts to stop before the position such that the motor
+        /// reaches the stopping position when it reaches a complete stop.
+        /// 
+        /// If controlling a basic motor, writes to the motor to keep it spinning.
+        /// </summary>
         private void TimerTick(object sender, EventArgs e)
         {
             if (MBmaster == null)
@@ -155,13 +182,15 @@ namespace Proof_Productions.Controller
                     double Distance = AvgVelocity * DecelTime;
                     double TargetPosition = 0;
                     TargetPosition = ManualMotor.GetScaler().GetInitialPosition() - (Degrees * ManualMotor.GetScaler().GetCountsPerRev());
-                   
-                    Console.WriteLine("Degrees " + Degrees);
-                    Console.WriteLine("Current Velocity " + ManualMotor.OutputData.Velocity.Get());
-                    Console.WriteLine("Target Pos " + (TargetPosition));
-                    Console.WriteLine("Current Pos " + ManualMotor.OutputData.Position.Get());
-                    Console.WriteLine("-------------------------");
-
+                    if (DebugFlag)
+                    {
+                        Console.WriteLine("---------------------------------");
+                        Console.WriteLine("Degrees " + Degrees);
+                        Console.WriteLine("Current Velocity " + ManualMotor.OutputData.Velocity.Get());
+                        Console.WriteLine("Target Pos " + (TargetPosition));
+                        Console.WriteLine("Current Pos " + ManualMotor.OutputData.Position.Get());
+                        Console.WriteLine("---------------------------------");
+                    }
                     if (TargetPosition < 0)
                     {
                         if (ManualMotor.InputData.Control_I3.Positive && ManualMotor.OutputData.Position.Get() >= (TargetPosition - Distance*100))
@@ -183,12 +212,19 @@ namespace Proof_Productions.Controller
                 if (ManualMotor.OutputData.Velocity.Get() == 0)
                 {
                     timer.Stop();
-                    Console.WriteLine("Final Position" + ManualMotor.OutputData.Position.Get());
+                    if (DebugFlag)
+                    {
+                        Console.WriteLine("Final Position" + ManualMotor.OutputData.Position.Get());
+                    }
                 }
             }
             UpdateMotor();
         }
 
+        /// <summary>
+        /// Returns true if the timer is running.
+        /// Checks if a timer exists first.
+        /// </summary>
         public bool TimerIsRunning()
         {
             if(timer != null)
@@ -196,11 +232,10 @@ namespace Proof_Productions.Controller
             return false;
         }
 
-        public Motor getMotor()
-        {
-            return ManualMotor;
-        }
-
+        /// <summary>
+        /// Emergency stop for motor.
+        /// Sends ContorllerInhibit bit to motor and stops timer.
+        /// </summary>
         public void Estop()
         {
             if (running)

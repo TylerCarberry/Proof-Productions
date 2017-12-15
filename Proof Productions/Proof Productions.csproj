@@ -92,7 +92,6 @@
     <Compile Include="View\LoggerForm.Designer.cs">
       <DependentUpon>LoggerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\InputValidator.cs" />
     <Compile Include="Model\Input\Acceleration.cs" />
     <Compile Include="Model\Input\BinaryOutputsI10.cs" />
     <Compile Include="Model\Input\BinaryOutputsI2.cs" />

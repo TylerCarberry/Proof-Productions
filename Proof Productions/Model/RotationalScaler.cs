@@ -11,9 +11,9 @@ namespace Proof_Productions.Model
         double CountsPerRev;
         int InitialPosition;
 
-        public RotationalScaler(double CountsPerRevolution, int InitialPosition)
+        public RotationalScaler(double CountsPerDegree, int InitialPosition)
         {
-            CountsPerRev = CountsPerRevolution;
+            CountsPerRev = CountsPerDegree;
             this.InitialPosition = InitialPosition;
         }
 
@@ -36,8 +36,5 @@ namespace Proof_Productions.Model
         {
             return InitialPosition;
         }
-
-
-
     }
 }

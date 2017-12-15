@@ -67,6 +67,7 @@ namespace Proof_Productions.View
             double.TryParse(countStr, out double Counts);
             double.TryParse(degreeStr, out double Degrees);
 
+            Controller2.WriteMotor(Speed, Acceleration, Deceleration, Counts, Degrees);
         }
 
         private void Motor2Stop_Click(object sender, EventArgs e)
