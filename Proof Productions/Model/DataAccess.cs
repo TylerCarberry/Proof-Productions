@@ -75,10 +75,41 @@ namespace Proof_Productions.Model
         }
 
         /// <summary>
-        /// Get motor information for all motors
+        /// Get all motors and their information
+        /// </summary>
+        /// <returns> A DataTable containing all motors and their information </returns>
+        public DataTable GetMotors()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + SCHEMA_NAME + ".motor ", con);
+            DataTable table = new DataTable();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
+            return table;
+        }
+
+        /// <summary>
+        /// Get motor information for a specific motor
+        /// </summary>
+        /// <param name="Name"> The name of the specific motor </param>
+        /// <returns> A DataTable that only consists of the motor information
+        /// There should only one row in the returned DataTable </returns>
+        public DataTable GetMotorInfo(String Name)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + SCHEMA_NAME + ".motor " +
+                                                "WHERE MotorID = @MotorID ", con);
+            cmd.Parameters.AddWithValue("@MotorID", GetMotorID(Name));
+            DataTable table = new DataTable();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
+            return table;
+        }
+
+         
+        /// <summary>
+        /// Get motor and plc information for all motors
         /// </summary>
         /// <returns> Return all motor information in a DataTable </returns>
-        public DataTable GetMotors()
+        public DataTable GetMotorPLC()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT m.Name, IPAddress, Description, p.Name as PLCName, LimitMaxVelocity, LimitMaxAcceleration, " +
                               "LimitMaxDeceleration, LimitMaxNegPosition, LimitMaxPosPosition FROM " + SCHEMA_NAME + ".motor m " +
