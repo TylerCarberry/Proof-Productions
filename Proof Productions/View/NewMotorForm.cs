@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proof_Productions.Model;
 
 namespace Proof_Productions.View
 {
@@ -112,17 +105,17 @@ namespace Proof_Productions.View
         {
             bool valid = true;
             StringBuilder Message = new StringBuilder("The following inputs are invalid: \n");
-            if (!validateName())
+            if (!ValidateName())
             {
                 Message.Append("Motor Name \n");
                 valid = false;
             }
-            if(! validateIP())
+            if(! ValidateIP())
             {
                 Message.Append("IP Address \n");
                 valid = false;
             }
-            if(! validateVelocity())
+            if(! ValidateVelocity())
             {
                 Message.Append("Max Velocity \n");
                 valid = false;
@@ -152,17 +145,17 @@ namespace Proof_Productions.View
             return valid;
         }
 
-        public bool validateName()
+        public bool ValidateName()
         {
             return NameTextBox.TextLength > 0;
         }
 
-        public bool validateIP()
+        public bool ValidateIP()
         {
             return IPAddressTextBox.TextLength > 0;
         }
 
-        public bool validateVelocity()
+        public bool ValidateVelocity()
         {
             if (MaxVelTextBox.TextLength == 0 || Int32.Parse(MaxVelTextBox.Text) > 1750)
                 return false;

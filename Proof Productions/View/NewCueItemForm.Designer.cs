@@ -44,7 +44,7 @@
             this.DecelTextBox = new System.Windows.Forms.TextBox();
             this.CueTextBox = new System.Windows.Forms.TextBox();
             this.MotorTextBox = new System.Windows.Forms.TextBox();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelCreationButton = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CCWRadioButton = new System.Windows.Forms.RadioButton();
@@ -196,13 +196,13 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(354, 228);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 25;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelCreationButton.Location = new System.Drawing.Point(354, 228);
+            this.CancelCreationButton.Name = "CancelButton";
+            this.CancelCreationButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelCreationButton.TabIndex = 25;
+            this.CancelCreationButton.Text = "Cancel";
+            this.CancelCreationButton.UseVisualStyleBackColor = true;
+            this.CancelCreationButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // panel1
             // 
@@ -290,7 +290,7 @@
             this.Controls.Add(this.PositionTextBox);
             this.Controls.Add(this.PositionLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelCreationButton);
             this.Controls.Add(this.MotorTextBox);
             this.Controls.Add(this.CueTextBox);
             this.Controls.Add(this.DecelTextBox);
@@ -335,7 +335,7 @@
         private System.Windows.Forms.TextBox CueTextBox;
         private System.Windows.Forms.TextBox MotorTextBox;
         private System.Windows.Forms.Button SubmitButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelCreationButton;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton CCWRadioButton;

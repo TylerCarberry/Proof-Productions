@@ -31,7 +31,7 @@
             this.CueNameLabel = new System.Windows.Forms.Label();
             this.cueNameTextBox = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelCreationButton = new System.Windows.Forms.Button();
             this.CueDescBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -64,13 +64,13 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(147, 210);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelCreationButton.Location = new System.Drawing.Point(147, 210);
+            this.CancelCreationButton.Name = "CancelButton";
+            this.CancelCreationButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelCreationButton.TabIndex = 3;
+            this.CancelCreationButton.Text = "Cancel";
+            this.CancelCreationButton.UseVisualStyleBackColor = true;
+            this.CancelCreationButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // CueDescBox
             // 
@@ -96,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(310, 261);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CueDescBox);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelCreationButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.cueNameTextBox);
             this.Controls.Add(this.CueNameLabel);
@@ -112,7 +112,7 @@
         private System.Windows.Forms.Label CueNameLabel;
         private System.Windows.Forms.TextBox cueNameTextBox;
         private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelCreationButton;
         private System.Windows.Forms.RichTextBox CueDescBox;
         private System.Windows.Forms.Label label1;
     }
