@@ -132,5 +132,20 @@ namespace Proof_Productions.Controller
                 MessageBox.Show("Error updating all cue items : \n" + e.ToString());
             }
         }
+
+        public void deleteCueItem(DataRow Row)
+        {
+            try
+            {
+                data.Connect();
+                data.DeleteCueItem(Row);
+                data.Disconnect();
+                MessageBox.Show("Cue item deleted");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
     }
 }
