@@ -80,12 +80,12 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.insertMotor(row);
                 data.disconnect();
+                MessageBox.Show(motorName + " has been added");
             }
             catch(Exception e)
             {
                 MessageBox.Show("Error adding " + motorName + " due to : \n " + e.ToString());
             }
-            MessageBox.Show(motorName + " has been added");
         }
 
         public void deleteMotor(DataRow row, DataTable table)
@@ -96,12 +96,12 @@ namespace Proof_Productions.Controller
                 data.connect();
                 data.deleteMotor(row, table);
                 data.disconnect();
+                MessageBox.Show(motorName + " has been deleted");
             }
             catch(Exception e)
             {
                 MessageBox.Show("Error deleting " + motorName + " due to : \n " + e.ToString());
             }
-            MessageBox.Show(motorName + " has been deleted");
         }
     }
 }
