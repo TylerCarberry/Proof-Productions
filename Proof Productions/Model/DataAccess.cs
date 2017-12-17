@@ -1,6 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Proof_Productions.Model
 {
@@ -12,8 +13,8 @@ namespace Proof_Productions.Model
         private readonly Boolean testing = true; //testing purposes only for print statements
 
         //Database access Strings
-        protected static readonly String CONNECTION_STRING = "server = elvis.rowan.edu; user id = caow2; password = doggbert97";
-        protected static readonly String SCHEMA_NAME = "caow2";
+        protected static readonly String CONNECTION_STRING = "";
+        protected static readonly String SCHEMA_NAME = "";
 
         MySqlConnection con;
         MySqlDataAdapter adapter;
@@ -31,9 +32,16 @@ namespace Proof_Productions.Model
         /// </summary>
         public void Connect()
         {
-            con = new MySqlConnection(CONNECTION_STRING);
-            con.Open();
-            if (testing) Console.WriteLine("Connected to database");
+            try
+            {
+                con = new MySqlConnection(CONNECTION_STRING);
+                con.Open();
+                if (testing) Console.WriteLine("Connected to database");
+            }
+            catch(MySqlException e)
+            {
+                MessageBox.Show("MySqlException thrown while connecting to database : Check CONNECTION_STRING");
+            }
         }
 
         /// <summary>
